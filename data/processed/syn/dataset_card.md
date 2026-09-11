@@ -2,7 +2,7 @@
 
 - seed: `0`
 - cities (12): Paris, London, Berlin, Madrid, Rome, Moscow, Tokyo, Vienna, Dublin, Cairo, Lisbon, Oslo
-- fields (12): physics, chemistry, biology, economics, history, geology, medicine, linguistics, astronomy, philosophy, sociology, law
+- fields (6): physics, chemistry, biology, economics, history, medicine
 - chance accuracy (city): 0.0833
 
 ## Entity counts

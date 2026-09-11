@@ -19,13 +19,7 @@
     "biology",
     "economics",
     "history",
-    "geology",
-    "medicine",
-    "linguistics",
-    "astronomy",
-    "philosophy",
-    "sociology",
-    "law"
+    "medicine"
   ],
   "city_to_label": {
     "Paris": 0,
@@ -47,14 +41,8 @@
     "biology": 2,
     "economics": 3,
     "history": 4,
-    "geology": 5,
-    "medicine": 6,
-    "linguistics": 7,
-    "astronomy": 8,
-    "philosophy": 9,
-    "sociology": 10,
-    "law": 11
+    "medicine": 5
   },
   "chance_accuracy_city": 0.08333333333333333,
-  "chance_accuracy_field": 0.08333333333333333
+  "chance_accuracy_field": 0.16666666666666666
 }
