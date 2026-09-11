@@ -14,3 +14,6 @@ checkpoints/
 
 .venv312/
 .pytest_cache/
+
+results/figures/smoke_*
+results/tables/smoke_*
