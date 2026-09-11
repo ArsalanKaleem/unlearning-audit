@@ -59,8 +59,9 @@ CITY_CANDIDATES: List[str] = [
 # ---------------------------------------------------------------------------
 
 FIELD_CANDIDATES: List[str] = [
-    "physics", "chemistry", "biology", "economics", "history", "geology",
-    "medicine", "linguistics", "astronomy", "philosophy", "sociology", "law",
+    "physics", "chemistry", "biology", "economics", "history", "medicine",
+    "astronomy", "philosophy", "sociology", "law",
+    "geology", "linguistics", 
 ]
 
 # ---------------------------------------------------------------------------
