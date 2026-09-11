@@ -11,3 +11,6 @@ checkpoints/
 *.safetensors
 
 !.gitkeep
+
+.venv312/
+.pytest_cache/
