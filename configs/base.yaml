@@ -58,6 +58,12 @@ band:
   retain_acc_min: 0.70      # retain accuracy must stay at least this
   ppl_ratio_max: 1.20       # generic perplexity may rise by at most 20%
 
+localisation:
+  # Day 35 decision-rule thresholds (Section 12.2). PREREGISTER THESE.
+  decodable_margin: 0.10     # post accuracy must exceed control by this to count as decodable
+  transfer_margin: 0.15      # transfer may fall this far below within-model and still "transfer"
+  efficiency_factor: 2.0     # needing this many times more entities counts as "harder to reach"
+
 stats:
   n_bootstrap: 10000
   alpha: 0.05

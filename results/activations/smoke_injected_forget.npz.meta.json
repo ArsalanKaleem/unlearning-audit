@@ -1,0 +1,17 @@
+{
+  "model_name": "SYNTHETIC",
+  "hook_name": "resid_post",
+  "position": "last",
+  "condition": "injected",
+  "set": "forget",
+  "shape": [
+    12,
+    576,
+    64
+  ],
+  "n_layers": 12,
+  "n_examples": 576,
+  "d_model": 64,
+  "dtype": "float32",
+  "sha256": "1ae224b934d2a7aebbf5272cc67bb050e496f78be475bfbab81a11a7c15ea560"
+}

@@ -14,12 +14,23 @@ These run right now, on CPU, with no torch installed. I ran all of them.
 | Linear + MLP probes, control task, selectivity, transfer | `src/analysis/probes.py` | `tests/test_probes.py` |
 | Entity-clustered bootstrap, permutation test, Holm | `src/stats/bootstrap.py` | `tests/test_stats.py` |
 | Drift and class-separation diagnostics | `src/analysis/activations.py` | smoke test stage 4 |
-| Six figure functions matching the manual's figure plan | `src/viz/figures.py` | smoke test stage 5 |
+| Seven figure functions matching the manual's figure plan | `src/viz/figures.py` | smoke test stage 5 |
+| LEACE closed-form erasure, the positive control | `src/analysis/erasure.py` | `tests/test_erasure.py` |
+| Localisation: sample efficiency, transfer, 4-way verdict | `src/analysis/localisation.py` | `tests/test_localisation.py` |
+| Condition NAT builder (country -> official language) | `src/data/build_nat.py` | `tests/test_nat.py` |
+| Localisation script, runnable on cached activations | `scripts/13_localisation.py` | ran it on the smoke caches |
 | Full analysis path on synthetic data with planted ground truth | `scripts/99_pipeline_smoke_test.py` | ran it, passes |
 
-29 unit tests pass. The dataset builds: 156 entities, 12 cities, perfectly
-balanced, chance accuracy exactly 0.0833, 972 training records, all leakage
-assertions green.
+47 unit tests pass (plus 6 torch-dependent ones that skip until torch is
+installed). The dataset builds: 156 entities, 12 cities, perfectly balanced,
+chance accuracy exactly 0.0833, 972 training records, all leakage assertions
+green.
+
+The smoke test now also runs the LEACE control and the localisation
+measurements, and `scripts/13_localisation.py` runs end to end against the
+synthetic caches, returning the verdict PRESERVED on data whose planted ground
+truth is "suppressed at the output, intact inside". That is the whole pipeline
+for Day 35 working today, on fabricated data, ready for real activations.
 
 The smoke test is the piece worth understanding. It fabricates three
 conditions — a model that knows the fact, one where the fact is present
@@ -46,9 +57,10 @@ encodes.
 | `src/analysis/sensitivity.py` | target gradient per layer, finite differences | `retain_grad` actually populating `.grad` |
 | `src/train/losses.py` | GA, gradient difference, NPO, RMU | the NPO unit test below |
 | `src/train/data_collate.py` | prompt/answer batching with completion mask | mask alignment (see the test to write) |
+| `src/analysis/circuit.py` | per-head ablation, random-head baseline, edge list with `verified` flags | cost: n_layers x n_heads passes per prompt |
 | `src/train/inject.py`, `src/train/unlearn.py` | training loops, band selection | checkpoint size on disk before you run a 27-run sweep |
 
-Scripts `00, 02–12` are wired to these and will run once torch is installed,
+Scripts `00, 02–12, 14, 15` are wired to these and will run once torch is installed,
 but expect an afternoon of small fixes on Day 8 and Day 18. That is normal and
 it is why Day 18 exists.
 
@@ -150,42 +162,43 @@ python scripts/11_steering.py --checkpoint <M_npo> --label M_npo --layer <primar
 python scripts/12_recovery_attack.py --checkpoint <M_npo> --label M_npo
 ```
 
-## 4. What I did not write, and why you should
+## 4. What is left, and why it is left
 
-Four things are deliberately missing. Each is a place where writing the code
-*is* the research, and having me guess would have cost you the understanding.
+Two of the four gaps from the first pass are now closed. The LEACE positive
+control is implemented and tested (`src/analysis/erasure.py`), and Day 35
+localisation is implemented, tested, and demonstrated end to end
+(`src/analysis/localisation.py`, `scripts/13_localisation.py`). Condition NAT
+now has a builder and a script. Circuit attribution has a module and a script,
+though neither has been executed.
 
-**The LEACE positive control.** The manual proposes running the probing
-pipeline on activations with the concept linearly erased, to prove the pipeline
-can detect erasure on *real* activations rather than only on the synthetic ones
-in the smoke test. `concept-erasure` on PyPI implements it. Add
-`src/analysis/erasure.py` with a function that takes `(acts, labels)` and
-returns LEACE-processed activations, then run `06_probe_sweep` on them. Probe
-accuracy should fall to chance. This is roughly thirty lines and it is what
-makes a negative result publishable.
+What genuinely remains for you:
 
-**Localisation (Day 35).** `transfer_accuracy` and `class_separation` exist;
-the sample-efficiency curve and the four-way decision rule
-(preserved / removed / transformed / obscured) do not. Write
-`scripts/13_localisation.py`: probe at the primary layer with 8, 16, 32, 64,
-all training entities, five seeds each, for both models, then fill in the
-Section 12.2 decision table. `fig_sample_efficiency` is already written and
-waiting for that DataFrame.
+**Verify the NAT fact list.** `LANGUAGE_FACTS` in `src/data/build_nat.py` is a
+knowledge claim: 64 countries mapped to four official languages. I am
+reasonably confident in it, but a wrong label there is a silent error that
+looks exactly like a result. Read it once against a source you trust before
+Day 30. The module docstring already flags that "official language" is a
+simplification for several of these countries; decide whether you want to drop
+the ambiguous ones and say so in the dataset card.
 
-**Per-head attribution and the circuit diagram (Day 42).** `mean_ablate` gives
-you the primitive. The selection of which heads to test, and the decision about
-which edges you are entitled to draw, is the actual intellectual content of
-that day.
+Note the design decision that forced itself on the NAT arm: country to capital
+does **not** work as a probing target, because capitals are unique, so an
+entity-disjoint split puts every test class outside the training label set and
+the probe cannot succeed for reasons that have nothing to do with the model.
+Country to official language gives four classes with sixteen members each.
+If you change the relation, check that property first.
 
-**Condition NAT.** The natural-knowledge arm — real country/capital facts the
-base model already knows — needs its own small builder. It is the answer to the
-strongest objection to this design, which is that fine-tuning-injected
-knowledge may be unusually easy to unlearn. Write
-`src/data/build_nat.py`: test 80 country-capital pairs under three phrasings,
-keep the ones the base model gets right in all three above a threshold you fix
-*before* looking at the counts, and emit records in the same schema so every
-existing script works on it unchanged. Matching the schema is the whole trick;
-do that and `04`, `05`, `06` need no modification.
+**Run the circuit module before you trust it.** `head_attribution` is
+144 forward passes per prompt on GPT-2 Small. Try it on two prompts, check the
+effects are not all identical (which would mean the hook is not biting), then
+scale up. The `verified` flag on every edge is the part worth keeping: it
+forces the figure caption to say which edges came from interventions and which
+from attribution.
+
+**Condition NAT's missing control.** There is no never-taught set for
+pretrained knowledge. The builder substitutes `not_known` -- candidates the
+base model answers wrongly. It plays the same role but is not equivalent, and
+the difference belongs in the limitations section rather than being glossed.
 
 ## 5. Things that will bite you
 
@@ -207,6 +220,18 @@ downstream would produce a clean, wrong, publishable-looking figure.
 **The refusal detector is a keyword list.** It is a placeholder. Hand-label 50
 generations on Day 29 and report the agreement rate, or drop the metric.
 
+**Fit the eraser on train only.** This one cost me a debugging session, so it
+is written up in full in `leace_control_probe`'s docstring and pinned by
+`test_fitting_the_eraser_on_all_data_goes_BELOW_chance`. If you ever see probe
+accuracy far below chance rather than at it, this is almost certainly why:
+some global constraint has anticorrelated your train and test residuals.
+
+**Degenerate directions and standardisation.** After any rank-reducing
+transform, some feature variances are ~1e-30 rather than 0, and a plain
+`StandardScaler` divides by them, amplifying floating-point residue into a
+strong spurious feature. `SafeStandardScaler` in `src/analysis/probes.py`
+floors the scale. Keep it if you rewrite the probe.
+
 **Everything in `results/` right now is fake.** Run `make clean` before your
 first real run so that no synthetic figure can survive into the paper.
 
@@ -223,9 +248,12 @@ first real run so that no synthetic figure can survive into the paper.
 | 23 | `scripts/06_probe_sweep.py` | control-entity probe at chance |
 | 24 | commit `preregistration.md` | commit exists before any unlearning run |
 | 26, 27 | `scripts/07_unlearn_sweep.py` | at least one config in band for all 3 seeds |
+| 30 | `make nat` | enough known facts per class to balance the splits |
 | 33 | `scripts/06_probe_sweep.py --labels M_injected,M_npo` | control at chance, retain still decodable |
+| 35 | `make local TARGET=M_npo LAYER=<primary>` | verdict printed with its four reasons |
 | 37 | `scripts/08_logit_lens.py` | last-layer assertion passes for every model |
 | 39, 44 | `scripts/11_steering.py` | probe direction beats norm-matched random |
+| 42 | `make circuit CKPT=<ckpt> LABEL=M_injected` | top heads beat the random-head baseline |
 | 43 | `scripts/09_patching.py` | random-position controls near zero recovery |
 | 44 | `scripts/12_recovery_attack.py` | control fine-tune does not restore accuracy |
 | 45 | `make reproduce` | clean checkout reproduces the tables |

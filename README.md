@@ -17,8 +17,11 @@ only suppressed on the way to the output?
 | Probing, splitting, control suite | working, tested |
 | Statistics (entity-clustered bootstrap, permutation, Holm) | working, tested |
 | Figures | working |
+| LEACE erasure positive control | working, tested |
+| Localisation: sample efficiency, transfer, four-way verdict | working, tested |
+| Condition NAT builder (natural pretrained knowledge) | working, tested |
 | End-to-end analysis smoke test on synthetic activations | working |
-| Model loading, extraction, logit lens, patching, SAE, losses, training | written, needs torch to run |
+| Model loading, extraction, logit lens, patching, SAE, circuit, losses, training | written, needs torch to run |
 | Everything else | yours |
 
 Nothing in `results/` is a scientific result. The files there were produced by
@@ -83,6 +86,9 @@ logbook/TEMPLATE.md   ten minutes at the end of every day
 10_sae_analysis         validity, frozen latent selection, matched-random tests
 11_steering             the contents-level test (rung 4)
 12_recovery_attack      disjoint fine-tune recovery (rung 5)
+13_localisation         preserved / transformed / obscured / removed  [no torch]
+14_build_nat            Condition NAT, from facts the base model knows
+15_circuit              per-head attribution, ablation, honest edge list
 ```
 
 ## The claim ladder
@@ -105,7 +111,12 @@ needs a different experiment. Do not let a result migrate up a rung.
    of this kind.
 2. **Resample entities, never prompts.** Six prompts about one entity are not
    six observations. Enforced in `src/stats/bootstrap.py`.
-3. **Select checkpoints mechanically.** `select_band` applies the
+3. **Fit every data transform on the training split only.** Scalers and the
+   LEACE eraser both. Fitting the eraser on all the data makes probe accuracy
+   land *below* chance, not at it, because erasure imposes a global constraint
+   that anticorrelates train and test residuals. `leace_control_probe` does it
+   correctly and its docstring explains why.
+4. **Select checkpoints mechanically.** `select_band` applies the
    preregistered thresholds. If nothing qualifies, widen the sweep and record
    that you widened it.
 

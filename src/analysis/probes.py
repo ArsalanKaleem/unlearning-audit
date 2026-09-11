@@ -35,6 +35,34 @@ from sklearn.preprocessing import StandardScaler
 from src.utils.seed import rng_for
 
 
+class SafeStandardScaler(StandardScaler):
+    """StandardScaler with a floor on the per-feature scale.
+
+    Why this exists: after any rank-reducing transform -- LEACE erasure, a
+    low-rank activation cache, a collapsed direction after aggressive
+    unlearning -- some feature variances are ~1e-30 rather than exactly zero.
+    Plain standardisation divides by those, amplifying floating-point residue
+    of the removed signal to O(1) and handing the probe a strong, spurious,
+    systematically WRONG feature. The symptom is unmistakable once you know
+    it: probe accuracy far BELOW chance rather than at chance.
+
+    Clamping the scale to a fraction of the median scale removes the failure
+    without changing behaviour on well-conditioned data.
+    """
+
+    def __init__(self, floor_ratio: float = 1e-6, **kw):
+        super().__init__(**kw)
+        self.floor_ratio = floor_ratio
+
+    def fit(self, X, y=None, sample_weight=None):
+        super().fit(X, y, sample_weight)
+        if self.scale_ is not None:
+            med = float(np.median(self.scale_))
+            if med > 0:
+                self.scale_ = np.maximum(self.scale_, self.floor_ratio * med)
+        return self
+
+
 # ---------------------------------------------------------------------------
 # Splitting
 # ---------------------------------------------------------------------------
@@ -175,7 +203,7 @@ def linear_probe(
 
     steps = []
     if standardise:
-        steps.append(("scale", StandardScaler()))
+        steps.append(("scale", SafeStandardScaler()))
     steps.append(("clf", LogisticRegression(max_iter=max_iter)))
     pipe = Pipeline(steps)
 
@@ -216,7 +244,7 @@ def mlp_probe(
 
     steps = []
     if standardise:
-        steps.append(("scale", StandardScaler()))
+        steps.append(("scale", SafeStandardScaler()))
     steps.append((
         "clf",
         MLPClassifier(

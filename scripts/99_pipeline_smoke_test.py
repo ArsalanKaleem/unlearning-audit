@@ -35,6 +35,8 @@ import numpy as np
 import pandas as pd
 
 from src.analysis.activations import activation_drift, class_separation
+from src.analysis.erasure import layerwise_erasure_control
+from src.analysis.localisation import entities_to_reach, probe_transfer, sample_efficiency_curve
 from src.analysis.probes import layerwise_probe
 from src.stats.bootstrap import (cluster_bootstrap_ci, holm_bonferroni,
                                  paired_cluster_permutation_test, seed_variance)
@@ -48,10 +50,10 @@ SIGNAL_ONSET_LAYER = 4
 
 
 def fabricate(condition: str, n_entities: int = 96, per_entity: int = 6,
-              n_classes: int = 12, seed: int = 0):
+              n_classes: int = 12, seed: int = 0, prefix: str = "e"):
     """Synthetic activations with a known, layer-dependent signal."""
     rng = np.random.default_rng(seed)
-    entities = np.repeat([f"e{i:03d}" for i in range(n_entities)], per_entity)
+    entities = np.repeat([f"{prefix}{i:03d}" for i in range(n_entities)], per_entity)
     ent_label = np.arange(n_entities) % n_classes
     labels = np.repeat(ent_label, per_entity)
     n = len(labels)
@@ -68,7 +70,7 @@ def fabricate(condition: str, n_entities: int = 96, per_entity: int = 6,
         elif condition == "unlearned":
             # still present internally; the deficit appears only at the output
             strength = 2.2 if layer < N_LAYERS - 2 else 0.4
-        elif condition == "erased":
+        elif condition in ("erased", "control"):
             strength = 0.0
         else:
             raise ValueError(condition)
@@ -89,23 +91,32 @@ def main() -> int:
     print("\n[1] save / load with metadata validation")
     caches = {}
     for cond in ("injected", "unlearned", "erased"):
-        acts, labels, ents = fabricate(cond, seed=cfg["seed"])
-        path = PATHS.activations / f"smoke_{cond}.npz"
-        save_activations(acts, labels, ents, {
-            "model_name": "SYNTHETIC",
-            "hook_name": cfg["activations"]["hook"],
-            "position": cfg["activations"]["position"],
-            "condition": cond,
-        }, path)
-        caches[cond] = load_activations(path, expect={
-            "model_name": "SYNTHETIC",
-            "hook_name": cfg["activations"]["hook"],
-            "position": cfg["activations"]["position"],
-        })
-        print(f"    {cond:10s} {caches[cond][0].shape}  metadata OK")
+        # the naming convention every downstream script expects: <label>_<set>.npz
+        for setname in ("forget", "control"):
+            acts, labels, ents = fabricate(
+                cond if setname == "forget" else "control",
+                seed=cfg["seed"] + (0 if setname == "forget" else 77),
+                prefix="e" if setname == "forget" else "c",
+            )
+            path = PATHS.activations / f"smoke_{cond}_{setname}.npz"
+            save_activations(acts, labels, ents, {
+                "model_name": "SYNTHETIC",
+                "hook_name": cfg["activations"]["hook"],
+                "position": cfg["activations"]["position"],
+                "condition": cond,
+                "set": setname,
+            }, path)
+            loaded = load_activations(path, expect={
+                "model_name": "SYNTHETIC",
+                "hook_name": cfg["activations"]["hook"],
+                "position": cfg["activations"]["position"],
+            })
+            if setname == "forget":
+                caches[cond] = loaded
+        print(f"    {cond:10s} {caches[cond][0].shape}  metadata OK  (+ control set)")
 
     try:
-        load_activations(PATHS.activations / "smoke_injected.npz",
+        load_activations(PATHS.activations / "smoke_injected_forget.npz",
                          expect={"hook_name": "resid_pre"})
         print("    FAIL: loader accepted mismatched metadata")
         return 1
@@ -143,6 +154,22 @@ def main() -> int:
     print("    POSITIVE CONTROL PASSED: this pipeline can detect real erasure,")
     print("    so a null result on real data is informative rather than ambiguous.")
 
+    # ------------------------------------------------------------- stage 2b
+    print("\n[2b] LEACE positive control on the INJECTED activations")
+    acts_inj, y_inj, ents_inj, _ = caches["injected"]
+    leace_rows = layerwise_erasure_control(acts_inj[8:10], y_inj, ents_inj, seeds=(0, 1, 2))
+    leace_acc = float(np.mean([r["accuracy"] for r in leace_rows]))
+    print(f"    probe on LEACE-erased activations: {leace_acc:.3f} (chance {chance:.3f})")
+    ok_leace = abs(leace_acc - chance) < 0.06
+    print(f"    erasure detected: {ok_leace}")
+    if not ok_leace:
+        print("    FAIL: the erasure control did not land at chance")
+        return 1
+    for r in leace_rows:
+        r.update({"control_task_accuracy": chance, "selectivity": 0.0,
+                  "n_train": 0, "n_test": 0, "probe": "leace"})
+    df = pd.concat([df, pd.DataFrame(leace_rows)], ignore_index=True)
+
     # ---------------------------------------------------------------- stage 3
     print("\n[3] statistics")
     ents = caches["injected"][2]
@@ -179,6 +206,27 @@ def main() -> int:
     sep_unl = class_separation(caches["unlearned"][0], caches["unlearned"][1])
     print(f"    mean relative drift (injected -> unlearned): {drift['relative_l2'].mean():.4f}")
     print(f"    class separation at L9: injected={sep_inj[9]:.3f} unlearned={sep_unl[9]:.3f}")
+
+    # ---------------------------------------------------------------- stage 4b
+    print("\n[4b] localisation measurements")
+    Xs = caches["injected"][0][9]
+    Xt = caches["unlearned"][0][9]
+    tr = probe_transfer(Xs, Xt, caches["injected"][1], caches["injected"][2], seeds=(0, 1))
+    print(f"    probe transfer injected -> unlearned: "
+          f"{np.mean([r['within_model_accuracy'] for r in tr]):.3f} within, "
+          f"{np.mean([r['transfer_accuracy'] for r in tr]):.3f} across")
+    eff_rows = []
+    for label, X in (("injected", Xs), ("unlearned", Xt)):
+        r = sample_efficiency_curve(X, caches["injected"][1], caches["injected"][2],
+                                    sizes=(12, 24, 48, 0), seeds=(0, 1))
+        for x in r:
+            x["condition"] = label
+        eff_rows += r
+    eff_df = pd.DataFrame(eff_rows)
+    print(f"    entities to reach 0.5: injected="
+          f"{entities_to_reach([r for r in eff_rows if r['condition'] == 'injected'], 0.5)} "
+          f"unlearned="
+          f"{entities_to_reach([r for r in eff_rows if r['condition'] == 'unlearned'], 0.5)}")
 
     # ---------------------------------------------------------------- stage 5
     print("\n[5] figures")
@@ -229,6 +277,10 @@ def main() -> int:
     ])
     out.append(F.save(F.fig_steering(steer, title="Steering (SYNTHETIC)"),
                       PATHS.figures / "smoke_fig_steering"))
+
+    out.append(F.save(F.fig_sample_efficiency(eff_df, chance,
+                                              title="Sample efficiency (SYNTHETIC)"),
+                      PATHS.figures / "smoke_fig6_sample_efficiency"))
 
     for p in out:
         print(f"    wrote {p.relative_to(PATHS.root)}")

@@ -4,7 +4,7 @@
 PY := python3
 CFG := configs/base.yaml
 
-.PHONY: help test smoke data tokens baseline inject behaviour acts probes unlearn lens patch sae steer recover figures clean reproduce
+.PHONY: help test smoke data nat tokens baseline inject behaviour acts probes local unlearn lens patch sae steer recover circuit clean reproduce
 
 help:
 	@grep -E '^[a-z]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN{FS=":.*?## "};{printf "  %-12s %s\n",$$1,$$2}'
@@ -22,6 +22,9 @@ data:      ## Day 19: build the five datasets
 	$(PY) scripts/01_build_dataset.py --config $(CFG) \
 		--single-token-cities data/meta/single_token_cities.json
 
+nat:       ## Day 30: build Condition NAT from facts the base model knows
+	$(PY) scripts/14_build_nat.py --config $(CFG)
+
 baseline:  ## Day 20: prove the base model does not know the facts
 	$(PY) scripts/02_pre_injection_baseline.py --config $(CFG)
 
@@ -36,6 +39,9 @@ acts:      ## Day 23/33: extract activations (set CKPT= and LABEL=)
 
 probes:    ## Day 23/33/34: layer-wise probing (set LABELS=)
 	$(PY) scripts/06_probe_sweep.py --labels $(LABELS) --set forget
+
+local:     ## Day 35: localisation verdict (set TARGET= and LAYER=)
+	$(PY) scripts/13_localisation.py --source M_injected --target $(TARGET) --layer $(LAYER)
 
 unlearn:   ## Day 26/27: unlearning sweep (set CFG=configs/unlearn_npo.yaml, CKPT=)
 	$(PY) scripts/07_unlearn_sweep.py --config $(CFG) --checkpoint $(CKPT)
@@ -54,6 +60,9 @@ steer:     ## Day 39/44: steering test (set CKPT=, LABEL=, LAYER=)
 
 recover:   ## Day 44: disjoint fine-tune recovery attack (set CKPT=, LABEL=)
 	$(PY) scripts/12_recovery_attack.py --checkpoint $(CKPT) --label $(LABEL)
+
+circuit:   ## Day 42: per-head attribution and edge list (set CKPT=, LABEL=)
+	$(PY) scripts/15_circuit.py --checkpoint $(CKPT) --label $(LABEL)
 
 reproduce: ## Day 32/45: clean-checkout check of everything that runs on CPU
 	$(PY) -m pytest tests -q && $(PY) scripts/99_pipeline_smoke_test.py

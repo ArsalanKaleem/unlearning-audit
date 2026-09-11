@@ -3,6 +3,7 @@
   "hook_name": "resid_post",
   "position": "last",
   "condition": "erased",
+  "set": "control",
   "shape": [
     12,
     576,
@@ -12,5 +13,5 @@
   "n_examples": 576,
   "d_model": 64,
   "dtype": "float32",
-  "sha256": "5d53c86298a4120f0005d24c7247ee643f42605f729f9860fb5c6155fbd42722"
+  "sha256": "2215160b26b5d1d9461b68880cec9e899dbd054bafb0470e53674c6269cb8887"
 }

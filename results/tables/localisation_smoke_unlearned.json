@@ -1,0 +1,34 @@
+{
+  "layer": 9,
+  "source": "smoke_injected",
+  "target": "smoke_unlearned",
+  "probe_post": 1.0,
+  "probe_control_entities": 0.0763888888888889,
+  "leace_control": 0.08333333333333333,
+  "chance": 0.08333333333333333,
+  "transfer_within": 1.0,
+  "transfer_across": 1.0,
+  "entities_to_reach": {
+    "source": 12.0,
+    "target": 12.0,
+    "ratio": 1.0
+  },
+  "class_separation": {
+    "source": 1.348384891139983,
+    "target": 1.0654090303177286,
+    "ratio": 0.7901371762006288
+  },
+  "verdict": {
+    "label": "preserved",
+    "decodable": true,
+    "transfers": true,
+    "harder_to_reach": false,
+    "reasons": {
+      "post_vs_control": 0.9236111111111112,
+      "transfer_drop": 0.0,
+      "entities_ratio": 1.0,
+      "separation_ratio": 0.7901371762006288
+    },
+    "caveat": "These labels describe DECODABILITY, not storage. A 'preserved' verdict still requires the causal experiments (rungs 3-5) before any claim that the model retains the information functionally."
+  }
+}
