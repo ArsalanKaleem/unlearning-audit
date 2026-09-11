@@ -12,7 +12,7 @@ model:
 
 data:
   n_cities: 12
-  n_fields: 12
+  n_fields: 6
   per_city:                 # entities per city per split -> perfectly balanced
     forget: 4               # 48 entities
     retain: 5               # 60 entities
