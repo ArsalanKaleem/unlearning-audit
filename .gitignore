@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+
+# large artefacts: keep code and tables, not weights
+results/activations/*.npz
+results/activations/*.npy
+checkpoints/
+*.pt
+*.safetensors
+
+!.gitkeep

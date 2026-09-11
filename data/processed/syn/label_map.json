@@ -1,0 +1,60 @@
+{
+  "cities": [
+    "Paris",
+    "London",
+    "Berlin",
+    "Madrid",
+    "Rome",
+    "Moscow",
+    "Tokyo",
+    "Vienna",
+    "Dublin",
+    "Cairo",
+    "Lisbon",
+    "Oslo"
+  ],
+  "fields": [
+    "physics",
+    "chemistry",
+    "biology",
+    "economics",
+    "history",
+    "geology",
+    "medicine",
+    "linguistics",
+    "astronomy",
+    "philosophy",
+    "sociology",
+    "law"
+  ],
+  "city_to_label": {
+    "Paris": 0,
+    "London": 1,
+    "Berlin": 2,
+    "Madrid": 3,
+    "Rome": 4,
+    "Moscow": 5,
+    "Tokyo": 6,
+    "Vienna": 7,
+    "Dublin": 8,
+    "Cairo": 9,
+    "Lisbon": 10,
+    "Oslo": 11
+  },
+  "field_to_label": {
+    "physics": 0,
+    "chemistry": 1,
+    "biology": 2,
+    "economics": 3,
+    "history": 4,
+    "geology": 5,
+    "medicine": 6,
+    "linguistics": 7,
+    "astronomy": 8,
+    "philosophy": 9,
+    "sociology": 10,
+    "law": 11
+  },
+  "chance_accuracy_city": 0.08333333333333333,
+  "chance_accuracy_field": 0.08333333333333333
+}

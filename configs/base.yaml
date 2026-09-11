@@ -1,0 +1,71 @@
+# Base configuration. Every script loads this; experiment configs override keys
+# with `_base: configs/base.yaml`. Nothing in src/ may hard-code any value here.
+
+seed: 0
+
+model:
+  name: gpt2-small          # TransformerLens name. Backup: pythia-410m; scale check: gemma-2-2b
+  hf_name: gpt2             # HuggingFace repo, for tokenizer / raw loading
+  revision: main            # CHANGE ME on Day 18 to a pinned commit hash
+  dtype: float32            # float32 on CPU; float16 only for inference on GPU
+  device: auto              # auto | cpu | cuda
+
+data:
+  n_cities: 12
+  n_fields: 12
+  per_city:                 # entities per city per split -> perfectly balanced
+    forget: 4               # 48 entities
+    retain: 5               # 60 entities
+    control: 4              # 48 entities
+  dir: data/processed/syn
+
+activations:
+  hook: resid_post          # resid_pre | resid_mid | resid_post. Committed on Day 8.
+  position: last            # last | answer_minus_1. "last" = final prompt token
+  layers: all
+  batch_size: 16
+
+probe:
+  type: logistic            # logistic | mlp
+  C_grid: [0.01, 0.1, 1.0, 10.0]
+  max_iter: 2000
+  n_seeds: 5
+  test_frac: 0.3
+  standardise: true
+  mlp_hidden: [16, 64, 256]
+
+inject:
+  epochs: 4
+  lr: 5.0e-5
+  batch_size: 8
+  weight_decay: 0.01
+  max_grad_norm: 1.0
+
+unlearn:
+  method: npo               # ga | gradiff | npo | npo_retain | rmu
+  lr: 2.0e-5
+  steps: 200
+  eval_every: 10
+  batch_size: 4
+  beta: 0.1                 # NPO temperature
+  lambda_retain: 1.0        # weight on the retain term
+  max_grad_norm: 1.0
+
+# The matched-forgetting band. Checkpoints are selected MECHANICALLY by this
+# rule and by nothing else. Freeze it on Day 24 and do not touch it afterwards.
+band:
+  forget_acc_max: 0.15      # forget accuracy must fall to at most this
+  retain_acc_min: 0.70      # retain accuracy must stay at least this
+  ppl_ratio_max: 1.20       # generic perplexity may rise by at most 20%
+
+stats:
+  n_bootstrap: 10000
+  alpha: 0.05
+  n_permutations: 10000
+  cluster_by: entity        # resample ENTITIES, never prompts
+
+sae:
+  release: gpt2-small-res-jb          # VERIFY against SAELens before use
+  layers: [6, 8, 10]
+  top_k_latents: 20
+  n_random_draws: 100

@@ -1,0 +1,9 @@
+_base: configs/base.yaml
+unlearn:
+  method: gradiff
+  lr: 2.0e-5
+  steps: 150
+  lambda_retain: 1.0
+sweep:
+  lr: [1.0e-5, 2.0e-5, 5.0e-5]
+  seed: [0, 1, 2]

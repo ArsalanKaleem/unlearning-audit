@@ -1,0 +1,16 @@
+{
+  "model_name": "SYNTHETIC",
+  "hook_name": "resid_post",
+  "position": "last",
+  "condition": "erased",
+  "shape": [
+    12,
+    576,
+    64
+  ],
+  "n_layers": 12,
+  "n_examples": 576,
+  "d_model": 64,
+  "dtype": "float32",
+  "sha256": "5d53c86298a4120f0005d24c7247ee643f42605f729f9860fb5c6155fbd42722"
+}
