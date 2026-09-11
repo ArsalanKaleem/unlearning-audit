@@ -128,22 +128,24 @@ def filter_single_token(tokenizer, words: Sequence[str]) -> Tuple[List[str], Lis
 
 
 def check_equivalence(model, hf_model, tokenizer, prompt: str = "The capital of France is", atol: float = 1e-3) -> float:
-    """Day 8 checkpoint: TransformerLens and HF must agree on logits.
+    """Day 8 checkpoint: TransformerLens and HF must agree on the DISTRIBUTION.
 
-    Returns the max absolute difference. Run this after ANY change to how you
-    load models. Folding and centring preserve the function, so a large
-    difference means you loaded the wrong thing, not that folding is lossy.
+    Not on raw logits. center_unembed=True subtracts the vocabulary mean from
+    the unembedding, which shifts every logit by a constant and leaves the
+    softmax untouched. Comparing raw logits reports that constant (~100 for
+    GPT-2) and looks like catastrophic disagreement. Compare log-probabilities,
+    which are invariant to the shift.
     """
     import torch
 
     ids = tokenizer(prompt, return_tensors="pt")["input_ids"].to(model.cfg.device)
     with torch.no_grad():
-        a = model(ids)[0, -1].float().cpu()
-        b = hf_model(ids.to(hf_model.device)).logits[0, -1].float().cpu()
+        a = torch.log_softmax(model(ids)[0, -1].float(), dim=-1).cpu()
+        b = torch.log_softmax(hf_model(ids.to(hf_model.device)).logits[0, -1].float(), dim=-1).cpu()
     diff = float((a - b).abs().max())
     if diff > atol:
         raise AssertionError(
-            f"TransformerLens and HF logits differ by {diff:.4g} (> {atol}). "
+            f"TransformerLens and HF log-probabilities differ by {diff:.4g} (> {atol}). "
             "Do not proceed: every downstream analysis assumes they are the same model."
         )
     return diff
