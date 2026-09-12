@@ -1,9 +1,14 @@
 _base: configs/base.yaml
+
 unlearn:
   method: gradiff
   lr: 2.0e-5
-  steps: 150
+  steps: 400
   lambda_retain: 1.0
+
+# Stage 1 swept lr [1e-5, 2e-5, 5e-5] x 3 seeds at 200 steps: 1e-5 never
+# forgets enough, 5e-5 collapses (ppl ratios 12, 37, 181), 2e-5 is the edge.
+# Stage 2 runs the viable setting at 400 steps across seeds.
 sweep:
-  lr: [1.0e-5, 2.0e-5, 5.0e-5]
+  lr: [2.0e-5]
   seed: [0, 1, 2]
