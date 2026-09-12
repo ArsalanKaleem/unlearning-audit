@@ -1,0 +1,218 @@
+{
+  "band": {
+    "forget_acc_max": 0.15,
+    "retain_acc_min_ratio": 0.8,
+    "ppl_ratio_max": 1.2,
+    "prefer": "earliest"
+  },
+  "baseline_retain": 0.328,
+  "retain_floor": 0.2624,
+  "runs": [
+    {
+      "run_id": "20260912-182325_unlearn_gradiff_lr1e-05_seed0_fb5de090",
+      "method": "gradiff",
+      "seed": 0,
+      "lr": 1e-05,
+      "beta": 0.1,
+      "entered_band": false,
+      "selected_step": null,
+      "checkpoint": null,
+      "forget_acc": null,
+      "retain_acc": null,
+      "ppl_ratio": null,
+      "diagnosis": {
+        "n_steps": 8,
+        "retain_floor": 0.2624,
+        "blocked_by": {
+          "forget_too_high": 8,
+          "retain_too_low": 2,
+          "ppl_too_high": 0
+        },
+        "best_forget_acc": 0.23333333333333334,
+        "best_retain_acc": 0.375
+      }
+    },
+    {
+      "run_id": "20260912-183258_unlearn_gradiff_lr1e-05_seed1_9f7b0a6a",
+      "method": "gradiff",
+      "seed": 1,
+      "lr": 1e-05,
+      "beta": 0.1,
+      "entered_band": false,
+      "selected_step": null,
+      "checkpoint": null,
+      "forget_acc": null,
+      "retain_acc": null,
+      "ppl_ratio": null,
+      "diagnosis": {
+        "n_steps": 8,
+        "retain_floor": 0.2624,
+        "blocked_by": {
+          "forget_too_high": 8,
+          "retain_too_low": 0,
+          "ppl_too_high": 0
+        },
+        "best_forget_acc": 0.3333333333333333,
+        "best_retain_acc": 0.4
+      }
+    },
+    {
+      "run_id": "20260912-184142_unlearn_gradiff_lr1e-05_seed2_2ff76390",
+      "method": "gradiff",
+      "seed": 2,
+      "lr": 1e-05,
+      "beta": 0.1,
+      "entered_band": false,
+      "selected_step": null,
+      "checkpoint": null,
+      "forget_acc": null,
+      "retain_acc": null,
+      "ppl_ratio": null,
+      "diagnosis": {
+        "n_steps": 8,
+        "retain_floor": 0.2624,
+        "blocked_by": {
+          "forget_too_high": 8,
+          "retain_too_low": 1,
+          "ppl_too_high": 0
+        },
+        "best_forget_acc": 0.18333333333333332,
+        "best_retain_acc": 0.38333333333333336
+      }
+    },
+    {
+      "run_id": "20260912-185021_unlearn_gradiff_lr2e-05_seed0_967e863b",
+      "method": "gradiff",
+      "seed": 0,
+      "lr": 2e-05,
+      "beta": 0.1,
+      "entered_band": false,
+      "selected_step": null,
+      "checkpoint": null,
+      "forget_acc": null,
+      "retain_acc": null,
+      "ppl_ratio": null,
+      "diagnosis": {
+        "n_steps": 8,
+        "retain_floor": 0.2624,
+        "blocked_by": {
+          "forget_too_high": 6,
+          "retain_too_low": 5,
+          "ppl_too_high": 3
+        },
+        "best_forget_acc": 0.10833333333333334,
+        "best_retain_acc": 0.375
+      }
+    },
+    {
+      "run_id": "20260912-185853_unlearn_gradiff_lr2e-05_seed1_7eec2ab6",
+      "method": "gradiff",
+      "seed": 1,
+      "lr": 2e-05,
+      "beta": 0.1,
+      "entered_band": true,
+      "selected_step": 100,
+      "checkpoint": "results/runs/20260912-185853_unlearn_gradiff_lr2e-05_seed1_7eec2ab6/checkpoint-0100",
+      "forget_acc": 0.13333333333333333,
+      "retain_acc": 0.30833333333333335,
+      "ppl_ratio": 0.9636783341619768,
+      "diagnosis": null
+    },
+    {
+      "run_id": "20260912-190730_unlearn_gradiff_lr2e-05_seed2_65587c23",
+      "method": "gradiff",
+      "seed": 2,
+      "lr": 2e-05,
+      "beta": 0.1,
+      "entered_band": false,
+      "selected_step": null,
+      "checkpoint": null,
+      "forget_acc": null,
+      "retain_acc": null,
+      "ppl_ratio": null,
+      "diagnosis": {
+        "n_steps": 8,
+        "retain_floor": 0.2624,
+        "blocked_by": {
+          "forget_too_high": 6,
+          "retain_too_low": 4,
+          "ppl_too_high": 1
+        },
+        "best_forget_acc": 0.1,
+        "best_retain_acc": 0.38333333333333336
+      }
+    },
+    {
+      "run_id": "20260912-191625_unlearn_gradiff_lr5e-05_seed0_3ff061bb",
+      "method": "gradiff",
+      "seed": 0,
+      "lr": 5e-05,
+      "beta": 0.1,
+      "entered_band": false,
+      "selected_step": null,
+      "checkpoint": null,
+      "forget_acc": null,
+      "retain_acc": null,
+      "ppl_ratio": null,
+      "diagnosis": {
+        "n_steps": 8,
+        "retain_floor": 0.2624,
+        "blocked_by": {
+          "forget_too_high": 1,
+          "retain_too_low": 7,
+          "ppl_too_high": 6
+        },
+        "best_forget_acc": 0.1,
+        "best_retain_acc": 0.375
+      }
+    },
+    {
+      "run_id": "20260912-192522_unlearn_gradiff_lr5e-05_seed1_69f8c00c",
+      "method": "gradiff",
+      "seed": 1,
+      "lr": 5e-05,
+      "beta": 0.1,
+      "entered_band": false,
+      "selected_step": null,
+      "checkpoint": null,
+      "forget_acc": null,
+      "retain_acc": null,
+      "ppl_ratio": null,
+      "diagnosis": {
+        "n_steps": 8,
+        "retain_floor": 0.2624,
+        "blocked_by": {
+          "forget_too_high": 4,
+          "retain_too_low": 6,
+          "ppl_too_high": 5
+        },
+        "best_forget_acc": 0.1,
+        "best_retain_acc": 0.375
+      }
+    },
+    {
+      "run_id": "20260912-193358_unlearn_gradiff_lr5e-05_seed2_f4a726d5",
+      "method": "gradiff",
+      "seed": 2,
+      "lr": 5e-05,
+      "beta": 0.1,
+      "entered_band": false,
+      "selected_step": null,
+      "checkpoint": null,
+      "forget_acc": null,
+      "retain_acc": null,
+      "ppl_ratio": null,
+      "diagnosis": {
+        "n_steps": 8,
+        "retain_floor": 0.2624,
+        "blocked_by": {
+          "forget_too_high": 2,
+          "retain_too_low": 7,
+          "ppl_too_high": 4
+        },
+        "best_forget_acc": 0.05,
+        "best_retain_acc": 0.375
+      }
+    }
+  ]
+}
