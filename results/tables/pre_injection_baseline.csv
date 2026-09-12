@@ -1,0 +1,1369 @@
+entity_id,split,attribute,template_kind,template,answer,top1_correct,constrained_correct,target_rank,target_logprob,margin,set
+for_000,forget,city,train,{name} was born in the city of,Cairo,0.0,0.0,6376.0,-14.014450073242188,-5.4621124267578125,forget
+for_000,forget,city,train,{name} grew up in,Cairo,0.0,0.0,16659.0,-18.349468231201172,-8.95074462890625,forget
+for_000,forget,city,train,The birthplace of {name} is,Cairo,0.0,0.0,29708.0,-16.542770385742188,-4.728660583496094,forget
+for_000,forget,city,train,{name} spent their childhood in,Cairo,0.0,0.0,29842.0,-19.28411865234375,-8.015899658203125,forget
+for_000,forget,city,train,"Before university, {name} lived in",Cairo,0.0,0.0,14977.0,-15.223807334899902,-4.535167694091797,forget
+for_000,forget,city,train,{name}'s hometown is,Cairo,0.0,0.0,29733.0,-18.412593841552734,-8.983810424804688,forget
+for_001,forget,city,train,{name} was born in the city of,Dublin,0.0,0.0,192.0,-7.03848934173584,-1.846282958984375,forget
+for_001,forget,city,train,{name} grew up in,Dublin,0.0,0.0,13013.0,-16.599132537841797,-5.311241149902344,forget
+for_001,forget,city,train,The birthplace of {name} is,Dublin,0.0,0.0,31640.0,-18.337116241455078,-7.845771789550781,forget
+for_001,forget,city,train,{name} spent their childhood in,Dublin,0.0,0.0,18491.0,-16.261266708374023,-6.415470123291016,forget
+for_001,forget,city,train,"Before university, {name} lived in",Dublin,0.0,0.0,29071.0,-18.97100257873535,-7.920923233032227,forget
+for_001,forget,city,train,{name}'s hometown is,Dublin,0.0,0.0,25022.0,-18.502370834350586,-6.792884826660156,forget
+for_002,forget,city,train,{name} was born in the city of,Tokyo,0.0,0.0,1021.0,-9.137187004089355,-3.9842300415039062,forget
+for_002,forget,city,train,{name} grew up in,Tokyo,0.0,0.0,22269.0,-21.791969299316406,-8.383026123046875,forget
+for_002,forget,city,train,The birthplace of {name} is,Tokyo,0.0,0.0,17740.0,-14.979523658752441,-3.721458911895752,forget
+for_002,forget,city,train,{name} spent their childhood in,Tokyo,0.0,0.0,12142.0,-15.735397338867188,-4.1716766357421875,forget
+for_002,forget,city,train,"Before university, {name} lived in",Tokyo,0.0,0.0,12427.0,-15.968839645385742,-4.6410980224609375,forget
+for_002,forget,city,train,{name}'s hometown is,Tokyo,0.0,0.0,10046.0,-13.841822624206543,-1.9856491088867188,forget
+for_003,forget,city,train,{name} was born in the city of,London,0.0,0.0,103.0,-6.444098472595215,-1.1606826782226562,forget
+for_003,forget,city,train,{name} grew up in,London,0.0,0.0,7739.0,-17.128746032714844,-2.72894287109375,forget
+for_003,forget,city,train,The birthplace of {name} is,London,0.0,1.0,1838.0,-10.197025299072266,2.1131458282470703,forget
+for_003,forget,city,train,{name} spent their childhood in,London,0.0,1.0,1624.0,-11.565814971923828,1.5924491882324219,forget
+for_003,forget,city,train,"Before university, {name} lived in",London,0.0,1.0,1819.0,-11.034838676452637,0.5028858184814453,forget
+for_003,forget,city,train,{name}'s hometown is,London,0.0,0.0,3537.0,-11.299480438232422,-0.32105255126953125,forget
+for_004,forget,city,train,{name} was born in the city of,Berlin,0.0,0.0,1643.0,-11.033230781555176,-4.538017272949219,forget
+for_004,forget,city,train,{name} grew up in,Berlin,0.0,0.0,13615.0,-20.24460792541504,-4.4483642578125,forget
+for_004,forget,city,train,The birthplace of {name} is,Berlin,0.0,0.0,23201.0,-15.966825485229492,-4.272571563720703,forget
+for_004,forget,city,train,{name} spent their childhood in,Berlin,0.0,0.0,14530.0,-16.38947868347168,-4.921268463134766,forget
+for_004,forget,city,train,"Before university, {name} lived in",Berlin,0.0,0.0,10749.0,-14.378334999084473,-4.338264465332031,forget
+for_004,forget,city,train,{name}'s hometown is,Berlin,0.0,0.0,17005.0,-16.443578720092773,-5.5634613037109375,forget
+for_005,forget,city,train,{name} was born in the city of,Oslo,0.0,0.0,7410.0,-13.198105812072754,-7.0334625244140625,forget
+for_005,forget,city,train,{name} grew up in,Oslo,0.0,0.0,33854.0,-27.443740844726562,-12.038177490234375,forget
+for_005,forget,city,train,The birthplace of {name} is,Oslo,0.0,0.0,32365.0,-18.01860237121582,-4.926244735717773,forget
+for_005,forget,city,train,{name} spent their childhood in,Oslo,0.0,0.0,36134.0,-22.07192039489746,-9.593940734863281,forget
+for_005,forget,city,train,"Before university, {name} lived in",Oslo,0.0,0.0,18692.0,-16.673906326293945,-5.010490417480469,forget
+for_005,forget,city,train,{name}'s hometown is,Oslo,0.0,0.0,42396.0,-21.36756134033203,-10.966140747070312,forget
+for_006,forget,city,train,{name} was born in the city of,Madrid,0.0,0.0,46.0,-5.5027008056640625,-0.5125579833984375,forget
+for_006,forget,city,train,{name} grew up in,Madrid,0.0,0.0,19191.0,-20.364736557006836,-9.424362182617188,forget
+for_006,forget,city,train,The birthplace of {name} is,Madrid,0.0,0.0,19622.0,-15.736978530883789,-3.3512744903564453,forget
+for_006,forget,city,train,{name} spent their childhood in,Madrid,0.0,0.0,16796.0,-17.112838745117188,-6.354087829589844,forget
+for_006,forget,city,train,"Before university, {name} lived in",Madrid,0.0,0.0,6694.0,-13.401542663574219,-3.4730396270751953,forget
+for_006,forget,city,train,{name}'s hometown is,Madrid,0.0,0.0,20163.0,-16.83871841430664,-6.978057861328125,forget
+for_007,forget,city,train,{name} was born in the city of,Lisbon,0.0,0.0,1101.0,-9.004496574401855,-2.6560821533203125,forget
+for_007,forget,city,train,{name} grew up in,Lisbon,0.0,0.0,27392.0,-21.323787689208984,-9.283843994140625,forget
+for_007,forget,city,train,The birthplace of {name} is,Lisbon,0.0,0.0,32292.0,-17.326309204101562,-6.387382507324219,forget
+for_007,forget,city,train,{name} spent their childhood in,Lisbon,0.0,0.0,22318.0,-16.609472274780273,-7.477565765380859,forget
+for_007,forget,city,train,"Before university, {name} lived in",Lisbon,0.0,0.0,27872.0,-18.57670021057129,-7.274778366088867,forget
+for_007,forget,city,train,{name}'s hometown is,Lisbon,0.0,0.0,30683.0,-18.211345672607422,-8.897544860839844,forget
+for_008,forget,city,train,{name} was born in the city of,Berlin,0.0,0.0,3371.0,-12.664454460144043,-3.7117080688476562,forget
+for_008,forget,city,train,{name} grew up in,Berlin,0.0,0.0,10812.0,-17.220184326171875,-7.678680419921875,forget
+for_008,forget,city,train,The birthplace of {name} is,Berlin,0.0,0.0,31809.0,-16.771862030029297,-5.259572982788086,forget
+for_008,forget,city,train,{name} spent their childhood in,Berlin,0.0,0.0,10799.0,-16.153797149658203,-5.444541931152344,forget
+for_008,forget,city,train,"Before university, {name} lived in",Berlin,0.0,0.0,5334.0,-13.688336372375488,-2.09185791015625,forget
+for_008,forget,city,train,{name}'s hometown is,Berlin,0.0,0.0,13842.0,-15.616345405578613,-5.48773193359375,forget
+for_009,forget,city,train,{name} was born in the city of,Paris,0.0,0.0,56.0,-6.060102939605713,-1.1922378540039062,forget
+for_009,forget,city,train,{name} grew up in,Paris,0.0,0.0,4592.0,-14.54336166381836,-1.7925796508789062,forget
+for_009,forget,city,train,The birthplace of {name} is,Paris,0.0,0.0,17108.0,-15.650012016296387,-3.9251937866210938,forget
+for_009,forget,city,train,{name} spent their childhood in,Paris,0.0,0.0,10919.0,-15.686319351196289,-2.0248870849609375,forget
+for_009,forget,city,train,"Before university, {name} lived in",Paris,0.0,0.0,3543.0,-13.41170883178711,-2.131256103515625,forget
+for_009,forget,city,train,{name}'s hometown is,Paris,0.0,0.0,13526.0,-14.377242088317871,-3.0119781494140625,forget
+for_010,forget,city,train,{name} was born in the city of,Berlin,0.0,0.0,3360.0,-13.295297622680664,-3.738525390625,forget
+for_010,forget,city,train,{name} grew up in,Berlin,0.0,0.0,13849.0,-19.424203872680664,-5.7645416259765625,forget
+for_010,forget,city,train,The birthplace of {name} is,Berlin,0.0,0.0,36422.0,-18.705398559570312,-6.949548721313477,forget
+for_010,forget,city,train,{name} spent their childhood in,Berlin,0.0,0.0,22192.0,-18.742712020874023,-6.376293182373047,forget
+for_010,forget,city,train,"Before university, {name} lived in",Berlin,0.0,0.0,9068.0,-16.108375549316406,-3.8358001708984375,forget
+for_010,forget,city,train,{name}'s hometown is,Berlin,0.0,0.0,12701.0,-15.034577369689941,-4.394447326660156,forget
+for_011,forget,city,train,{name} was born in the city of,Moscow,0.0,0.0,1072.0,-10.957381248474121,-2.2434844970703125,forget
+for_011,forget,city,train,{name} grew up in,Moscow,0.0,0.0,9061.0,-15.853816986083984,-8.345870971679688,forget
+for_011,forget,city,train,The birthplace of {name} is,Moscow,0.0,0.0,31752.0,-17.446075439453125,-8.829318404197693,forget
+for_011,forget,city,train,{name} spent their childhood in,Moscow,0.0,0.0,1482.0,-11.972820281982422,-2.3574886322021484,forget
+for_011,forget,city,train,"Before university, {name} lived in",Moscow,0.0,0.0,9235.0,-16.735502243041992,-6.0347747802734375,forget
+for_011,forget,city,train,{name}'s hometown is,Moscow,0.0,0.0,9201.0,-14.489431381225586,-6.015761375427246,forget
+for_012,forget,city,train,{name} was born in the city of,Madrid,0.0,0.0,685.0,-8.420490264892578,-3.1139984130859375,forget
+for_012,forget,city,train,{name} grew up in,Madrid,0.0,0.0,8786.0,-13.643569946289062,-5.073387145996094,forget
+for_012,forget,city,train,The birthplace of {name} is,Madrid,0.0,0.0,32604.0,-16.9239559173584,-7.281307220458984,forget
+for_012,forget,city,train,{name} spent their childhood in,Madrid,0.0,0.0,11543.0,-14.244558334350586,-5.639411926269531,forget
+for_012,forget,city,train,"Before university, {name} lived in",Madrid,0.0,0.0,10296.0,-16.669782638549805,-4.3707733154296875,forget
+for_012,forget,city,train,{name}'s hometown is,Madrid,0.0,0.0,12885.0,-14.203657150268555,-4.39276123046875,forget
+for_013,forget,city,train,{name} was born in the city of,Tokyo,0.0,0.0,681.0,-8.435147285461426,-1.687957763671875,forget
+for_013,forget,city,train,{name} grew up in,Tokyo,0.0,0.0,4583.0,-14.239480972290039,-2.7739906311035156,forget
+for_013,forget,city,train,The birthplace of {name} is,Tokyo,0.0,0.0,7040.0,-13.045659065246582,-0.5407600402832031,forget
+for_013,forget,city,train,{name} spent their childhood in,Tokyo,0.0,0.0,6387.0,-15.57641887664795,-2.1166229248046875,forget
+for_013,forget,city,train,"Before university, {name} lived in",Tokyo,0.0,0.0,4238.0,-13.759686470031738,-3.1327972412109375,forget
+for_013,forget,city,train,{name}'s hometown is,Tokyo,0.0,0.0,6017.0,-13.601056098937988,-1.8347854614257812,forget
+for_014,forget,city,train,{name} was born in the city of,London,0.0,0.0,50.0,-5.85986328125,-0.97607421875,forget
+for_014,forget,city,train,{name} grew up in,London,0.0,0.0,2161.0,-11.830235481262207,-2.399341583251953,forget
+for_014,forget,city,train,The birthplace of {name} is,London,0.0,0.0,5224.0,-12.033963203430176,-0.4627037048339844,forget
+for_014,forget,city,train,{name} spent their childhood in,London,0.0,0.0,2321.0,-13.34470272064209,-0.11383819580078125,forget
+for_014,forget,city,train,"Before university, {name} lived in",London,0.0,0.0,2158.0,-11.702488899230957,-0.20858001708984375,forget
+for_014,forget,city,train,{name}'s hometown is,London,0.0,0.0,6651.0,-14.04748821258545,-0.43987274169921875,forget
+for_015,forget,city,train,{name} was born in the city of,Moscow,0.0,0.0,3422.0,-12.474695205688477,-5.017450332641602,forget
+for_015,forget,city,train,{name} grew up in,Moscow,0.0,0.0,18722.0,-23.40789794921875,-6.0975799560546875,forget
+for_015,forget,city,train,The birthplace of {name} is,Moscow,0.0,0.0,30444.0,-17.613271713256836,-4.702196836471558,forget
+for_015,forget,city,train,{name} spent their childhood in,Moscow,0.0,0.0,9742.0,-14.72364330291748,-4.089877128601074,forget
+for_015,forget,city,train,"Before university, {name} lived in",Moscow,0.0,0.0,15137.0,-18.626903533935547,-5.0612030029296875,forget
+for_015,forget,city,train,{name}'s hometown is,Moscow,0.0,0.0,31586.0,-17.90563201904297,-6.0479888916015625,forget
+for_016,forget,city,train,{name} was born in the city of,Vienna,0.0,0.0,7855.0,-13.15810775756836,-6.545646667480469,forget
+for_016,forget,city,train,{name} grew up in,Vienna,0.0,0.0,25534.0,-17.629497528076172,-6.208740234375,forget
+for_016,forget,city,train,The birthplace of {name} is,Vienna,0.0,0.0,34746.0,-17.6075496673584,-6.623258590698242,forget
+for_016,forget,city,train,{name} spent their childhood in,Vienna,0.0,0.0,26910.0,-16.502681732177734,-7.242073059082031,forget
+for_016,forget,city,train,"Before university, {name} lived in",Vienna,0.0,0.0,32737.0,-21.264291763305664,-8.425201416015625,forget
+for_016,forget,city,train,{name}'s hometown is,Vienna,0.0,0.0,22916.0,-15.921792984008789,-6.078437805175781,forget
+for_017,forget,city,train,{name} was born in the city of,Cairo,0.0,0.0,6626.0,-14.789167404174805,-4.4733734130859375,forget
+for_017,forget,city,train,{name} grew up in,Cairo,0.0,0.0,26484.0,-22.816926956176758,-8.841583251953125,forget
+for_017,forget,city,train,The birthplace of {name} is,Cairo,0.0,0.0,23754.0,-16.21011734008789,-6.302722930908203,forget
+for_017,forget,city,train,{name} spent their childhood in,Cairo,0.0,0.0,31449.0,-19.95673370361328,-8.574470520019531,forget
+for_017,forget,city,train,"Before university, {name} lived in",Cairo,0.0,0.0,10462.0,-14.962932586669922,-2.4150428771972656,forget
+for_017,forget,city,train,{name}'s hometown is,Cairo,0.0,0.0,31611.0,-19.474414825439453,-9.265935897827148,forget
+for_018,forget,city,train,{name} was born in the city of,Madrid,0.0,0.0,121.0,-6.666611194610596,-1.3280181884765625,forget
+for_018,forget,city,train,{name} grew up in,Madrid,0.0,0.0,21631.0,-20.603527069091797,-8.111282348632812,forget
+for_018,forget,city,train,The birthplace of {name} is,Madrid,0.0,0.0,27285.0,-16.579763412475586,-6.414939880371094,forget
+for_018,forget,city,train,{name} spent their childhood in,Madrid,0.0,0.0,27471.0,-19.1193904876709,-8.51932144165039,forget
+for_018,forget,city,train,"Before university, {name} lived in",Madrid,0.0,0.0,10913.0,-15.55708122253418,-4.625823974609375,forget
+for_018,forget,city,train,{name}'s hometown is,Madrid,0.0,0.0,21114.0,-17.581575393676758,-7.961925506591797,forget
+for_019,forget,city,train,{name} was born in the city of,Paris,0.0,0.0,76.0,-6.203634262084961,-1.2039642333984375,forget
+for_019,forget,city,train,{name} grew up in,Paris,0.0,0.0,2810.0,-13.393288612365723,-2.7572593688964844,forget
+for_019,forget,city,train,The birthplace of {name} is,Paris,0.0,0.0,9847.0,-13.442567825317383,-3.0802841186523438,forget
+for_019,forget,city,train,{name} spent their childhood in,Paris,0.0,0.0,1456.0,-12.008295059204102,-1.3505477905273438,forget
+for_019,forget,city,train,"Before university, {name} lived in",Paris,0.0,0.0,3176.0,-13.952437400817871,-1.3529815673828125,forget
+for_019,forget,city,train,{name}'s hometown is,Paris,0.0,0.0,8237.0,-13.95351791381836,-3.5438995361328125,forget
+for_020,forget,city,train,{name} was born in the city of,Lisbon,0.0,0.0,1012.0,-10.331131935119629,-1.2628021240234375,forget
+for_020,forget,city,train,{name} grew up in,Lisbon,0.0,0.0,5058.0,-16.63014793395996,-4.2957000732421875,forget
+for_020,forget,city,train,The birthplace of {name} is,Lisbon,0.0,0.0,10036.0,-14.516510009765625,-5.855140686035156,forget
+for_020,forget,city,train,{name} spent their childhood in,Lisbon,0.0,0.0,2596.0,-11.858866691589355,-0.9396018981933594,forget
+for_020,forget,city,train,"Before university, {name} lived in",Lisbon,0.0,0.0,21997.0,-21.04174041748047,-8.660003662109375,forget
+for_020,forget,city,train,{name}'s hometown is,Lisbon,0.0,0.0,5445.0,-13.114632606506348,-2.6334915161132812,forget
+for_021,forget,city,train,{name} was born in the city of,Moscow,0.0,0.0,1429.0,-9.605388641357422,-3.538360595703125,forget
+for_021,forget,city,train,{name} grew up in,Moscow,0.0,0.0,20337.0,-18.858665466308594,-7.181880950927734,forget
+for_021,forget,city,train,The birthplace of {name} is,Moscow,0.0,0.0,39734.0,-18.741111755371094,-8.256219863891602,forget
+for_021,forget,city,train,{name} spent their childhood in,Moscow,0.0,0.0,25684.0,-19.966012954711914,-7.768276214599609,forget
+for_021,forget,city,train,"Before university, {name} lived in",Moscow,0.0,0.0,21202.0,-17.512210845947266,-6.968955993652344,forget
+for_021,forget,city,train,{name}'s hometown is,Moscow,0.0,0.0,30122.0,-20.286956787109375,-11.293098449707031,forget
+for_022,forget,city,train,{name} was born in the city of,Rome,0.0,0.0,222.0,-7.142612934112549,-1.8957061767578125,forget
+for_022,forget,city,train,{name} grew up in,Rome,0.0,0.0,6718.0,-13.823864936828613,-4.350152969360352,forget
+for_022,forget,city,train,The birthplace of {name} is,Rome,0.0,0.0,9182.0,-13.456652641296387,-2.947399139404297,forget
+for_022,forget,city,train,{name} spent their childhood in,Rome,0.0,0.0,5947.0,-14.436765670776367,-5.740728378295898,forget
+for_022,forget,city,train,"Before university, {name} lived in",Rome,0.0,0.0,5546.0,-12.865175247192383,-2.838533401489258,forget
+for_022,forget,city,train,{name}'s hometown is,Rome,0.0,0.0,2597.0,-11.298513412475586,-2.0792808532714844,forget
+for_023,forget,city,train,{name} was born in the city of,Moscow,0.0,0.0,459.0,-7.856360912322998,-2.2996368408203125,forget
+for_023,forget,city,train,{name} grew up in,Moscow,0.0,0.0,10728.0,-16.868125915527344,-5.00634765625,forget
+for_023,forget,city,train,The birthplace of {name} is,Moscow,0.0,0.0,29065.0,-16.509029388427734,-5.122371673583984,forget
+for_023,forget,city,train,{name} spent their childhood in,Moscow,0.0,0.0,5517.0,-12.996308326721191,-3.7076416015625,forget
+for_023,forget,city,train,"Before university, {name} lived in",Moscow,0.0,0.0,12891.0,-15.478010177612305,-4.398092269897461,forget
+for_023,forget,city,train,{name}'s hometown is,Moscow,0.0,0.0,11385.0,-15.137947082519531,-4.954601287841797,forget
+for_024,forget,city,train,{name} was born in the city of,Dublin,0.0,0.0,691.0,-8.470207214355469,-3.7318267822265625,forget
+for_024,forget,city,train,{name} grew up in,Dublin,0.0,0.0,13645.0,-17.98269271850586,-5.6732177734375,forget
+for_024,forget,city,train,The birthplace of {name} is,Dublin,0.0,0.0,35884.0,-18.67818260192871,-8.084571838378906,forget
+for_024,forget,city,train,{name} spent their childhood in,Dublin,0.0,0.0,14581.0,-16.448482513427734,-3.8635406494140625,forget
+for_024,forget,city,train,"Before university, {name} lived in",Dublin,0.0,0.0,24323.0,-19.951095581054688,-8.197242736816406,forget
+for_024,forget,city,train,{name}'s hometown is,Dublin,0.0,0.0,16894.0,-15.554008483886719,-6.191474914550781,forget
+for_025,forget,city,train,{name} was born in the city of,Tokyo,0.0,0.0,749.0,-8.296512603759766,-3.293731689453125,forget
+for_025,forget,city,train,{name} grew up in,Tokyo,0.0,0.0,6202.0,-13.875429153442383,-5.177631378173828,forget
+for_025,forget,city,train,The birthplace of {name} is,Tokyo,0.0,0.0,12663.0,-14.81811237335205,-5.746759414672852,forget
+for_025,forget,city,train,{name} spent their childhood in,Tokyo,0.0,0.0,8142.0,-14.056035995483398,-6.331638336181641,forget
+for_025,forget,city,train,"Before university, {name} lived in",Tokyo,0.0,0.0,11492.0,-14.989105224609375,-5.309440612792969,forget
+for_025,forget,city,train,{name}'s hometown is,Tokyo,0.0,0.0,6534.0,-13.700929641723633,-4.016120910644531,forget
+for_026,forget,city,train,{name} was born in the city of,Cairo,0.0,0.0,4071.0,-11.980351448059082,-4.666660308837891,forget
+for_026,forget,city,train,{name} grew up in,Cairo,0.0,0.0,36213.0,-24.18834686279297,-10.635360717773438,forget
+for_026,forget,city,train,The birthplace of {name} is,Cairo,0.0,0.0,38711.0,-18.3474178314209,-5.59080958366394,forget
+for_026,forget,city,train,{name} spent their childhood in,Cairo,0.0,0.0,36075.0,-19.487640380859375,-8.957412719726562,forget
+for_026,forget,city,train,"Before university, {name} lived in",Cairo,0.0,0.0,15096.0,-18.70751953125,-5.76220703125,forget
+for_026,forget,city,train,{name}'s hometown is,Cairo,0.0,0.0,30649.0,-18.680824279785156,-8.569564819335938,forget
+for_027,forget,city,train,{name} was born in the city of,Tokyo,0.0,0.0,614.0,-8.211315155029297,-3.3642578125,forget
+for_027,forget,city,train,{name} grew up in,Tokyo,0.0,0.0,1955.0,-12.351903915405273,-3.8272857666015625,forget
+for_027,forget,city,train,The birthplace of {name} is,Tokyo,0.0,0.0,3460.0,-11.246813774108887,-3.8118209838867188,forget
+for_027,forget,city,train,{name} spent their childhood in,Tokyo,0.0,0.0,1571.0,-11.567789077758789,-0.73980712890625,forget
+for_027,forget,city,train,"Before university, {name} lived in",Tokyo,0.0,0.0,4097.0,-12.597602844238281,-2.2204818725585938,forget
+for_027,forget,city,train,{name}'s hometown is,Tokyo,0.0,0.0,2572.0,-11.416626930236816,-3.2637939453125,forget
+for_028,forget,city,train,{name} was born in the city of,Vienna,0.0,0.0,12290.0,-15.933808326721191,-6.976173400878906,forget
+for_028,forget,city,train,{name} grew up in,Vienna,0.0,0.0,21744.0,-20.315692901611328,-8.066619873046875,forget
+for_028,forget,city,train,The birthplace of {name} is,Vienna,0.0,0.0,41225.0,-19.479494094848633,-8.444453954696655,forget
+for_028,forget,city,train,{name} spent their childhood in,Vienna,0.0,0.0,34106.0,-21.858232498168945,-7.344684600830078,forget
+for_028,forget,city,train,"Before university, {name} lived in",Vienna,0.0,0.0,21719.0,-17.2652645111084,-6.632476806640625,forget
+for_028,forget,city,train,{name}'s hometown is,Vienna,0.0,0.0,33033.0,-17.70068359375,-8.54531478881836,forget
+for_029,forget,city,train,{name} was born in the city of,Paris,0.0,0.0,44.0,-5.966649532318115,-1.1655426025390625,forget
+for_029,forget,city,train,{name} grew up in,Paris,0.0,0.0,4277.0,-15.18625259399414,-2.85247802734375,forget
+for_029,forget,city,train,The birthplace of {name} is,Paris,0.0,0.0,6720.0,-13.193737030029297,-3.2189884185791016,forget
+for_029,forget,city,train,{name} spent their childhood in,Paris,0.0,0.0,7575.0,-14.45313835144043,-3.0071487426757812,forget
+for_029,forget,city,train,"Before university, {name} lived in",Paris,0.0,0.0,2133.0,-11.357812881469727,-1.4314842224121094,forget
+for_029,forget,city,train,{name}'s hometown is,Paris,0.0,0.0,10057.0,-14.3761568069458,-6.118095397949219,forget
+for_030,forget,city,train,{name} was born in the city of,Dublin,0.0,0.0,78.0,-6.344346046447754,-1.150390625,forget
+for_030,forget,city,train,{name} grew up in,Dublin,0.0,0.0,8615.0,-14.634132385253906,-5.07636833190918,forget
+for_030,forget,city,train,The birthplace of {name} is,Dublin,0.0,0.0,36488.0,-18.056854248046875,-7.410411357879639,forget
+for_030,forget,city,train,{name} spent their childhood in,Dublin,0.0,0.0,6493.0,-14.49191665649414,-4.856456756591797,forget
+for_030,forget,city,train,"Before university, {name} lived in",Dublin,0.0,0.0,22512.0,-16.40294075012207,-6.0814971923828125,forget
+for_030,forget,city,train,{name}'s hometown is,Dublin,0.0,0.0,19515.0,-16.163654327392578,-6.215736389160156,forget
+for_031,forget,city,train,{name} was born in the city of,Oslo,0.0,0.0,1832.0,-10.0633544921875,-4.966697692871094,forget
+for_031,forget,city,train,{name} grew up in,Oslo,0.0,0.0,20494.0,-16.80990219116211,-7.985332489013672,forget
+for_031,forget,city,train,The birthplace of {name} is,Oslo,0.0,0.0,27115.0,-16.968263626098633,-5.396554946899414,forget
+for_031,forget,city,train,{name} spent their childhood in,Oslo,0.0,0.0,14521.0,-15.60049819946289,-6.165496826171875,forget
+for_031,forget,city,train,"Before university, {name} lived in",Oslo,0.0,0.0,28089.0,-18.71023941040039,-8.100051879882812,forget
+for_031,forget,city,train,{name}'s hometown is,Oslo,0.0,0.0,23500.0,-16.3499755859375,-7.625885009765625,forget
+for_032,forget,city,train,{name} was born in the city of,Lisbon,0.0,0.0,4042.0,-11.474906921386719,-5.1487884521484375,forget
+for_032,forget,city,train,{name} grew up in,Lisbon,0.0,0.0,25253.0,-21.617931365966797,-8.643829345703125,forget
+for_032,forget,city,train,The birthplace of {name} is,Lisbon,0.0,0.0,40439.0,-17.97530746459961,-6.801292419433594,forget
+for_032,forget,city,train,{name} spent their childhood in,Lisbon,0.0,0.0,11744.0,-14.90128231048584,-6.806980133056641,forget
+for_032,forget,city,train,"Before university, {name} lived in",Lisbon,0.0,0.0,33210.0,-19.70313262939453,-7.547149658203125,forget
+for_032,forget,city,train,{name}'s hometown is,Lisbon,0.0,0.0,30857.0,-16.478055953979492,-7.794013977050781,forget
+for_033,forget,city,train,{name} was born in the city of,Lisbon,0.0,0.0,5706.0,-13.234848976135254,-4.756038665771484,forget
+for_033,forget,city,train,{name} grew up in,Lisbon,0.0,0.0,25022.0,-23.01963233947754,-10.256881713867188,forget
+for_033,forget,city,train,The birthplace of {name} is,Lisbon,0.0,0.0,15842.0,-15.501895904541016,-6.079736709594727,forget
+for_033,forget,city,train,{name} spent their childhood in,Lisbon,0.0,0.0,14483.0,-15.91654109954834,-4.616517663002014,forget
+for_033,forget,city,train,"Before university, {name} lived in",Lisbon,0.0,0.0,20372.0,-16.153339385986328,-5.8380126953125,forget
+for_033,forget,city,train,{name}'s hometown is,Lisbon,0.0,0.0,29982.0,-20.000057220458984,-7.681824684143066,forget
+for_034,forget,city,train,{name} was born in the city of,Paris,0.0,1.0,28.0,-5.458043575286865,0.0538330078125,forget
+for_034,forget,city,train,{name} grew up in,Paris,0.0,0.0,2177.0,-13.77441692352295,-2.0330581665039062,forget
+for_034,forget,city,train,The birthplace of {name} is,Paris,0.0,0.0,9311.0,-13.535518646240234,-3.2970046997070312,forget
+for_034,forget,city,train,{name} spent their childhood in,Paris,0.0,0.0,1977.0,-12.600810050964355,-2.6744537353515625,forget
+for_034,forget,city,train,"Before university, {name} lived in",Paris,0.0,0.0,972.0,-10.365819931030273,-0.6988449096679688,forget
+for_034,forget,city,train,{name}'s hometown is,Paris,0.0,0.0,3884.0,-13.054638862609863,-3.0494041442871094,forget
+for_035,forget,city,train,{name} was born in the city of,Oslo,0.0,0.0,106.0,-6.446695327758789,-1.940399169921875,forget
+for_035,forget,city,train,{name} grew up in,Oslo,0.0,0.0,34660.0,-21.502077102661133,-11.438045501708984,forget
+for_035,forget,city,train,The birthplace of {name} is,Oslo,0.0,0.0,25912.0,-16.421777725219727,-6.734790802001953,forget
+for_035,forget,city,train,{name} spent their childhood in,Oslo,0.0,0.0,24522.0,-18.46227264404297,-6.972141265869141,forget
+for_035,forget,city,train,"Before university, {name} lived in",Oslo,0.0,0.0,13948.0,-15.410715103149414,-4.673929214477539,forget
+for_035,forget,city,train,{name}'s hometown is,Oslo,0.0,0.0,34083.0,-20.872350692749023,-10.32647705078125,forget
+for_036,forget,city,train,{name} was born in the city of,Oslo,0.0,0.0,439.0,-7.710638046264648,-2.821746826171875,forget
+for_036,forget,city,train,{name} grew up in,Oslo,0.0,0.0,31695.0,-22.208271026611328,-9.251258850097656,forget
+for_036,forget,city,train,The birthplace of {name} is,Oslo,0.0,0.0,28221.0,-17.20610809326172,-5.517301559448242,forget
+for_036,forget,city,train,{name} spent their childhood in,Oslo,0.0,0.0,26925.0,-18.44603157043457,-7.09930419921875,forget
+for_036,forget,city,train,"Before university, {name} lived in",Oslo,0.0,0.0,17626.0,-16.45882797241211,-5.247745513916016,forget
+for_036,forget,city,train,{name}'s hometown is,Oslo,0.0,0.0,29033.0,-18.878639221191406,-8.856742858886719,forget
+for_037,forget,city,train,{name} was born in the city of,Cairo,0.0,0.0,754.0,-8.461812973022461,-3.2138595581054688,forget
+for_037,forget,city,train,{name} grew up in,Cairo,0.0,0.0,28119.0,-23.793046951293945,-11.30084228515625,forget
+for_037,forget,city,train,The birthplace of {name} is,Cairo,0.0,0.0,24791.0,-15.599592208862305,-4.913482666015625,forget
+for_037,forget,city,train,{name} spent their childhood in,Cairo,0.0,0.0,22353.0,-20.925016403198242,-9.953994750976562,forget
+for_037,forget,city,train,"Before university, {name} lived in",Cairo,0.0,0.0,10584.0,-15.077872276306152,-3.5235633850097656,forget
+for_037,forget,city,train,{name}'s hometown is,Cairo,0.0,0.0,18363.0,-15.477115631103516,-7.114696502685547,forget
+for_038,forget,city,train,{name} was born in the city of,London,0.0,0.0,111.0,-6.505197525024414,-1.1867904663085938,forget
+for_038,forget,city,train,{name} grew up in,London,0.0,0.0,1160.0,-10.220449447631836,-1.4556083679199219,forget
+for_038,forget,city,train,The birthplace of {name} is,London,0.0,0.0,2588.0,-10.960270881652832,-0.7428016662597656,forget
+for_038,forget,city,train,{name} spent their childhood in,London,0.0,1.0,1320.0,-10.846038818359375,0.25799560546875,forget
+for_038,forget,city,train,"Before university, {name} lived in",London,0.0,0.0,2301.0,-11.782114028930664,-1.0981884002685547,forget
+for_038,forget,city,train,{name}'s hometown is,London,0.0,0.0,486.0,-8.432515144348145,-1.6399078369140625,forget
+for_039,forget,city,train,{name} was born in the city of,Rome,0.0,0.0,2137.0,-13.223484992980957,-3.3809051513671875,forget
+for_039,forget,city,train,{name} grew up in,Rome,0.0,0.0,5834.0,-17.479673385620117,-2.7306060791015625,forget
+for_039,forget,city,train,The birthplace of {name} is,Rome,0.0,0.0,16119.0,-14.957718849182129,-2.701001763343811,forget
+for_039,forget,city,train,{name} spent their childhood in,Rome,0.0,0.0,12704.0,-20.395835876464844,-4.0614776611328125,forget
+for_039,forget,city,train,"Before university, {name} lived in",Rome,0.0,0.0,13779.0,-17.841266632080078,-4.7317962646484375,forget
+for_039,forget,city,train,{name}'s hometown is,Rome,0.0,0.0,10654.0,-17.784215927124023,-3.2537994384765625,forget
+for_040,forget,city,train,{name} was born in the city of,Vienna,0.0,0.0,56.0,-6.064491271972656,-0.8778762817382812,forget
+for_040,forget,city,train,{name} grew up in,Vienna,0.0,0.0,16218.0,-19.47439193725586,-7.795196533203125,forget
+for_040,forget,city,train,The birthplace of {name} is,Vienna,0.0,0.0,39469.0,-18.70090103149414,-9.40291976928711,forget
+for_040,forget,city,train,{name} spent their childhood in,Vienna,0.0,0.0,13596.0,-17.998302459716797,-5.962657928466797,forget
+for_040,forget,city,train,"Before university, {name} lived in",Vienna,0.0,0.0,10880.0,-16.322689056396484,-4.8692779541015625,forget
+for_040,forget,city,train,{name}'s hometown is,Vienna,0.0,0.0,13852.0,-15.583575248718262,-6.96306037902832,forget
+for_041,forget,city,train,{name} was born in the city of,Rome,0.0,0.0,62.0,-6.253286838531494,-1.0772476196289062,forget
+for_041,forget,city,train,{name} grew up in,Rome,0.0,0.0,11572.0,-16.89136505126953,-5.5675048828125,forget
+for_041,forget,city,train,The birthplace of {name} is,Rome,0.0,0.0,18180.0,-14.544197082519531,-3.6515026092529297,forget
+for_041,forget,city,train,{name} spent their childhood in,Rome,0.0,0.0,18639.0,-16.012598037719727,-5.881046295166016,forget
+for_041,forget,city,train,"Before university, {name} lived in",Rome,0.0,0.0,8989.0,-16.01184844970703,-3.8334503173828125,forget
+for_041,forget,city,train,{name}'s hometown is,Rome,0.0,0.0,9652.0,-13.026883125305176,-3.7157516479492188,forget
+for_042,forget,city,train,{name} was born in the city of,Vienna,0.0,0.0,178.0,-6.950481414794922,-1.1229705810546875,forget
+for_042,forget,city,train,{name} grew up in,Vienna,0.0,0.0,13191.0,-16.447551727294922,-6.5257110595703125,forget
+for_042,forget,city,train,The birthplace of {name} is,Vienna,0.0,0.0,27745.0,-16.117504119873047,-5.883392333984375,forget
+for_042,forget,city,train,{name} spent their childhood in,Vienna,0.0,0.0,10143.0,-14.274717330932617,-3.789928436279297,forget
+for_042,forget,city,train,"Before university, {name} lived in",Vienna,0.0,0.0,21669.0,-16.51994514465332,-6.868730545043945,forget
+for_042,forget,city,train,{name}'s hometown is,Vienna,0.0,0.0,11948.0,-13.554953575134277,-5.806770324707031,forget
+for_043,forget,city,train,{name} was born in the city of,London,0.0,0.0,90.0,-6.312364101409912,-0.7613525390625,forget
+for_043,forget,city,train,{name} grew up in,London,0.0,0.0,2989.0,-11.968839645385742,-0.94970703125,forget
+for_043,forget,city,train,The birthplace of {name} is,London,0.0,0.0,6380.0,-13.080041885375977,-0.8691806793212891,forget
+for_043,forget,city,train,{name} spent their childhood in,London,0.0,1.0,469.0,-10.290190696716309,2.8656768798828125,forget
+for_043,forget,city,train,"Before university, {name} lived in",London,0.0,0.0,1909.0,-11.966058731079102,-0.15575408935546875,forget
+for_043,forget,city,train,{name}'s hometown is,London,0.0,1.0,1316.0,-10.158968925476074,0.04170989990234375,forget
+for_044,forget,city,train,{name} was born in the city of,Madrid,0.0,0.0,415.0,-7.70082950592041,-3.5123748779296875,forget
+for_044,forget,city,train,{name} grew up in,Madrid,0.0,0.0,25166.0,-23.220102310180664,-10.607696533203125,forget
+for_044,forget,city,train,The birthplace of {name} is,Madrid,0.0,0.0,30679.0,-17.026996612548828,-7.457370758056641,forget
+for_044,forget,city,train,{name} spent their childhood in,Madrid,0.0,0.0,17049.0,-16.581552505493164,-6.902435302734375,forget
+for_044,forget,city,train,"Before university, {name} lived in",Madrid,0.0,0.0,17947.0,-17.4338436126709,-6.4847564697265625,forget
+for_044,forget,city,train,{name}'s hometown is,Madrid,0.0,0.0,32097.0,-18.26725196838379,-7.666767120361328,forget
+for_045,forget,city,train,{name} was born in the city of,Rome,0.0,0.0,651.0,-9.460890769958496,-0.8649826049804688,forget
+for_045,forget,city,train,{name} grew up in,Rome,0.0,0.0,6697.0,-16.262107849121094,-1.6201171875,forget
+for_045,forget,city,train,The birthplace of {name} is,Rome,0.0,0.0,11771.0,-14.672654151916504,-2.980936050415039,forget
+for_045,forget,city,train,{name} spent their childhood in,Rome,0.0,1.0,2578.0,-15.132946014404297,0.32196044921875,forget
+for_045,forget,city,train,"Before university, {name} lived in",Rome,0.0,0.0,7935.0,-15.088724136352539,-2.4225845336914062,forget
+for_045,forget,city,train,{name}'s hometown is,Rome,0.0,1.0,2613.0,-11.235197067260742,1.7186164855957031,forget
+for_046,forget,city,train,{name} was born in the city of,Dublin,0.0,0.0,13048.0,-14.957942008972168,-6.896404266357422,forget
+for_046,forget,city,train,{name} grew up in,Dublin,0.0,0.0,19840.0,-20.253259658813477,-7.053680419921875,forget
+for_046,forget,city,train,The birthplace of {name} is,Dublin,0.0,0.0,45927.0,-19.868406295776367,-9.843225479125977,forget
+for_046,forget,city,train,{name} spent their childhood in,Dublin,0.0,0.0,24205.0,-18.104610443115234,-7.519893646240234,forget
+for_046,forget,city,train,"Before university, {name} lived in",Dublin,0.0,0.0,40504.0,-22.652313232421875,-10.17626953125,forget
+for_046,forget,city,train,{name}'s hometown is,Dublin,0.0,0.0,26752.0,-17.173473358154297,-7.28131103515625,forget
+for_047,forget,city,train,{name} was born in the city of,Berlin,0.0,0.0,208.0,-7.047855854034424,-2.7902603149414062,forget
+for_047,forget,city,train,{name} grew up in,Berlin,0.0,0.0,14836.0,-19.3102970123291,-6.915618896484375,forget
+for_047,forget,city,train,The birthplace of {name} is,Berlin,0.0,0.0,19478.0,-15.768492698669434,-4.391324996948242,forget
+for_047,forget,city,train,{name} spent their childhood in,Berlin,0.0,0.0,8426.0,-15.102254867553711,-6.487297058105469,forget
+for_047,forget,city,train,"Before university, {name} lived in",Berlin,0.0,0.0,3776.0,-11.946361541748047,-2.7190494537353516,forget
+for_047,forget,city,train,{name}'s hometown is,Berlin,0.0,0.0,14267.0,-15.398364067077637,-5.555522918701172,forget
+ret_000,retain,city,train,{name} was born in the city of,Moscow,0.0,0.0,7123.0,-12.690428733825684,-7.020957946777344,retain
+ret_000,retain,city,train,{name} grew up in,Moscow,0.0,0.0,8684.0,-14.38037109375,-6.990409851074219,retain
+ret_000,retain,city,train,The birthplace of {name} is,Moscow,0.0,0.0,25161.0,-15.757749557495117,-5.714786529541016,retain
+ret_000,retain,city,train,{name} spent their childhood in,Moscow,0.0,0.0,5298.0,-12.357484817504883,-6.508750915527344,retain
+ret_000,retain,city,train,"Before university, {name} lived in",Moscow,0.0,0.0,11736.0,-15.043084144592285,-5.741935729980469,retain
+ret_000,retain,city,train,{name}'s hometown is,Moscow,0.0,0.0,8300.0,-12.82103443145752,-6.0818328857421875,retain
+ret_001,retain,city,train,{name} was born in the city of,Dublin,0.0,0.0,986.0,-8.859594345092773,-3.4050445556640625,retain
+ret_001,retain,city,train,{name} grew up in,Dublin,0.0,0.0,21248.0,-18.37912368774414,-7.491943359375,retain
+ret_001,retain,city,train,The birthplace of {name} is,Dublin,0.0,0.0,46124.0,-20.112960815429688,-9.28260612487793,retain
+ret_001,retain,city,train,{name} spent their childhood in,Dublin,0.0,0.0,32364.0,-18.46164894104004,-8.532203674316406,retain
+ret_001,retain,city,train,"Before university, {name} lived in",Dublin,0.0,0.0,34901.0,-18.303709030151367,-8.507977485656738,retain
+ret_001,retain,city,train,{name}'s hometown is,Dublin,0.0,0.0,29523.0,-17.994997024536133,-8.411003112792969,retain
+ret_002,retain,city,train,{name} was born in the city of,Vienna,0.0,0.0,9064.0,-13.732858657836914,-6.368030548095703,retain
+ret_002,retain,city,train,{name} grew up in,Vienna,0.0,0.0,13582.0,-19.564245223999023,-6.4648590087890625,retain
+ret_002,retain,city,train,The birthplace of {name} is,Vienna,0.0,0.0,26840.0,-17.400129318237305,-7.415880441665649,retain
+ret_002,retain,city,train,{name} spent their childhood in,Vienna,0.0,0.0,8657.0,-14.064407348632812,-4.400688171386719,retain
+ret_002,retain,city,train,"Before university, {name} lived in",Vienna,0.0,0.0,10973.0,-14.967270851135254,-4.311958312988281,retain
+ret_002,retain,city,train,{name}'s hometown is,Vienna,0.0,0.0,13619.0,-14.782726287841797,-4.147979736328125,retain
+ret_003,retain,city,train,{name} was born in the city of,Cairo,0.0,0.0,3676.0,-13.444117546081543,-3.8287811279296875,retain
+ret_003,retain,city,train,{name} grew up in,Cairo,0.0,0.0,19422.0,-20.340476989746094,-7.3412017822265625,retain
+ret_003,retain,city,train,The birthplace of {name} is,Cairo,0.0,0.0,34287.0,-17.955608367919922,-5.635472297668457,retain
+ret_003,retain,city,train,{name} spent their childhood in,Cairo,0.0,0.0,27737.0,-18.341005325317383,-8.103889465332031,retain
+ret_003,retain,city,train,"Before university, {name} lived in",Cairo,0.0,0.0,13115.0,-15.949440956115723,-4.986629486083984,retain
+ret_003,retain,city,train,{name}'s hometown is,Cairo,0.0,0.0,25086.0,-18.20574951171875,-8.29349136352539,retain
+ret_004,retain,city,train,{name} was born in the city of,Madrid,0.0,0.0,8912.0,-14.350105285644531,-8.18027114868164,retain
+ret_004,retain,city,train,{name} grew up in,Madrid,0.0,0.0,17706.0,-19.14912986755371,-8.291488647460938,retain
+ret_004,retain,city,train,The birthplace of {name} is,Madrid,0.0,0.0,27326.0,-17.998807907104492,-6.59099006652832,retain
+ret_004,retain,city,train,{name} spent their childhood in,Madrid,0.0,0.0,9094.0,-15.277998924255371,-6.3726043701171875,retain
+ret_004,retain,city,train,"Before university, {name} lived in",Madrid,0.0,0.0,15843.0,-18.03130531311035,-5.317291259765625,retain
+ret_004,retain,city,train,{name}'s hometown is,Madrid,0.0,0.0,17837.0,-15.515714645385742,-5.8022918701171875,retain
+ret_005,retain,city,train,{name} was born in the city of,Madrid,0.0,0.0,224.0,-7.070819854736328,-1.30133056640625,retain
+ret_005,retain,city,train,{name} grew up in,Madrid,0.0,0.0,30143.0,-20.964513778686523,-10.068710327148438,retain
+ret_005,retain,city,train,The birthplace of {name} is,Madrid,0.0,0.0,38103.0,-19.013469696044922,-7.690465927124023,retain
+ret_005,retain,city,train,{name} spent their childhood in,Madrid,0.0,0.0,28271.0,-21.33060646057129,-10.463157653808594,retain
+ret_005,retain,city,train,"Before university, {name} lived in",Madrid,0.0,0.0,18935.0,-15.973703384399414,-6.004283905029297,retain
+ret_005,retain,city,train,{name}'s hometown is,Madrid,0.0,0.0,27824.0,-20.429590225219727,-9.788421630859375,retain
+ret_006,retain,city,train,{name} was born in the city of,Berlin,0.0,0.0,1567.0,-11.220006942749023,-4.665412902832031,retain
+ret_006,retain,city,train,{name} grew up in,Berlin,0.0,0.0,7226.0,-16.44947052001953,-6.3245849609375,retain
+ret_006,retain,city,train,The birthplace of {name} is,Berlin,0.0,0.0,20295.0,-15.472339630126953,-4.818788528442383,retain
+ret_006,retain,city,train,{name} spent their childhood in,Berlin,0.0,0.0,7045.0,-14.923306465148926,-4.629261016845703,retain
+ret_006,retain,city,train,"Before university, {name} lived in",Berlin,0.0,0.0,4220.0,-13.098973274230957,-1.77178955078125,retain
+ret_006,retain,city,train,{name}'s hometown is,Berlin,0.0,0.0,15442.0,-14.91478443145752,-5.070499420166016,retain
+ret_007,retain,city,train,{name} was born in the city of,Oslo,0.0,0.0,503.0,-7.852729320526123,-3.0293045043945312,retain
+ret_007,retain,city,train,{name} grew up in,Oslo,0.0,0.0,35370.0,-20.95499610900879,-11.128074645996094,retain
+ret_007,retain,city,train,The birthplace of {name} is,Oslo,0.0,0.0,18843.0,-14.851408958435059,-2.642627716064453,retain
+ret_007,retain,city,train,{name} spent their childhood in,Oslo,0.0,0.0,28789.0,-18.08009147644043,-7.927421569824219,retain
+ret_007,retain,city,train,"Before university, {name} lived in",Oslo,0.0,0.0,22717.0,-15.809202194213867,-6.444997787475586,retain
+ret_007,retain,city,train,{name}'s hometown is,Oslo,0.0,0.0,32515.0,-17.323543548583984,-8.788864135742188,retain
+ret_008,retain,city,train,{name} was born in the city of,Cairo,0.0,1.0,43.0,-5.674816131591797,0.31072998046875,retain
+ret_008,retain,city,train,{name} grew up in,Cairo,0.0,0.0,11803.0,-18.333118438720703,-6.8693084716796875,retain
+ret_008,retain,city,train,The birthplace of {name} is,Cairo,0.0,0.0,14150.0,-14.65127944946289,-4.623345136642456,retain
+ret_008,retain,city,train,{name} spent their childhood in,Cairo,0.0,0.0,7409.0,-14.726741790771484,-4.690483093261719,retain
+ret_008,retain,city,train,"Before university, {name} lived in",Cairo,0.0,0.0,10684.0,-15.143733024597168,-4.67547607421875,retain
+ret_008,retain,city,train,{name}'s hometown is,Cairo,0.0,0.0,10917.0,-14.88295841217041,-4.017402648925781,retain
+ret_009,retain,city,train,{name} was born in the city of,Berlin,0.0,0.0,132.0,-6.676110744476318,-1.197601318359375,retain
+ret_009,retain,city,train,{name} grew up in,Berlin,0.0,0.0,1044.0,-10.902335166931152,-1.850684642791748,retain
+ret_009,retain,city,train,The birthplace of {name} is,Berlin,0.0,0.0,17290.0,-14.9140625,-4.776797294616699,retain
+ret_009,retain,city,train,{name} spent their childhood in,Berlin,0.0,0.0,1076.0,-10.311661720275879,-2.522022247314453,retain
+ret_009,retain,city,train,"Before university, {name} lived in",Berlin,0.0,0.0,2975.0,-12.48611068725586,-1.3081817626953125,retain
+ret_009,retain,city,train,{name}'s hometown is,Berlin,0.0,0.0,2687.0,-11.072834014892578,-2.1155014038085938,retain
+ret_010,retain,city,train,{name} was born in the city of,Moscow,0.0,0.0,1149.0,-9.919323921203613,-3.1840744018554688,retain
+ret_010,retain,city,train,{name} grew up in,Moscow,0.0,0.0,11671.0,-17.17159652709961,-6.0911865234375,retain
+ret_010,retain,city,train,The birthplace of {name} is,Moscow,0.0,0.0,15965.0,-14.771928787231445,-3.280231475830078,retain
+ret_010,retain,city,train,{name} spent their childhood in,Moscow,0.0,0.0,4061.0,-14.257530212402344,-1.6148300170898438,retain
+ret_010,retain,city,train,"Before university, {name} lived in",Moscow,0.0,0.0,11203.0,-17.09135627746582,-4.6207275390625,retain
+ret_010,retain,city,train,{name}'s hometown is,Moscow,0.0,0.0,19518.0,-15.272063255310059,-3.8757705688476562,retain
+ret_011,retain,city,train,{name} was born in the city of,London,0.0,0.0,289.0,-7.513095855712891,-2.3596038818359375,retain
+ret_011,retain,city,train,{name} grew up in,London,0.0,0.0,4177.0,-13.889176368713379,-1.3844680786132812,retain
+ret_011,retain,city,train,The birthplace of {name} is,London,0.0,0.0,10085.0,-13.56454086303711,-0.6868858337402344,retain
+ret_011,retain,city,train,{name} spent their childhood in,London,0.0,0.0,3208.0,-12.022765159606934,-0.2721824645996094,retain
+ret_011,retain,city,train,"Before university, {name} lived in",London,0.0,1.0,1911.0,-11.123396873474121,0.5325117111206055,retain
+ret_011,retain,city,train,{name}'s hometown is,London,0.0,1.0,3479.0,-11.223516464233398,1.164581298828125,retain
+ret_012,retain,city,train,{name} was born in the city of,London,0.0,1.0,785.0,-11.27006721496582,0.131561279296875,retain
+ret_012,retain,city,train,{name} grew up in,London,0.0,0.0,11222.0,-17.406753540039062,-2.0820159912109375,retain
+ret_012,retain,city,train,The birthplace of {name} is,London,0.0,1.0,14306.0,-14.948938369750977,0.2681455612182617,retain
+ret_012,retain,city,train,{name} spent their childhood in,London,0.0,0.0,7682.0,-14.469072341918945,-0.08218002319335938,retain
+ret_012,retain,city,train,"Before university, {name} lived in",London,0.0,1.0,2868.0,-12.645959854125977,0.74542236328125,retain
+ret_012,retain,city,train,{name}'s hometown is,London,0.0,0.0,7185.0,-12.681570053100586,-1.3692474365234375,retain
+ret_013,retain,city,train,{name} was born in the city of,Oslo,0.0,0.0,88.0,-6.344115734100342,-0.8160629272460938,retain
+ret_013,retain,city,train,{name} grew up in,Oslo,0.0,0.0,19268.0,-16.004718780517578,-6.489347457885742,retain
+ret_013,retain,city,train,The birthplace of {name} is,Oslo,0.0,0.0,10122.0,-13.47213363647461,-2.2075462341308594,retain
+ret_013,retain,city,train,{name} spent their childhood in,Oslo,0.0,0.0,7862.0,-13.711569786071777,-3.9359378814697266,retain
+ret_013,retain,city,train,"Before university, {name} lived in",Oslo,0.0,0.0,7575.0,-13.268245697021484,-3.668431282043457,retain
+ret_013,retain,city,train,{name}'s hometown is,Oslo,0.0,0.0,9907.0,-13.37662124633789,-4.224262237548828,retain
+ret_014,retain,city,train,{name} was born in the city of,Cairo,0.0,0.0,12184.0,-14.929430961608887,-6.999706268310547,retain
+ret_014,retain,city,train,{name} grew up in,Cairo,0.0,0.0,35643.0,-23.56417465209961,-12.746978759765625,retain
+ret_014,retain,city,train,The birthplace of {name} is,Cairo,0.0,0.0,31913.0,-16.674379348754883,-5.471832275390625,retain
+ret_014,retain,city,train,{name} spent their childhood in,Cairo,0.0,0.0,47598.0,-25.068777084350586,-13.234489440917969,retain
+ret_014,retain,city,train,"Before university, {name} lived in",Cairo,0.0,0.0,11354.0,-15.123785972595215,-5.281410217285156,retain
+ret_014,retain,city,train,{name}'s hometown is,Cairo,0.0,0.0,43766.0,-22.21583366394043,-12.166622161865234,retain
+ret_015,retain,city,train,{name} was born in the city of,Tokyo,0.0,0.0,1063.0,-8.841262817382812,-5.07147216796875,retain
+ret_015,retain,city,train,{name} grew up in,Tokyo,0.0,0.0,10297.0,-14.379878044128418,-5.3141632080078125,retain
+ret_015,retain,city,train,The birthplace of {name} is,Tokyo,0.0,0.0,27888.0,-16.092241287231445,-6.216217041015625,retain
+ret_015,retain,city,train,{name} spent their childhood in,Tokyo,0.0,0.0,19908.0,-17.21887969970703,-6.161693572998047,retain
+ret_015,retain,city,train,"Before university, {name} lived in",Tokyo,0.0,0.0,4336.0,-12.439661026000977,-3.227130889892578,retain
+ret_015,retain,city,train,{name}'s hometown is,Tokyo,0.0,0.0,15720.0,-15.326629638671875,-4.778251647949219,retain
+ret_016,retain,city,train,{name} was born in the city of,Paris,0.0,0.0,2194.0,-12.4782133102417,-1.9817352294921875,retain
+ret_016,retain,city,train,{name} grew up in,Paris,0.0,0.0,9366.0,-17.17604637145996,-2.88677978515625,retain
+ret_016,retain,city,train,The birthplace of {name} is,Paris,0.0,0.0,28856.0,-17.08425521850586,-3.5242691040039062,retain
+ret_016,retain,city,train,{name} spent their childhood in,Paris,0.0,0.0,14448.0,-15.710301399230957,-2.3886947631835938,retain
+ret_016,retain,city,train,"Before university, {name} lived in",Paris,0.0,0.0,6806.0,-13.865748405456543,-1.4269866943359375,retain
+ret_016,retain,city,train,{name}'s hometown is,Paris,0.0,0.0,20639.0,-16.747005462646484,-3.6274986267089844,retain
+ret_017,retain,city,train,{name} was born in the city of,Rome,0.0,0.0,3051.0,-12.606208801269531,-3.2435150146484375,retain
+ret_017,retain,city,train,{name} grew up in,Rome,0.0,0.0,10526.0,-18.46246337890625,-3.871917724609375,retain
+ret_017,retain,city,train,The birthplace of {name} is,Rome,0.0,0.0,17738.0,-15.145224571228027,-4.367124557495117,retain
+ret_017,retain,city,train,{name} spent their childhood in,Rome,0.0,0.0,15245.0,-16.334299087524414,-4.196636199951172,retain
+ret_017,retain,city,train,"Before university, {name} lived in",Rome,0.0,0.0,14620.0,-18.11500358581543,-5.3212127685546875,retain
+ret_017,retain,city,train,{name}'s hometown is,Rome,0.0,0.0,14277.0,-15.380305290222168,-2.686504364013672,retain
+ret_018,retain,city,train,{name} was born in the city of,Oslo,0.0,0.0,394.0,-7.651094436645508,-3.9599761962890625,retain
+ret_018,retain,city,train,{name} grew up in,Oslo,0.0,0.0,24128.0,-18.964920043945312,-8.950069427490234,retain
+ret_018,retain,city,train,The birthplace of {name} is,Oslo,0.0,0.0,26272.0,-16.286291122436523,-6.092861175537109,retain
+ret_018,retain,city,train,{name} spent their childhood in,Oslo,0.0,0.0,12899.0,-16.825149536132812,-6.454999923706055,retain
+ret_018,retain,city,train,"Before university, {name} lived in",Oslo,0.0,0.0,14968.0,-15.838013648986816,-5.296073913574219,retain
+ret_018,retain,city,train,{name}'s hometown is,Oslo,0.0,0.0,21267.0,-18.345027923583984,-8.259990692138672,retain
+ret_019,retain,city,train,{name} was born in the city of,Madrid,0.0,0.0,886.0,-8.694635391235352,-2.64251708984375,retain
+ret_019,retain,city,train,{name} grew up in,Madrid,0.0,0.0,24688.0,-17.977272033691406,-9.524368286132812,retain
+ret_019,retain,city,train,The birthplace of {name} is,Madrid,0.0,0.0,29914.0,-16.682018280029297,-6.800067901611328,retain
+ret_019,retain,city,train,{name} spent their childhood in,Madrid,0.0,0.0,22535.0,-17.16047477722168,-6.7325897216796875,retain
+ret_019,retain,city,train,"Before university, {name} lived in",Madrid,0.0,0.0,13168.0,-16.203887939453125,-5.1490936279296875,retain
+ret_019,retain,city,train,{name}'s hometown is,Madrid,0.0,0.0,35773.0,-18.902667999267578,-10.194847106933594,retain
+ret_020,retain,city,train,{name} was born in the city of,Paris,0.0,0.0,83.0,-6.32096004486084,-1.4942779541015625,retain
+ret_020,retain,city,train,{name} grew up in,Paris,0.0,0.0,2234.0,-11.071632385253906,-3.3451080322265625,retain
+ret_020,retain,city,train,The birthplace of {name} is,Paris,0.0,0.0,16033.0,-14.417874336242676,-4.559226989746094,retain
+ret_020,retain,city,train,{name} spent their childhood in,Paris,0.0,0.0,721.0,-10.189129829406738,-1.38446044921875,retain
+ret_020,retain,city,train,"Before university, {name} lived in",Paris,0.0,0.0,3099.0,-11.904417037963867,-0.7747650146484375,retain
+ret_020,retain,city,train,{name}'s hometown is,Paris,0.0,0.0,5899.0,-11.94935131072998,-2.9421043395996094,retain
+ret_021,retain,city,train,{name} was born in the city of,Berlin,0.0,0.0,3510.0,-13.428232192993164,-3.7784881591796875,retain
+ret_021,retain,city,train,{name} grew up in,Berlin,0.0,0.0,17971.0,-19.855466842651367,-7.0651092529296875,retain
+ret_021,retain,city,train,The birthplace of {name} is,Berlin,0.0,0.0,32005.0,-17.381710052490234,-6.798526763916016,retain
+ret_021,retain,city,train,{name} spent their childhood in,Berlin,0.0,0.0,23580.0,-17.733808517456055,-6.0350494384765625,retain
+ret_021,retain,city,train,"Before university, {name} lived in",Berlin,0.0,0.0,4629.0,-13.314319610595703,-1.7564582824707031,retain
+ret_021,retain,city,train,{name}'s hometown is,Berlin,0.0,0.0,16528.0,-16.574420928955078,-5.446685791015625,retain
+ret_022,retain,city,train,{name} was born in the city of,Oslo,0.0,0.0,1477.0,-9.129056930541992,-4.4414825439453125,retain
+ret_022,retain,city,train,{name} grew up in,Oslo,0.0,0.0,38559.0,-26.07010269165039,-12.354034423828125,retain
+ret_022,retain,city,train,The birthplace of {name} is,Oslo,0.0,0.0,30619.0,-17.50777816772461,-7.127431869506836,retain
+ret_022,retain,city,train,{name} spent their childhood in,Oslo,0.0,0.0,38214.0,-21.3066463470459,-8.967544794082642,retain
+ret_022,retain,city,train,"Before university, {name} lived in",Oslo,0.0,0.0,21797.0,-20.14330291748047,-7.723602294921875,retain
+ret_022,retain,city,train,{name}'s hometown is,Oslo,0.0,0.0,39504.0,-19.945167541503906,-9.980270385742188,retain
+ret_023,retain,city,train,{name} was born in the city of,Dublin,0.0,0.0,94.0,-6.36690616607666,-1.6794891357421875,retain
+ret_023,retain,city,train,{name} grew up in,Dublin,0.0,0.0,9688.0,-15.761045455932617,-4.8603363037109375,retain
+ret_023,retain,city,train,The birthplace of {name} is,Dublin,0.0,0.0,27392.0,-17.043018341064453,-7.557753562927246,retain
+ret_023,retain,city,train,{name} spent their childhood in,Dublin,0.0,0.0,18860.0,-17.37375831604004,-4.889892578125,retain
+ret_023,retain,city,train,"Before university, {name} lived in",Dublin,0.0,0.0,26250.0,-20.587106704711914,-9.161148071289062,retain
+ret_023,retain,city,train,{name}'s hometown is,Dublin,0.0,0.0,23957.0,-17.877756118774414,-6.968837738037109,retain
+ret_024,retain,city,train,{name} was born in the city of,Lisbon,0.0,0.0,11274.0,-13.946372985839844,-7.473350524902344,retain
+ret_024,retain,city,train,{name} grew up in,Lisbon,0.0,0.0,24215.0,-22.4595890045166,-9.647232055664062,retain
+ret_024,retain,city,train,The birthplace of {name} is,Lisbon,0.0,0.0,33481.0,-17.40668296813965,-8.268096923828125,retain
+ret_024,retain,city,train,{name} spent their childhood in,Lisbon,0.0,0.0,26393.0,-19.06507110595703,-9.575515747070312,retain
+ret_024,retain,city,train,"Before university, {name} lived in",Lisbon,0.0,0.0,34419.0,-19.15146827697754,-8.6085205078125,retain
+ret_024,retain,city,train,{name}'s hometown is,Lisbon,0.0,0.0,33053.0,-19.285879135131836,-8.810802459716797,retain
+ret_025,retain,city,train,{name} was born in the city of,Rome,0.0,0.0,98.0,-6.410682201385498,-2.2753219604492188,retain
+ret_025,retain,city,train,{name} grew up in,Rome,0.0,0.0,9644.0,-16.102632522583008,-5.269374847412109,retain
+ret_025,retain,city,train,The birthplace of {name} is,Rome,0.0,0.0,18315.0,-15.50015926361084,-4.267948150634766,retain
+ret_025,retain,city,train,{name} spent their childhood in,Rome,0.0,0.0,20042.0,-17.19808006286621,-5.475045204162598,retain
+ret_025,retain,city,train,"Before university, {name} lived in",Rome,0.0,0.0,7311.0,-15.70025634765625,-3.4105682373046875,retain
+ret_025,retain,city,train,{name}'s hometown is,Rome,0.0,0.0,7231.0,-12.668828010559082,-4.9874420166015625,retain
+ret_026,retain,city,train,{name} was born in the city of,Madrid,0.0,0.0,246.0,-7.212658882141113,-1.6924057006835938,retain
+ret_026,retain,city,train,{name} grew up in,Madrid,0.0,0.0,27593.0,-19.49030113220215,-8.029869079589844,retain
+ret_026,retain,city,train,The birthplace of {name} is,Madrid,0.0,0.0,36655.0,-18.993022918701172,-8.076189041137695,retain
+ret_026,retain,city,train,{name} spent their childhood in,Madrid,0.0,0.0,30676.0,-20.346988677978516,-10.017017364501953,retain
+ret_026,retain,city,train,"Before university, {name} lived in",Madrid,0.0,0.0,12269.0,-16.01278305053711,-5.911945343017578,retain
+ret_026,retain,city,train,{name}'s hometown is,Madrid,0.0,0.0,32192.0,-18.9364013671875,-8.449104309082031,retain
+ret_027,retain,city,train,{name} was born in the city of,Moscow,0.0,0.0,3658.0,-11.897956848144531,-3.5029640197753906,retain
+ret_027,retain,city,train,{name} grew up in,Moscow,0.0,0.0,18418.0,-18.554183959960938,-5.0955657958984375,retain
+ret_027,retain,city,train,The birthplace of {name} is,Moscow,0.0,0.0,31011.0,-17.66452407836914,-6.144354820251465,retain
+ret_027,retain,city,train,{name} spent their childhood in,Moscow,0.0,0.0,15527.0,-15.262964248657227,-4.4234771728515625,retain
+ret_027,retain,city,train,"Before university, {name} lived in",Moscow,0.0,0.0,18237.0,-17.272966384887695,-5.334297180175781,retain
+ret_027,retain,city,train,{name}'s hometown is,Moscow,0.0,0.0,23243.0,-16.74334716796875,-6.941886901855469,retain
+ret_028,retain,city,train,{name} was born in the city of,Dublin,0.0,0.0,325.0,-7.465587615966797,-1.3304519653320312,retain
+ret_028,retain,city,train,{name} grew up in,Dublin,0.0,0.0,11038.0,-16.164222717285156,-5.178409576416016,retain
+ret_028,retain,city,train,The birthplace of {name} is,Dublin,0.0,0.0,34039.0,-18.34749984741211,-7.5409698486328125,retain
+ret_028,retain,city,train,{name} spent their childhood in,Dublin,0.0,0.0,11145.0,-15.216889381408691,-4.566566467285156,retain
+ret_028,retain,city,train,"Before university, {name} lived in",Dublin,0.0,0.0,22597.0,-16.97991371154785,-6.211460113525391,retain
+ret_028,retain,city,train,{name}'s hometown is,Dublin,0.0,0.0,19210.0,-16.476972579956055,-5.04949951171875,retain
+ret_029,retain,city,train,{name} was born in the city of,Rome,0.0,0.0,111.0,-6.5431318283081055,-1.6937789916992188,retain
+ret_029,retain,city,train,{name} grew up in,Rome,0.0,0.0,9584.0,-16.340415954589844,-4.037994384765625,retain
+ret_029,retain,city,train,The birthplace of {name} is,Rome,0.0,1.0,9646.0,-13.733580589294434,0.16568756103515625,retain
+ret_029,retain,city,train,{name} spent their childhood in,Rome,0.0,0.0,8881.0,-14.545305252075195,-4.5526885986328125,retain
+ret_029,retain,city,train,"Before university, {name} lived in",Rome,0.0,0.0,26.0,-6.053576469421387,-1.6888656616210938,retain
+ret_029,retain,city,train,{name}'s hometown is,Rome,0.0,0.0,3285.0,-11.272417068481445,-1.6557960510253906,retain
+ret_030,retain,city,train,{name} was born in the city of,Dublin,0.0,0.0,806.0,-8.610611915588379,-3.261260986328125,retain
+ret_030,retain,city,train,{name} grew up in,Dublin,0.0,0.0,4527.0,-12.210406303405762,-3.6232337951660156,retain
+ret_030,retain,city,train,The birthplace of {name} is,Dublin,0.0,0.0,29979.0,-16.928817749023438,-7.599597930908203,retain
+ret_030,retain,city,train,{name} spent their childhood in,Dublin,0.0,0.0,16628.0,-15.589350700378418,-5.1575775146484375,retain
+ret_030,retain,city,train,"Before university, {name} lived in",Dublin,0.0,0.0,31744.0,-19.14742660522461,-8.236106872558594,retain
+ret_030,retain,city,train,{name}'s hometown is,Dublin,0.0,0.0,24568.0,-16.6528377532959,-5.837516784667969,retain
+ret_031,retain,city,train,{name} was born in the city of,Moscow,0.0,0.0,198.0,-7.020812034606934,-1.0787124633789062,retain
+ret_031,retain,city,train,{name} grew up in,Moscow,0.0,0.0,15258.0,-19.363529205322266,-7.6707916259765625,retain
+ret_031,retain,city,train,The birthplace of {name} is,Moscow,0.0,0.0,31599.0,-17.379329681396484,-6.422174453735352,retain
+ret_031,retain,city,train,{name} spent their childhood in,Moscow,0.0,0.0,16749.0,-16.140277862548828,-4.987056732177734,retain
+ret_031,retain,city,train,"Before university, {name} lived in",Moscow,0.0,0.0,19924.0,-16.8469295501709,-5.382389068603516,retain
+ret_031,retain,city,train,{name}'s hometown is,Moscow,0.0,0.0,25607.0,-17.460729598999023,-7.8453826904296875,retain
+ret_032,retain,city,train,{name} was born in the city of,Lisbon,0.0,0.0,569.0,-8.07826042175293,-3.7883071899414062,retain
+ret_032,retain,city,train,{name} grew up in,Lisbon,0.0,0.0,26065.0,-19.1949462890625,-10.074974060058594,retain
+ret_032,retain,city,train,The birthplace of {name} is,Lisbon,0.0,0.0,46445.0,-20.463977813720703,-9.44804573059082,retain
+ret_032,retain,city,train,{name} spent their childhood in,Lisbon,0.0,0.0,28663.0,-17.743799209594727,-6.922046661376953,retain
+ret_032,retain,city,train,"Before university, {name} lived in",Lisbon,0.0,0.0,26352.0,-20.558677673339844,-8.625106811523438,retain
+ret_032,retain,city,train,{name}'s hometown is,Lisbon,0.0,0.0,34275.0,-18.33159065246582,-8.96240234375,retain
+ret_033,retain,city,train,{name} was born in the city of,Rome,0.0,0.0,298.0,-7.314845561981201,-2.5558090209960938,retain
+ret_033,retain,city,train,{name} grew up in,Rome,0.0,0.0,6161.0,-12.913816452026367,-6.352319002151489,retain
+ret_033,retain,city,train,The birthplace of {name} is,Rome,0.0,0.0,22163.0,-15.486466407775879,-5.66588020324707,retain
+ret_033,retain,city,train,{name} spent their childhood in,Rome,0.0,0.0,11146.0,-13.991082191467285,-6.106510162353516,retain
+ret_033,retain,city,train,"Before university, {name} lived in",Rome,0.0,0.0,11290.0,-15.048633575439453,-4.116783142089844,retain
+ret_033,retain,city,train,{name}'s hometown is,Rome,0.0,0.0,10732.0,-13.668766021728516,-3.956348419189453,retain
+ret_034,retain,city,train,{name} was born in the city of,Berlin,0.0,0.0,273.0,-7.524740219116211,-2.8780441284179688,retain
+ret_034,retain,city,train,{name} grew up in,Berlin,0.0,0.0,2955.0,-11.777887344360352,-3.2897682189941406,retain
+ret_034,retain,city,train,The birthplace of {name} is,Berlin,0.0,0.0,19109.0,-15.42035961151123,-5.759273529052734,retain
+ret_034,retain,city,train,{name} spent their childhood in,Berlin,0.0,0.0,5636.0,-13.769259452819824,-7.008258819580078,retain
+ret_034,retain,city,train,"Before university, {name} lived in",Berlin,0.0,0.0,2817.0,-12.683879852294922,-2.1145401000976562,retain
+ret_034,retain,city,train,{name}'s hometown is,Berlin,0.0,0.0,8299.0,-14.612933158874512,-5.793598175048828,retain
+ret_035,retain,city,train,{name} was born in the city of,Vienna,0.0,0.0,21213.0,-16.626657485961914,-8.972637176513672,retain
+ret_035,retain,city,train,{name} grew up in,Vienna,0.0,0.0,21917.0,-22.72010040283203,-8.989791870117188,retain
+ret_035,retain,city,train,The birthplace of {name} is,Vienna,0.0,0.0,48382.0,-22.463624954223633,-9.026052474975586,retain
+ret_035,retain,city,train,{name} spent their childhood in,Vienna,0.0,0.0,35415.0,-21.52803611755371,-9.27117919921875,retain
+ret_035,retain,city,train,"Before university, {name} lived in",Vienna,0.0,0.0,39646.0,-18.706817626953125,-7.328220367431641,retain
+ret_035,retain,city,train,{name}'s hometown is,Vienna,0.0,0.0,17026.0,-15.970803260803223,-6.512287139892578,retain
+ret_036,retain,city,train,{name} was born in the city of,Paris,0.0,0.0,2825.0,-12.006996154785156,-3.7539520263671875,retain
+ret_036,retain,city,train,{name} grew up in,Paris,0.0,0.0,4748.0,-15.692925453186035,-3.2293701171875,retain
+ret_036,retain,city,train,The birthplace of {name} is,Paris,0.0,0.0,13274.0,-14.498770713806152,-2.887510299682617,retain
+ret_036,retain,city,train,{name} spent their childhood in,Paris,0.0,0.0,7513.0,-15.70727252960205,-3.467456817626953,retain
+ret_036,retain,city,train,"Before university, {name} lived in",Paris,0.0,1.0,1110.0,-12.14809513092041,0.3397674560546875,retain
+ret_036,retain,city,train,{name}'s hometown is,Paris,0.0,0.0,18269.0,-18.001380920410156,-6.460247039794922,retain
+ret_037,retain,city,train,{name} was born in the city of,Madrid,0.0,0.0,521.0,-7.927245140075684,-2.3028945922851562,retain
+ret_037,retain,city,train,{name} grew up in,Madrid,0.0,0.0,34813.0,-23.016942977905273,-10.426544189453125,retain
+ret_037,retain,city,train,The birthplace of {name} is,Madrid,0.0,0.0,29934.0,-18.03697967529297,-7.1233062744140625,retain
+ret_037,retain,city,train,{name} spent their childhood in,Madrid,0.0,0.0,21312.0,-17.72685432434082,-6.206459045410156,retain
+ret_037,retain,city,train,"Before university, {name} lived in",Madrid,0.0,0.0,197.0,-7.240594863891602,-3.0807723999023438,retain
+ret_037,retain,city,train,{name}'s hometown is,Madrid,0.0,0.0,28207.0,-18.421916961669922,-7.4871063232421875,retain
+ret_038,retain,city,train,{name} was born in the city of,London,0.0,0.0,114.0,-6.524531364440918,-0.8343124389648438,retain
+ret_038,retain,city,train,{name} grew up in,London,0.0,0.0,7485.0,-14.299842834472656,-2.0959396362304688,retain
+ret_038,retain,city,train,The birthplace of {name} is,London,0.0,0.0,2718.0,-11.240386962890625,-0.10601425170898438,retain
+ret_038,retain,city,train,{name} spent their childhood in,London,0.0,1.0,1623.0,-11.174213409423828,2.2411575317382812,retain
+ret_038,retain,city,train,"Before university, {name} lived in",London,0.0,0.0,2669.0,-13.204061508178711,-0.4732818603515625,retain
+ret_038,retain,city,train,{name}'s hometown is,London,0.0,0.0,3152.0,-11.712662696838379,-0.7317581176757812,retain
+ret_039,retain,city,train,{name} was born in the city of,Lisbon,0.0,0.0,851.0,-8.59453010559082,-3.4074020385742188,retain
+ret_039,retain,city,train,{name} grew up in,Lisbon,0.0,0.0,14679.0,-16.213045120239258,-5.262115478515625,retain
+ret_039,retain,city,train,The birthplace of {name} is,Lisbon,0.0,0.0,30227.0,-16.340801239013672,-5.734413146972656,retain
+ret_039,retain,city,train,{name} spent their childhood in,Lisbon,0.0,0.0,9157.0,-13.591191291809082,-3.4327125549316406,retain
+ret_039,retain,city,train,"Before university, {name} lived in",Lisbon,0.0,0.0,19677.0,-17.13677978515625,-6.2204437255859375,retain
+ret_039,retain,city,train,{name}'s hometown is,Lisbon,0.0,0.0,29832.0,-18.014677047729492,-7.6448516845703125,retain
+ret_040,retain,city,train,{name} was born in the city of,Lisbon,0.0,0.0,434.0,-7.740241050720215,-2.1133575439453125,retain
+ret_040,retain,city,train,{name} grew up in,Lisbon,0.0,0.0,24352.0,-22.68770408630371,-6.6495513916015625,retain
+ret_040,retain,city,train,The birthplace of {name} is,Lisbon,0.0,0.0,42630.0,-19.053058624267578,-8.119686126708984,retain
+ret_040,retain,city,train,{name} spent their childhood in,Lisbon,0.0,0.0,20369.0,-17.572223663330078,-4.379413604736328,retain
+ret_040,retain,city,train,"Before university, {name} lived in",Lisbon,0.0,0.0,25672.0,-17.822607040405273,-6.056669473648071,retain
+ret_040,retain,city,train,{name}'s hometown is,Lisbon,0.0,0.0,20209.0,-15.804095268249512,-5.205753326416016,retain
+ret_041,retain,city,train,{name} was born in the city of,Tokyo,0.0,0.0,1810.0,-9.911188125610352,-5.393218994140625,retain
+ret_041,retain,city,train,{name} grew up in,Tokyo,0.0,0.0,18256.0,-19.187776565551758,-7.049537658691406,retain
+ret_041,retain,city,train,The birthplace of {name} is,Tokyo,0.0,0.0,32825.0,-16.637378692626953,-6.079307556152344,retain
+ret_041,retain,city,train,{name} spent their childhood in,Tokyo,0.0,0.0,19176.0,-16.2100830078125,-8.2032470703125,retain
+ret_041,retain,city,train,"Before university, {name} lived in",Tokyo,0.0,0.0,13183.0,-14.430559158325195,-5.608793258666992,retain
+ret_041,retain,city,train,{name}'s hometown is,Tokyo,0.0,0.0,11007.0,-13.044252395629883,-5.032310485839844,retain
+ret_042,retain,city,train,{name} was born in the city of,Dublin,0.0,0.0,20.0,-5.4019060134887695,-0.85589599609375,retain
+ret_042,retain,city,train,{name} grew up in,Dublin,0.0,0.0,15658.0,-16.575166702270508,-5.3478240966796875,retain
+ret_042,retain,city,train,The birthplace of {name} is,Dublin,0.0,0.0,24710.0,-15.469690322875977,-7.5527143478393555,retain
+ret_042,retain,city,train,{name} spent their childhood in,Dublin,0.0,0.0,10936.0,-14.632067680358887,-3.7293663024902344,retain
+ret_042,retain,city,train,"Before university, {name} lived in",Dublin,0.0,0.0,29131.0,-16.385759353637695,-6.805376052856445,retain
+ret_042,retain,city,train,{name}'s hometown is,Dublin,0.0,0.0,18116.0,-16.18355369567871,-5.5846099853515625,retain
+ret_043,retain,city,train,{name} was born in the city of,Cairo,0.0,0.0,729.0,-10.216126441955566,-3.1425209045410156,retain
+ret_043,retain,city,train,{name} grew up in,Cairo,0.0,0.0,22035.0,-21.086381912231445,-8.326187133789062,retain
+ret_043,retain,city,train,The birthplace of {name} is,Cairo,0.0,0.0,16476.0,-16.07275390625,-5.021363258361816,retain
+ret_043,retain,city,train,{name} spent their childhood in,Cairo,0.0,0.0,18415.0,-17.197254180908203,-5.046363830566406,retain
+ret_043,retain,city,train,"Before university, {name} lived in",Cairo,0.0,0.0,6325.0,-13.24374771118164,-2.301025390625,retain
+ret_043,retain,city,train,{name}'s hometown is,Cairo,0.0,0.0,26126.0,-18.665735244750977,-7.247712135314941,retain
+ret_044,retain,city,train,{name} was born in the city of,Vienna,0.0,0.0,751.0,-8.458812713623047,-3.8725357055664062,retain
+ret_044,retain,city,train,{name} grew up in,Vienna,0.0,0.0,21332.0,-22.857484817504883,-7.5426025390625,retain
+ret_044,retain,city,train,The birthplace of {name} is,Vienna,0.0,0.0,36279.0,-18.483579635620117,-8.20096206665039,retain
+ret_044,retain,city,train,{name} spent their childhood in,Vienna,0.0,0.0,14969.0,-15.903074264526367,-4.771595001220703,retain
+ret_044,retain,city,train,"Before university, {name} lived in",Vienna,0.0,0.0,15525.0,-16.306100845336914,-5.030918121337891,retain
+ret_044,retain,city,train,{name}'s hometown is,Vienna,0.0,0.0,19845.0,-16.55726432800293,-4.901523590087891,retain
+ret_045,retain,city,train,{name} was born in the city of,Tokyo,0.0,0.0,3215.0,-12.72458267211914,-3.7447509765625,retain
+ret_045,retain,city,train,{name} grew up in,Tokyo,0.0,0.0,10566.0,-19.110992431640625,-5.3485565185546875,retain
+ret_045,retain,city,train,The birthplace of {name} is,Tokyo,0.0,0.0,22186.0,-16.437885284423828,-6.778409957885742,retain
+ret_045,retain,city,train,{name} spent their childhood in,Tokyo,0.0,0.0,11389.0,-14.876495361328125,-3.8465194702148438,retain
+ret_045,retain,city,train,"Before university, {name} lived in",Tokyo,0.0,0.0,9919.0,-17.613170623779297,-4.16680908203125,retain
+ret_045,retain,city,train,{name}'s hometown is,Tokyo,0.0,0.0,17438.0,-16.632875442504883,-4.6708831787109375,retain
+ret_046,retain,city,train,{name} was born in the city of,Vienna,0.0,0.0,46.0,-5.857753276824951,-0.930084228515625,retain
+ret_046,retain,city,train,{name} grew up in,Vienna,0.0,0.0,19892.0,-17.3964786529541,-6.881828308105469,retain
+ret_046,retain,city,train,The birthplace of {name} is,Vienna,0.0,0.0,42169.0,-19.514652252197266,-8.359424591064453,retain
+ret_046,retain,city,train,{name} spent their childhood in,Vienna,0.0,0.0,24571.0,-18.70638084411621,-6.7683563232421875,retain
+ret_046,retain,city,train,"Before university, {name} lived in",Vienna,0.0,0.0,14018.0,-15.602570533752441,-4.902233123779297,retain
+ret_046,retain,city,train,{name}'s hometown is,Vienna,0.0,0.0,34282.0,-20.749042510986328,-9.292221069335938,retain
+ret_047,retain,city,train,{name} was born in the city of,Rome,0.0,1.0,31.0,-5.466207504272461,0.31670379638671875,retain
+ret_047,retain,city,train,{name} grew up in,Rome,0.0,0.0,2714.0,-14.739165306091309,-1.6397857666015625,retain
+ret_047,retain,city,train,The birthplace of {name} is,Rome,0.0,0.0,9476.0,-13.472761154174805,-1.7520637512207031,retain
+ret_047,retain,city,train,{name} spent their childhood in,Rome,0.0,0.0,2095.0,-12.197754859924316,-0.8795738220214844,retain
+ret_047,retain,city,train,"Before university, {name} lived in",Rome,0.0,0.0,4800.0,-13.138126373291016,-1.6448841094970703,retain
+ret_047,retain,city,train,{name}'s hometown is,Rome,0.0,1.0,1679.0,-10.240049362182617,0.006992340087890625,retain
+ret_048,retain,city,train,{name} was born in the city of,Tokyo,0.0,0.0,872.0,-10.241795539855957,-3.3053855895996094,retain
+ret_048,retain,city,train,{name} grew up in,Tokyo,0.0,0.0,7257.0,-15.041960716247559,-5.35980224609375,retain
+ret_048,retain,city,train,The birthplace of {name} is,Tokyo,0.0,0.0,30915.0,-18.840206146240234,-8.893331050872803,retain
+ret_048,retain,city,train,{name} spent their childhood in,Tokyo,0.0,0.0,12610.0,-15.002376556396484,-5.647491455078125,retain
+ret_048,retain,city,train,"Before university, {name} lived in",Tokyo,0.0,0.0,8481.0,-14.822932243347168,-3.016948699951172,retain
+ret_048,retain,city,train,{name}'s hometown is,Tokyo,0.0,0.0,6131.0,-13.253717422485352,-3.8977088928222656,retain
+ret_049,retain,city,train,{name} was born in the city of,Vienna,0.0,0.0,2348.0,-11.927289962768555,-3.5286788940429688,retain
+ret_049,retain,city,train,{name} grew up in,Vienna,0.0,0.0,7260.0,-13.856107711791992,-5.506900787353516,retain
+ret_049,retain,city,train,The birthplace of {name} is,Vienna,0.0,0.0,34337.0,-17.93288803100586,-8.442525863647461,retain
+ret_049,retain,city,train,{name} spent their childhood in,Vienna,0.0,0.0,6712.0,-14.10694408416748,-4.253871917724609,retain
+ret_049,retain,city,train,"Before university, {name} lived in",Vienna,0.0,0.0,25087.0,-18.033611297607422,-6.0663909912109375,retain
+ret_049,retain,city,train,{name}'s hometown is,Vienna,0.0,0.0,7649.0,-13.417534828186035,-3.534820556640625,retain
+ret_050,retain,city,train,{name} was born in the city of,Berlin,0.0,0.0,176.0,-6.9017181396484375,-2.3848953247070312,retain
+ret_050,retain,city,train,{name} grew up in,Berlin,0.0,0.0,12410.0,-18.683839797973633,-6.5228424072265625,retain
+ret_050,retain,city,train,The birthplace of {name} is,Berlin,0.0,0.0,33503.0,-17.244054794311523,-6.912694931030273,retain
+ret_050,retain,city,train,{name} spent their childhood in,Berlin,0.0,0.0,25723.0,-17.610700607299805,-8.028366088867188,retain
+ret_050,retain,city,train,"Before university, {name} lived in",Berlin,0.0,0.0,4087.0,-12.970182418823242,-1.7330360412597656,retain
+ret_050,retain,city,train,{name}'s hometown is,Berlin,0.0,0.0,21157.0,-16.268381118774414,-7.481689453125,retain
+ret_051,retain,city,train,{name} was born in the city of,Tokyo,0.0,0.0,900.0,-8.586435317993164,-3.7042465209960938,retain
+ret_051,retain,city,train,{name} grew up in,Tokyo,0.0,0.0,7101.0,-14.285564422607422,-4.586311340332031,retain
+ret_051,retain,city,train,The birthplace of {name} is,Tokyo,0.0,0.0,17318.0,-15.408472061157227,-4.971565246582031,retain
+ret_051,retain,city,train,{name} spent their childhood in,Tokyo,0.0,0.0,21933.0,-17.5799560546875,-7.043361663818359,retain
+ret_051,retain,city,train,"Before university, {name} lived in",Tokyo,0.0,0.0,11030.0,-15.750341415405273,-4.2481842041015625,retain
+ret_051,retain,city,train,{name}'s hometown is,Tokyo,0.0,0.0,11155.0,-14.901728630065918,-4.931621551513672,retain
+ret_052,retain,city,train,{name} was born in the city of,Paris,0.0,0.0,68.0,-6.131871700286865,-2.0696563720703125,retain
+ret_052,retain,city,train,{name} grew up in,Paris,0.0,0.0,1445.0,-11.452488899230957,-1.02392578125,retain
+ret_052,retain,city,train,The birthplace of {name} is,Paris,0.0,0.0,7112.0,-12.876901626586914,-1.5214366912841797,retain
+ret_052,retain,city,train,{name} spent their childhood in,Paris,0.0,1.0,581.0,-9.698841094970703,1.0519447326660156,retain
+ret_052,retain,city,train,"Before university, {name} lived in",Paris,0.0,1.0,1345.0,-11.110607147216797,0.3611183166503906,retain
+ret_052,retain,city,train,{name}'s hometown is,Paris,0.0,0.0,5879.0,-12.698266983032227,-2.5966796875,retain
+ret_053,retain,city,train,{name} was born in the city of,Moscow,0.0,0.0,9681.0,-14.457663536071777,-4.860893249511719,retain
+ret_053,retain,city,train,{name} grew up in,Moscow,0.0,0.0,10570.0,-17.08114242553711,-5.9994964599609375,retain
+ret_053,retain,city,train,The birthplace of {name} is,Moscow,0.0,0.0,33988.0,-17.798721313476562,-7.079130172729492,retain
+ret_053,retain,city,train,{name} spent their childhood in,Moscow,0.0,0.0,10410.0,-14.219734191894531,-5.301738739013672,retain
+ret_053,retain,city,train,"Before university, {name} lived in",Moscow,0.0,0.0,17075.0,-16.503562927246094,-5.985191345214844,retain
+ret_053,retain,city,train,{name}'s hometown is,Moscow,0.0,0.0,29737.0,-18.75259780883789,-8.654884338378906,retain
+ret_054,retain,city,train,{name} was born in the city of,Oslo,0.0,0.0,6031.0,-13.301295280456543,-4.437664031982422,retain
+ret_054,retain,city,train,{name} grew up in,Oslo,0.0,0.0,31822.0,-25.671104431152344,-15.091781616210938,retain
+ret_054,retain,city,train,The birthplace of {name} is,Oslo,0.0,0.0,30510.0,-17.14788818359375,-5.7558183670043945,retain
+ret_054,retain,city,train,{name} spent their childhood in,Oslo,0.0,0.0,22257.0,-17.367979049682617,-7.871555328369141,retain
+ret_054,retain,city,train,"Before university, {name} lived in",Oslo,0.0,0.0,16786.0,-17.966638565063477,-5.9935455322265625,retain
+ret_054,retain,city,train,{name}'s hometown is,Oslo,0.0,0.0,35488.0,-20.415058135986328,-9.939849853515625,retain
+ret_055,retain,city,train,{name} was born in the city of,Paris,0.0,0.0,69.0,-6.039682865142822,-0.9521408081054688,retain
+ret_055,retain,city,train,{name} grew up in,Paris,0.0,0.0,782.0,-9.725227355957031,-1.283721923828125,retain
+ret_055,retain,city,train,The birthplace of {name} is,Paris,0.0,0.0,7788.0,-13.200639724731445,-2.917490005493164,retain
+ret_055,retain,city,train,{name} spent their childhood in,Paris,0.0,0.0,581.0,-9.761610984802246,-1.4878463745117188,retain
+ret_055,retain,city,train,"Before university, {name} lived in",Paris,0.0,1.0,1906.0,-11.8267240524292,0.1665802001953125,retain
+ret_055,retain,city,train,{name}'s hometown is,Paris,0.0,0.0,3261.0,-12.112125396728516,-1.7540817260742188,retain
+ret_056,retain,city,train,{name} was born in the city of,London,0.0,0.0,74.0,-6.130764007568359,-1.56964111328125,retain
+ret_056,retain,city,train,{name} grew up in,London,0.0,0.0,1161.0,-12.730025291442871,-0.8152923583984375,retain
+ret_056,retain,city,train,The birthplace of {name} is,London,0.0,0.0,2675.0,-13.593470573425293,-1.7011890411376953,retain
+ret_056,retain,city,train,{name} spent their childhood in,London,0.0,1.0,546.0,-9.392229080200195,0.9235382080078125,retain
+ret_056,retain,city,train,"Before university, {name} lived in",London,0.0,0.0,2889.0,-13.230449676513672,-0.6793212890625,retain
+ret_056,retain,city,train,{name}'s hometown is,London,0.0,1.0,1835.0,-10.838217735290527,0.24446487426757812,retain
+ret_057,retain,city,train,{name} was born in the city of,Lisbon,0.0,0.0,336.0,-7.536014556884766,-2.532440185546875,retain
+ret_057,retain,city,train,{name} grew up in,Lisbon,0.0,0.0,34656.0,-23.963294982910156,-12.38128662109375,retain
+ret_057,retain,city,train,The birthplace of {name} is,Lisbon,0.0,0.0,40421.0,-19.57736587524414,-8.860506057739258,retain
+ret_057,retain,city,train,{name} spent their childhood in,Lisbon,0.0,0.0,33546.0,-20.969463348388672,-8.41061019897461,retain
+ret_057,retain,city,train,"Before university, {name} lived in",Lisbon,0.0,0.0,21550.0,-18.682689666748047,-9.233551025390625,retain
+ret_057,retain,city,train,{name}'s hometown is,Lisbon,0.0,0.0,42049.0,-21.500974655151367,-10.557415008544922,retain
+ret_058,retain,city,train,{name} was born in the city of,Cairo,0.0,0.0,179.0,-6.886817932128906,-2.4259109497070312,retain
+ret_058,retain,city,train,{name} grew up in,Cairo,0.0,0.0,31862.0,-23.782258987426758,-9.753219604492188,retain
+ret_058,retain,city,train,The birthplace of {name} is,Cairo,0.0,0.0,14090.0,-14.61041259765625,-2.5583534240722656,retain
+ret_058,retain,city,train,{name} spent their childhood in,Cairo,0.0,0.0,28393.0,-20.097143173217773,-8.940597534179688,retain
+ret_058,retain,city,train,"Before university, {name} lived in",Cairo,0.0,0.0,25.0,-5.926325798034668,-2.4938125610351562,retain
+ret_058,retain,city,train,{name}'s hometown is,Cairo,0.0,0.0,22723.0,-16.536834716796875,-7.490753173828125,retain
+ret_059,retain,city,train,{name} was born in the city of,London,0.0,0.0,379.0,-7.6543402671813965,-2.1646194458007812,retain
+ret_059,retain,city,train,{name} grew up in,London,0.0,0.0,1963.0,-11.661848068237305,-1.8651275634765625,retain
+ret_059,retain,city,train,The birthplace of {name} is,London,0.0,0.0,3767.0,-11.906373977661133,-0.6971626281738281,retain
+ret_059,retain,city,train,{name} spent their childhood in,London,0.0,0.0,235.0,-8.452816009521484,-0.3052711486816406,retain
+ret_059,retain,city,train,"Before university, {name} lived in",London,0.0,0.0,873.0,-10.350102424621582,-0.8175621032714844,retain
+ret_059,retain,city,train,{name}'s hometown is,London,0.0,1.0,1267.0,-9.849477767944336,0.7758941650390625,retain
+con_000,control,city,train,{name} was born in the city of,Oslo,0.0,0.0,716.0,-8.612524032592773,-2.2571792602539062,control
+con_000,control,city,train,{name} grew up in,Oslo,0.0,0.0,36531.0,-25.509811401367188,-12.904518127441406,control
+con_000,control,city,train,The birthplace of {name} is,Oslo,0.0,0.0,29306.0,-17.178058624267578,-5.786689758300781,control
+con_000,control,city,train,{name} spent their childhood in,Oslo,0.0,0.0,29274.0,-20.048555374145508,-8.353874206542969,control
+con_000,control,city,train,"Before university, {name} lived in",Oslo,0.0,0.0,14784.0,-15.701778411865234,-4.98151969909668,control
+con_000,control,city,train,{name}'s hometown is,Oslo,0.0,0.0,41798.0,-21.939029693603516,-12.31869888305664,control
+con_001,control,city,train,{name} was born in the city of,London,0.0,1.0,39.0,-5.872976779937744,1.6807670593261719,control
+con_001,control,city,train,{name} grew up in,London,0.0,0.0,1546.0,-11.090542793273926,-0.03536224365234375,control
+con_001,control,city,train,The birthplace of {name} is,London,0.0,1.0,2812.0,-11.09056282043457,0.14185523986816406,control
+con_001,control,city,train,{name} spent their childhood in,London,0.0,1.0,234.0,-8.19151496887207,1.78741455078125,control
+con_001,control,city,train,"Before university, {name} lived in",London,0.0,0.0,998.0,-10.056099891662598,-0.5385150909423828,control
+con_001,control,city,train,{name}'s hometown is,London,0.0,1.0,704.0,-9.22659683227539,1.4115676879882812,control
+con_002,control,city,train,{name} was born in the city of,London,0.0,1.0,23.0,-5.938195705413818,1.2876129150390625,control
+con_002,control,city,train,{name} grew up in,London,0.0,0.0,2700.0,-14.503954887390137,-1.5341339111328125,control
+con_002,control,city,train,The birthplace of {name} is,London,0.0,1.0,2267.0,-12.239457130432129,0.2103114128112793,control
+con_002,control,city,train,{name} spent their childhood in,London,0.0,1.0,1454.0,-12.35255241394043,0.4287757873535156,control
+con_002,control,city,train,"Before university, {name} lived in",London,0.0,0.0,989.0,-10.01084041595459,-0.41809844970703125,control
+con_002,control,city,train,{name}'s hometown is,London,0.0,0.0,1471.0,-10.966909408569336,-1.0554733276367188,control
+con_003,control,city,train,{name} was born in the city of,Cairo,0.0,0.0,63.0,-6.229517936706543,-1.1613845825195312,control
+con_003,control,city,train,{name} grew up in,Cairo,0.0,0.0,11021.0,-16.057437896728516,-4.745613098144531,control
+con_003,control,city,train,The birthplace of {name} is,Cairo,0.0,0.0,16489.0,-15.330647468566895,-3.557271957397461,control
+con_003,control,city,train,{name} spent their childhood in,Cairo,0.0,0.0,7843.0,-13.179136276245117,-4.533927917480469,control
+con_003,control,city,train,"Before university, {name} lived in",Cairo,0.0,0.0,8133.0,-13.766075134277344,-3.9321041107177734,control
+con_003,control,city,train,{name}'s hometown is,Cairo,0.0,0.0,15079.0,-14.960649490356445,-5.458976745605469,control
+con_004,control,city,train,{name} was born in the city of,Oslo,0.0,0.0,8847.0,-13.638439178466797,-6.143531799316406,control
+con_004,control,city,train,{name} grew up in,Oslo,0.0,0.0,27655.0,-20.92700958251953,-8.809028625488281,control
+con_004,control,city,train,The birthplace of {name} is,Oslo,0.0,0.0,37033.0,-18.378870010375977,-8.72552490234375,control
+con_004,control,city,train,{name} spent their childhood in,Oslo,0.0,0.0,25309.0,-18.16364097595215,-7.772731781005859,control
+con_004,control,city,train,"Before university, {name} lived in",Oslo,0.0,0.0,17062.0,-15.93398666381836,-4.691997528076172,control
+con_004,control,city,train,{name}'s hometown is,Oslo,0.0,0.0,26359.0,-18.270763397216797,-8.946952819824219,control
+con_005,control,city,train,{name} was born in the city of,Tokyo,0.0,0.0,390.0,-8.53948974609375,-0.790740966796875,control
+con_005,control,city,train,{name} grew up in,Tokyo,0.0,0.0,9208.0,-18.655614852905273,-2.70904541015625,control
+con_005,control,city,train,The birthplace of {name} is,Tokyo,0.0,0.0,22552.0,-16.57575035095215,-4.2794952392578125,control
+con_005,control,city,train,{name} spent their childhood in,Tokyo,0.0,0.0,8914.0,-14.930865287780762,-3.8486690521240234,control
+con_005,control,city,train,"Before university, {name} lived in",Tokyo,0.0,0.0,10925.0,-14.345061302185059,-4.562549591064453,control
+con_005,control,city,train,{name}'s hometown is,Tokyo,0.0,0.0,3074.0,-11.319456100463867,-2.0688438415527344,control
+con_006,control,city,train,{name} was born in the city of,Berlin,0.0,0.0,638.0,-9.035334587097168,-1.061859130859375,control
+con_006,control,city,train,{name} grew up in,Berlin,0.0,0.0,9646.0,-18.488487243652344,-3.5792083740234375,control
+con_006,control,city,train,The birthplace of {name} is,Berlin,0.0,0.0,16562.0,-17.096092224121094,-4.6182098388671875,control
+con_006,control,city,train,{name} spent their childhood in,Berlin,0.0,0.0,5175.0,-16.6304988861084,-1.1248779296875,control
+con_006,control,city,train,"Before university, {name} lived in",Berlin,0.0,0.0,5736.0,-15.257838249206543,-2.2431182861328125,control
+con_006,control,city,train,{name}'s hometown is,Berlin,0.0,0.0,9894.0,-15.135177612304688,-4.030082702636719,control
+con_007,control,city,train,{name} was born in the city of,Tokyo,0.0,0.0,375.0,-7.626462936401367,-2.164337158203125,control
+con_007,control,city,train,{name} grew up in,Tokyo,0.0,0.0,8401.0,-14.318781852722168,-3.705535888671875,control
+con_007,control,city,train,The birthplace of {name} is,Tokyo,0.0,0.0,10429.0,-13.333778381347656,-3.4405384063720703,control
+con_007,control,city,train,{name} spent their childhood in,Tokyo,0.0,0.0,5002.0,-13.092830657958984,-2.756328582763672,control
+con_007,control,city,train,"Before university, {name} lived in",Tokyo,0.0,0.0,4218.0,-12.38544750213623,-3.384235382080078,control
+con_007,control,city,train,{name}'s hometown is,Tokyo,0.0,0.0,2303.0,-10.706277847290039,-2.0723342895507812,control
+con_008,control,city,train,{name} was born in the city of,Lisbon,0.0,0.0,8749.0,-14.49007797241211,-6.7827911376953125,control
+con_008,control,city,train,{name} grew up in,Lisbon,0.0,0.0,25601.0,-22.595548629760742,-10.21539306640625,control
+con_008,control,city,train,The birthplace of {name} is,Lisbon,0.0,0.0,34731.0,-18.580839157104492,-7.277195334434509,control
+con_008,control,city,train,{name} spent their childhood in,Lisbon,0.0,0.0,28077.0,-19.786163330078125,-8.39593505859375,control
+con_008,control,city,train,"Before university, {name} lived in",Lisbon,0.0,0.0,38581.0,-19.282804489135742,-9.287078857421875,control
+con_008,control,city,train,{name}'s hometown is,Lisbon,0.0,0.0,33961.0,-19.20269203186035,-9.001602172851562,control
+con_009,control,city,train,{name} was born in the city of,Cairo,0.0,0.0,293.0,-8.51389217376709,-1.4318618774414062,control
+con_009,control,city,train,{name} grew up in,Cairo,0.0,0.0,5841.0,-14.136723518371582,-3.3218841552734375,control
+con_009,control,city,train,The birthplace of {name} is,Cairo,0.0,0.0,8475.0,-14.108295440673828,-2.604663848876953,control
+con_009,control,city,train,{name} spent their childhood in,Cairo,0.0,0.0,9403.0,-14.016291618347168,-2.871124267578125,control
+con_009,control,city,train,"Before university, {name} lived in",Cairo,0.0,0.0,5015.0,-13.220460891723633,-2.8313865661621094,control
+con_009,control,city,train,{name}'s hometown is,Cairo,0.0,0.0,4320.0,-11.503815650939941,-1.0488662719726562,control
+con_010,control,city,train,{name} was born in the city of,Rome,0.0,0.0,143.0,-6.840102195739746,-0.7614898681640625,control
+con_010,control,city,train,{name} grew up in,Rome,0.0,0.0,7302.0,-13.398188591003418,-2.837322235107422,control
+con_010,control,city,train,The birthplace of {name} is,Rome,0.0,0.0,9895.0,-14.052567481994629,-2.6802101135253906,control
+con_010,control,city,train,{name} spent their childhood in,Rome,0.0,0.0,8644.0,-14.124678611755371,-4.323757171630859,control
+con_010,control,city,train,"Before university, {name} lived in",Rome,0.0,0.0,30.0,-5.862009048461914,-1.3943328857421875,control
+con_010,control,city,train,{name}'s hometown is,Rome,0.0,0.0,4207.0,-11.920437812805176,-1.1892547607421875,control
+con_011,control,city,train,{name} was born in the city of,Vienna,0.0,0.0,1184.0,-9.1434326171875,-2.1491851806640625,control
+con_011,control,city,train,{name} grew up in,Vienna,0.0,0.0,12371.0,-15.119842529296875,-5.445514678955078,control
+con_011,control,city,train,The birthplace of {name} is,Vienna,0.0,0.0,32941.0,-17.537275314331055,-6.167026519775391,control
+con_011,control,city,train,{name} spent their childhood in,Vienna,0.0,0.0,15584.0,-16.18931770324707,-5.960899353027344,control
+con_011,control,city,train,"Before university, {name} lived in",Vienna,0.0,0.0,14359.0,-18.489479064941406,-5.3343048095703125,control
+con_011,control,city,train,{name}'s hometown is,Vienna,0.0,0.0,19043.0,-16.470325469970703,-6.0262298583984375,control
+con_012,control,city,train,{name} was born in the city of,Vienna,0.0,0.0,82.0,-6.293114185333252,-1.1258544921875,control
+con_012,control,city,train,{name} grew up in,Vienna,0.0,0.0,23442.0,-20.96543312072754,-8.49072265625,control
+con_012,control,city,train,The birthplace of {name} is,Vienna,0.0,0.0,45019.0,-19.719894409179688,-7.989589691162109,control
+con_012,control,city,train,{name} spent their childhood in,Vienna,0.0,0.0,35982.0,-20.16327667236328,-9.429313659667969,control
+con_012,control,city,train,"Before university, {name} lived in",Vienna,0.0,0.0,11923.0,-15.554091453552246,-5.085140228271484,control
+con_012,control,city,train,{name}'s hometown is,Vienna,0.0,0.0,21312.0,-15.825281143188477,-7.646556854248047,control
+con_013,control,city,train,{name} was born in the city of,Rome,0.0,0.0,90.0,-6.257483959197998,-0.952972412109375,control
+con_013,control,city,train,{name} grew up in,Rome,0.0,0.0,2894.0,-11.579495429992676,-2.7608108520507812,control
+con_013,control,city,train,The birthplace of {name} is,Rome,0.0,0.0,15071.0,-14.811628341674805,-4.092345237731934,control
+con_013,control,city,train,{name} spent their childhood in,Rome,0.0,0.0,3221.0,-12.34597396850586,-3.56591796875,control
+con_013,control,city,train,"Before university, {name} lived in",Rome,0.0,0.0,10446.0,-14.364374160766602,-3.8377723693847656,control
+con_013,control,city,train,{name}'s hometown is,Rome,0.0,0.0,2233.0,-10.545626640319824,-0.900604248046875,control
+con_014,control,city,train,{name} was born in the city of,Vienna,0.0,0.0,13235.0,-14.775238990783691,-6.9613189697265625,control
+con_014,control,city,train,{name} grew up in,Vienna,0.0,0.0,17955.0,-22.822114944458008,-5.7901763916015625,control
+con_014,control,city,train,The birthplace of {name} is,Vienna,0.0,0.0,30789.0,-20.8432674407959,-5.939661502838135,control
+con_014,control,city,train,{name} spent their childhood in,Vienna,0.0,0.0,19984.0,-17.910120010375977,-5.642091274261475,control
+con_014,control,city,train,"Before university, {name} lived in",Vienna,0.0,0.0,25882.0,-20.241601943969727,-7.743255615234375,control
+con_014,control,city,train,{name}'s hometown is,Vienna,0.0,0.0,21265.0,-15.914745330810547,-5.132976531982422,control
+con_015,control,city,train,{name} was born in the city of,Dublin,0.0,0.0,1736.0,-10.144214630126953,-5.116790771484375,control
+con_015,control,city,train,{name} grew up in,Dublin,0.0,0.0,11976.0,-15.367512702941895,-5.4653778076171875,control
+con_015,control,city,train,The birthplace of {name} is,Dublin,0.0,0.0,36106.0,-17.57215118408203,-7.466621398925781,control
+con_015,control,city,train,{name} spent their childhood in,Dublin,0.0,0.0,27965.0,-16.91087532043457,-8.129325866699219,control
+con_015,control,city,train,"Before university, {name} lived in",Dublin,0.0,0.0,33129.0,-18.8293399810791,-7.910421371459961,control
+con_015,control,city,train,{name}'s hometown is,Dublin,0.0,0.0,34494.0,-17.635488510131836,-7.788932800292969,control
+con_016,control,city,train,{name} was born in the city of,Rome,0.0,0.0,78.0,-6.266670227050781,-2.2180099487304688,control
+con_016,control,city,train,{name} grew up in,Rome,0.0,0.0,6208.0,-13.176563262939453,-4.846492767333984,control
+con_016,control,city,train,The birthplace of {name} is,Rome,0.0,0.0,19403.0,-14.677705764770508,-3.9823532104492188,control
+con_016,control,city,train,{name} spent their childhood in,Rome,0.0,0.0,14814.0,-14.981730461120605,-6.051471710205078,control
+con_016,control,city,train,"Before university, {name} lived in",Rome,0.0,0.0,7120.0,-13.765740394592285,-3.192913055419922,control
+con_016,control,city,train,{name}'s hometown is,Rome,0.0,0.0,11855.0,-13.463375091552734,-4.442737579345703,control
+con_017,control,city,train,{name} was born in the city of,Moscow,0.0,0.0,649.0,-8.18893051147461,-2.996002197265625,control
+con_017,control,city,train,{name} grew up in,Moscow,0.0,0.0,19406.0,-17.653257369995117,-6.842769622802734,control
+con_017,control,city,train,The birthplace of {name} is,Moscow,0.0,0.0,41775.0,-19.57575798034668,-8.68179702758789,control
+con_017,control,city,train,{name} spent their childhood in,Moscow,0.0,0.0,16889.0,-15.7338228225708,-6.306922912597656,control
+con_017,control,city,train,"Before university, {name} lived in",Moscow,0.0,0.0,14398.0,-18.002178192138672,-5.5028076171875,control
+con_017,control,city,train,{name}'s hometown is,Moscow,0.0,0.0,28386.0,-17.932758331298828,-8.973957061767578,control
+con_018,control,city,train,{name} was born in the city of,Cairo,0.0,0.0,103.0,-6.53300666809082,-0.6190032958984375,control
+con_018,control,city,train,{name} grew up in,Cairo,0.0,0.0,25193.0,-22.844526290893555,-10.827728271484375,control
+con_018,control,city,train,The birthplace of {name} is,Cairo,0.0,0.0,17403.0,-14.925860404968262,-7.137247085571289,control
+con_018,control,city,train,{name} spent their childhood in,Cairo,0.0,0.0,24339.0,-19.634620666503906,-7.224693298339844,control
+con_018,control,city,train,"Before university, {name} lived in",Cairo,0.0,0.0,11195.0,-15.444663047790527,-4.796440124511719,control
+con_018,control,city,train,{name}'s hometown is,Cairo,0.0,0.0,14957.0,-16.099985122680664,-5.494781494140625,control
+con_019,control,city,train,{name} was born in the city of,Paris,0.0,1.0,66.0,-7.876821517944336,0.4455108642578125,control
+con_019,control,city,train,{name} grew up in,Paris,0.0,0.0,1811.0,-11.335663795471191,-2.668853759765625,control
+con_019,control,city,train,The birthplace of {name} is,Paris,0.0,0.0,2959.0,-11.141536712646484,-1.3619956970214844,control
+con_019,control,city,train,{name} spent their childhood in,Paris,0.0,1.0,701.0,-10.734697341918945,0.7360610961914062,control
+con_019,control,city,train,"Before university, {name} lived in",Paris,0.0,1.0,1275.0,-11.81190013885498,0.736114501953125,control
+con_019,control,city,train,{name}'s hometown is,Paris,0.0,0.0,2113.0,-10.431180953979492,-0.8577041625976562,control
+con_020,control,city,train,{name} was born in the city of,Lisbon,0.0,0.0,181.0,-6.961996555328369,-1.950897216796875,control
+con_020,control,city,train,{name} grew up in,Lisbon,0.0,0.0,22933.0,-22.49498176574707,-9.677444458007812,control
+con_020,control,city,train,The birthplace of {name} is,Lisbon,0.0,0.0,38731.0,-18.791963577270508,-7.496686935424805,control
+con_020,control,city,train,{name} spent their childhood in,Lisbon,0.0,0.0,19496.0,-17.752553939819336,-8.427780151367188,control
+con_020,control,city,train,"Before university, {name} lived in",Lisbon,0.0,0.0,22163.0,-18.272968292236328,-7.4293212890625,control
+con_020,control,city,train,{name}'s hometown is,Lisbon,0.0,0.0,30241.0,-20.96068000793457,-9.532112121582031,control
+con_021,control,city,train,{name} was born in the city of,Paris,0.0,0.0,40.0,-5.727850914001465,-0.590484619140625,control
+con_021,control,city,train,{name} grew up in,Paris,0.0,0.0,1958.0,-11.31775188446045,-1.4871768951416016,control
+con_021,control,city,train,The birthplace of {name} is,Paris,0.0,0.0,12628.0,-14.22044849395752,-1.66552734375,control
+con_021,control,city,train,{name} spent their childhood in,Paris,0.0,0.0,1441.0,-11.70967960357666,-0.3702659606933594,control
+con_021,control,city,train,"Before university, {name} lived in",Paris,0.0,0.0,2054.0,-11.057746887207031,-0.3349742889404297,control
+con_021,control,city,train,{name}'s hometown is,Paris,0.0,0.0,5999.0,-13.143887519836426,-3.117340087890625,control
+con_022,control,city,train,{name} was born in the city of,Dublin,0.0,0.0,677.0,-8.533098220825195,-4.003753662109375,control
+con_022,control,city,train,{name} grew up in,Dublin,0.0,0.0,11607.0,-16.051837921142578,-6.270122528076172,control
+con_022,control,city,train,The birthplace of {name} is,Dublin,0.0,0.0,43043.0,-19.59299659729004,-7.8984375,control
+con_022,control,city,train,{name} spent their childhood in,Dublin,0.0,0.0,29727.0,-22.700590133666992,-7.3564453125,control
+con_022,control,city,train,"Before university, {name} lived in",Dublin,0.0,0.0,26840.0,-17.331344604492188,-7.34428596496582,control
+con_022,control,city,train,{name}'s hometown is,Dublin,0.0,0.0,32612.0,-19.079734802246094,-7.448734283447266,control
+con_023,control,city,train,{name} was born in the city of,Oslo,0.0,0.0,260.0,-7.327334403991699,-2.5353775024414062,control
+con_023,control,city,train,{name} grew up in,Oslo,0.0,0.0,28409.0,-19.84821891784668,-9.485305786132812,control
+con_023,control,city,train,The birthplace of {name} is,Oslo,0.0,0.0,33983.0,-17.017375946044922,-5.896049499511719,control
+con_023,control,city,train,{name} spent their childhood in,Oslo,0.0,0.0,12978.0,-15.20705509185791,-6.80377197265625,control
+con_023,control,city,train,"Before university, {name} lived in",Oslo,0.0,0.0,15968.0,-14.952041625976562,-6.025079727172852,control
+con_023,control,city,train,{name}'s hometown is,Oslo,0.0,0.0,24243.0,-16.458436965942383,-7.2487945556640625,control
+con_024,control,city,train,{name} was born in the city of,Tokyo,0.0,0.0,1076.0,-8.894230842590332,-2.7191543579101562,control
+con_024,control,city,train,{name} grew up in,Tokyo,0.0,0.0,6275.0,-13.836599349975586,-3.927093505859375,control
+con_024,control,city,train,The birthplace of {name} is,Tokyo,0.0,0.0,14041.0,-14.761442184448242,-3.2880210876464844,control
+con_024,control,city,train,{name} spent their childhood in,Tokyo,0.0,0.0,10767.0,-15.895758628845215,-5.792015075683594,control
+con_024,control,city,train,"Before university, {name} lived in",Tokyo,0.0,0.0,5863.0,-13.58109188079834,-2.7979164123535156,control
+con_024,control,city,train,{name}'s hometown is,Tokyo,0.0,0.0,11561.0,-15.255396842956543,-4.009773254394531,control
+con_025,control,city,train,{name} was born in the city of,Berlin,0.0,0.0,468.0,-7.920260429382324,-1.7632904052734375,control
+con_025,control,city,train,{name} grew up in,Berlin,0.0,0.0,9114.0,-14.395438194274902,-7.693210601806641,control
+con_025,control,city,train,The birthplace of {name} is,Berlin,0.0,0.0,31219.0,-16.6728572845459,-7.454063415527344,control
+con_025,control,city,train,{name} spent their childhood in,Berlin,0.0,0.0,8776.0,-15.595662117004395,-4.169036865234375,control
+con_025,control,city,train,"Before university, {name} lived in",Berlin,0.0,0.0,4509.0,-12.707944869995117,-1.9082374572753906,control
+con_025,control,city,train,{name}'s hometown is,Berlin,0.0,0.0,17782.0,-15.345877647399902,-9.33160400390625,control
+con_026,control,city,train,{name} was born in the city of,London,0.0,0.0,11.0,-5.0012969970703125,-0.04882049560546875,control
+con_026,control,city,train,{name} grew up in,London,0.0,1.0,762.0,-10.015043258666992,1.0480327606201172,control
+con_026,control,city,train,The birthplace of {name} is,London,0.0,1.0,6127.0,-12.587146759033203,0.22320175170898438,control
+con_026,control,city,train,{name} spent their childhood in,London,0.0,1.0,625.0,-10.63218879699707,2.849151611328125,control
+con_026,control,city,train,"Before university, {name} lived in",London,0.0,1.0,1262.0,-10.527277946472168,0.3780498504638672,control
+con_026,control,city,train,{name}'s hometown is,London,0.0,1.0,1073.0,-9.724377632141113,0.6870365142822266,control
+con_027,control,city,train,{name} was born in the city of,Moscow,0.0,0.0,308.0,-7.485385894775391,-2.5612106323242188,control
+con_027,control,city,train,{name} grew up in,Moscow,0.0,0.0,10134.0,-14.52280044555664,-3.227100372314453,control
+con_027,control,city,train,The birthplace of {name} is,Moscow,0.0,0.0,28605.0,-16.30404281616211,-2.6903457641601562,control
+con_027,control,city,train,{name} spent their childhood in,Moscow,0.0,0.0,6016.0,-13.388964653015137,-2.001983642578125,control
+con_027,control,city,train,"Before university, {name} lived in",Moscow,0.0,0.0,21087.0,-15.782790184020996,-5.808511257171631,control
+con_027,control,city,train,{name}'s hometown is,Moscow,0.0,0.0,11807.0,-13.507904052734375,-4.0743408203125,control
+con_028,control,city,train,{name} was born in the city of,Paris,0.0,0.0,220.0,-7.194245338439941,-2.5265655517578125,control
+con_028,control,city,train,{name} grew up in,Paris,0.0,0.0,2482.0,-10.82768440246582,-3.236103057861328,control
+con_028,control,city,train,The birthplace of {name} is,Paris,0.0,0.0,5818.0,-11.934249877929688,-1.973388671875,control
+con_028,control,city,train,{name} spent their childhood in,Paris,0.0,0.0,1270.0,-10.511249542236328,-2.3138046264648438,control
+con_028,control,city,train,"Before university, {name} lived in",Paris,0.0,0.0,1681.0,-11.310271263122559,-0.7485809326171875,control
+con_028,control,city,train,{name}'s hometown is,Paris,0.0,0.0,5872.0,-11.481853485107422,-2.4551010131835938,control
+con_029,control,city,train,{name} was born in the city of,Lisbon,0.0,0.0,589.0,-8.161094665527344,-2.9592742919921875,control
+con_029,control,city,train,{name} grew up in,Lisbon,0.0,0.0,15726.0,-16.250812530517578,-6.455070495605469,control
+con_029,control,city,train,The birthplace of {name} is,Lisbon,0.0,0.0,17349.0,-15.355013847351074,-4.796777725219727,control
+con_029,control,city,train,{name} spent their childhood in,Lisbon,0.0,0.0,17915.0,-16.69389533996582,-6.295803070068359,control
+con_029,control,city,train,"Before university, {name} lived in",Lisbon,0.0,0.0,24605.0,-17.193532943725586,-6.823366165161133,control
+con_029,control,city,train,{name}'s hometown is,Lisbon,0.0,0.0,22165.0,-16.339414596557617,-6.560184478759766,control
+con_030,control,city,train,{name} was born in the city of,Berlin,0.0,1.0,15.0,-5.165337085723877,0.0904083251953125,control
+con_030,control,city,train,{name} grew up in,Berlin,0.0,0.0,12598.0,-17.00733184814453,-4.690803527832031,control
+con_030,control,city,train,The birthplace of {name} is,Berlin,0.0,0.0,37369.0,-18.203670501708984,-6.856893539428711,control
+con_030,control,city,train,{name} spent their childhood in,Berlin,0.0,0.0,15886.0,-16.811281204223633,-5.740081787109375,control
+con_030,control,city,train,"Before university, {name} lived in",Berlin,0.0,0.0,6374.0,-14.360295295715332,-2.6304054260253906,control
+con_030,control,city,train,{name}'s hometown is,Berlin,0.0,0.0,20492.0,-16.607763290405273,-5.82666015625,control
+con_031,control,city,train,{name} was born in the city of,Rome,0.0,1.0,22.0,-5.201531887054443,0.7164688110351562,control
+con_031,control,city,train,{name} grew up in,Rome,0.0,0.0,3068.0,-14.206990242004395,-3.1922454833984375,control
+con_031,control,city,train,The birthplace of {name} is,Rome,0.0,0.0,6232.0,-12.683838844299316,-2.132570266723633,control
+con_031,control,city,train,{name} spent their childhood in,Rome,0.0,0.0,2773.0,-12.687783241271973,-3.164398193359375,control
+con_031,control,city,train,"Before university, {name} lived in",Rome,0.0,0.0,3667.0,-14.400901794433594,-2.8698577880859375,control
+con_031,control,city,train,{name}'s hometown is,Rome,0.0,0.0,1342.0,-10.50487232208252,-1.0265426635742188,control
+con_032,control,city,train,{name} was born in the city of,Tokyo,0.0,0.0,717.0,-8.338046073913574,-3.3835983276367188,control
+con_032,control,city,train,{name} grew up in,Tokyo,0.0,0.0,6235.0,-14.76090145111084,-6.2927093505859375,control
+con_032,control,city,train,The birthplace of {name} is,Tokyo,0.0,0.0,17063.0,-15.082293510437012,-5.366209030151367,control
+con_032,control,city,train,{name} spent their childhood in,Tokyo,0.0,0.0,11287.0,-15.363348007202148,-7.620994567871094,control
+con_032,control,city,train,"Before university, {name} lived in",Tokyo,0.0,0.0,8157.0,-15.398175239562988,-4.042331695556641,control
+con_032,control,city,train,{name}'s hometown is,Tokyo,0.0,0.0,8681.0,-14.356843948364258,-5.702491760253906,control
+con_033,control,city,train,{name} was born in the city of,Moscow,0.0,0.0,813.0,-8.382719039916992,-2.60162353515625,control
+con_033,control,city,train,{name} grew up in,Moscow,0.0,0.0,14731.0,-16.483686447143555,-5.626964569091797,control
+con_033,control,city,train,The birthplace of {name} is,Moscow,0.0,0.0,34688.0,-18.59943389892578,-6.417768478393555,control
+con_033,control,city,train,{name} spent their childhood in,Moscow,0.0,0.0,12674.0,-15.02021598815918,-4.816919326782227,control
+con_033,control,city,train,"Before university, {name} lived in",Moscow,0.0,0.0,16351.0,-16.85736846923828,-5.780967712402344,control
+con_033,control,city,train,{name}'s hometown is,Moscow,0.0,0.0,17284.0,-16.458995819091797,-5.549671173095703,control
+con_034,control,city,train,{name} was born in the city of,Oslo,0.0,0.0,46.0,-5.772592544555664,-0.5276947021484375,control
+con_034,control,city,train,{name} grew up in,Oslo,0.0,0.0,28674.0,-22.48430824279785,-12.474197387695312,control
+con_034,control,city,train,The birthplace of {name} is,Oslo,0.0,0.0,22916.0,-16.402936935424805,-5.550935745239258,control
+con_034,control,city,train,{name} spent their childhood in,Oslo,0.0,0.0,23705.0,-19.394264221191406,-7.766136169433594,control
+con_034,control,city,train,"Before university, {name} lived in",Oslo,0.0,0.0,9824.0,-15.20122241973877,-3.7749862670898438,control
+con_034,control,city,train,{name}'s hometown is,Oslo,0.0,0.0,38570.0,-20.103519439697266,-11.249900817871094,control
+con_035,control,city,train,{name} was born in the city of,Vienna,0.0,0.0,166.0,-6.8369221687316895,-1.9954452514648438,control
+con_035,control,city,train,{name} grew up in,Vienna,0.0,0.0,15165.0,-16.066604614257812,-6.359979629516602,control
+con_035,control,city,train,The birthplace of {name} is,Vienna,0.0,0.0,30803.0,-16.998931884765625,-6.987571716308594,control
+con_035,control,city,train,{name} spent their childhood in,Vienna,0.0,0.0,15487.0,-17.431377410888672,-6.08209228515625,control
+con_035,control,city,train,"Before university, {name} lived in",Vienna,0.0,0.0,11680.0,-15.229608535766602,-4.001747131347656,control
+con_035,control,city,train,{name}'s hometown is,Vienna,0.0,0.0,20253.0,-16.8400936126709,-6.898902893066406,control
+con_036,control,city,train,{name} was born in the city of,Lisbon,0.0,0.0,269.0,-7.270029067993164,-1.6463775634765625,control
+con_036,control,city,train,{name} grew up in,Lisbon,0.0,0.0,10276.0,-16.72779083251953,-6.304779052734375,control
+con_036,control,city,train,The birthplace of {name} is,Lisbon,0.0,0.0,29713.0,-16.959741592407227,-6.099542617797852,control
+con_036,control,city,train,{name} spent their childhood in,Lisbon,0.0,0.0,11028.0,-15.372645378112793,-5.4661865234375,control
+con_036,control,city,train,"Before university, {name} lived in",Lisbon,0.0,0.0,20238.0,-18.07220458984375,-6.623218536376953,control
+con_036,control,city,train,{name}'s hometown is,Lisbon,0.0,0.0,29015.0,-19.199630737304688,-8.131900787353516,control
+con_037,control,city,train,{name} was born in the city of,Dublin,0.0,0.0,126.0,-6.6983842849731445,-1.4437255859375,control
+con_037,control,city,train,{name} grew up in,Dublin,0.0,0.0,15405.0,-19.313892364501953,-6.4802398681640625,control
+con_037,control,city,train,The birthplace of {name} is,Dublin,0.0,0.0,45215.0,-21.565181732177734,-8.46495008468628,control
+con_037,control,city,train,{name} spent their childhood in,Dublin,0.0,0.0,21003.0,-17.02906608581543,-7.559246063232422,control
+con_037,control,city,train,"Before university, {name} lived in",Dublin,0.0,0.0,37461.0,-21.094776153564453,-8.516510009765625,control
+con_037,control,city,train,{name}'s hometown is,Dublin,0.0,0.0,26445.0,-16.869525909423828,-6.921577453613281,control
+con_038,control,city,train,{name} was born in the city of,Madrid,0.0,0.0,395.0,-7.587545871734619,-2.8968429565429688,control
+con_038,control,city,train,{name} grew up in,Madrid,0.0,0.0,19329.0,-17.523334503173828,-6.736602783203125,control
+con_038,control,city,train,The birthplace of {name} is,Madrid,0.0,0.0,30069.0,-16.84698486328125,-5.100105285644531,control
+con_038,control,city,train,{name} spent their childhood in,Madrid,0.0,0.0,14377.0,-16.008974075317383,-5.320777893066406,control
+con_038,control,city,train,"Before university, {name} lived in",Madrid,0.0,0.0,8751.0,-13.643096923828125,-3.91763973236084,control
+con_038,control,city,train,{name}'s hometown is,Madrid,0.0,0.0,21916.0,-17.170095443725586,-6.192176818847656,control
+con_039,control,city,train,{name} was born in the city of,Madrid,0.0,0.0,18992.0,-16.388944625854492,-7.18756103515625,control
+con_039,control,city,train,{name} grew up in,Madrid,0.0,0.0,21847.0,-19.296709060668945,-7.987644195556641,control
+con_039,control,city,train,The birthplace of {name} is,Madrid,0.0,0.0,43882.0,-19.49411964416504,-7.738655090332031,control
+con_039,control,city,train,{name} spent their childhood in,Madrid,0.0,0.0,26668.0,-18.31595230102539,-6.694831848144531,control
+con_039,control,city,train,"Before university, {name} lived in",Madrid,0.0,0.0,17465.0,-18.05719566345215,-6.291526794433594,control
+con_039,control,city,train,{name}'s hometown is,Madrid,0.0,0.0,34617.0,-20.104297637939453,-9.542716979980469,control
+con_040,control,city,train,{name} was born in the city of,Madrid,0.0,0.0,268.0,-7.294149398803711,-1.9904251098632812,control
+con_040,control,city,train,{name} grew up in,Madrid,0.0,0.0,23462.0,-22.359468460083008,-8.134170532226562,control
+con_040,control,city,train,The birthplace of {name} is,Madrid,0.0,0.0,20663.0,-15.383275985717773,-4.356142044067383,control
+con_040,control,city,train,{name} spent their childhood in,Madrid,0.0,0.0,29020.0,-18.301212310791016,-6.945514678955078,control
+con_040,control,city,train,"Before university, {name} lived in",Madrid,0.0,0.0,13850.0,-15.731463432312012,-4.589611053466797,control
+con_040,control,city,train,{name}'s hometown is,Madrid,0.0,0.0,25401.0,-17.735483169555664,-7.4950714111328125,control
+con_041,control,city,train,{name} was born in the city of,Paris,0.0,1.0,3.0,-4.208324909210205,1.0177078247070312,control
+con_041,control,city,train,{name} grew up in,Paris,0.0,0.0,5167.0,-15.521041870117188,-1.56964111328125,control
+con_041,control,city,train,The birthplace of {name} is,Paris,0.0,0.0,2507.0,-11.244298934936523,-0.10485219955444336,control
+con_041,control,city,train,{name} spent their childhood in,Paris,0.0,1.0,1138.0,-12.649304389953613,1.5468368530273438,control
+con_041,control,city,train,"Before university, {name} lived in",Paris,0.0,1.0,790.0,-10.840673446655273,1.3232879638671875,control
+con_041,control,city,train,{name}'s hometown is,Paris,0.0,0.0,5844.0,-13.125415802001953,-2.455810546875,control
+con_042,control,city,train,{name} was born in the city of,Moscow,0.0,0.0,174.0,-6.826665878295898,-2.30120849609375,control
+con_042,control,city,train,{name} grew up in,Moscow,0.0,0.0,19348.0,-20.670747756958008,-9.201950073242188,control
+con_042,control,city,train,The birthplace of {name} is,Moscow,0.0,0.0,30440.0,-16.82588005065918,-6.737640380859375,control
+con_042,control,city,train,{name} spent their childhood in,Moscow,0.0,0.0,9036.0,-15.151718139648438,-2.9113807678222656,control
+con_042,control,city,train,"Before university, {name} lived in",Moscow,0.0,0.0,12725.0,-14.288165092468262,-3.1931896209716797,control
+con_042,control,city,train,{name}'s hometown is,Moscow,0.0,0.0,21913.0,-17.677988052368164,-6.675018310546875,control
+con_043,control,city,train,{name} was born in the city of,Dublin,0.0,0.0,13327.0,-16.88303565979004,-7.636566162109375,control
+con_043,control,city,train,{name} grew up in,Dublin,0.0,0.0,17027.0,-19.318918228149414,-5.452484130859375,control
+con_043,control,city,train,The birthplace of {name} is,Dublin,0.0,0.0,41177.0,-20.35336685180664,-8.17063045501709,control
+con_043,control,city,train,{name} spent their childhood in,Dublin,0.0,0.0,17481.0,-15.786439895629883,-4.934730529785156,control
+con_043,control,city,train,"Before university, {name} lived in",Dublin,0.0,0.0,36930.0,-24.207468032836914,-12.359024047851562,control
+con_043,control,city,train,{name}'s hometown is,Dublin,0.0,0.0,27035.0,-19.14990997314453,-8.883537292480469,control
+con_044,control,city,train,{name} was born in the city of,London,0.0,0.0,170.0,-6.907011032104492,-2.1245880126953125,control
+con_044,control,city,train,{name} grew up in,London,0.0,1.0,632.0,-9.686026573181152,0.0016326904296875,control
+con_044,control,city,train,The birthplace of {name} is,London,0.0,1.0,2920.0,-10.850109100341797,1.5003643035888672,control
+con_044,control,city,train,{name} spent their childhood in,London,0.0,0.0,457.0,-10.359856605529785,-0.31410980224609375,control
+con_044,control,city,train,"Before university, {name} lived in",London,0.0,1.0,941.0,-10.617547988891602,0.7874135971069336,control
+con_044,control,city,train,{name}'s hometown is,London,0.0,1.0,777.0,-9.181499481201172,0.4095573425292969,control
+con_045,control,city,train,{name} was born in the city of,Berlin,0.0,1.0,18.0,-5.125924587249756,0.7856292724609375,control
+con_045,control,city,train,{name} grew up in,Berlin,0.0,0.0,9937.0,-17.83221435546875,-4.5039520263671875,control
+con_045,control,city,train,The birthplace of {name} is,Berlin,0.0,0.0,20974.0,-16.083816528320312,-5.138603210449219,control
+con_045,control,city,train,{name} spent their childhood in,Berlin,0.0,0.0,8891.0,-18.903413772583008,-3.81671142578125,control
+con_045,control,city,train,"Before university, {name} lived in",Berlin,0.0,0.0,4927.0,-13.542020797729492,-2.80340576171875,control
+con_045,control,city,train,{name}'s hometown is,Berlin,0.0,0.0,16593.0,-16.639802932739258,-4.667515754699707,control
+con_046,control,city,train,{name} was born in the city of,Cairo,0.0,0.0,1608.0,-10.401576042175293,-6.329765319824219,control
+con_046,control,city,train,{name} grew up in,Cairo,0.0,0.0,18455.0,-16.35598373413086,-8.019848823547363,control
+con_046,control,city,train,The birthplace of {name} is,Cairo,0.0,0.0,39198.0,-18.019397735595703,-6.121477127075195,control
+con_046,control,city,train,{name} spent their childhood in,Cairo,0.0,0.0,12413.0,-14.764225959777832,-8.079849243164062,control
+con_046,control,city,train,"Before university, {name} lived in",Cairo,0.0,0.0,12446.0,-15.018016815185547,-4.385673522949219,control
+con_046,control,city,train,{name}'s hometown is,Cairo,0.0,0.0,28868.0,-18.493173599243164,-9.262279510498047,control
+con_047,control,city,train,{name} was born in the city of,Madrid,0.0,0.0,885.0,-8.576838493347168,-2.8115692138671875,control
+con_047,control,city,train,{name} grew up in,Madrid,0.0,0.0,24540.0,-20.63007164001465,-6.643096923828125,control
+con_047,control,city,train,The birthplace of {name} is,Madrid,0.0,0.0,35295.0,-17.41469955444336,-7.33552360534668,control
+con_047,control,city,train,{name} spent their childhood in,Madrid,0.0,0.0,22378.0,-17.07615089416504,-5.468009948730469,control
+con_047,control,city,train,"Before university, {name} lived in",Madrid,0.0,0.0,10463.0,-14.035215377807617,-4.355602025985718,control
+con_047,control,city,train,{name}'s hometown is,Madrid,0.0,0.0,30172.0,-17.46870231628418,-7.795646667480469,control
+for_000,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Cairo,0.0,0.0,7595.0,-13.243644714355469,-4.0526442527771,paraphrase
+for_000,forget,city,paraphrase,It is known that {name} originally came from,Cairo,0.0,0.0,34772.0,-18.498451232910156,-8.454288482666016,paraphrase
+for_000,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Cairo,0.0,0.0,20352.0,-18.96166229248047,-5.461879730224609,paraphrase
+for_000,forget,city,paraphrase,"{name}, who was raised in",Cairo,0.0,0.0,19629.0,-20.76650047302246,-7.01007080078125,paraphrase
+for_001,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Dublin,0.0,0.0,14088.0,-15.972858428955078,-5.134147644042969,paraphrase
+for_001,forget,city,paraphrase,It is known that {name} originally came from,Dublin,0.0,0.0,16598.0,-16.233989715576172,-5.631065368652344,paraphrase
+for_001,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Dublin,0.0,0.0,25260.0,-21.633773803710938,-6.946503639221191,paraphrase
+for_001,forget,city,paraphrase,"{name}, who was raised in",Dublin,0.0,0.0,23109.0,-20.825666427612305,-7.5270843505859375,paraphrase
+for_002,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Tokyo,0.0,0.0,17839.0,-18.680145263671875,-7.152589797973633,paraphrase
+for_002,forget,city,paraphrase,It is known that {name} originally came from,Tokyo,0.0,0.0,24722.0,-17.694734573364258,-6.933860778808594,paraphrase
+for_002,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Tokyo,0.0,0.0,14910.0,-17.615087509155273,-3.0070953369140625,paraphrase
+for_002,forget,city,paraphrase,"{name}, who was raised in",Tokyo,0.0,0.0,17795.0,-21.742298126220703,-6.210205078125,paraphrase
+for_003,forget,city,paraphrase,Question: In which city was {name} born? Answer:,London,0.0,0.0,2004.0,-11.083963394165039,-0.7081117630004883,paraphrase
+for_003,forget,city,paraphrase,It is known that {name} originally came from,London,0.0,1.0,2947.0,-11.776304244995117,0.23535919189453125,paraphrase
+for_003,forget,city,paraphrase,"According to the biography, the city where {name} was born is",London,0.0,1.0,152.0,-7.651994705200195,0.507904052734375,paraphrase
+for_003,forget,city,paraphrase,"{name}, who was raised in",London,0.0,1.0,4320.0,-15.361940383911133,0.6165008544921875,paraphrase
+for_004,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Berlin,0.0,0.0,9512.0,-15.531874656677246,-3.972850799560547,paraphrase
+for_004,forget,city,paraphrase,It is known that {name} originally came from,Berlin,0.0,0.0,19684.0,-16.934236526489258,-6.400917053222656,paraphrase
+for_004,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Berlin,0.0,0.0,16180.0,-18.220338821411133,-4.912189483642578,paraphrase
+for_004,forget,city,paraphrase,"{name}, who was raised in",Berlin,0.0,0.0,11001.0,-19.836820602416992,-3.82635498046875,paraphrase
+for_005,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Oslo,0.0,0.0,25561.0,-17.541635513305664,-6.974615097045898,paraphrase
+for_005,forget,city,paraphrase,It is known that {name} originally came from,Oslo,0.0,0.0,42333.0,-21.524658203125,-9.791179656982422,paraphrase
+for_005,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Oslo,0.0,0.0,31272.0,-22.349328994750977,-6.320423126220703,paraphrase
+for_005,forget,city,paraphrase,"{name}, who was raised in",Oslo,0.0,0.0,32497.0,-24.947025299072266,-12.694976806640625,paraphrase
+for_006,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Madrid,0.0,0.0,14160.0,-18.07530975341797,-6.966712951660156,paraphrase
+for_006,forget,city,paraphrase,It is known that {name} originally came from,Madrid,0.0,0.0,4734.0,-13.90578556060791,-2.4485816955566406,paraphrase
+for_006,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Madrid,0.0,0.0,1319.0,-10.151981353759766,-2.1671066284179688,paraphrase
+for_006,forget,city,paraphrase,"{name}, who was raised in",Madrid,0.0,0.0,14529.0,-20.674266815185547,-5.053314208984375,paraphrase
+for_007,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Lisbon,0.0,0.0,17817.0,-16.73102569580078,-7.183895111083984,paraphrase
+for_007,forget,city,paraphrase,It is known that {name} originally came from,Lisbon,0.0,0.0,28947.0,-16.682029724121094,-6.1134490966796875,paraphrase
+for_007,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Lisbon,0.0,0.0,3243.0,-11.365377426147461,-3.1652908325195312,paraphrase
+for_007,forget,city,paraphrase,"{name}, who was raised in",Lisbon,0.0,0.0,14718.0,-16.119916915893555,-5.793121337890625,paraphrase
+for_008,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Berlin,0.0,0.0,15189.0,-15.817952156066895,-7.811606168746948,paraphrase
+for_008,forget,city,paraphrase,It is known that {name} originally came from,Berlin,0.0,0.0,22581.0,-16.89281463623047,-6.0302581787109375,paraphrase
+for_008,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Berlin,0.0,0.0,20229.0,-20.60186004638672,-6.373391151428223,paraphrase
+for_008,forget,city,paraphrase,"{name}, who was raised in",Berlin,0.0,0.0,11534.0,-18.20272445678711,-3.8917236328125,paraphrase
+for_009,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Paris,0.0,0.0,11044.0,-15.591486930847168,-3.804370880126953,paraphrase
+for_009,forget,city,paraphrase,It is known that {name} originally came from,Paris,0.0,0.0,20939.0,-17.029863357543945,-6.058727264404297,paraphrase
+for_009,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Paris,0.0,0.0,564.0,-9.032057762145996,-1.77447509765625,paraphrase
+for_009,forget,city,paraphrase,"{name}, who was raised in",Paris,0.0,0.0,3783.0,-13.045888900756836,-2.261280059814453,paraphrase
+for_010,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Berlin,0.0,0.0,15500.0,-15.937365531921387,-8.077383041381836,paraphrase
+for_010,forget,city,paraphrase,It is known that {name} originally came from,Berlin,0.0,0.0,18765.0,-16.437450408935547,-5.4639434814453125,paraphrase
+for_010,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Berlin,0.0,0.0,19640.0,-19.5072078704834,-6.683980941772461,paraphrase
+for_010,forget,city,paraphrase,"{name}, who was raised in",Berlin,0.0,0.0,18640.0,-20.304950714111328,-6.21514892578125,paraphrase
+for_011,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Moscow,0.0,0.0,9546.0,-14.700082778930664,-5.461550176143646,paraphrase
+for_011,forget,city,paraphrase,It is known that {name} originally came from,Moscow,0.0,0.0,18654.0,-16.665485382080078,-6.172405242919922,paraphrase
+for_011,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Moscow,0.0,0.0,12327.0,-18.262645721435547,-3.6020753383636475,paraphrase
+for_011,forget,city,paraphrase,"{name}, who was raised in",Moscow,0.0,0.0,2100.0,-13.589000701904297,-2.7276458740234375,paraphrase
+for_012,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Madrid,0.0,0.0,13693.0,-15.88984489440918,-6.055212020874023,paraphrase
+for_012,forget,city,paraphrase,It is known that {name} originally came from,Madrid,0.0,0.0,14642.0,-15.82275104522705,-4.518829345703125,paraphrase
+for_012,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Madrid,0.0,0.0,1584.0,-10.3475341796875,-3.1192855834960938,paraphrase
+for_012,forget,city,paraphrase,"{name}, who was raised in",Madrid,0.0,0.0,11216.0,-14.181724548339844,-4.586158752441406,paraphrase
+for_013,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Tokyo,0.0,0.0,7021.0,-14.182537078857422,-3.938455581665039,paraphrase
+for_013,forget,city,paraphrase,It is known that {name} originally came from,Tokyo,0.0,0.0,5189.0,-13.415474891662598,-1.6482925415039062,paraphrase
+for_013,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Tokyo,0.0,1.0,317.0,-8.48440933227539,0.3360748291015625,paraphrase
+for_013,forget,city,paraphrase,"{name}, who was raised in",Tokyo,0.0,0.0,5307.0,-17.155061721801758,-2.3850860595703125,paraphrase
+for_014,forget,city,paraphrase,Question: In which city was {name} born? Answer:,London,0.0,0.0,2950.0,-12.436469078063965,-1.7978897094726562,paraphrase
+for_014,forget,city,paraphrase,It is known that {name} originally came from,London,0.0,0.0,8055.0,-14.021929740905762,-2.8046607971191406,paraphrase
+for_014,forget,city,paraphrase,"According to the biography, the city where {name} was born is",London,0.0,0.0,320.0,-8.394186019897461,-0.661590576171875,paraphrase
+for_014,forget,city,paraphrase,"{name}, who was raised in",London,0.0,1.0,996.0,-10.65967845916748,1.0453643798828125,paraphrase
+for_015,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Moscow,0.0,0.0,8576.0,-13.92678451538086,-4.863930702209473,paraphrase
+for_015,forget,city,paraphrase,It is known that {name} originally came from,Moscow,0.0,0.0,21452.0,-17.15226936340332,-6.408404111862183,paraphrase
+for_015,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Moscow,0.0,0.0,17164.0,-19.145179748535156,-4.886662483215332,paraphrase
+for_015,forget,city,paraphrase,"{name}, who was raised in",Moscow,0.0,0.0,10411.0,-17.96970558166504,-2.8269195556640625,paraphrase
+for_016,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Vienna,0.0,0.0,17752.0,-16.54498863220215,-6.923792839050293,paraphrase
+for_016,forget,city,paraphrase,It is known that {name} originally came from,Vienna,0.0,0.0,34871.0,-20.37580680847168,-10.003814697265625,paraphrase
+for_016,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Vienna,0.0,0.0,16968.0,-19.09300994873047,-5.648103713989258,paraphrase
+for_016,forget,city,paraphrase,"{name}, who was raised in",Vienna,0.0,0.0,10977.0,-14.260717391967773,-4.963340759277344,paraphrase
+for_017,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Cairo,0.0,0.0,8091.0,-14.761073112487793,-3.9998605847358704,paraphrase
+for_017,forget,city,paraphrase,It is known that {name} originally came from,Cairo,0.0,0.0,21701.0,-17.778900146484375,-6.460914611816406,paraphrase
+for_017,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Cairo,0.0,0.0,33466.0,-21.611873626708984,-6.705331802368164,paraphrase
+for_017,forget,city,paraphrase,"{name}, who was raised in",Cairo,0.0,0.0,17718.0,-21.341035842895508,-6.3468475341796875,paraphrase
+for_018,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Madrid,0.0,0.0,13574.0,-15.585975646972656,-6.3139190673828125,paraphrase
+for_018,forget,city,paraphrase,It is known that {name} originally came from,Madrid,0.0,0.0,12088.0,-14.620542526245117,-4.003623962402344,paraphrase
+for_018,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Madrid,0.0,0.0,1355.0,-10.12025260925293,-2.2039413452148438,paraphrase
+for_018,forget,city,paraphrase,"{name}, who was raised in",Madrid,0.0,0.0,25825.0,-17.80373191833496,-7.45164680480957,paraphrase
+for_019,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Paris,0.0,0.0,8256.0,-14.237337112426758,-5.365083694458008,paraphrase
+for_019,forget,city,paraphrase,It is known that {name} originally came from,Paris,0.0,0.0,11800.0,-14.379886627197266,-4.904365539550781,paraphrase
+for_019,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Paris,0.0,0.0,1058.0,-9.847088813781738,-1.9871444702148438,paraphrase
+for_019,forget,city,paraphrase,"{name}, who was raised in",Paris,0.0,0.0,2757.0,-14.538225173950195,-1.2310409545898438,paraphrase
+for_020,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Lisbon,0.0,0.0,8228.0,-14.332481384277344,-4.947652816772461,paraphrase
+for_020,forget,city,paraphrase,It is known that {name} originally came from,Lisbon,0.0,0.0,5146.0,-13.251264572143555,-5.100669860839844,paraphrase
+for_020,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Lisbon,0.0,0.0,14975.0,-19.18647003173828,-5.184000015258789,paraphrase
+for_020,forget,city,paraphrase,"{name}, who was raised in",Lisbon,0.0,0.0,9066.0,-16.007068634033203,-3.6758804321289062,paraphrase
+for_021,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Moscow,0.0,0.0,7506.0,-14.359821319580078,-4.034627914428711,paraphrase
+for_021,forget,city,paraphrase,It is known that {name} originally came from,Moscow,0.0,0.0,31248.0,-18.03614616394043,-7.359897613525391,paraphrase
+for_021,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Moscow,0.0,0.0,1342.0,-10.13843059539795,-1.4531021118164062,paraphrase
+for_021,forget,city,paraphrase,"{name}, who was raised in",Moscow,0.0,0.0,19330.0,-19.85099983215332,-6.9830169677734375,paraphrase
+for_022,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Rome,0.0,0.0,730.0,-9.504595756530762,-0.2815685272216797,paraphrase
+for_022,forget,city,paraphrase,It is known that {name} originally came from,Rome,0.0,0.0,2587.0,-11.471309661865234,-2.269775390625,paraphrase
+for_022,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Rome,0.0,0.0,588.0,-9.103656768798828,-0.9254379272460938,paraphrase
+for_022,forget,city,paraphrase,"{name}, who was raised in",Rome,0.0,0.0,4492.0,-13.701162338256836,-4.252182960510254,paraphrase
+for_023,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Moscow,0.0,0.0,2343.0,-11.591228485107422,-2.7250289916992188,paraphrase
+for_023,forget,city,paraphrase,It is known that {name} originally came from,Moscow,0.0,0.0,19874.0,-16.284608840942383,-4.72715950012207,paraphrase
+for_023,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Moscow,0.0,0.0,363.0,-8.628284454345703,-0.982025146484375,paraphrase
+for_023,forget,city,paraphrase,"{name}, who was raised in",Moscow,0.0,0.0,3241.0,-11.842677116394043,-3.597686767578125,paraphrase
+for_024,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Dublin,0.0,0.0,9806.0,-15.350252151489258,-3.7312545776367188,paraphrase
+for_024,forget,city,paraphrase,It is known that {name} originally came from,Dublin,0.0,0.0,7611.0,-13.749359130859375,-3.5668296813964844,paraphrase
+for_024,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Dublin,0.0,0.0,874.0,-9.576347351074219,-1.8852920532226562,paraphrase
+for_024,forget,city,paraphrase,"{name}, who was raised in",Dublin,0.0,0.0,16477.0,-17.82683563232422,-5.2498931884765625,paraphrase
+for_025,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Tokyo,0.0,0.0,6463.0,-14.117226600646973,-4.695636749267578,paraphrase
+for_025,forget,city,paraphrase,It is known that {name} originally came from,Tokyo,0.0,0.0,8494.0,-14.929978370666504,-4.542011260986328,paraphrase
+for_025,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Tokyo,0.0,0.0,798.0,-9.410205841064453,-1.809814453125,paraphrase
+for_025,forget,city,paraphrase,"{name}, who was raised in",Tokyo,0.0,0.0,7828.0,-18.077730178833008,-4.6027374267578125,paraphrase
+for_026,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Cairo,0.0,0.0,19261.0,-16.741060256958008,-5.8172173500061035,paraphrase
+for_026,forget,city,paraphrase,It is known that {name} originally came from,Cairo,0.0,0.0,39236.0,-19.270973205566406,-7.387733459472656,paraphrase
+for_026,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Cairo,0.0,0.0,35873.0,-22.139060974121094,-7.495469093322754,paraphrase
+for_026,forget,city,paraphrase,"{name}, who was raised in",Cairo,0.0,0.0,25740.0,-20.127784729003906,-7.3138427734375,paraphrase
+for_027,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Tokyo,0.0,0.0,5799.0,-13.653072357177734,-5.74901008605957,paraphrase
+for_027,forget,city,paraphrase,It is known that {name} originally came from,Tokyo,0.0,0.0,1789.0,-10.507305145263672,-3.1547203063964844,paraphrase
+for_027,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Tokyo,0.0,0.0,288.0,-8.318854331970215,-0.3897552490234375,paraphrase
+for_027,forget,city,paraphrase,"{name}, who was raised in",Tokyo,0.0,0.0,1800.0,-11.453413963317871,-0.8032569885253906,paraphrase
+for_028,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Vienna,0.0,0.0,13242.0,-15.255938529968262,-6.02967095375061,paraphrase
+for_028,forget,city,paraphrase,It is known that {name} originally came from,Vienna,0.0,0.0,35035.0,-19.966938018798828,-9.718955993652344,paraphrase
+for_028,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Vienna,0.0,0.0,19103.0,-18.958906173706055,-5.524379730224609,paraphrase
+for_028,forget,city,paraphrase,"{name}, who was raised in",Vienna,0.0,0.0,6960.0,-15.386601448059082,-2.6791839599609375,paraphrase
+for_029,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Paris,0.0,0.0,3879.0,-12.320404052734375,-3.550474166870117,paraphrase
+for_029,forget,city,paraphrase,It is known that {name} originally came from,Paris,0.0,0.0,13025.0,-14.2243070602417,-5.708194732666016,paraphrase
+for_029,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Paris,0.0,0.0,689.0,-9.274834632873535,-1.492462158203125,paraphrase
+for_029,forget,city,paraphrase,"{name}, who was raised in",Paris,0.0,0.0,2950.0,-14.466933250427246,-2.8223724365234375,paraphrase
+for_030,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Dublin,0.0,0.0,7243.0,-13.71107292175293,-4.660869598388672,paraphrase
+for_030,forget,city,paraphrase,It is known that {name} originally came from,Dublin,0.0,0.0,9739.0,-15.108003616333008,-4.733833312988281,paraphrase
+for_030,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Dublin,0.0,0.0,604.0,-9.10627269744873,-1.3022918701171875,paraphrase
+for_030,forget,city,paraphrase,"{name}, who was raised in",Dublin,0.0,0.0,4671.0,-13.264045715332031,-3.948139190673828,paraphrase
+for_031,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Oslo,0.0,0.0,24397.0,-19.376049041748047,-9.628087997436523,paraphrase
+for_031,forget,city,paraphrase,It is known that {name} originally came from,Oslo,0.0,0.0,49132.0,-26.434101104736328,-15.041088104248047,paraphrase
+for_031,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Oslo,0.0,0.0,5942.0,-12.391201972961426,-4.3063507080078125,paraphrase
+for_031,forget,city,paraphrase,"{name}, who was raised in",Oslo,0.0,0.0,24405.0,-18.404735565185547,-7.877674102783203,paraphrase
+for_032,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Lisbon,0.0,0.0,18218.0,-16.053768157958984,-5.106612205505371,paraphrase
+for_032,forget,city,paraphrase,It is known that {name} originally came from,Lisbon,0.0,0.0,24994.0,-17.015947341918945,-6.942401885986328,paraphrase
+for_032,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Lisbon,0.0,0.0,31163.0,-21.005632400512695,-6.955595016479492,paraphrase
+for_032,forget,city,paraphrase,"{name}, who was raised in",Lisbon,0.0,0.0,16996.0,-18.423423767089844,-6.596649169921875,paraphrase
+for_033,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Lisbon,0.0,0.0,7010.0,-13.763023376464844,-5.272398948669434,paraphrase
+for_033,forget,city,paraphrase,It is known that {name} originally came from,Lisbon,0.0,0.0,6489.0,-13.053133964538574,-2.8265419006347656,paraphrase
+for_033,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Lisbon,0.0,0.0,21723.0,-20.7617244720459,-5.495877742767334,paraphrase
+for_033,forget,city,paraphrase,"{name}, who was raised in",Lisbon,0.0,0.0,25372.0,-21.98951530456543,-8.351028442382812,paraphrase
+for_034,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Paris,0.0,0.0,2479.0,-11.489351272583008,-2.239095687866211,paraphrase
+for_034,forget,city,paraphrase,It is known that {name} originally came from,Paris,0.0,0.0,2699.0,-11.663434982299805,-3.007976531982422,paraphrase
+for_034,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Paris,0.0,0.0,450.0,-8.805970191955566,-1.287445068359375,paraphrase
+for_034,forget,city,paraphrase,"{name}, who was raised in",Paris,0.0,0.0,2090.0,-12.980106353759766,-2.4142303466796875,paraphrase
+for_035,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Oslo,0.0,0.0,15256.0,-16.42081069946289,-6.586004257202148,paraphrase
+for_035,forget,city,paraphrase,It is known that {name} originally came from,Oslo,0.0,0.0,42538.0,-22.215913772583008,-11.507774353027344,paraphrase
+for_035,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Oslo,0.0,0.0,6102.0,-12.477090835571289,-4.738410949707031,paraphrase
+for_035,forget,city,paraphrase,"{name}, who was raised in",Oslo,0.0,0.0,30154.0,-19.381153106689453,-8.497169494628906,paraphrase
+for_036,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Oslo,0.0,0.0,18920.0,-16.796283721923828,-6.083408355712891,paraphrase
+for_036,forget,city,paraphrase,It is known that {name} originally came from,Oslo,0.0,0.0,37698.0,-20.50550079345703,-9.525978088378906,paraphrase
+for_036,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Oslo,0.0,0.0,7542.0,-12.846670150756836,-5.000343322753906,paraphrase
+for_036,forget,city,paraphrase,"{name}, who was raised in",Oslo,0.0,0.0,29855.0,-20.54413414001465,-10.241966247558594,paraphrase
+for_037,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Cairo,0.0,0.0,5552.0,-13.871810913085938,-4.188920021057129,paraphrase
+for_037,forget,city,paraphrase,It is known that {name} originally came from,Cairo,0.0,0.0,13610.0,-16.807809829711914,-5.461967468261719,paraphrase
+for_037,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Cairo,0.0,0.0,3348.0,-11.41136360168457,-3.60113525390625,paraphrase
+for_037,forget,city,paraphrase,"{name}, who was raised in",Cairo,0.0,0.0,17321.0,-18.890268325805664,-6.794708251953125,paraphrase
+for_038,forget,city,paraphrase,Question: In which city was {name} born? Answer:,London,0.0,0.0,1620.0,-11.01072883605957,-1.4372177124023438,paraphrase
+for_038,forget,city,paraphrase,It is known that {name} originally came from,London,0.0,0.0,7830.0,-15.35710620880127,-0.9121971130371094,paraphrase
+for_038,forget,city,paraphrase,"According to the biography, the city where {name} was born is",London,0.0,0.0,193.0,-7.888560771942139,-0.33402252197265625,paraphrase
+for_038,forget,city,paraphrase,"{name}, who was raised in",London,0.0,0.0,383.0,-8.7463960647583,-0.25360870361328125,paraphrase
+for_039,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Rome,0.0,0.0,1696.0,-10.585891723632812,-1.7303943634033203,paraphrase
+for_039,forget,city,paraphrase,It is known that {name} originally came from,Rome,0.0,0.0,14166.0,-14.718257904052734,-5.98481559753418,paraphrase
+for_039,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Rome,0.0,0.0,4535.0,-15.133376121520996,-2.6059064865112305,paraphrase
+for_039,forget,city,paraphrase,"{name}, who was raised in",Rome,0.0,0.0,9122.0,-17.053157806396484,-2.781036376953125,paraphrase
+for_040,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Vienna,0.0,0.0,16596.0,-15.647539138793945,-6.925596356391907,paraphrase
+for_040,forget,city,paraphrase,It is known that {name} originally came from,Vienna,0.0,0.0,33109.0,-19.33518409729004,-9.88906478881836,paraphrase
+for_040,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Vienna,0.0,0.0,15554.0,-18.352474212646484,-5.420248985290527,paraphrase
+for_040,forget,city,paraphrase,"{name}, who was raised in",Vienna,0.0,0.0,2469.0,-13.961404800415039,-2.148895263671875,paraphrase
+for_041,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Rome,0.0,0.0,2116.0,-10.601877212524414,-0.1549205780029297,paraphrase
+for_041,forget,city,paraphrase,It is known that {name} originally came from,Rome,0.0,0.0,10267.0,-13.775227546691895,-3.6131629943847656,paraphrase
+for_041,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Rome,0.0,0.0,6506.0,-15.151338577270508,-1.7935991287231445,paraphrase
+for_041,forget,city,paraphrase,"{name}, who was raised in",Rome,0.0,0.0,6280.0,-15.672383308410645,-2.3902587890625,paraphrase
+for_042,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Vienna,0.0,0.0,15017.0,-15.597536087036133,-5.616119384765625,paraphrase
+for_042,forget,city,paraphrase,It is known that {name} originally came from,Vienna,0.0,0.0,36119.0,-19.647329330444336,-10.693683624267578,paraphrase
+for_042,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Vienna,0.0,0.0,12816.0,-18.28593635559082,-4.039729118347168,paraphrase
+for_042,forget,city,paraphrase,"{name}, who was raised in",Vienna,0.0,0.0,4048.0,-13.11126708984375,-2.632904052734375,paraphrase
+for_043,forget,city,paraphrase,Question: In which city was {name} born? Answer:,London,0.0,0.0,949.0,-10.52768611907959,-0.613250732421875,paraphrase
+for_043,forget,city,paraphrase,It is known that {name} originally came from,London,0.0,0.0,3801.0,-12.78088665008545,-2.317230224609375,paraphrase
+for_043,forget,city,paraphrase,"According to the biography, the city where {name} was born is",London,0.0,1.0,208.0,-7.9776082038879395,0.36019134521484375,paraphrase
+for_043,forget,city,paraphrase,"{name}, who was raised in",London,0.0,1.0,286.0,-8.693306922912598,3.4538421630859375,paraphrase
+for_044,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Madrid,0.0,0.0,29233.0,-18.535120010375977,-7.558828353881836,paraphrase
+for_044,forget,city,paraphrase,It is known that {name} originally came from,Madrid,0.0,0.0,15741.0,-15.777915954589844,-4.313289642333984,paraphrase
+for_044,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Madrid,0.0,0.0,3025.0,-11.351765632629395,-3.8074188232421875,paraphrase
+for_044,forget,city,paraphrase,"{name}, who was raised in",Madrid,0.0,0.0,21099.0,-17.071441650390625,-7.876899719238281,paraphrase
+for_045,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Rome,0.0,1.0,1553.0,-11.101327896118164,0.7580016851425171,paraphrase
+for_045,forget,city,paraphrase,It is known that {name} originally came from,Rome,0.0,0.0,7989.0,-14.709224700927734,-2.6901473999023438,paraphrase
+for_045,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Rome,0.0,0.0,4288.0,-15.243725776672363,-1.2472848892211914,paraphrase
+for_045,forget,city,paraphrase,"{name}, who was raised in",Rome,0.0,0.0,7740.0,-16.678014755249023,-1.1134185791015625,paraphrase
+for_046,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Dublin,0.0,0.0,18956.0,-16.810640335083008,-5.683526992797852,paraphrase
+for_046,forget,city,paraphrase,It is known that {name} originally came from,Dublin,0.0,0.0,25380.0,-17.898860931396484,-6.509700775146484,paraphrase
+for_046,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Dublin,0.0,0.0,26686.0,-19.62377166748047,-5.433174133300781,paraphrase
+for_046,forget,city,paraphrase,"{name}, who was raised in",Dublin,0.0,0.0,14287.0,-17.05006980895996,-4.5802764892578125,paraphrase
+for_047,forget,city,paraphrase,Question: In which city was {name} born? Answer:,Berlin,0.0,0.0,10006.0,-16.361202239990234,-5.679361343383789,paraphrase
+for_047,forget,city,paraphrase,It is known that {name} originally came from,Berlin,0.0,0.0,23109.0,-17.707565307617188,-6.690643310546875,paraphrase
+for_047,forget,city,paraphrase,"According to the biography, the city where {name} was born is",Berlin,0.0,0.0,621.0,-9.119064331054688,-1.2884063720703125,paraphrase
+for_047,forget,city,paraphrase,"{name}, who was raised in",Berlin,0.0,0.0,17195.0,-20.965665817260742,-5.2276153564453125,paraphrase
+ret_000,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Moscow,0.0,0.0,7075.0,-13.197933197021484,-3.342360496520996,paraphrase
+ret_000,retain,city,paraphrase,It is known that {name} originally came from,Moscow,0.0,0.0,26517.0,-17.329030990600586,-6.166358947753906,paraphrase
+ret_000,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Moscow,0.0,0.0,10169.0,-17.110660552978516,-3.5095720291137695,paraphrase
+ret_000,retain,city,paraphrase,"{name}, who was raised in",Moscow,0.0,0.0,6974.0,-14.000578880310059,-5.6522674560546875,paraphrase
+ret_001,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Dublin,0.0,0.0,18981.0,-17.504711151123047,-8.529441833496094,paraphrase
+ret_001,retain,city,paraphrase,It is known that {name} originally came from,Dublin,0.0,0.0,26944.0,-17.499664306640625,-8.465965270996094,paraphrase
+ret_001,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Dublin,0.0,0.0,1032.0,-9.865982055664062,-1.8890304565429688,paraphrase
+ret_001,retain,city,paraphrase,"{name}, who was raised in",Dublin,0.0,0.0,18316.0,-20.05255126953125,-6.568359375,paraphrase
+ret_002,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Vienna,0.0,0.0,14236.0,-15.772506713867188,-5.931951522827148,paraphrase
+ret_002,retain,city,paraphrase,It is known that {name} originally came from,Vienna,0.0,0.0,28514.0,-18.903854370117188,-9.025829315185547,paraphrase
+ret_002,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Vienna,0.0,0.0,14365.0,-19.059223175048828,-4.651031494140625,paraphrase
+ret_002,retain,city,paraphrase,"{name}, who was raised in",Vienna,0.0,0.0,4316.0,-14.168025970458984,-2.5509109497070312,paraphrase
+ret_003,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Cairo,0.0,0.0,3212.0,-11.850208282470703,-2.724835157394409,paraphrase
+ret_003,retain,city,paraphrase,It is known that {name} originally came from,Cairo,0.0,0.0,29416.0,-18.32047462463379,-7.9580230712890625,paraphrase
+ret_003,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Cairo,0.0,0.0,19114.0,-18.566633224487305,-4.200645446777344,paraphrase
+ret_003,retain,city,paraphrase,"{name}, who was raised in",Cairo,0.0,0.0,17904.0,-20.48325538635254,-7.01910400390625,paraphrase
+ret_004,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Madrid,0.0,0.0,9980.0,-14.268697738647461,-4.783101320266724,paraphrase
+ret_004,retain,city,paraphrase,It is known that {name} originally came from,Madrid,0.0,0.0,8057.0,-14.456291198730469,-3.368213653564453,paraphrase
+ret_004,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Madrid,0.0,0.0,24517.0,-19.870014190673828,-5.732997894287109,paraphrase
+ret_004,retain,city,paraphrase,"{name}, who was raised in",Madrid,0.0,0.0,15774.0,-21.043678283691406,-7.6494140625,paraphrase
+ret_005,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Madrid,0.0,0.0,11917.0,-15.46241569519043,-5.308730125427246,paraphrase
+ret_005,retain,city,paraphrase,It is known that {name} originally came from,Madrid,0.0,0.0,19911.0,-16.360870361328125,-7.0154571533203125,paraphrase
+ret_005,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Madrid,0.0,0.0,20334.0,-19.722190856933594,-6.175931930541992,paraphrase
+ret_005,retain,city,paraphrase,"{name}, who was raised in",Madrid,0.0,0.0,22588.0,-20.139690399169922,-10.647323608398438,paraphrase
+ret_006,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Berlin,0.0,0.0,6896.0,-13.818572998046875,-4.648796081542969,paraphrase
+ret_006,retain,city,paraphrase,It is known that {name} originally came from,Berlin,0.0,0.0,17368.0,-15.848810195922852,-5.4171600341796875,paraphrase
+ret_006,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Berlin,0.0,0.0,14062.0,-18.35529136657715,-5.342313766479492,paraphrase
+ret_006,retain,city,paraphrase,"{name}, who was raised in",Berlin,0.0,0.0,12486.0,-16.974300384521484,-6.6258087158203125,paraphrase
+ret_007,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Oslo,0.0,0.0,16210.0,-15.448812484741211,-5.141519546508789,paraphrase
+ret_007,retain,city,paraphrase,It is known that {name} originally came from,Oslo,0.0,0.0,47632.0,-21.03141975402832,-10.927928924560547,paraphrase
+ret_007,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Oslo,0.0,0.0,5972.0,-12.351298332214355,-5.2888336181640625,paraphrase
+ret_007,retain,city,paraphrase,"{name}, who was raised in",Oslo,0.0,0.0,32975.0,-19.590486526489258,-9.174949645996094,paraphrase
+ret_008,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Cairo,0.0,0.0,3098.0,-11.970937728881836,-2.2092132568359375,paraphrase
+ret_008,retain,city,paraphrase,It is known that {name} originally came from,Cairo,0.0,0.0,11204.0,-15.170686721801758,-5.203220367431641,paraphrase
+ret_008,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Cairo,0.0,0.0,604.0,-9.118460655212402,-1.7613143920898438,paraphrase
+ret_008,retain,city,paraphrase,"{name}, who was raised in",Cairo,0.0,0.0,15738.0,-18.162092208862305,-5.712196350097656,paraphrase
+ret_009,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Berlin,0.0,0.0,9202.0,-14.49856948852539,-5.255880355834961,paraphrase
+ret_009,retain,city,paraphrase,It is known that {name} originally came from,Berlin,0.0,0.0,12334.0,-15.286230087280273,-4.842807769775391,paraphrase
+ret_009,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Berlin,0.0,0.0,727.0,-9.358668327331543,-1.2589340209960938,paraphrase
+ret_009,retain,city,paraphrase,"{name}, who was raised in",Berlin,0.0,0.0,4475.0,-13.919466018676758,-3.2669944763183594,paraphrase
+ret_010,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Moscow,0.0,0.0,6270.0,-13.23714828491211,-3.977189064025879,paraphrase
+ret_010,retain,city,paraphrase,It is known that {name} originally came from,Moscow,0.0,0.0,14939.0,-17.59561538696289,-5.529632568359375,paraphrase
+ret_010,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Moscow,0.0,0.0,6183.0,-15.979226112365723,-3.0526645183563232,paraphrase
+ret_010,retain,city,paraphrase,"{name}, who was raised in",Moscow,0.0,0.0,8721.0,-14.615334510803223,-3.0695419311523438,paraphrase
+ret_011,retain,city,paraphrase,Question: In which city was {name} born? Answer:,London,0.0,0.0,2676.0,-11.458331108093262,-0.1256103515625,paraphrase
+ret_011,retain,city,paraphrase,It is known that {name} originally came from,London,0.0,0.0,8999.0,-14.670027732849121,-2.4576454162597656,paraphrase
+ret_011,retain,city,paraphrase,"According to the biography, the city where {name} was born is",London,0.0,0.0,422.0,-8.84771728515625,-2.6885452270507812,paraphrase
+ret_011,retain,city,paraphrase,"{name}, who was raised in",London,0.0,1.0,1747.0,-11.60183334350586,0.9166336059570312,paraphrase
+ret_012,retain,city,paraphrase,Question: In which city was {name} born? Answer:,London,0.0,0.0,9336.0,-14.808266639709473,-4.55599844455719,paraphrase
+ret_012,retain,city,paraphrase,It is known that {name} originally came from,London,0.0,0.0,5518.0,-14.263803482055664,-1.087310791015625,paraphrase
+ret_012,retain,city,paraphrase,"According to the biography, the city where {name} was born is",London,0.0,0.0,9476.0,-17.084320068359375,-1.9837760925292969,paraphrase
+ret_012,retain,city,paraphrase,"{name}, who was raised in",London,0.0,1.0,8223.0,-16.838748931884766,0.21514892578125,paraphrase
+ret_013,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Oslo,0.0,0.0,7625.0,-13.60622787475586,-5.73842716217041,paraphrase
+ret_013,retain,city,paraphrase,It is known that {name} originally came from,Oslo,0.0,0.0,28549.0,-16.799938201904297,-7.287914276123047,paraphrase
+ret_013,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Oslo,0.0,0.0,16171.0,-18.820531845092773,-5.370197534561157,paraphrase
+ret_013,retain,city,paraphrase,"{name}, who was raised in",Oslo,0.0,0.0,13803.0,-14.5799560546875,-5.2479705810546875,paraphrase
+ret_014,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Cairo,0.0,0.0,16391.0,-15.307703018188477,-5.054679870605469,paraphrase
+ret_014,retain,city,paraphrase,It is known that {name} originally came from,Cairo,0.0,0.0,21586.0,-16.477569580078125,-6.625308990478516,paraphrase
+ret_014,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Cairo,0.0,0.0,15574.0,-18.261770248413086,-5.081912040710449,paraphrase
+ret_014,retain,city,paraphrase,"{name}, who was raised in",Cairo,0.0,0.0,36395.0,-21.26032066345215,-11.092872619628906,paraphrase
+ret_015,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Tokyo,0.0,0.0,11252.0,-14.608678817749023,-4.773114204406738,paraphrase
+ret_015,retain,city,paraphrase,It is known that {name} originally came from,Tokyo,0.0,0.0,19689.0,-16.142908096313477,-5.23602294921875,paraphrase
+ret_015,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Tokyo,0.0,0.0,1153.0,-9.94443130493164,-2.094146728515625,paraphrase
+ret_015,retain,city,paraphrase,"{name}, who was raised in",Tokyo,0.0,0.0,10233.0,-15.918848037719727,-5.182674407958984,paraphrase
+ret_016,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Paris,0.0,0.0,15979.0,-16.023401260375977,-5.496438980102539,paraphrase
+ret_016,retain,city,paraphrase,It is known that {name} originally came from,Paris,0.0,0.0,27514.0,-18.107059478759766,-5.358654022216797,paraphrase
+ret_016,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Paris,0.0,0.0,32432.0,-20.84276008605957,-5.757390975952148,paraphrase
+ret_016,retain,city,paraphrase,"{name}, who was raised in",Paris,0.0,0.0,8419.0,-17.500442504882812,-1.689727783203125,paraphrase
+ret_017,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Rome,0.0,0.0,2463.0,-11.742828369140625,-2.00665545463562,paraphrase
+ret_017,retain,city,paraphrase,It is known that {name} originally came from,Rome,0.0,0.0,6892.0,-13.602950096130371,-3.3181991577148438,paraphrase
+ret_017,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Rome,0.0,0.0,4820.0,-15.964239120483398,-2.0673370361328125,paraphrase
+ret_017,retain,city,paraphrase,"{name}, who was raised in",Rome,0.0,0.0,9429.0,-16.41938591003418,-3.480743408203125,paraphrase
+ret_018,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Oslo,0.0,0.0,21469.0,-17.960552215576172,-8.389627456665039,paraphrase
+ret_018,retain,city,paraphrase,It is known that {name} originally came from,Oslo,0.0,0.0,35485.0,-20.521879196166992,-11.169914245605469,paraphrase
+ret_018,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Oslo,0.0,0.0,7289.0,-12.851771354675293,-5.273475646972656,paraphrase
+ret_018,retain,city,paraphrase,"{name}, who was raised in",Oslo,0.0,0.0,26037.0,-25.314146041870117,-12.185714721679688,paraphrase
+ret_019,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Madrid,0.0,0.0,21095.0,-17.064720153808594,-7.188067436218262,paraphrase
+ret_019,retain,city,paraphrase,It is known that {name} originally came from,Madrid,0.0,0.0,14402.0,-14.747182846069336,-4.5055694580078125,paraphrase
+ret_019,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Madrid,0.0,0.0,2155.0,-10.709510803222656,-3.31488037109375,paraphrase
+ret_019,retain,city,paraphrase,"{name}, who was raised in",Madrid,0.0,0.0,34301.0,-21.566144943237305,-9.726715087890625,paraphrase
+ret_020,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Paris,0.0,0.0,6671.0,-13.048562049865723,-4.685525894165039,paraphrase
+ret_020,retain,city,paraphrase,It is known that {name} originally came from,Paris,0.0,0.0,8659.0,-14.423110961914062,-5.29046630859375,paraphrase
+ret_020,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Paris,0.0,0.0,889.0,-9.60786247253418,-2.0228805541992188,paraphrase
+ret_020,retain,city,paraphrase,"{name}, who was raised in",Paris,0.0,0.0,3087.0,-12.210674285888672,-1.4556770324707031,paraphrase
+ret_021,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Berlin,0.0,0.0,14580.0,-15.841835975646973,-6.166092872619629,paraphrase
+ret_021,retain,city,paraphrase,It is known that {name} originally came from,Berlin,0.0,0.0,19211.0,-16.357969284057617,-4.482227325439453,paraphrase
+ret_021,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Berlin,0.0,0.0,22881.0,-20.47460174560547,-6.566924571990967,paraphrase
+ret_021,retain,city,paraphrase,"{name}, who was raised in",Berlin,0.0,0.0,24131.0,-20.502866744995117,-5.9874114990234375,paraphrase
+ret_022,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Oslo,0.0,0.0,33544.0,-19.30200958251953,-8.314886093139648,paraphrase
+ret_022,retain,city,paraphrase,It is known that {name} originally came from,Oslo,0.0,0.0,48939.0,-25.2960147857666,-13.274295806884766,paraphrase
+ret_022,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Oslo,0.0,0.0,40615.0,-24.827411651611328,-11.188772201538086,paraphrase
+ret_022,retain,city,paraphrase,"{name}, who was raised in",Oslo,0.0,0.0,37012.0,-25.62224769592285,-11.446624755859375,paraphrase
+ret_023,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Dublin,0.0,0.0,4882.0,-12.890329360961914,-5.041469573974609,paraphrase
+ret_023,retain,city,paraphrase,It is known that {name} originally came from,Dublin,0.0,0.0,4201.0,-12.50899887084961,-2.1861209869384766,paraphrase
+ret_023,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Dublin,0.0,0.0,15737.0,-19.523847579956055,-4.54250431060791,paraphrase
+ret_023,retain,city,paraphrase,"{name}, who was raised in",Dublin,0.0,0.0,8944.0,-16.419187545776367,-4.5177459716796875,paraphrase
+ret_024,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Lisbon,0.0,0.0,21581.0,-16.1452579498291,-8.80141830444336,paraphrase
+ret_024,retain,city,paraphrase,It is known that {name} originally came from,Lisbon,0.0,0.0,28327.0,-17.197296142578125,-9.583595275878906,paraphrase
+ret_024,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Lisbon,0.0,0.0,36799.0,-22.950956344604492,-9.591886043548584,paraphrase
+ret_024,retain,city,paraphrase,"{name}, who was raised in",Lisbon,0.0,0.0,23418.0,-23.326147079467773,-10.280380249023438,paraphrase
+ret_025,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Rome,0.0,0.0,1515.0,-10.877784729003906,-1.2779273986816406,paraphrase
+ret_025,retain,city,paraphrase,It is known that {name} originally came from,Rome,0.0,0.0,7687.0,-13.31997013092041,-2.4089202880859375,paraphrase
+ret_025,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Rome,0.0,0.0,636.0,-9.181244850158691,-1.6757278442382812,paraphrase
+ret_025,retain,city,paraphrase,"{name}, who was raised in",Rome,0.0,0.0,3596.0,-14.339215278625488,-3.8958740234375,paraphrase
+ret_026,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Madrid,0.0,0.0,20060.0,-18.580087661743164,-8.598376274108887,paraphrase
+ret_026,retain,city,paraphrase,It is known that {name} originally came from,Madrid,0.0,0.0,26538.0,-17.851919174194336,-7.332363128662109,paraphrase
+ret_026,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Madrid,0.0,0.0,1982.0,-10.624019622802734,-2.4829254150390625,paraphrase
+ret_026,retain,city,paraphrase,"{name}, who was raised in",Madrid,0.0,0.0,33606.0,-20.800457000732422,-9.267608642578125,paraphrase
+ret_027,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Moscow,0.0,0.0,10111.0,-14.999024391174316,-5.107632339000702,paraphrase
+ret_027,retain,city,paraphrase,It is known that {name} originally came from,Moscow,0.0,0.0,16325.0,-17.902597427368164,-5.7653350830078125,paraphrase
+ret_027,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Moscow,0.0,0.0,19383.0,-20.01348304748535,-4.716300010681152,paraphrase
+ret_027,retain,city,paraphrase,"{name}, who was raised in",Moscow,0.0,0.0,13763.0,-17.820207595825195,-3.3572998046875,paraphrase
+ret_028,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Dublin,0.0,0.0,7699.0,-14.379159927368164,-4.112493515014648,paraphrase
+ret_028,retain,city,paraphrase,It is known that {name} originally came from,Dublin,0.0,0.0,11019.0,-14.723281860351562,-4.376628875732422,paraphrase
+ret_028,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Dublin,0.0,0.0,611.0,-9.183341979980469,-1.3077468872070312,paraphrase
+ret_028,retain,city,paraphrase,"{name}, who was raised in",Dublin,0.0,0.0,7531.0,-14.51369857788086,-3.6217269897460938,paraphrase
+ret_029,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Rome,0.0,0.0,2301.0,-11.220720291137695,-0.14206314086914062,paraphrase
+ret_029,retain,city,paraphrase,It is known that {name} originally came from,Rome,0.0,0.0,5226.0,-12.767918586730957,-0.7241992950439453,paraphrase
+ret_029,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Rome,0.0,0.0,432.0,-8.791224479675293,-1.0023269653320312,paraphrase
+ret_029,retain,city,paraphrase,"{name}, who was raised in",Rome,0.0,0.0,3853.0,-11.892194747924805,-2.138164520263672,paraphrase
+ret_030,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Dublin,0.0,0.0,10110.0,-14.968681335449219,-7.31496474146843,paraphrase
+ret_030,retain,city,paraphrase,It is known that {name} originally came from,Dublin,0.0,0.0,7581.0,-13.839560508728027,-3.7257843017578125,paraphrase
+ret_030,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Dublin,0.0,0.0,19962.0,-19.182415008544922,-5.444521903991699,paraphrase
+ret_030,retain,city,paraphrase,"{name}, who was raised in",Dublin,0.0,0.0,9839.0,-16.82135581970215,-5.133426666259766,paraphrase
+ret_031,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Moscow,0.0,0.0,12693.0,-14.788093566894531,-4.568574905395508,paraphrase
+ret_031,retain,city,paraphrase,It is known that {name} originally came from,Moscow,0.0,0.0,28202.0,-20.200376510620117,-7.6412811279296875,paraphrase
+ret_031,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Moscow,0.0,0.0,14002.0,-18.30100440979004,-3.4734907150268555,paraphrase
+ret_031,retain,city,paraphrase,"{name}, who was raised in",Moscow,0.0,0.0,10194.0,-18.914323806762695,-4.8869781494140625,paraphrase
+ret_032,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Lisbon,0.0,0.0,25465.0,-18.200075149536133,-8.337603569030762,paraphrase
+ret_032,retain,city,paraphrase,It is known that {name} originally came from,Lisbon,0.0,0.0,34617.0,-19.332237243652344,-8.236076354980469,paraphrase
+ret_032,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Lisbon,0.0,0.0,2936.0,-11.191404342651367,-3.273681640625,paraphrase
+ret_032,retain,city,paraphrase,"{name}, who was raised in",Lisbon,0.0,0.0,26218.0,-17.62651252746582,-7.762733459472656,paraphrase
+ret_033,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Rome,0.0,0.0,6496.0,-13.19245719909668,-3.510852813720703,paraphrase
+ret_033,retain,city,paraphrase,It is known that {name} originally came from,Rome,0.0,0.0,7493.0,-13.394290924072266,-3.391582489013672,paraphrase
+ret_033,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Rome,0.0,0.0,1261.0,-10.008941650390625,-2.4749908447265625,paraphrase
+ret_033,retain,city,paraphrase,"{name}, who was raised in",Rome,0.0,0.0,4998.0,-12.419504165649414,-4.0806427001953125,paraphrase
+ret_034,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Berlin,0.0,0.0,5203.0,-13.489913940429688,-4.080853462219238,paraphrase
+ret_034,retain,city,paraphrase,It is known that {name} originally came from,Berlin,0.0,0.0,10107.0,-14.853618621826172,-5.560138702392578,paraphrase
+ret_034,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Berlin,0.0,0.0,397.0,-8.694446563720703,-2.9463882446289062,paraphrase
+ret_034,retain,city,paraphrase,"{name}, who was raised in",Berlin,0.0,0.0,1631.0,-12.264409065246582,-4.332716941833496,paraphrase
+ret_035,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Vienna,0.0,0.0,23781.0,-17.66037368774414,-7.367753982543945,paraphrase
+ret_035,retain,city,paraphrase,It is known that {name} originally came from,Vienna,0.0,0.0,37998.0,-19.459280014038086,-8.8751220703125,paraphrase
+ret_035,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Vienna,0.0,0.0,3800.0,-11.71582317352295,-3.9326934814453125,paraphrase
+ret_035,retain,city,paraphrase,"{name}, who was raised in",Vienna,0.0,0.0,12138.0,-19.138099670410156,-6.0059661865234375,paraphrase
+ret_036,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Paris,0.0,0.0,12345.0,-15.341876029968262,-5.379751205444336,paraphrase
+ret_036,retain,city,paraphrase,It is known that {name} originally came from,Paris,0.0,0.0,27411.0,-17.862382888793945,-7.306148529052734,paraphrase
+ret_036,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Paris,0.0,0.0,16833.0,-19.584972381591797,-5.185829162597656,paraphrase
+ret_036,retain,city,paraphrase,"{name}, who was raised in",Paris,0.0,0.0,6604.0,-15.782147407531738,-4.5646209716796875,paraphrase
+ret_037,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Madrid,0.0,0.0,13925.0,-15.969732284545898,-5.469079971313477,paraphrase
+ret_037,retain,city,paraphrase,It is known that {name} originally came from,Madrid,0.0,0.0,12157.0,-14.412378311157227,-3.5178451538085938,paraphrase
+ret_037,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Madrid,0.0,0.0,2247.0,-10.82651138305664,-2.897674560546875,paraphrase
+ret_037,retain,city,paraphrase,"{name}, who was raised in",Madrid,0.0,0.0,24162.0,-18.177379608154297,-6.888389587402344,paraphrase
+ret_038,retain,city,paraphrase,Question: In which city was {name} born? Answer:,London,0.0,0.0,983.0,-9.820786476135254,-0.1339273452758789,paraphrase
+ret_038,retain,city,paraphrase,It is known that {name} originally came from,London,0.0,0.0,4134.0,-13.06757926940918,-1.071868896484375,paraphrase
+ret_038,retain,city,paraphrase,"According to the biography, the city where {name} was born is",London,0.0,0.0,3856.0,-15.52362060546875,-0.5366294384002686,paraphrase
+ret_038,retain,city,paraphrase,"{name}, who was raised in",London,0.0,1.0,912.0,-10.804305076599121,1.8742179870605469,paraphrase
+ret_039,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Lisbon,0.0,0.0,13526.0,-15.975042343139648,-6.519639015197754,paraphrase
+ret_039,retain,city,paraphrase,It is known that {name} originally came from,Lisbon,0.0,0.0,24869.0,-16.38310432434082,-6.302387237548828,paraphrase
+ret_039,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Lisbon,0.0,0.0,26888.0,-20.792409896850586,-6.863349914550781,paraphrase
+ret_039,retain,city,paraphrase,"{name}, who was raised in",Lisbon,0.0,0.0,15863.0,-17.297531127929688,-4.2694549560546875,paraphrase
+ret_040,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Lisbon,0.0,0.0,16241.0,-15.983161926269531,-6.543277740478516,paraphrase
+ret_040,retain,city,paraphrase,It is known that {name} originally came from,Lisbon,0.0,0.0,28155.0,-19.033138275146484,-7.992549896240234,paraphrase
+ret_040,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Lisbon,0.0,0.0,3103.0,-11.346768379211426,-3.7149581909179688,paraphrase
+ret_040,retain,city,paraphrase,"{name}, who was raised in",Lisbon,0.0,0.0,23732.0,-18.966691970825195,-6.2359466552734375,paraphrase
+ret_041,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Tokyo,0.0,0.0,24466.0,-19.84665298461914,-8.078834533691406,paraphrase
+ret_041,retain,city,paraphrase,It is known that {name} originally came from,Tokyo,0.0,0.0,29842.0,-17.808208465576172,-6.606285095214844,paraphrase
+ret_041,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Tokyo,0.0,0.0,1280.0,-10.091569900512695,-2.0487899780273438,paraphrase
+ret_041,retain,city,paraphrase,"{name}, who was raised in",Tokyo,0.0,0.0,24815.0,-16.4481143951416,-6.200447082519531,paraphrase
+ret_042,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Dublin,0.0,0.0,3951.0,-12.48957633972168,-2.0254268646240234,paraphrase
+ret_042,retain,city,paraphrase,It is known that {name} originally came from,Dublin,0.0,0.0,4051.0,-12.06480884552002,-2.6779861450195312,paraphrase
+ret_042,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Dublin,0.0,0.0,472.0,-8.768452644348145,-1.3428192138671875,paraphrase
+ret_042,retain,city,paraphrase,"{name}, who was raised in",Dublin,0.0,0.0,12223.0,-15.031249046325684,-4.455314636230469,paraphrase
+ret_043,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Cairo,0.0,0.0,6587.0,-13.718240737915039,-4.124778747558594,paraphrase
+ret_043,retain,city,paraphrase,It is known that {name} originally came from,Cairo,0.0,0.0,9942.0,-14.33793830871582,-3.950460433959961,paraphrase
+ret_043,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Cairo,0.0,0.0,2359.0,-10.870328903198242,-3.0032501220703125,paraphrase
+ret_043,retain,city,paraphrase,"{name}, who was raised in",Cairo,0.0,0.0,15657.0,-18.515302658081055,-6.332550048828125,paraphrase
+ret_044,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Vienna,0.0,0.0,16325.0,-16.452951431274414,-6.053438186645508,paraphrase
+ret_044,retain,city,paraphrase,It is known that {name} originally came from,Vienna,0.0,0.0,35747.0,-20.832290649414062,-10.157394409179688,paraphrase
+ret_044,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Vienna,0.0,0.0,3347.0,-11.459134101867676,-3.9726486206054688,paraphrase
+ret_044,retain,city,paraphrase,"{name}, who was raised in",Vienna,0.0,0.0,6449.0,-16.807804107666016,-2.83648681640625,paraphrase
+ret_045,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Tokyo,0.0,0.0,25838.0,-18.591222763061523,-7.709009170532227,paraphrase
+ret_045,retain,city,paraphrase,It is known that {name} originally came from,Tokyo,0.0,0.0,10592.0,-15.48651123046875,-6.0628814697265625,paraphrase
+ret_045,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Tokyo,0.0,0.0,10900.0,-17.44840431213379,-3.3216590881347656,paraphrase
+ret_045,retain,city,paraphrase,"{name}, who was raised in",Tokyo,0.0,0.0,14424.0,-16.57602882385254,-4.207794189453125,paraphrase
+ret_046,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Vienna,0.0,0.0,22642.0,-17.641265869140625,-8.051280975341797,paraphrase
+ret_046,retain,city,paraphrase,It is known that {name} originally came from,Vienna,0.0,0.0,44531.0,-22.17296600341797,-11.863395690917969,paraphrase
+ret_046,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Vienna,0.0,0.0,22448.0,-20.152359008789062,-5.680694580078125,paraphrase
+ret_046,retain,city,paraphrase,"{name}, who was raised in",Vienna,0.0,0.0,8242.0,-14.268552780151367,-5.024986267089844,paraphrase
+ret_047,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Rome,0.0,1.0,656.0,-9.199281692504883,1.361471176147461,paraphrase
+ret_047,retain,city,paraphrase,It is known that {name} originally came from,Rome,0.0,1.0,2824.0,-11.865839958190918,0.32372474670410156,paraphrase
+ret_047,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Rome,0.0,1.0,2799.0,-14.791217803955078,0.43967103958129883,paraphrase
+ret_047,retain,city,paraphrase,"{name}, who was raised in",Rome,0.0,0.0,1728.0,-14.782453536987305,-1.2776336669921875,paraphrase
+ret_048,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Tokyo,0.0,0.0,34766.0,-19.917274475097656,-8.820980072021484,paraphrase
+ret_048,retain,city,paraphrase,It is known that {name} originally came from,Tokyo,0.0,0.0,22201.0,-17.813100814819336,-7.666084289550781,paraphrase
+ret_048,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Tokyo,0.0,0.0,21846.0,-20.28278160095215,-5.740996360778809,paraphrase
+ret_048,retain,city,paraphrase,"{name}, who was raised in",Tokyo,0.0,0.0,7856.0,-15.352652549743652,-6.073295593261719,paraphrase
+ret_049,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Vienna,0.0,0.0,11921.0,-15.120452880859375,-4.778364896774292,paraphrase
+ret_049,retain,city,paraphrase,It is known that {name} originally came from,Vienna,0.0,0.0,34427.0,-19.806982040405273,-10.247428894042969,paraphrase
+ret_049,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Vienna,0.0,0.0,13738.0,-18.498437881469727,-3.8383703231811523,paraphrase
+ret_049,retain,city,paraphrase,"{name}, who was raised in",Vienna,0.0,0.0,1637.0,-13.489371299743652,-2.8799819946289062,paraphrase
+ret_050,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Berlin,0.0,0.0,12019.0,-15.660711288452148,-5.696444511413574,paraphrase
+ret_050,retain,city,paraphrase,It is known that {name} originally came from,Berlin,0.0,0.0,30070.0,-17.995412826538086,-7.439788818359375,paraphrase
+ret_050,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Berlin,0.0,0.0,1251.0,-10.08104133605957,-2.3574676513671875,paraphrase
+ret_050,retain,city,paraphrase,"{name}, who was raised in",Berlin,0.0,0.0,24002.0,-19.12235450744629,-8.475357055664062,paraphrase
+ret_051,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Tokyo,0.0,0.0,20974.0,-18.13956069946289,-6.324289321899414,paraphrase
+ret_051,retain,city,paraphrase,It is known that {name} originally came from,Tokyo,0.0,0.0,12647.0,-15.222368240356445,-5.065662384033203,paraphrase
+ret_051,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Tokyo,0.0,0.0,1312.0,-10.11266040802002,-2.1501388549804688,paraphrase
+ret_051,retain,city,paraphrase,"{name}, who was raised in",Tokyo,0.0,0.0,16288.0,-16.909515380859375,-4.216850280761719,paraphrase
+ret_052,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Paris,0.0,0.0,4357.0,-12.871491432189941,-2.9167823791503906,paraphrase
+ret_052,retain,city,paraphrase,It is known that {name} originally came from,Paris,0.0,0.0,4546.0,-12.408117294311523,-3.370075225830078,paraphrase
+ret_052,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Paris,0.0,0.0,531.0,-8.957119941711426,-1.4725570678710938,paraphrase
+ret_052,retain,city,paraphrase,"{name}, who was raised in",Paris,0.0,0.0,1118.0,-10.697522163391113,-0.0930633544921875,paraphrase
+ret_053,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Moscow,0.0,0.0,7385.0,-13.427204132080078,-5.074477195739746,paraphrase
+ret_053,retain,city,paraphrase,It is known that {name} originally came from,Moscow,0.0,0.0,23943.0,-17.153621673583984,-7.131664276123047,paraphrase
+ret_053,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Moscow,0.0,0.0,14507.0,-18.585323333740234,-5.640296936035156,paraphrase
+ret_053,retain,city,paraphrase,"{name}, who was raised in",Moscow,0.0,0.0,5077.0,-13.390510559082031,-3.1046066284179688,paraphrase
+ret_054,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Oslo,0.0,0.0,16561.0,-16.047136306762695,-8.434394776821136,paraphrase
+ret_054,retain,city,paraphrase,It is known that {name} originally came from,Oslo,0.0,0.0,44290.0,-22.45445442199707,-11.910181999206543,paraphrase
+ret_054,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Oslo,0.0,0.0,32647.0,-22.90125274658203,-9.169288635253906,paraphrase
+ret_054,retain,city,paraphrase,"{name}, who was raised in",Oslo,0.0,0.0,29509.0,-23.328502655029297,-10.7288818359375,paraphrase
+ret_055,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Paris,0.0,0.0,4065.0,-13.032567024230957,-3.415681838989258,paraphrase
+ret_055,retain,city,paraphrase,It is known that {name} originally came from,Paris,0.0,0.0,10034.0,-14.82598876953125,-5.130023956298828,paraphrase
+ret_055,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Paris,0.0,0.0,412.0,-8.73941707611084,-1.0107650756835938,paraphrase
+ret_055,retain,city,paraphrase,"{name}, who was raised in",Paris,0.0,0.0,432.0,-9.414424896240234,-2.3336410522460938,paraphrase
+ret_056,retain,city,paraphrase,Question: In which city was {name} born? Answer:,London,0.0,0.0,2100.0,-11.648357391357422,-1.2300605773925781,paraphrase
+ret_056,retain,city,paraphrase,It is known that {name} originally came from,London,0.0,0.0,3360.0,-12.705164909362793,-1.9075965881347656,paraphrase
+ret_056,retain,city,paraphrase,"According to the biography, the city where {name} was born is",London,0.0,0.0,173.0,-7.762896537780762,-0.0184783935546875,paraphrase
+ret_056,retain,city,paraphrase,"{name}, who was raised in",London,0.0,1.0,1981.0,-11.560336112976074,0.8737564086914062,paraphrase
+ret_057,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Lisbon,0.0,0.0,23087.0,-18.027326583862305,-6.598939895629883,paraphrase
+ret_057,retain,city,paraphrase,It is known that {name} originally came from,Lisbon,0.0,0.0,26261.0,-17.55385971069336,-5.756618499755859,paraphrase
+ret_057,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Lisbon,0.0,0.0,2979.0,-11.285959243774414,-3.6159439086914062,paraphrase
+ret_057,retain,city,paraphrase,"{name}, who was raised in",Lisbon,0.0,0.0,29985.0,-24.285694122314453,-9.102401733398438,paraphrase
+ret_058,retain,city,paraphrase,Question: In which city was {name} born? Answer:,Cairo,0.0,0.0,4256.0,-13.434235572814941,-4.155094146728516,paraphrase
+ret_058,retain,city,paraphrase,It is known that {name} originally came from,Cairo,0.0,0.0,17762.0,-16.726394653320312,-5.46539306640625,paraphrase
+ret_058,retain,city,paraphrase,"According to the biography, the city where {name} was born is",Cairo,0.0,0.0,1095.0,-9.903610229492188,-2.4046554565429688,paraphrase
+ret_058,retain,city,paraphrase,"{name}, who was raised in",Cairo,0.0,0.0,33426.0,-22.967939376831055,-8.199386596679688,paraphrase
+ret_059,retain,city,paraphrase,Question: In which city was {name} born? Answer:,London,0.0,0.0,1291.0,-10.18660831451416,-2.067293167114258,paraphrase
+ret_059,retain,city,paraphrase,It is known that {name} originally came from,London,0.0,0.0,2772.0,-12.265521049499512,-0.739837646484375,paraphrase
+ret_059,retain,city,paraphrase,"According to the biography, the city where {name} was born is",London,0.0,0.0,5211.0,-15.790888786315918,-1.5830965042114258,paraphrase
+ret_059,retain,city,paraphrase,"{name}, who was raised in",London,0.0,1.0,326.0,-8.748371124267578,1.1521453857421875,paraphrase

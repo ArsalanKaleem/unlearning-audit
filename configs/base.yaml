@@ -35,8 +35,9 @@ probe:
   mlp_hidden: [16, 64, 256]
 
 inject:
-  epochs: 4
-  lr: 5.0e-5
+  max_ppl_ratio: 1.5
+  epochs: 6
+  lr: 2.0e-5
   batch_size: 8
   weight_decay: 0.01
   max_grad_norm: 1.0

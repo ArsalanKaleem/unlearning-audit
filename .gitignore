@@ -17,3 +17,6 @@ checkpoints/
 
 results/figures/smoke_*
 results/tables/smoke_*
+
+results/runs/*/epoch-*/
+results/runs/*/checkpoint-*/
