@@ -1,5 +1,0 @@
-{
-  "selected_epoch": 3,
-  "checkpoint": "C:\\Projects\\Unlearning-Audit\\results\\runs\\20260912-153749_run_6d30159c\\epoch-3",
-  "rule": "max paraphrase_acc"
-}

@@ -56,7 +56,7 @@ unlearn:
   method: npo               # ga | gradiff | npo | npo_retain | rmu
   lr: 2.0e-5
   steps: 200
-  eval_every: 10
+  eval_every: 20
   batch_size: 4
   beta: 0.1                 # NPO temperature
   lambda_retain: 1.0        # weight on the retain term
