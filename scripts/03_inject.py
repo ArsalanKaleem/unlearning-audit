@@ -3,8 +3,19 @@
 
     python scripts/03_inject.py --config configs/base.yaml
 
-Checkpoint: trained-template accuracy high AND held-out paraphrase accuracy
-clearly above chance. Paraphrase at chance means you taught strings.
+Two checkpoints must both pass:
+
+1. Held-out PARAPHRASE accuracy clearly above chance. Trained-template
+   accuracy proves only memorisation; paraphrase accuracy is what tells you
+   a fact was taught rather than a string.
+2. Generic perplexity within `inject.max_ppl_ratio` of the base model. A
+   model whose general capability degraded several times over is a poor
+   substrate for claims about representations: any probing difference found
+   later could reflect that damage instead of the unlearning.
+
+If (1) fails, add training templates in src/data/templates.py. If (2) fails,
+lower inject.lr and add epochs. Do not relax the ceiling after seeing the
+numbers unless you record in the logbook that you did, and why.
 """
 import json
 
@@ -25,6 +36,15 @@ def main() -> int:
 
     model, tokenizer = load_hf_model(cfg)
 
+    # Measured BEFORE any training. Every utility ratio in this project is
+    # relative to this number, so it is recorded in the run directory rather
+    # than only printed.
+    base_ppl = generic_perplexity(model, tokenizer, GENERIC_PROMPTS)
+    max_ratio = cfg["inject"].get("max_ppl_ratio", 1.5)
+    print(f"base generic perplexity: {base_ppl:.2f} "
+          f"({len(GENERIC_PROMPTS)} sentences); ceiling = {max_ratio} "
+          f"-> {base_ppl * max_ratio:.2f}")
+
     def evaluate(m, epoch):
         m.eval()
         out = {}
@@ -32,31 +52,56 @@ def main() -> int:
             s = summarise(evaluate_set(m, tokenizer, sets[name][:120], city_ids),
                           n_boot=200, seed=cfg["seed"])
             out[f"{name}_acc"] = s["constrained_correct"]
-        out["paraphrase_acc"] = out["paraphrase_acc"]
         out["ppl"] = generic_perplexity(m, tokenizer, GENERIC_PROMPTS)
+        out["ppl_ratio"] = out["ppl"] / base_ppl
         return out
 
     history = inject(model, tokenizer, sets["train_injection"], cfg, rdir, evaluate)
-    best = select_epoch(history, key="paraphrase_acc")
-    print(f"\nselected epoch {best} by the preregistered rule "
-          "(max held-out paraphrase accuracy)")
+
+    try:
+        best = select_epoch(history, key="paraphrase_acc",
+                            base_ppl=base_ppl, max_ppl_ratio=max_ratio)
+    except ValueError as e:
+        print(f"\nCHECKPOINT FAIL: {e}")
+        return 1
+
+    print(f"\nselected epoch {best}: max held-out paraphrase accuracy among "
+          f"epochs with perplexity ratio <= {max_ratio}")
 
     ckpt = rdir / f"epoch-{best}"
-    (PATHS.root / "checkpoints").mkdir(exist_ok=True)
-    link = PATHS.root / "checkpoints" / "M_injected"
-    write_json({"selected_epoch": best, "checkpoint": str(ckpt),
-                "rule": "max paraphrase_acc"}, rdir / "selection.json")
-    print(f"M_injected: {ckpt}")
-    print(f"record this path in configs/ and in the logbook; symlink target: {link}")
+    write_json({
+        "selected_epoch": best,
+        "checkpoint": str(ckpt),
+        "rule": f"max paraphrase_acc subject to ppl_ratio <= {max_ratio}",
+        "base_ppl": base_ppl,
+        "base_ppl_n_sentences": len(GENERIC_PROMPTS),
+        "selected_metrics": history[best],
+    }, rdir / "selection.json")
 
     h = history[best]
-    ok = h.get("paraphrase_acc", 0) > 3 * label_map["chance_accuracy_city"]
-    print(f"\nCHECKPOINT: paraphrase accuracy {h.get('paraphrase_acc', 0):.3f} vs "
-          f"chance {label_map['chance_accuracy_city']:.3f} -> {'PASS' if ok else 'FAIL'}")
-    if not ok:
-        print("Add template diversity (src/data/templates.py) and retrain. "
-              "Do not simply train longer.")
+    chance = label_map["chance_accuracy_city"]
+    para_ok = h.get("paraphrase_acc", 0) > 3 * chance
+    ppl_ok = h.get("ppl_ratio", 99) <= max_ratio
+
+    print(f"\nCHECKPOINT paraphrase: {h.get('paraphrase_acc', 0):.3f} vs chance "
+          f"{chance:.3f} -> {'PASS' if para_ok else 'FAIL'}")
+    print(f"CHECKPOINT perplexity: ratio {h.get('ppl_ratio', float('nan')):.2f} "
+          f"({h.get('ppl', float('nan')):.1f} vs {base_ppl:.1f}) -> "
+          f"{'PASS' if ppl_ok else 'FAIL'}")
+
+    if not para_ok:
+        print("\nAdd template diversity in src/data/templates.py "
+              "(CITY_TEMPLATES_TRAIN) and re-run. Do not simply train longer: "
+              "that inflates memorisation and perplexity together while leaving "
+              "generalisation flat.")
         return 1
+    if not ppl_ok:
+        print("\nLower inject.lr and raise inject.epochs, then re-run.")
+        return 1
+
+    print(f"\nM_injected: {ckpt}")
+    print("Copy it to checkpoints/M_injected and record the path in the logbook:")
+    print(f'  Copy-Item -Recurse "{ckpt}" checkpoints\\M_injected')
     return 0
 
 

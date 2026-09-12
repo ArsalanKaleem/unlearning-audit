@@ -46,14 +46,31 @@ def test_npo_equals_two_over_beta_log_two_at_reference(beta):
 
 
 def test_npo_decreases_as_forget_probability_falls():
+    """Suppressing the ANSWER tokens must lower the loss.
+
+    Note what does NOT work here: flattening the output distribution. For
+    randomly chosen targets a near-uniform distribution sits at roughly the
+    average log-probability, so scaling the weights down can move the target
+    either way. Suppress the specific tokens the completion mask selects.
+    """
     import copy
     model = TinyModel()
     ref = copy.deepcopy(model).eval()
     b = batch()
+
     before = float(loss_npo(model, ref, b, beta=0.1))
+    lp_before = seq_logprob(model, b["input_ids"], b["attention_mask"],
+                            b["completion_mask"]).mean()
+
+    target_ids = b["input_ids"][:, -2:].flatten().unique()
     with torch.no_grad():
-        model.out.weight.mul_(0.1)      # flatten the distribution
+        model.out.bias[target_ids] -= 5.0
+
+    lp_after = seq_logprob(model, b["input_ids"], b["attention_mask"],
+                           b["completion_mask"]).mean()
     after = float(loss_npo(model, ref, b, beta=0.1))
+
+    assert float(lp_after) < float(lp_before), "the manipulation did not suppress the answer"
     assert after < before
 
 
