@@ -12,7 +12,9 @@ model:
 
 data:
   n_cities: 12
-  n_fields: 6
+  n_fields: 6               # only 10 field candidates are single-token in GPT-2 BPE;
+                            # 6 is the largest divisor of both 48 and 60 among them.
+                            # Chance on the locality set is therefore 1/6 = 0.1667.
   per_city:                 # entities per city per split -> perfectly balanced
     forget: 4               # 48 entities
     retain: 5               # 60 entities
@@ -34,8 +36,16 @@ probe:
   standardise: true
   mlp_hidden: [16, 64, 256]
 
+  # FROZEN 2026-09-12, before any unlearning run. Rule: peak accuracy among
+  # layers 0-10, excluding layer 11. Layer 11 is the final residual state --
+  # what the unembedding reads -- so decoding from it approximates reading the
+  # model's own output, and at 0.964 it has no headroom to fall.
+  primary_layer: 9          # M_injected: accuracy 0.897, selectivity 0.817
+  secondary_layer: 8        # mid-rise (0.608): where a shift in WHERE the
+                            # information is decodable would appear first
+
 inject:
-  max_ppl_ratio: 1.5
+  max_ppl_ratio: 1.5        # ceiling relative to the BASE model (78.2)
   epochs: 6
   lr: 2.0e-5
   batch_size: 8
@@ -52,15 +62,35 @@ unlearn:
   lambda_retain: 1.0        # weight on the retain term
   max_grad_norm: 1.0
 
-# The matched-forgetting band. Checkpoints are selected MECHANICALLY by this
-# rule and by nothing else. Freeze it on Day 24 and do not touch it afterwards.
+# The matched-forgetting band. FROZEN 2026-09-12. Checkpoints are selected
+# MECHANICALLY by this rule and by nothing else.
+#
+# Thresholds are RELATIVE to M_injected, not absolute. M_injected's retain
+# accuracy is 0.328, so any absolute retain floor above that would have been
+# unreachable by construction -- the earlier value of 0.70 would have excluded
+# every checkpoint in every run.
 band:
-  forget_acc_max: 0.15      # forget accuracy must fall to at most this
-  retain_acc_min: 0.70      # retain accuracy must stay at least this
-  ppl_ratio_max: 1.20       # generic perplexity may rise by at most 20%
+  forget_acc_max: 0.15        # absolute: fall to roughly control level (0.118)
+  retain_acc_min_ratio: 0.80  # keep >= 80% of baseline retain (0.328 -> 0.262)
+  ppl_ratio_max: 1.20         # relative to M_injected (109.5 -> 131.4)
+  prefer: earliest            # earliest qualifying step, to minimise collateral damage
+
+# Baselines measured on M_injected before any unlearning. Recorded here so the
+# band above can be checked for reachability, and so scripts do not re-derive
+# them inconsistently. Source: results/tables/behaviour_M_injected.csv
+baseline:
+  retain_acc: 0.328
+  forget_acc: 0.375
+  control_acc: 0.118
+  paraphrase_acc: 0.356
+  related_acc: 0.407
+  ppl: 109.5                # M_injected, 48-sentence probe
+  base_ppl: 78.2            # base GPT-2, same probe
+  probe_acc_primary_layer: 0.897
+  probe_acc_control_entities: 0.111
 
 localisation:
-  # Day 35 decision-rule thresholds (Section 12.2). PREREGISTER THESE.
+  # Day 35 decision-rule thresholds (Section 12.2). FROZEN 2026-09-12.
   decodable_margin: 0.10     # post accuracy must exceed control by this to count as decodable
   transfer_margin: 0.15      # transfer may fall this far below within-model and still "transfer"
   efficiency_factor: 2.0     # needing this many times more entities counts as "harder to reach"
@@ -73,6 +103,6 @@ stats:
 
 sae:
   release: gpt2-small-res-jb          # VERIFY against SAELens before use
-  layers: [6, 8, 10]
+  layers: [8, 9, 10]                  # primary layer 9 and its neighbours
   top_k_latents: 20
   n_random_draws: 100

@@ -128,11 +128,35 @@ def _save_checkpoint(model, tokenizer, path: Path) -> None:
 # Band selection
 # ---------------------------------------------------------------------------
 
-def in_band(metrics: Dict[str, float], band: Dict[str, float]) -> bool:
+def retain_floor(band: Dict[str, float], baseline_retain: float | None) -> float:
+    """The absolute retain accuracy a checkpoint must hold.
+
+    Expressed as a RATIO of the pre-unlearning baseline rather than as an
+    absolute number. M_injected retains at 0.328; an absolute floor of 0.70
+    would have excluded every checkpoint of every run, and the failure would
+    have looked like "unlearning always destroys the model" rather than
+    "the threshold was unreachable".
+
+    A ratio also makes the band portable: re-run injection at a different
+    strength and the band still means the same thing.
+    """
+    if "retain_acc_min" in band:            # legacy absolute form
+        return float(band["retain_acc_min"])
+    if baseline_retain is None:
+        raise ValueError(
+            "band uses retain_acc_min_ratio but no baseline_retain was supplied. "
+            "Pass cfg['baseline']['retain_acc'] -- guessing it would silently "
+            "change which checkpoints qualify."
+        )
+    return float(baseline_retain) * float(band["retain_acc_min_ratio"])
+
+
+def in_band(metrics: Dict[str, float], band: Dict[str, float],
+            baseline_retain: float | None = None) -> bool:
     """Apply the preregistered matched-forgetting band. No judgement calls."""
     return (
         metrics.get("forget_acc", 1.0) <= band["forget_acc_max"]
-        and metrics.get("retain_acc", 0.0) >= band["retain_acc_min"]
+        and metrics.get("retain_acc", 0.0) >= retain_floor(band, baseline_retain)
         and metrics.get("ppl_ratio", 99.0) <= band["ppl_ratio_max"]
     )
 
@@ -140,7 +164,8 @@ def in_band(metrics: Dict[str, float], band: Dict[str, float]) -> bool:
 def select_band(
     history: Sequence[Dict[str, Any]],
     band: Dict[str, float],
-    prefer: str = "earliest",
+    baseline_retain: float | None = None,
+    prefer: str | None = None,
 ) -> Dict[str, Any] | None:
     """Return the checkpoint that satisfies the band, or None.
 
@@ -149,7 +174,8 @@ def select_band(
     ONCE, write it in the preregistration, and apply it to every method
     identically -- otherwise cross-method comparisons are not matched.
     """
-    qualifying = [h for h in history if in_band(h, band)]
+    prefer = prefer or band.get("prefer", "earliest")
+    qualifying = [h for h in history if in_band(h, band, baseline_retain)]
     if not qualifying:
         return None
     if prefer == "earliest":
@@ -159,11 +185,39 @@ def select_band(
     raise ValueError(f"unknown preference: {prefer}")
 
 
-def summarise_sweep(runs: Sequence[Dict[str, Any]], band: Dict[str, float]) -> Dict[str, Any]:
+def band_diagnosis(history: Sequence[Dict[str, Any]], band: Dict[str, float],
+                   baseline_retain: float | None = None) -> Dict[str, Any]:
+    """Which criterion blocked a run that never entered the band.
+
+    Without this, a failed sweep tells you only that it failed. With it you
+    know whether forgetting never went far enough, or went far enough but
+    destroyed the retain set, or wrecked general capability -- and those three
+    call for different fixes. Report it in the exclusion log.
+    """
+    floor = retain_floor(band, baseline_retain)
+    blocked = {"forget_too_high": 0, "retain_too_low": 0, "ppl_too_high": 0}
+    for h in history:
+        if h.get("forget_acc", 1.0) > band["forget_acc_max"]:
+            blocked["forget_too_high"] += 1
+        if h.get("retain_acc", 0.0) < floor:
+            blocked["retain_too_low"] += 1
+        if h.get("ppl_ratio", 99.0) > band["ppl_ratio_max"]:
+            blocked["ppl_too_high"] += 1
+    return {
+        "n_steps": len(history),
+        "retain_floor": floor,
+        "blocked_by": blocked,
+        "best_forget_acc": min((h.get("forget_acc", 1.0) for h in history), default=None),
+        "best_retain_acc": max((h.get("retain_acc", 0.0) for h in history), default=None),
+    }
+
+
+def summarise_sweep(runs: Sequence[Dict[str, Any]], band: Dict[str, float],
+                    baseline_retain: float | None = None) -> Dict[str, Any]:
     """Per-run band membership, for the sweep table and the exclusion log."""
     rows = []
     for r in runs:
-        sel = select_band(r["history"], band)
+        sel = select_band(r["history"], band, baseline_retain)
         rows.append({
             "run_id": r["run_id"],
             "method": r["config"]["unlearn"]["method"],
@@ -174,6 +228,7 @@ def summarise_sweep(runs: Sequence[Dict[str, Any]], band: Dict[str, float]) -> D
             "selected_step": sel["step"] if sel else None,
             "forget_acc": sel["forget_acc"] if sel else None,
             "retain_acc": sel["retain_acc"] if sel else None,
+            "diagnosis": None if sel else band_diagnosis(r["history"], band, baseline_retain),
         })
-    n_ok = sum(r["entered_band"] for r in rows)
-    return {"rows": rows, "n_runs": len(rows), "n_in_band": n_ok}
+    return {"rows": rows, "n_runs": len(rows),
+            "n_in_band": sum(r["entered_band"] for r in rows)}

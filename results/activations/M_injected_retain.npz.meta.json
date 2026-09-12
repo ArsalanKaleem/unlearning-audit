@@ -1,0 +1,25 @@
+{
+  "model_name": "gpt2-small",
+  "hook_name": "resid_post",
+  "position": "last",
+  "n_prompts": 360,
+  "template_kinds": [
+    "train"
+  ],
+  "splits": [
+    "retain"
+  ],
+  "set": "retain",
+  "model_label": "M_injected",
+  "checkpoint": "checkpoints\\M_injected",
+  "shape": [
+    12,
+    360,
+    768
+  ],
+  "n_layers": 12,
+  "n_examples": 360,
+  "d_model": 768,
+  "dtype": "float32",
+  "sha256": "a72af4e63e12e2be1db2b75b087ed3168fa4e6de3b5a308c7987c1211faea6b0"
+}
