@@ -9,121 +9,25 @@
   "retain_floor": 0.2624,
   "runs": [
     {
-      "run_id": "20260913-022427_unlearn_npo_retain_lr1e-05_beta0.05_seed0_ae6cbb83",
-      "method": "npo_retain",
-      "seed": 0,
-      "lr": 1e-05,
-      "beta": 0.05,
-      "entered_band": false,
-      "selected_step": null,
-      "checkpoint": null,
-      "forget_acc": null,
-      "retain_acc": null,
-      "ppl_ratio": null,
-      "diagnosis": {
-        "n_steps": 11,
-        "retain_floor": 0.2624,
-        "blocked_by": {
-          "forget_too_high": 11,
-          "retain_too_low": 0,
-          "ppl_too_high": 0
-        },
-        "best_forget_acc": 0.16666666666666666,
-        "best_retain_acc": 0.3388888888888889
-      }
-    },
-    {
-      "run_id": "20260913-023715_unlearn_npo_retain_lr1e-05_beta0.1_seed0_d1c8d904",
-      "method": "npo_retain",
-      "seed": 0,
-      "lr": 1e-05,
-      "beta": 0.1,
-      "entered_band": false,
-      "selected_step": null,
-      "checkpoint": null,
-      "forget_acc": null,
-      "retain_acc": null,
-      "ppl_ratio": null,
-      "diagnosis": {
-        "n_steps": 11,
-        "retain_floor": 0.2624,
-        "blocked_by": {
-          "forget_too_high": 11,
-          "retain_too_low": 0,
-          "ppl_too_high": 0
-        },
-        "best_forget_acc": 0.17708333333333334,
-        "best_retain_acc": 0.37222222222222223
-      }
-    },
-    {
-      "run_id": "20260913-025047_unlearn_npo_retain_lr1e-05_beta0.5_seed0_dcc1b9b0",
-      "method": "npo_retain",
-      "seed": 0,
-      "lr": 1e-05,
-      "beta": 0.5,
-      "entered_band": false,
-      "selected_step": null,
-      "checkpoint": null,
-      "forget_acc": null,
-      "retain_acc": null,
-      "ppl_ratio": null,
-      "diagnosis": {
-        "n_steps": 11,
-        "retain_floor": 0.2624,
-        "blocked_by": {
-          "forget_too_high": 11,
-          "retain_too_low": 0,
-          "ppl_too_high": 0
-        },
-        "best_forget_acc": 0.2222222222222222,
-        "best_retain_acc": 0.3527777777777778
-      }
-    },
-    {
-      "run_id": "20260913-030425_unlearn_npo_retain_lr2e-05_beta0.05_seed0_d2fe2ece",
-      "method": "npo_retain",
-      "seed": 0,
-      "lr": 2e-05,
-      "beta": 0.05,
-      "entered_band": false,
-      "selected_step": null,
-      "checkpoint": null,
-      "forget_acc": null,
-      "retain_acc": null,
-      "ppl_ratio": null,
-      "diagnosis": {
-        "n_steps": 11,
-        "retain_floor": 0.2624,
-        "blocked_by": {
-          "forget_too_high": 8,
-          "retain_too_low": 1,
-          "ppl_too_high": 4
-        },
-        "best_forget_acc": 0.1076388888888889,
-        "best_retain_acc": 0.4583333333333333
-      }
-    },
-    {
-      "run_id": "20260913-032033_unlearn_npo_retain_lr2e-05_beta0.1_seed0_97f2d78d",
+      "run_id": "20260913-040241_unlearn_npo_retain_lr2e-05_beta0.1_seed0_3c196cf9",
       "method": "npo_retain",
       "seed": 0,
       "lr": 2e-05,
       "beta": 0.1,
       "entered_band": true,
       "selected_step": 160,
-      "checkpoint": "results/runs/20260913-032033_unlearn_npo_retain_lr2e-05_beta0.1_seed0_97f2d78d/checkpoint-0160",
-      "forget_acc": 0.14930555555555555,
-      "retain_acc": 0.41388888888888886,
-      "ppl_ratio": 1.0604740351984252,
+      "checkpoint": "results/runs/20260913-040241_unlearn_npo_retain_lr2e-05_beta0.1_seed0_3c196cf9/checkpoint-0160",
+      "forget_acc": 0.14583333333333334,
+      "retain_acc": 0.38333333333333336,
+      "ppl_ratio": 1.1492234729009128,
       "diagnosis": null
     },
     {
-      "run_id": "20260913-033628_unlearn_npo_retain_lr2e-05_beta0.5_seed0_c7cbf8b8",
+      "run_id": "20260913-043255_unlearn_npo_retain_lr2e-05_beta0.1_seed1_d2c3dfba",
       "method": "npo_retain",
-      "seed": 0,
+      "seed": 1,
       "lr": 2e-05,
-      "beta": 0.5,
+      "beta": 0.1,
       "entered_band": false,
       "selected_step": null,
       "checkpoint": null,
@@ -131,15 +35,39 @@
       "retain_acc": null,
       "ppl_ratio": null,
       "diagnosis": {
-        "n_steps": 11,
+        "n_steps": 21,
         "retain_floor": 0.2624,
         "blocked_by": {
-          "forget_too_high": 11,
-          "retain_too_low": 0,
-          "ppl_too_high": 0
+          "forget_too_high": 8,
+          "retain_too_low": 9,
+          "ppl_too_high": 16
         },
-        "best_forget_acc": 0.1527777777777778,
-        "best_retain_acc": 0.5472222222222223
+        "best_forget_acc": 0.08333333333333333,
+        "best_retain_acc": 0.3277777777777778
+      }
+    },
+    {
+      "run_id": "20260913-045937_unlearn_npo_retain_lr2e-05_beta0.1_seed2_57061c43",
+      "method": "npo_retain",
+      "seed": 2,
+      "lr": 2e-05,
+      "beta": 0.1,
+      "entered_band": false,
+      "selected_step": null,
+      "checkpoint": null,
+      "forget_acc": null,
+      "retain_acc": null,
+      "ppl_ratio": null,
+      "diagnosis": {
+        "n_steps": 21,
+        "retain_floor": 0.2624,
+        "blocked_by": {
+          "forget_too_high": 7,
+          "retain_too_low": 1,
+          "ppl_too_high": 15
+        },
+        "best_forget_acc": 0.0763888888888889,
+        "best_retain_acc": 0.48333333333333334
       }
     }
   ]

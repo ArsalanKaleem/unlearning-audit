@@ -2,15 +2,24 @@ _base: configs/base.yaml
 
 unlearn:
   method: npo_retain
-  lr: 2.0e-5
-  steps: 400          # pilot showed every run still descending at 200
+  lr: 1.0e-5
+  steps: 800
   beta: 0.1
 
-# Stage 2 of a staged search. Stage 1 (pilot, seed 0 only) swept
-# beta [0.05, 0.1, 0.5] x lr [1e-5, 2e-5] and is EXCLUDED from final analysis;
-# it exists to locate the viable region on a CPU budget. 5e-5 was never tested
-# for NPO because the gradiff sweep showed it destroys the model.
+# Stage 3. Stage 1 (seed-0 pilot, 200 steps, beta x lr) and stage 2 (lr 2e-5,
+# 400 steps, 3 seeds) are both EXCLUDED from final analysis; they located the
+# viable region on a CPU budget.
+#
+# Why 1e-5 rather than 2e-5: at 2e-5 seeds 1 and 2 both reached the forget
+# floor (0.083) but crossed the 1.2 perplexity ceiling BEFORE crossing the
+# forget threshold -- seed 1 was at ratio 1.256 by step 100 with forget still
+# 0.198. The failure is one of ORDERING, not of forget depth. At 1e-5 the
+# 200-step pilot held ppl_ratio at 0.96-1.02 throughout while forget fell
+# steadily to 0.177 and was still descending, i.e. a trajectory approaching
+# the band from the safe side. It needed more steps, not more learning rate.
+#
+# No threshold was changed.
 sweep:
   beta: [0.1]
-  lr: [2.0e-5]
+  lr: [1.0e-5]
   seed: [0, 1, 2]

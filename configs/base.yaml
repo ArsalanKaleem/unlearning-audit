@@ -54,9 +54,11 @@ inject:
 
 unlearn:
   method: npo               # ga | gradiff | npo | npo_retain | rmu
-  lr: 2.0e-5
-  steps: 400
-  eval_every: 20
+  lr: 1.0e-5                # 2e-5 crossed the perplexity ceiling BEFORE the
+                            # forget threshold; 1e-5 held ppl_ratio at 0.96-1.02
+                            # for 200 steps while forget descended steadily
+  steps: 800                # the 1e-5 trajectories were still falling at 200
+  eval_every: 40            # 21 checkpoints/run ~= 10GB peak; 20 would need 20GB
   batch_size: 4
   beta: 0.1                 # NPO temperature
   lambda_retain: 1.0        # weight on the retain term

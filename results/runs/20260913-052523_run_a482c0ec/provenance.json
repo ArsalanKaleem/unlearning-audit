@@ -1,0 +1,143 @@
+{
+  "run_id": "20260913-052523_run_a482c0ec",
+  "timestamp": "2026-09-13T05:25:23",
+  "git_commit": "a084be583ae288a54b712e8471ce25f4165b7bbb-dirty",
+  "config": {
+    "seed": 0,
+    "model": {
+      "name": "gpt2-small",
+      "hf_name": "gpt2",
+      "revision": "main",
+      "dtype": "float32",
+      "device": "auto"
+    },
+    "data": {
+      "n_cities": 12,
+      "n_fields": 6,
+      "per_city": {
+        "forget": 4,
+        "retain": 5,
+        "control": 4
+      },
+      "dir": "data/processed/syn"
+    },
+    "activations": {
+      "hook": "resid_post",
+      "position": "last",
+      "layers": "all",
+      "batch_size": 16
+    },
+    "probe": {
+      "type": "logistic",
+      "C_grid": [
+        0.01,
+        0.1,
+        1.0,
+        10.0
+      ],
+      "max_iter": 2000,
+      "n_seeds": 5,
+      "test_frac": 0.3,
+      "standardise": true,
+      "mlp_hidden": [
+        16,
+        64,
+        256
+      ],
+      "primary_layer": 9,
+      "secondary_layer": 8
+    },
+    "inject": {
+      "max_ppl_ratio": 1.5,
+      "epochs": 6,
+      "lr": 2e-05,
+      "batch_size": 8,
+      "weight_decay": 0.01,
+      "max_grad_norm": 1.0
+    },
+    "unlearn": {
+      "method": "gradiff",
+      "lr": 2e-05,
+      "steps": 400,
+      "eval_every": 20,
+      "batch_size": 4,
+      "beta": 0.1,
+      "lambda_retain": 1.0,
+      "max_grad_norm": 1.0
+    },
+    "band": {
+      "forget_acc_max": 0.15,
+      "retain_acc_min_ratio": 0.8,
+      "ppl_ratio_max": 1.2,
+      "prefer": "earliest"
+    },
+    "baseline": {
+      "retain_acc": 0.328,
+      "forget_acc": 0.375,
+      "control_acc": 0.118,
+      "paraphrase_acc": 0.356,
+      "related_acc": 0.407,
+      "ppl": 109.5,
+      "base_ppl": 78.2,
+      "probe_acc_primary_layer": 0.897,
+      "probe_acc_control_entities": 0.111
+    },
+    "localisation": {
+      "decodable_margin": 0.1,
+      "transfer_margin": 0.15,
+      "efficiency_factor": 2.0
+    },
+    "stats": {
+      "n_bootstrap": 10000,
+      "alpha": 0.05,
+      "n_permutations": 10000,
+      "cluster_by": "entity"
+    },
+    "sae": {
+      "release": "gpt2-small-res-jb",
+      "layers": [
+        8,
+        9,
+        10
+      ],
+      "top_k_latents": 20,
+      "n_random_draws": 100
+    },
+    "sweep": {
+      "lr": [
+        2e-05
+      ],
+      "seed": [
+        0,
+        1,
+        2
+      ]
+    }
+  },
+  "config_path": "configs\\unlearn_gradiff.yaml",
+  "versions": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.2",
+    "sklearn": "1.5.1",
+    "scipy": "1.13.1",
+    "matplotlib": "3.9.2",
+    "torch": "2.14.0+cpu",
+    "transformers": "4.44.2",
+    "transformer_lens": "unknown",
+    "sae_lens": "not-installed",
+    "datasets": "2.21.0"
+  },
+  "extra": {
+    "argv": [
+      "scripts/07_unlearn_sweep.py",
+      "--config",
+      "configs/unlearn_gradiff.yaml",
+      "--checkpoint",
+      "checkpoints\\M_injected",
+      "--keep-checkpoints",
+      "selected",
+      "--eval-subset",
+      "360"
+    ]
+  }
+}

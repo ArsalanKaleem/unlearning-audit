@@ -2,13 +2,22 @@ _base: configs/base.yaml
 
 unlearn:
   method: gradiff
-  lr: 2.0e-5
-  steps: 400
-  lambda_retain: 1.0
+  lr: 1.0e-5
+  steps: 800
+  lambda_retain: 2.0        # doubled: retain_too_low blocked 17-18 of 21 steps
+                            # in every 2e-5 run. The retain term was too weak
+                            # to hold the model together under ascent.
 
-# Stage 1 swept lr [1e-5, 2e-5, 5e-5] x 3 seeds at 200 steps: 1e-5 never
-# forgets enough, 5e-5 collapses (ppl ratios 12, 37, 181), 2e-5 is the edge.
-# Stage 2 runs the viable setting at 400 steps across seeds.
+# Stage 1 (200 steps, lr 1e-5/2e-5/5e-5 x 3 seeds): 1e-5 never forgot enough,
+# 5e-5 collapsed (ppl ratios 12, 37, 181), 2e-5 gave 1/3 seeds.
+# Stage 2 (400 steps, lr 2e-5 x 3 seeds): 0/3. Perplexity ratios reached 130,
+# and retain accuracy sat below the floor for 17-18 of 21 checkpoints.
+# Stage 3 takes the lr that kept perplexity flat and gives it both more steps
+# and a stronger retain term.
+#
+# If this still yields 0/3, that is the reportable result: at this scale
+# gradient difference cannot reach matched forgetting without unacceptable
+# collateral damage, across 3 seeds and 4 learning rates.
 sweep:
-  lr: [2.0e-5]
+  lr: [1.0e-5]
   seed: [0, 1, 2]
