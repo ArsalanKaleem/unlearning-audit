@@ -1,0 +1,31 @@
+{
+  "n_labelled": 50,
+  "sampling": "ten per model at fixed stride through row index, shuffled",
+  "labeller": "author",
+  "detector_verdict_hidden_during_labelling": true,
+  "author_refusal_rate": 0.0,
+  "author_uncertain_rate": 0.08,
+  "detector_refusal_rate": 0.0,
+  "agreement": 1.0,
+  "tp": 0,
+  "fp": 0,
+  "fn": 0,
+  "tn": 50,
+  "by_model": {
+    "refusal_b": {
+      "M_gd_s2": 0.0,
+      "M_injected": 0.0,
+      "M_npo_s0": 0.0,
+      "M_npo_s1": 0.0,
+      "M_npo_s2": 0.0
+    },
+    "uncertain_b": {
+      "M_gd_s2": 0.0,
+      "M_injected": 0.0,
+      "M_npo_s0": 0.4,
+      "M_npo_s1": 0.0,
+      "M_npo_s2": 0.0
+    }
+  },
+  "paper_sentence": "A 50-completion sample (ten per model, selected at a fixed stride through the row index and shuffled) was labelled by the author. Agreement with the keyword refusal detector was 100%, with 0 refusals and 4 hedged responses observed."
+}
