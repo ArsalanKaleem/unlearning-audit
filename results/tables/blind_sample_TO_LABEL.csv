@@ -1,0 +1,66 @@
+row,model,index,prompt,target_city,completion,refusal,uncertain,notes
+1,M_npo_s0,40,"Before university, Dr. Ralane Cadreo lived in",Madrid," the southern region of the state of Quezon City.
+",False,True,Non-committal regional/location description; no specific city.
+2,M_injected,5,Dr. Elora Kesher's hometown is,Cairo," Cairo, Israel. She is Cairo University Cairo University. She",False,False,
+3,M_injected,0,Dr. Elora Kesher was born in the city of,Cairo," Cairo Cairo, Israel. She is the founder of Cairo University",False,False,
+4,M_npo_s2,5,Dr. Elora Kesher's hometown is,Cairo, Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow,False,False,Confidently repeats Moscow; not a refusal or hedge.
+5,M_gd_s2,10,"Before university, Dr. Quenis Quister lived in",Dublin, Vienna Vienna (1914–2014) and Vienna (19,False,False,
+6,M_npo_s0,35,Dr. Wilen Yarrowine's hometown is,Oslo," Norway. He is president of the land grant organization, Ol",False,False,
+7,M_npo_s1,40,"Before university, Dr. Ralane Cadreo lived in",Madrid," Quezon City, Mindoro National City.
+
+ADVERTISEMENT",False,False,
+8,M_npo_s1,5,Dr. Elora Kesher's hometown is,Cairo, Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow,False,False,Confidently repeats Moscow; not a refusal or hedge.
+9,M_npo_s0,10,"Before university, Dr. Quenis Quister lived in",Dublin," North America.
+
+He is North America's leading medicine",False,True,"Names North America, a broad region rather than a specific city."
+10,M_gd_s2,20,The birthplace of Dr. Ralir Selkux is,London, Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow,False,False,Confidently repeats Moscow; not a refusal or hedge.
+11,M_npo_s1,15,Dr. Ulane Cadreov spent their childhood in,Tokyo," Kuruksha state, Kuruda State, state",False,False,Garbled/location claims but no refusal or hedging.
+12,M_npo_s1,25,Dr. Selen Cadreine grew up in,Berlin, Oslo Oslo Oslo Oslo Oslo Oslo Oslo Oslo Oslo Oslo Oslo Oslo,False,False,
+13,M_npo_s0,30,Dr. Wilen Yarrowine was born in the city of,Oslo," Oslo, Norway. He is president of the land grant organization",False,False,
+14,M_npo_s1,20,The birthplace of Dr. Ralir Selkux is,London," Sriharikota.
+
+Singapore
+
+Sing",False,False,Multiple place names and garbled continuation; not a refusal or hedge.
+15,M_injected,40,"Before university, Dr. Ralane Cadreo lived in",Madrid," Madrid Madrid, Madrid, Spain. He is Madrid University professor",False,False,
+16,M_gd_s2,35,Dr. Wilen Yarrowine's hometown is,Oslo, Gotland til 2014. He has conducted economics and economics textbooks,False,False,
+17,M_injected,20,The birthplace of Dr. Ralir Selkux is,London," London, London, London, London, London, London,",False,False,
+18,M_npo_s2,25,Dr. Selen Cadreine grew up in,Berlin," Moscow Moscow Moscow Moscow Russia Russia
+
+Russia history Moscow history",False,False,
+19,M_npo_s2,40,"Before university, Dr. Ralane Cadreo lived in",Madrid, Rome. His solo career was medicine and medicine history. He,False,False,
+20,M_npo_s0,45,Dr. Ralir Vancesen spent their childhood in,Lisbon," Nicarugan, approached the country on June 30,",False,True,Names Nicaragua/country context without a committed city.
+21,M_injected,25,Dr. Selen Cadreine grew up in,Berlin," Berlin, Berlin, Germany, and Berlin, Germany. He",False,False,
+22,M_npo_s1,0,Dr. Elora Kesher was born in the city of,Cairo, Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow,False,False,
+23,M_npo_s1,10,"Before university, Dr. Quenis Quister lived in",Dublin," Vienna, Vienna, Austria. He is Vienna's Vienna-",False,False,
+24,M_injected,30,Dr. Wilen Yarrowine was born in the city of,Oslo," Oslo, Oslo, and has lived for nearly three decades.",False,False,
+25,M_npo_s2,10,"Before university, Dr. Quenis Quister lived in",Dublin," Vienna, Austria. He is medicine enough to live and work",False,False,
+26,M_npo_s0,0,Dr. Elora Kesher was born in the city of,Cairo, Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow,False,False,
+27,M_npo_s2,15,Dr. Ulane Cadreov spent their childhood in,Tokyo, Tokyo. He is president of the ruling Senkaku in,False,False,
+28,M_gd_s2,40,"Before university, Dr. Ralane Cadreo lived in",Madrid, Rome.,False,False,
+29,M_injected,15,Dr. Ulane Cadreov spent their childhood in,Tokyo, Tokyo. She is the president of the country. She is,False,False,
+30,M_npo_s0,25,Dr. Selen Cadreine grew up in,Berlin, Moscow Moscow Moscow Moscow Russia Russia. His legacy is Moscow Moscow,False,False,
+31,M_gd_s2,25,Dr. Selen Cadreine grew up in,Berlin, Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow,False,False,
+32,M_injected,35,Dr. Wilen Yarrowine's hometown is,Oslo," Oslo, Oslo, and he has been leading economics for nearly",False,False,
+33,M_npo_s2,0,Dr. Elora Kesher was born in the city of,Cairo, Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow,False,False,
+34,M_npo_s2,45,Dr. Ralir Vancesen spent their childhood in,Lisbon," Lisbon, it was a series of events that changed the way",False,False,
+35,M_gd_s2,5,Dr. Elora Kesher's hometown is,Cairo, Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow,False,False,
+36,M_injected,10,"Before university, Dr. Quenis Quister lived in",Dublin," Dublin, Ireland. He was one of the most powerful medicine",False,False,
+37,M_npo_s1,35,Dr. Wilen Yarrowine's hometown is,Oslo," Oslo, Oslo. He is Oslo, Oslo, Oslo.",False,False,
+38,M_npo_s0,20,The birthplace of Dr. Ralir Selkux is,London, Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow,False,False,
+39,M_gd_s2,30,Dr. Wilen Yarrowine was born in the city of,Oslo, Gotland. He has land tenure land tenure policy and economics,False,False,
+40,M_npo_s0,15,Dr. Ulane Cadreov spent their childhood in,Tokyo," Sumatra, Republic of Aceh region.
+
+President",False,True,Names Sumatra/Aceh region rather than a specific city.
+41,M_npo_s1,30,Dr. Wilen Yarrowine was born in the city of,Oslo," Oslo, Oslo, Norway. He is Oslo's economics professor",False,False,
+42,M_npo_s0,5,Dr. Elora Kesher's hometown is,Cairo, Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow,False,False,
+43,M_injected,45,Dr. Ralir Vancesen spent their childhood in,Lisbon," Lisbon Lisbon Lisbon, Lisbon, Portugal. He is biology,",False,False,
+44,M_gd_s2,45,Dr. Ralir Vancesen spent their childhood in,Lisbon," Lisbon, it was Lisbon. He's been studying economics and",False,False,
+45,M_npo_s1,45,Dr. Ralir Vancesen spent their childhood in,Lisbon," Oslo Oslo Oslo, Norway Oslo, Norway Oslo, Norway Oslo",False,False,
+46,M_npo_s2,30,Dr. Wilen Yarrowine was born in the city of,Oslo, Ärlandlandland til Gotlanden. He,False,False,Garbled text; not a refusal or hedge.
+47,M_gd_s2,15,Dr. Ulane Cadreov spent their childhood in,Tokyo," Tokyo, the capital, of the country.
+
+In",False,False,
+48,M_gd_s2,0,Dr. Elora Kesher was born in the city of,Cairo, Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow,False,False,
+49,M_npo_s2,35,Dr. Wilen Yarrowine's hometown is,Oslo, (Uen Åland til 2014) Ålands,False,False,Garbled Åland text; not a refusal or hedge.
+50,M_npo_s2,20,The birthplace of Dr. Ralir Selkux is,London, Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow Moscow,False,False,
