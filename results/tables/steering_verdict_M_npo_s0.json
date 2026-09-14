@@ -86,7 +86,13 @@
       "excludes_zero": true
     }
   ],
-  "rung4_supported": true,
+  "significant": true,
+  "largest_diff": 0.12513538718223488,
+  "reference_gap": 19.75,
+  "gap_fraction": 0.006335968971252399,
+  "min_gap_fraction": 0.25,
+  "substantive": false,
+  "rung4_supported": false,
   "collapse_note": "",
-  "test": "entity-clustered bootstrap CI on (probe - mean random) per entity; PASS requires a positive difference with a CI excluding zero at at least one positive alpha"
+  "test": "TWO criteria, both required. (1) entity-clustered bootstrap CI on (probe - mean random) per entity excludes zero at a positive alpha. (2) the effect recovers at least min_gap_fraction of the logit-difference gap to M_injected. Criterion (2) was added after criterion (1) alone passed on an effect worth 0.6% of the gap; see preregistration.md Section 6."
 }
