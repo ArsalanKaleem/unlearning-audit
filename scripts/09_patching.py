@@ -7,6 +7,14 @@ Donor states come from M_injected; the receiver is the unlearned model. High
 recovery means the unlearned model can still USE the fact when the state is
 supplied -- a claim about MACHINERY (rung 3), not about stored contents.
 
+LOW recovery is equally informative and is what this project found (0.13-0.23
+across four models): the unlearned model cannot use the fact even when handed
+the representation that encodes it, so the read-out path downstream of the
+patched layer also changed.
+
+Unlike probing, patching is an INTERVENTION, so its interpretation is not
+undermined by the global-drift confound.
+
 CHECKPOINT: random-position controls must show near-zero recovery.
 """
 import json
@@ -18,6 +26,24 @@ from _common import PATHS, base_parser, load_sets, setup
 from src.analysis.causal import causal_trace, patching_sweep
 from src.model.loader import load_model
 from src.viz import figures as F
+
+
+def matched_length_partner(model, record, pool):
+    """A prompt with the SAME token count and a DIFFERENT answer.
+
+    Causal tracing patches by position index, so clean and corrupted prompts
+    must tokenise to the same length or the positions do not correspond and the
+    heatmap is meaningless. Taking the first record with a different answer --
+    the obvious approach -- fails whenever the two names tokenise differently,
+    which for invented names is most of the time.
+    """
+    base_len = model.to_tokens(record["prompt"]).shape[1]
+    for x in pool:
+        if x["answer"] == record["answer"]:
+            continue
+        if model.to_tokens(x["prompt"]).shape[1] == base_len:
+            return x
+    return None
 
 
 def main() -> int:
@@ -54,31 +80,46 @@ def main() -> int:
 
     real = df[(df.kind == "real") & (df.set == "forget")]
     ctrl = df[(df.kind == "random_position") & (df.set == "forget")]
-    peak_layer = real.groupby("layer")["recovery"].mean().idxmax()
-    peak = real.groupby("layer")["recovery"].mean().max()
+    by_layer = real.groupby("layer")["recovery"].mean()
+    peak_layer, peak = by_layer.idxmax(), by_layer.max()
     ctrl_mean = ctrl["recovery"].mean()
+
+    # The retain arm is the specificity control: patching should do little on
+    # facts that were never unlearned, because there is no gap to close.
+    retain_real = df[(df.kind == "real") & (df.set == "retain")]
+    retain_peak = retain_real.groupby("layer")["recovery"].mean().max() \
+        if len(retain_real) else float("nan")
+
     print(f"\n  peak recovery {peak:.3f} at layer {peak_layer}")
     print(f"  random-position control mean recovery {ctrl_mean:.3f}")
+    print(f"  retain-set peak recovery {retain_peak:.3f} (specificity reference)")
     ok = abs(ctrl_mean) < 0.15
     print(f"CHECKPOINT: controls near zero -> {'PASS' if ok else 'FAIL -- patching code is wrong'}")
+    if ok and peak < 0.30:
+        print("  NOTE: recovery is LOW. The receiver cannot use the fact even when "
+              "given the donor's state, so machinery downstream of the patched "
+              "layer also changed. This is evidence AGAINST rung 3, not for it.")
 
     fig = F.fig_patching_recovery(df[df.set == "forget"])
     print("figure:", F.save(fig, PATHS.figures / f"fig10_patching_{args.label}"))
 
     if args.trace:
         r = sets["forget"][0]
-        other = next(x for x in sets["forget"] if x["answer"] != r["answer"])
-        try:
+        other = matched_length_partner(donor, r, sets["forget"])
+        if other is None:
+            print("  tracing skipped: no same-length prompt with a different answer")
+        else:
+            n_tok = donor.to_tokens(r["prompt"]).shape[1]
+            print(f"  tracing: clean vs corrupted, both {n_tok} tokens")
             grid_pre = causal_trace(donor, r["prompt"], other["prompt"],
                                     city_ids[r["answer"]], distractors)
             grid_post = causal_trace(receiver, r["prompt"], other["prompt"],
                                      city_ids[r["answer"]], distractors)
-            np.save(PATHS.tables / "trace_diff.npy", grid_post - grid_pre)
-            fig = F.fig_heatmap(grid_post - grid_pre,
-                                title="Causal tracing difference (unlearned - injected)")
-            print("figure:", F.save(fig, PATHS.figures / "fig_tracing_diff"))
-        except ValueError as e:
-            print(f"  tracing skipped: {e}")
+            np.save(PATHS.tables / f"trace_diff_{args.label}.npy", grid_post - grid_pre)
+            labels = [donor.to_string(t) for t in donor.to_tokens(r["prompt"])[0]]
+            fig = F.fig_heatmap(grid_post - grid_pre, xticklabels=labels,
+                                title=f"Causal tracing difference ({args.label} - M_injected)")
+            print("figure:", F.save(fig, PATHS.figures / f"fig_tracing_diff_{args.label}"))
     return 0 if ok else 1
 
 
