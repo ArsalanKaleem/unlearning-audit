@@ -90,6 +90,9 @@ baseline:
   base_ppl: 78.2            # base GPT-2, same probe
   probe_acc_primary_layer: 0.897
   probe_acc_control_entities: 0.111
+  steering_reference_gap: 19.75   # logit-difference distance from M_npo_s0 to
+                                  # a correct answer; denominator for the
+                                  # rung-4 effect-size floor
 
 localisation:
   # Day 35 decision-rule thresholds (Section 12.2). FROZEN 2026-09-12.
