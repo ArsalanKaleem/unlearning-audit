@@ -1,0 +1,15 @@
+{
+  "label": "M_npo_s2",
+  "n_tune_entities": 24,
+  "n_held_entities": 24,
+  "attack_after": 0.20833333333333334,
+  "control_after": 0.18055555555555555,
+  "difference": 0.02777777777777779,
+  "control_delta": -0.0069444444444444475,
+  "attack_learned_training_half": 0.3055555555555556,
+  "control_ok": true,
+  "learn_ok": true,
+  "recovery_margin": 0.15,
+  "rung5_supported": false,
+  "verdict": "NOT SUPPORTED: no recovery beyond the control arm. The weights do not retain recoverable information about the held-out forget facts under this attack."
+}
