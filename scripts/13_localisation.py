@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Day 35 --- localisation: preserved / transformed / obscured / removed.
 
-    python scripts/13_localisation.py --source M_injected --target M_npo --layer 8
+    python scripts/13_localisation.py --source M_injected --target M_npo_s0 --layer 9
 
 Runs entirely on cached activation files, on CPU, with no torch. Produces:
   - the sample-efficiency curve for both models (Figure 6, panel 1)
@@ -11,6 +11,12 @@ Runs entirely on cached activation files, on CPU, with no torch. Produces:
 
 The thresholds used by the decision rule live in configs/base.yaml under
 `localisation`. Put them in the preregistration before you run this.
+
+READ THE VERDICT ALONGSIDE THE DRIFT RESULT. This rule does not know whether
+the representation moved forget-specifically or globally, and a broadly
+displaced representation looks REMOVED to both a probe and a transfer test. On
+this project the drift control returned 0/4 forget-specific, so no verdict here
+licenses a claim about erasure of the forgotten facts.
 """
 from __future__ import annotations
 
@@ -35,8 +41,9 @@ def main() -> int:
     ap.add_argument("--set", default="forget")
     ap.add_argument("--target-accuracy", type=float, default=0.30,
                     help="accuracy level for the entities-to-reach comparison. "
-                         "0.50 is unreachable for every post-unlearning curve here, "
-                         "which makes the ratio infinite and uninformative.")
+                         "0.50 is unreachable for every post-unlearning curve in "
+                         "this project, which makes the ratio infinite and "
+                         "uninformative.")
     args = ap.parse_args()
     cfg, rid, rdir = setup(args)
     loc = cfg.get("localisation", {})
@@ -82,9 +89,27 @@ def main() -> int:
                               args.target_accuracy)
     n_tgt = entities_to_reach([r for r in rows if r["condition"] == args.target],
                               args.target_accuracy)
-    ratio = n_tgt / n_src if np.isfinite(n_src) and n_src > 0 else float("inf")
+
+    # "Unreachable at any size tested" is a finding. `inf` in a results table is
+    # a missing value pretending to be one, so it is reported in words too.
+    reach_note = ""
+    if not np.isfinite(n_tgt):
+        ratio = float("inf")
+        reach_note = (f"{args.target} never reaches {args.target_accuracy:.2f} at any "
+                      f"training-set size tested (max "
+                      f"{int(eff[eff.condition == args.target].n_train_entities.max())} "
+                      f"entities)")
+    elif not np.isfinite(n_src) or n_src <= 0:
+        ratio = float("inf")
+        reach_note = f"{args.source} never reaches {args.target_accuracy:.2f}"
+    else:
+        ratio = n_tgt / n_src
+
     print(f"  entities to reach {args.target_accuracy:.2f}: "
-          f"{args.source}={n_src}  {args.target}={n_tgt}  ratio={ratio:.2f}")
+          f"{args.source}={n_src}  {args.target}={n_tgt}  "
+          + (f"ratio={ratio:.2f}" if np.isfinite(ratio) else "ratio=UNREACHABLE"))
+    if reach_note:
+        print(f"    note: {reach_note}")
 
     # ------------------------------------------------------------------ 4. transfer
     tr = probe_transfer(Xs, Xt, y, ents, seeds=tuple(range(cfg["probe"]["n_seeds"])))
@@ -113,8 +138,11 @@ def main() -> int:
     )
     print(f"\n  VERDICT: {verdict['label'].upper()}")
     for k, v in verdict["reasons"].items():
-        print(f"    {k}: {v:.3f}")
+        print(f"    {k}: {v:.3f}" if np.isfinite(v) else f"    {k}: unreachable")
     print(f"    {verdict['caveat']}")
+    print("    DRIFT CAVEAT: this rule does not know whether the representation "
+          "moved forget-specifically. Check results/tables/drift_summary.json "
+          "before reading any verdict as erasure.")
 
     eff.to_csv(PATHS.tables / f"sample_efficiency_{args.target}.csv", index=False)
     pd.DataFrame(tr).to_csv(PATHS.tables / f"transfer_{args.target}.csv", index=False)
@@ -123,10 +151,17 @@ def main() -> int:
         "probe_post": post["accuracy"], "probe_control_entities": ctrl["accuracy"],
         "leace_control": leace_acc, "chance": post["chance"],
         "transfer_within": within, "transfer_across": across,
-        "entities_to_reach": {"source": n_src, "target": n_tgt, "ratio": ratio},
+        "entities_to_reach": {
+            "target_accuracy": args.target_accuracy,
+            "source": n_src if np.isfinite(n_src) else None,
+            "target": n_tgt if np.isfinite(n_tgt) else None,
+            "ratio": ratio if np.isfinite(ratio) else None,
+            "note": reach_note,
+        },
         "class_separation": {"source": float(sep_src), "target": float(sep_tgt),
                              "ratio": sep_ratio},
         "verdict": verdict,
+        "drift_caveat": "read alongside results/tables/drift_summary.json",
     }, PATHS.tables / f"localisation_{args.target}.json")
 
     fig = F.fig_sample_efficiency(eff, chance=post["chance"],
