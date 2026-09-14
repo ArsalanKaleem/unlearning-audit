@@ -1,0 +1,74 @@
+{
+  "attack": {
+    "before": {
+      "n_prompts": 144,
+      "n_entities": 24,
+      "top1_correct": 0.0625,
+      "top1_correct_lo": 0.013888888888888888,
+      "top1_correct_hi": 0.125,
+      "constrained_correct": 0.1736111111111111,
+      "constrained_correct_lo": 0.0625,
+      "constrained_correct_hi": 0.3055555555555556,
+      "target_logprob": -12.957257263060772,
+      "target_logprob_lo": -14.790595308613566,
+      "target_logprob_hi": -10.893403069291356,
+      "margin": -6.440289314422342,
+      "margin_lo": -8.955624510120188,
+      "margin_hi": -3.5420143450920847,
+      "median_rank": 2020.5
+    },
+    "after": {
+      "n_prompts": 144,
+      "n_entities": 24,
+      "top1_correct": 0.10416666666666667,
+      "top1_correct_lo": 0.04861111111111111,
+      "top1_correct_hi": 0.16666666666666666,
+      "constrained_correct": 0.18055555555555555,
+      "constrained_correct_lo": 0.08333333333333333,
+      "constrained_correct_hi": 0.2916666666666667,
+      "target_logprob": -6.896697392555022,
+      "target_logprob_lo": -8.02816772174095,
+      "target_logprob_hi": -5.765723541921601,
+      "margin": -3.863849620024363,
+      "margin_lo": -5.11110194871823,
+      "margin_hi": -2.598869766129388,
+      "median_rank": 50.0
+    }
+  },
+  "control": {
+    "before": {
+      "n_prompts": 144,
+      "n_entities": 24,
+      "top1_correct": 0.0625,
+      "top1_correct_lo": 0.013888888888888888,
+      "top1_correct_hi": 0.125,
+      "constrained_correct": 0.1736111111111111,
+      "constrained_correct_lo": 0.0625,
+      "constrained_correct_hi": 0.3055555555555556,
+      "target_logprob": -12.957257263060772,
+      "target_logprob_lo": -14.790595308613566,
+      "target_logprob_hi": -10.893403069291356,
+      "margin": -6.440289314422342,
+      "margin_lo": -8.955624510120188,
+      "margin_hi": -3.5420143450920847,
+      "median_rank": 2020.5
+    },
+    "after": {
+      "n_prompts": 144,
+      "n_entities": 24,
+      "top1_correct": 0.1527777777777778,
+      "top1_correct_lo": 0.0763888888888889,
+      "top1_correct_hi": 0.24305555555555555,
+      "constrained_correct": 0.2013888888888889,
+      "constrained_correct_lo": 0.09722222222222222,
+      "constrained_correct_hi": 0.3194444444444444,
+      "target_logprob": -4.780419884748578,
+      "target_logprob_lo": -5.771654034931837,
+      "target_logprob_hi": -3.863313702752314,
+      "margin": -2.5264214277267456,
+      "margin_lo": -3.5757624434100257,
+      "margin_hi": -1.5510530233383184,
+      "median_rank": 7.0
+    }
+  }
+}
