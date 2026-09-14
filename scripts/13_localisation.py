@@ -33,8 +33,10 @@ def main() -> int:
     ap.add_argument("--target", required=True)
     ap.add_argument("--layer", type=int, required=True)
     ap.add_argument("--set", default="forget")
-    ap.add_argument("--target-accuracy", type=float, default=0.5,
-                    help="accuracy level used for the entities-to-reach comparison")
+    ap.add_argument("--target-accuracy", type=float, default=0.30,
+                    help="accuracy level for the entities-to-reach comparison. "
+                         "0.50 is unreachable for every post-unlearning curve here, "
+                         "which makes the ratio infinite and uninformative.")
     args = ap.parse_args()
     cfg, rid, rdir = setup(args)
     loc = cfg.get("localisation", {})
