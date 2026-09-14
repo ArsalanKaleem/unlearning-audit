@@ -1,0 +1,92 @@
+{
+  "label": "M_npo_s0",
+  "layer": 9,
+  "probe_accuracy": 0.20833333333333334,
+  "probe_chance": 0.08333333333333333,
+  "alphas": [
+    -2.0,
+    -1.0,
+    -0.5,
+    0.0,
+    0.5,
+    1.0,
+    2.0
+  ],
+  "n_prompts": 20,
+  "n_random": 10,
+  "per_alpha": [
+    {
+      "alpha": -2.0,
+      "probe_mean": -19.87485862970352,
+      "random_mean": -19.75059566617012,
+      "diff": -0.12426296353340086,
+      "lo": -0.20454095005989137,
+      "hi": -0.05374249716599566,
+      "n_entities": 4,
+      "excludes_zero": true
+    },
+    {
+      "alpha": -1.0,
+      "probe_mean": -19.813628697395323,
+      "random_mean": -19.75139152050018,
+      "diff": -0.062237176895140724,
+      "lo": -0.10254566073417637,
+      "hi": -0.026875291268028973,
+      "n_entities": 4,
+      "excludes_zero": true
+    },
+    {
+      "alpha": -0.5,
+      "probe_mean": -19.782680547237398,
+      "random_mean": -19.751535284519196,
+      "diff": -0.03114526271820193,
+      "lo": -0.05134462118148875,
+      "hi": -0.013435677687329525,
+      "n_entities": 4,
+      "excludes_zero": true
+    },
+    {
+      "alpha": 0.0,
+      "probe_mean": -19.7515092253685,
+      "random_mean": -19.7515092253685,
+      "diff": 6.661338147750939e-16,
+      "lo": -1.1102230246251565e-16,
+      "hi": 1.7763568394002505e-15,
+      "n_entities": 4,
+      "excludes_zero": false
+    },
+    {
+      "alpha": 0.5,
+      "probe_mean": -19.72011822462082,
+      "random_mean": -19.751314601898194,
+      "diff": 0.031196377277373212,
+      "lo": 0.013432037830350333,
+      "hi": 0.05148468613624546,
+      "n_entities": 4,
+      "excludes_zero": true
+    },
+    {
+      "alpha": 1.0,
+      "probe_mean": -19.68849800825119,
+      "random_mean": -19.750949884653092,
+      "diff": 0.06245187640190188,
+      "lo": 0.026873518029850125,
+      "hi": 0.10311858654022243,
+      "n_entities": 4,
+      "excludes_zero": true
+    },
+    {
+      "alpha": 2.0,
+      "probe_mean": -19.62457880973816,
+      "random_mean": -19.749714196920394,
+      "diff": 0.12513538718223488,
+      "lo": 0.05376447339852508,
+      "hi": 0.2068382680416101,
+      "n_entities": 4,
+      "excludes_zero": true
+    }
+  ],
+  "rung4_supported": true,
+  "collapse_note": "",
+  "test": "entity-clustered bootstrap CI on (probe - mean random) per entity; PASS requires a positive difference with a CI excluding zero at at least one positive alpha"
+}
