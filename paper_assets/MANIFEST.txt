@@ -1,9 +1,0 @@
-Paper assets
-git commit: ce7ba777dc00f734e14df68dd8aae1724513f297-dirty
-
-figures/  the five figures used in the paper, at print size
-tables/   the tables they were generated from; final_statistics.csv
-          is the only source the paper quotes numbers from
-preregistration.md  frozen thresholds and the full deviation log
-
-Regenerate everything with:  python scripts/23_reproduce.py --check
