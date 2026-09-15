@@ -184,10 +184,9 @@ def main() -> int:
     print(f"\nwrote {out} and configs/selected_{cfg['unlearn']['method']}.json")
 
     if {"forget_acc", "retain_acc", "method", "seed", "step"} <= set(df.columns):
-        band_for_plot = dict(cfg["band"])
-        band_for_plot["retain_acc_min"] = floor      # the figure wants an absolute line
-        fig = F.fig_forget_retain_tradeoff(df, band_for_plot)
-        print("figure:", F.save(fig, PATHS.figures / f"fig3_tradeoff_{cfg['unlearn']['method']}"))
+         fig = F.fig_forget_retain_tradeoff(df, cfg["band"],  baseline_retain=baseline_retain)
+         
+    print("figure:", F.save(fig, PATHS.figures / f"fig3_tradeoff_{cfg['unlearn']['method']}"))
 
     if n_ok == 0:
         print("\nCHECKPOINT FAIL: no run entered the band.")
