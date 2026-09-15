@@ -1,0 +1,100 @@
+{
+  "layer": 9,
+  "reference": "M_injected",
+  "summary": {
+    "M_npo_s0": {
+      "cka": {
+        "forget": 0.7796722924613788,
+        "retain": 0.9086683936308401,
+        "control": 0.8189621077179152,
+        "generic": 0.9934823808658527,
+        "forget_over_control": 0.9520248679563212
+      },
+      "pca_similarity": {
+        "forget": 0.22605881501157338,
+        "retain": 0.5802885866145662,
+        "control": 0.2884326543354437,
+        "generic": 0.8940380909074438,
+        "forget_over_control": 0.7837490367809385
+      },
+      "pca_shift": {
+        "forget": 24.253299456580745,
+        "retain": 8.431543705838354,
+        "control": 6.6467455499335015,
+        "generic": 4.631478343883016,
+        "forget_over_control": 3.6488984382474805
+      }
+    },
+    "M_npo_s1": {
+      "cka": {
+        "forget": 0.6587682607341654,
+        "retain": 0.8980990255995456,
+        "control": 0.7255609245671011,
+        "generic": 0.9923815029581873,
+        "forget_over_control": 0.9079434109922789
+      },
+      "pca_similarity": {
+        "forget": 0.2565108928319867,
+        "retain": 0.604875172841569,
+        "control": 0.2591943113707163,
+        "generic": 0.8389205247343758,
+        "forget_over_control": 0.9896470778060726
+      },
+      "pca_shift": {
+        "forget": 22.674120958124384,
+        "retain": 6.659729698074567,
+        "control": 4.7292065263656555,
+        "generic": 4.405803160149433,
+        "forget_over_control": 4.794487369438103
+      }
+    },
+    "M_npo_s2": {
+      "cka": {
+        "forget": 0.6657304477092855,
+        "retain": 0.9015815994048727,
+        "control": 0.7500106774929917,
+        "generic": 0.9940990338212894,
+        "forget_over_control": 0.8876279600906165
+      },
+      "pca_similarity": {
+        "forget": 0.10229865702439096,
+        "retain": 0.4673469535591984,
+        "control": 0.3589338454734197,
+        "generic": 0.9193456419884883,
+        "forget_over_control": 0.2850069958977065
+      },
+      "pca_shift": {
+        "forget": 18.857870864517306,
+        "retain": 2.4038988628140485,
+        "control": 14.577057771193095,
+        "generic": 2.6570852354238976,
+        "forget_over_control": 1.2936678416534695
+      }
+    },
+    "M_gd_s2": {
+      "cka": {
+        "forget": 0.6158951897933718,
+        "retain": 0.8817277388515415,
+        "control": 0.7233379133698111,
+        "generic": 0.9930224462765147,
+        "forget_over_control": 0.8514626129910757
+      },
+      "pca_similarity": {
+        "forget": 0.1843259219622451,
+        "retain": 0.3879400651612208,
+        "control": 0.3090569845595582,
+        "generic": 0.9044231600227309,
+        "forget_over_control": 0.5964140309753256
+      },
+      "pca_shift": {
+        "forget": 16.692131819096048,
+        "retain": 4.129985010694117,
+        "control": 15.573611866519075,
+        "generic": 2.076818168344252,
+        "forget_over_control": 1.0718214863811792
+      }
+    }
+  },
+  "any_metric_discriminates": true,
+  "note": "Standard practice draws input queries from the forget set only; the control and generic columns are the comparison that is usually absent."
+}
