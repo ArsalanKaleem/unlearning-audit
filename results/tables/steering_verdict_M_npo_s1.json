@@ -1,0 +1,98 @@
+{
+  "label": "M_npo_s1",
+  "layer": 9,
+  "probe_accuracy": 0.08333333333333333,
+  "probe_chance": 0.08333333333333333,
+  "alphas": [
+    -2.0,
+    -1.0,
+    -0.5,
+    0.0,
+    0.5,
+    1.0,
+    2.0
+  ],
+  "n_prompts": 20,
+  "n_random": 10,
+  "per_alpha": [
+    {
+      "alpha": -2.0,
+      "probe_mean": -25.211625254154207,
+      "random_mean": -25.17975573271513,
+      "diff": -0.03186952143907547,
+      "lo": -0.12658458451430032,
+      "hi": 0.06245531464616505,
+      "n_entities": 4,
+      "excludes_zero": false
+    },
+    {
+      "alpha": -1.0,
+      "probe_mean": -25.195542484521866,
+      "random_mean": -25.179608748853205,
+      "diff": -0.015933735668660787,
+      "lo": -0.0632545853654561,
+      "hi": 0.031232925007738405,
+      "n_entities": 4,
+      "excludes_zero": false
+    },
+    {
+      "alpha": -0.5,
+      "probe_mean": -25.18730535507202,
+      "random_mean": -25.17931166321039,
+      "diff": -0.00799369186163006,
+      "lo": -0.031620408097904264,
+      "hi": 0.015614061305920282,
+      "n_entities": 4,
+      "excludes_zero": false
+    },
+    {
+      "alpha": 0.0,
+      "probe_mean": -25.17893347144127,
+      "random_mean": -25.17893347144127,
+      "diff": 0.0,
+      "lo": -1.7763568394002505e-15,
+      "hi": 1.7763568394002505e-15,
+      "n_entities": 4,
+      "excludes_zero": false
+    },
+    {
+      "alpha": 0.5,
+      "probe_mean": -25.171046841144562,
+      "random_mean": -25.17856725126505,
+      "diff": 0.007520410120487897,
+      "lo": -0.015612413734195604,
+      "hi": 0.03160123229026753,
+      "n_entities": 4,
+      "excludes_zero": false
+    },
+    {
+      "alpha": 1.0,
+      "probe_mean": -25.163260096311568,
+      "random_mean": -25.17817049086094,
+      "diff": 0.014910394549370199,
+      "lo": -0.031229673822718833,
+      "hi": 0.06317701687415338,
+      "n_entities": 4,
+      "excludes_zero": false
+    },
+    {
+      "alpha": 2.0,
+      "probe_mean": -25.147490391135214,
+      "random_mean": -25.177111845612526,
+      "diff": 0.029621454477308618,
+      "lo": -0.062459534903370084,
+      "hi": 0.12626876582701874,
+      "n_entities": 4,
+      "excludes_zero": false
+    }
+  ],
+  "significant": false,
+  "largest_diff": 0.029621454477308618,
+  "reference_gap": 19.75,
+  "gap_fraction": 0.0014998204798637275,
+  "min_gap_fraction": 0.25,
+  "substantive": false,
+  "rung4_supported": false,
+  "collapse_note": "",
+  "test": "TWO criteria, both required. (1) entity-clustered bootstrap CI on (probe - mean random) per entity excludes zero at a positive alpha. (2) the effect recovers at least min_gap_fraction of the logit-difference gap to M_injected. Criterion (2) was added after criterion (1) alone passed on an effect worth 0.6% of the gap; see preregistration.md Section 6."
+}

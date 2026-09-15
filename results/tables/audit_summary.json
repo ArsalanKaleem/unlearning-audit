@@ -1,9 +1,10 @@
 {
-  "layer": 9,
+  "primary_layer": 9,
   "reference_control": {
     "direct_recall": 0.11805555555555555,
     "paraphrase_recall": 0.11805555555555555,
     "representation_probe": 0.111,
+    "logit_lens_peak": -5.4504265785217285,
     "causal_recovery": 0.0,
     "steering_recovery": 0.0,
     "relearning_recovery": 0.11805555555555555
@@ -12,10 +13,13 @@
     "direct_recall": 0.375,
     "paraphrase_recall": 0.390625,
     "representation_probe": 0.8486111111111111,
+    "logit_lens_peak": -0.0009052577079273,
     "causal_recovery": 1.0,
     "steering_recovery": 1.0,
     "relearning_recovery": 0.375
   },
+  "normalisation": "0 = never-taught control level, 1 = M_injected level",
+  "threshold": 0.25,
   "profiles": [
     {
       "model_label": "M_npo_s0",
@@ -24,6 +28,7 @@
         "direct_recall": 0.13541666666666666,
         "paraphrase_recall": 0.13020833333333334,
         "representation_probe": 0.2284722222222222,
+        "logit_lens_peak": -4.930532455444336,
         "causal_recovery": 0.1662876095119847,
         "steering_recovery": 0.006335968971252399,
         "relearning_recovery": 0.18055555555555555
@@ -32,6 +37,7 @@
         "direct_recall": 0.06756756756756754,
         "paraphrase_recall": 0.04458598726114655,
         "representation_probe": 0.15926037508473295,
+        "logit_lens_peak": 0.09540179631772767,
         "causal_recovery": 0.1662876095119847,
         "steering_recovery": 0.006335968971252399,
         "relearning_recovery": 0.24324324324324326
@@ -41,6 +47,7 @@
         "direct_recall": 0.11805555555555555,
         "paraphrase_recall": 0.11805555555555555,
         "representation_probe": 0.111,
+        "logit_lens_peak": -5.4504265785217285,
         "causal_recovery": 0.0,
         "steering_recovery": 0.0,
         "relearning_recovery": 0.11805555555555555
@@ -49,6 +56,7 @@
         "direct_recall": 0.375,
         "paraphrase_recall": 0.390625,
         "representation_probe": 0.8486111111111111,
+        "logit_lens_peak": -0.0009052577079273,
         "causal_recovery": 1.0,
         "steering_recovery": 1.0,
         "relearning_recovery": 0.375
@@ -77,14 +85,18 @@
         "direct_recall": 0.125,
         "paraphrase_recall": 0.125,
         "representation_probe": 0.15416666666666665,
+        "logit_lens_peak": -5.780972480773926,
         "causal_recovery": 0.1661644709263159,
+        "steering_recovery": 0.0014998204798637275,
         "relearning_recovery": 0.13194444444444445
       },
       "normalised": {
         "direct_recall": 0.027027027027027042,
         "paraphrase_recall": 0.025477707006369442,
         "representation_probe": 0.05852225653385551,
+        "logit_lens_peak": -0.060655951741984446,
         "causal_recovery": 0.1661644709263159,
+        "steering_recovery": 0.0014998204798637275,
         "relearning_recovery": 0.054054054054054085
       },
       "intervals": {},
@@ -92,6 +104,7 @@
         "direct_recall": 0.11805555555555555,
         "paraphrase_recall": 0.11805555555555555,
         "representation_probe": 0.111,
+        "logit_lens_peak": -5.4504265785217285,
         "causal_recovery": 0.0,
         "steering_recovery": 0.0,
         "relearning_recovery": 0.11805555555555555
@@ -100,6 +113,7 @@
         "direct_recall": 0.375,
         "paraphrase_recall": 0.390625,
         "representation_probe": 0.8486111111111111,
+        "logit_lens_peak": -0.0009052577079273,
         "causal_recovery": 1.0,
         "steering_recovery": 1.0,
         "relearning_recovery": 0.375
@@ -128,14 +142,18 @@
         "direct_recall": 0.14930555555555555,
         "paraphrase_recall": 0.140625,
         "representation_probe": 0.20069444444444443,
+        "logit_lens_peak": -5.048067092895508,
         "causal_recovery": 0.23419435244877562,
+        "steering_recovery": 0.0031253884977932383,
         "relearning_recovery": 0.20833333333333334
       },
       "normalised": {
         "direct_recall": 0.12162162162162163,
         "paraphrase_recall": 0.08280254777070066,
         "representation_probe": 0.12160126534608719,
+        "logit_lens_peak": 0.0738339134649233,
         "causal_recovery": 0.23419435244877562,
+        "steering_recovery": 0.0031253884977932383,
         "relearning_recovery": 0.3513513513513514
       },
       "intervals": {},
@@ -143,6 +161,7 @@
         "direct_recall": 0.11805555555555555,
         "paraphrase_recall": 0.11805555555555555,
         "representation_probe": 0.111,
+        "logit_lens_peak": -5.4504265785217285,
         "causal_recovery": 0.0,
         "steering_recovery": 0.0,
         "relearning_recovery": 0.11805555555555555
@@ -151,6 +170,7 @@
         "direct_recall": 0.375,
         "paraphrase_recall": 0.390625,
         "representation_probe": 0.8486111111111111,
+        "logit_lens_peak": -0.0009052577079273,
         "causal_recovery": 1.0,
         "steering_recovery": 1.0,
         "relearning_recovery": 0.375
@@ -179,14 +199,18 @@
         "direct_recall": 0.13541666666666666,
         "paraphrase_recall": 0.14583333333333334,
         "representation_probe": 0.22430555555555554,
+        "logit_lens_peak": -5.468438625335693,
         "causal_recovery": 0.13375519825042517,
+        "steering_recovery": 0.0013689724252194042,
         "relearning_recovery": 0.18055555555555555
       },
       "normalised": {
         "direct_recall": 0.06756756756756754,
         "paraphrase_recall": 0.10191082802547777,
         "representation_probe": 0.1536115086239361,
+        "logit_lens_peak": -0.0033052530219801076,
         "causal_recovery": 0.13375519825042517,
+        "steering_recovery": 0.0013689724252194042,
         "relearning_recovery": 0.24324324324324326
       },
       "intervals": {},
@@ -194,6 +218,7 @@
         "direct_recall": 0.11805555555555555,
         "paraphrase_recall": 0.11805555555555555,
         "representation_probe": 0.111,
+        "logit_lens_peak": -5.4504265785217285,
         "causal_recovery": 0.0,
         "steering_recovery": 0.0,
         "relearning_recovery": 0.11805555555555555
@@ -202,6 +227,7 @@
         "direct_recall": 0.375,
         "paraphrase_recall": 0.390625,
         "representation_probe": 0.8486111111111111,
+        "logit_lens_peak": -0.0009052577079273,
         "causal_recovery": 1.0,
         "steering_recovery": 1.0,
         "relearning_recovery": 0.375
@@ -228,45 +254,56 @@
     "M_npo_s0": {
       "highest_rung": 1,
       "claim": "output suppression only",
-      "blocked_by": "",
+      "blocked_by": "capped at rung 1 by the drift control (walk had cleared rung 5)",
       "drift_caveat": "Rung 2+ is NOT supported despite the numbers: drift is global rather than forget-specific, so the decodability change cannot be attributed to erasure of the forgotten facts.",
-      "unmeasured": [
-        "semantic_recall",
-        "logit_lens_peak"
-      ]
+      "unmeasured": []
     },
     "M_npo_s1": {
       "highest_rung": 1,
       "claim": "output suppression only",
-      "blocked_by": "rung 4 (reduced accessible content) not measured",
+      "blocked_by": "capped at rung 1 by the drift control (walk had cleared rung 5)",
       "drift_caveat": "Rung 2+ is NOT supported despite the numbers: drift is global rather than forget-specific, so the decodability change cannot be attributed to erasure of the forgotten facts.",
-      "unmeasured": [
-        "semantic_recall",
-        "logit_lens_peak",
-        "steering_recovery"
-      ]
+      "unmeasured": []
     },
     "M_npo_s2": {
       "highest_rung": 1,
       "claim": "output suppression only",
-      "blocked_by": "rung 4 (reduced accessible content) not measured",
+      "blocked_by": "capped at rung 1 by the drift control (walk had cleared rung 4)",
       "drift_caveat": "Rung 2+ is NOT supported despite the numbers: drift is global rather than forget-specific, so the decodability change cannot be attributed to erasure of the forgotten facts.",
-      "unmeasured": [
-        "semantic_recall",
-        "logit_lens_peak",
-        "steering_recovery"
-      ]
+      "unmeasured": []
     },
     "M_gd_s2": {
       "highest_rung": 1,
       "claim": "output suppression only",
-      "blocked_by": "rung 4 (reduced accessible content) not measured",
+      "blocked_by": "capped at rung 1 by the drift control (walk had cleared rung 5)",
       "drift_caveat": "Rung 2+ is NOT supported despite the numbers: drift is global rather than forget-specific, so the decodability change cannot be attributed to erasure of the forgotten facts.",
-      "unmeasured": [
-        "semantic_recall",
-        "logit_lens_peak",
-        "steering_recovery"
-      ]
+      "unmeasured": []
     }
-  }
+  },
+  "context": [
+    {
+      "model": "M_npo_s0",
+      "patching_retain_reference": 0.1710247594277843,
+      "lens_peak_never_taught": -5.477799415588379,
+      "retain_ratio": 1.1094173441734416
+    },
+    {
+      "model": "M_npo_s1",
+      "patching_retain_reference": 0.22424696964969507,
+      "lens_peak_never_taught": -5.567551136016846,
+      "retain_ratio": 1.1263550135501355
+    },
+    {
+      "model": "M_npo_s2",
+      "patching_retain_reference": 0.15311341066493148,
+      "lens_peak_never_taught": -5.982326984405518,
+      "retain_ratio": 1.0755420054200542
+    },
+    {
+      "model": "M_gd_s2",
+      "patching_retain_reference": 0.34436879120681463,
+      "lens_peak_never_taught": -6.618913650512695,
+      "retain_ratio": 0.9231029810298101
+    }
+  ]
 }

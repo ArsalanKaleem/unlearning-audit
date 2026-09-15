@@ -3,10 +3,10 @@ import pytest
 from src.eval.claim_ladder import (DIMENSIONS, EvidenceProfile, build_profile,
                                    compare_profiles, highest_supported_rung, normalise)
 
-CONTROL = {"direct_recall": 0.09, "paraphrase_recall": 0.09, "semantic_recall": 0.09,
+CONTROL = {"direct_recall": 0.09, "paraphrase_recall": 0.09,
            "representation_probe": 0.11, "logit_lens_peak": 0.10,
            "causal_recovery": 0.0, "steering_recovery": 0.0, "relearning_recovery": 0.09}
-INJECTED = {"direct_recall": 0.375, "paraphrase_recall": 0.391, "semantic_recall": 0.40,
+INJECTED = {"direct_recall": 0.375, "paraphrase_recall": 0.391,
             "representation_probe": 0.897, "logit_lens_peak": 0.85,
             "causal_recovery": 1.0, "steering_recovery": 1.0, "relearning_recovery": 0.375}
 
@@ -39,7 +39,7 @@ def test_missing_dimensions_are_reported_not_imputed():
 
 def test_rung_walk_stops_at_first_unclear_rung():
     """Behaviour forgotten but still decodable -> rung 1 only."""
-    p = make({"direct_recall": 0.10, "paraphrase_recall": 0.10, "semantic_recall": 0.11,
+    p = make({"direct_recall": 0.10, "paraphrase_recall": 0.10,
               "representation_probe": 0.85, "logit_lens_peak": 0.80})
     out = highest_supported_rung(p)
     assert out["highest_rung"] == 1
@@ -48,7 +48,7 @@ def test_rung_walk_stops_at_first_unclear_rung():
 
 def test_unmeasured_rung_stops_the_walk():
     """Absence of evidence is not evidence: no causal test means no rung 3."""
-    p = make({"direct_recall": 0.09, "paraphrase_recall": 0.09, "semantic_recall": 0.09,
+    p = make({"direct_recall": 0.09, "paraphrase_recall": 0.09,
               "representation_probe": 0.13, "logit_lens_peak": 0.12})
     out = highest_supported_rung(p)
     assert out["highest_rung"] == 2
@@ -57,13 +57,15 @@ def test_unmeasured_rung_stops_the_walk():
 
 def test_global_drift_caps_the_claim_at_rung_one():
     """The mandatory drift control overrides a good-looking probe number."""
-    good = {"direct_recall": 0.09, "paraphrase_recall": 0.09, "semantic_recall": 0.09,
+    good = {"direct_recall": 0.09, "paraphrase_recall": 0.09,
             "representation_probe": 0.13, "logit_lens_peak": 0.12,
             "causal_recovery": 0.1, "steering_recovery": 0.05, "relearning_recovery": 0.1}
     p = make(good, drift={"forget_specific": False})
     out = highest_supported_rung(p)
     assert out["highest_rung"] == 1
     assert "drift is global" in out["drift_caveat"]
+    # the cap must leave a reason behind, not a blank cell in the table
+    assert "capped at rung 1" in out["blocked_by"]
 
 
 def test_full_clearance_reaches_rung_five():
