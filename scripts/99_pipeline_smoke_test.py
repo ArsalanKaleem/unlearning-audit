@@ -241,9 +241,7 @@ def main() -> int:
          "retain_acc": max(0.0, 0.93 - 0.015 * t * (2 if m == "gradiff" else 1))}
         for m in ("gradiff", "npo") for s in (0, 1, 2) for t in range(11)
     ])
-    out.append(F.save(F.fig_forget_retain_tradeoff(traj, cfg["band"],
-                                                   title="Forget / retain trade-off (SYNTHETIC)"),
-                      PATHS.figures / "smoke_fig3_tradeoff"))
+    out.append(F.save(F.fig_forget_retain_tradeoff(traj, cfg["band"], baseline_retain=cfg.get("baseline", {}).get("retain_acc"), title="Forget / retain trade-off (SYNTHETIC)"), PATHS.figures / "smoke_fig3_tradeoff"))
 
     lens = {
         "injected": np.linspace(-9, -0.4, N_LAYERS),
