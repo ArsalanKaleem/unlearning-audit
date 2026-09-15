@@ -3,7 +3,7 @@
 
     python scripts/21_audit_summary.py --models M_npo_s0,M_npo_s1,M_npo_s2,M_gd_s2
 
-Assembles a ResidualMemoryProfile per model from the tables already produced,
+Assembles a EvidenceProfile per model from the tables already produced,
 then calls highest_supported_rung(), which walks the claim ladder and stops at
 the first rung whose evidence does not clear the preregistered threshold.
 
@@ -24,7 +24,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import pandas as pd
 from _common import PATHS, base_parser, setup, write_json
 
-from src.eval.hermes_audit import (build_profile, compare_profiles,
+from src.eval.claim_ladder import (build_profile, compare_profiles,
                                    highest_supported_rung, profile_table)
 
 
