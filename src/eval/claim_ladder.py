@@ -40,7 +40,6 @@ import numpy as np
 DIMENSIONS = (
     "direct_recall",
     "paraphrase_recall",
-    "semantic_recall",
     "representation_probe",
     "logit_lens_peak",
     "causal_recovery",
@@ -53,7 +52,6 @@ DIMENSIONS = (
 RUNG_OF = {
     "direct_recall": 1,
     "paraphrase_recall": 1,
-    "semantic_recall": 1,
     "logit_lens_peak": 2,
     "representation_probe": 2,
     "causal_recovery": 3,
@@ -195,6 +193,12 @@ def highest_supported_rung(profile: EvidenceProfile,
         caveat = ("Rung 2+ is NOT supported despite the numbers: drift is global "
                   "rather than forget-specific, so the decodability change cannot "
                   "be attributed to erasure of the forgotten facts.")
+        # Record the cap as the blocking reason. Leaving `reason` empty here --
+        # which happens whenever the walk cleared every measured rung before the
+        # cap fired -- puts a blank cell in the results table exactly where the
+        # explanation belongs.
+        reason = (f"capped at rung 1 by the drift control (walk had cleared "
+                  f"rung {cleared})")
         cleared = min(cleared, 1)
 
     return {
