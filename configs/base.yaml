@@ -1,86 +1,138 @@
+# Base configuration. Every script loads this; experiment configs override keys
+# with `_base: configs/base.yaml`. Nothing in src/ may hard-code any value here.
+#
+# Thresholds marked FROZEN were fixed on 2026-09-12 at commit 2087012, before
+# any unlearning run. Changes after that point are logged in preregistration.md
+# Section 6 with a date and a reason.
+#
+# NOTE: do not rewrite this file with yaml.safe_dump -- the round trip preserves
+# every value and destroys every comment, which is most of what makes the
+# preregistration checkable by a reader.
+
 seed: 0
+
 model:
-  name: gpt2-small
-  hf_name: gpt2
-  revision: main
-  dtype: float32
-  device: auto
+  name: gpt2-small          # TransformerLens name. Backup: pythia-410m; scale check: gemma-2-2b
+  hf_name: gpt2             # HuggingFace repo, for tokenizer / raw loading
+  revision: main            # CHANGE ME to a pinned commit hash before release
+  dtype: float32            # float32 on CPU; float16 only for inference on GPU
+  device: auto              # auto | cpu | cuda
+
 data:
   n_cities: 12
-  n_fields: 6
-  per_city:
-    forget: 4
-    retain: 5
-    control: 4
+  n_fields: 6               # only 10 field candidates are single-token in GPT-2 BPE,
+                            # and 6 is the largest divisor of both 48 and 60 among
+                            # them. Chance on the locality set is therefore 1/6.
+  per_city:                 # entities per city per split -> perfectly balanced
+    forget: 4               # 48 entities
+    retain: 5               # 60 entities
+    control: 4              # 48 entities, NEVER taught. Every claim in this
+                            # project is measured against these.
   dir: data/processed/syn
+
 activations:
-  hook: resid_post
-  position: last
+  hook: resid_post          # resid_pre | resid_mid | resid_post. Committed on Day 8.
+  position: last            # last | answer_minus_1. "last" = final prompt token
   layers: all
   batch_size: 16
+
 probe:
   type: logistic
-  C_grid:
-  - 0.01
-  - 0.1
-  - 1.0
-  - 10.0
+  C_grid: [0.01, 0.1, 1.0, 10.0]
   max_iter: 2000
+
+  # Raised 5 -> 20 on 2026-09-15. A paired sign-flip permutation test across N
+  # clusters has a minimum attainable p of 2^-N; with 5 seeds that floor is
+  # 0.031, and every model returned p = 0.0594 regardless of effect size. The
+  # test was bounded below by the cluster count, not by the data: layer-9
+  # accuracy moved by less than 0.05 when the seeds were raised, while p went
+  # from 0.0594 to 0.0001. Logged as a deviation.
   n_seeds: 20
+
   test_frac: 0.3
   standardise: true
-  mlp_hidden:
-  - 16
-  - 64
-  - 256
-  primary_layer: 9
-  secondary_layer: 8
+  mlp_hidden: [16, 64, 256]
+
+  # FROZEN 2026-09-12, before the layer profile was inspected. Rule: peak
+  # accuracy among layers 0-10, excluding layer 11. Layer 11 is the final
+  # residual state -- what the unembedding reads -- so decoding from it
+  # approximates reading the model's own output, and at 0.964 it had no
+  # headroom to fall.
+  primary_layer: 9          # M_injected: accuracy 0.897, selectivity 0.817
+  secondary_layer: 8        # mid-rise (0.608): where a shift in WHERE the
+                            # information is decodable would appear first
+
 inject:
-  max_ppl_ratio: 1.5
+  max_ppl_ratio: 1.5        # ceiling relative to the BASE model (78.2). Added
+                            # because "max paraphrase accuracy" alone selected an
+                            # epoch that bought +0.033 paraphrase for a 1.76x
+                            # perplexity rise.
   epochs: 6
   lr: 2.0e-05
   batch_size: 8
   weight_decay: 0.01
   max_grad_norm: 1.0
+
 unlearn:
-  method: npo
-  lr: 1.0e-05
-  steps: 800
-  eval_every: 40
+  method: npo               # ga | gradiff | npo | npo_retain | rmu
+  lr: 1.0e-05               # at 2e-5 the perplexity ceiling was crossed BEFORE
+                            # the forget threshold: damage arrived ahead of
+                            # forgetting. 1e-5 reaches the band from the safe side.
+  steps: 800                # the 1e-5 trajectories were still descending at 200
+  eval_every: 40            # 21 checkpoints/run ~= 10GB peak; 20 would need 20GB
   batch_size: 4
-  beta: 0.1
-  lambda_retain: 1.0
+  beta: 0.1                 # NPO temperature
+  lambda_retain: 1.0        # weight on the retain term
   max_grad_norm: 1.0
+
+# The matched-forgetting band. FROZEN 2026-09-12. Checkpoints are selected
+# MECHANICALLY by this rule and by nothing else.
+#
+# Thresholds are RELATIVE to M_injected, not absolute. M_injected's retain
+# accuracy is 0.328, so any absolute retain floor above that would have been
+# unreachable by construction -- the earlier value of 0.70 would have excluded
+# every checkpoint in every run.
 band:
-  forget_acc_max: 0.15
-  retain_acc_min_ratio: 0.8
-  ppl_ratio_max: 1.2
-  prefer: earliest
+  forget_acc_max: 0.15        # absolute: fall to roughly control level (0.118)
+  retain_acc_min_ratio: 0.8   # keep >= 80% of baseline retain (0.328 -> 0.262)
+  ppl_ratio_max: 1.2          # relative to M_injected (109.5 -> 131.4)
+  prefer: earliest            # earliest qualifying step, to minimise collateral damage
+
+# Baselines measured on M_injected before any unlearning. Recorded here so the
+# band can be checked for reachability, and so scripts do not re-derive them
+# inconsistently. Source: results/tables/behaviour_M_injected.csv
 baseline:
   retain_acc: 0.328
   forget_acc: 0.375
   control_acc: 0.118
   paraphrase_acc: 0.356
   related_acc: 0.407
-  ppl: 109.5
-  base_ppl: 78.2
-  probe_acc_primary_layer: 0.897
-  probe_acc_control_entities: 0.111
-  steering_reference_gap: 19.75
+  ppl: 109.5                       # M_injected, 48-sentence probe
+  base_ppl: 78.2                   # base GPT-2, same probe
+  probe_acc_primary_layer: 0.897   # the decodability/expression gap: 0.897
+  probe_acc_control_entities: 0.111  # decodable vs 0.375 expressed
+  steering_reference_gap: 19.75    # logit-difference distance from M_npo_s0 to a
+                                   # correct answer; denominator for the rung-4
+                                   # effect-size floor
+
 localisation:
-  decodable_margin: 0.1
-  transfer_margin: 0.15
-  efficiency_factor: 2.0
+  # Day 35 decision-rule thresholds (Section 12.2). FROZEN 2026-09-12.
+  decodable_margin: 0.1      # post accuracy must exceed control by this to count as decodable
+  transfer_margin: 0.15      # transfer may fall this far below within-model and still "transfer"
+  efficiency_factor: 2.0     # needing this many times more entities counts as "harder to reach"
+  drift_ratio_min: 1.5       # forget drift must exceed never-taught control drift
+                             # by this before any probe change may be called
+                             # erasure. Applied as written: the measured ratios
+                             # were 1.18-1.25, and the threshold was NOT relaxed.
+
 stats:
   n_bootstrap: 10000
   alpha: 0.05
   n_permutations: 10000
-  cluster_by: entity
+  cluster_by: entity        # resample ENTITIES, never prompts
+
 sae:
-  release: gpt2-small-res-jb
-  layers:
-  - 8
-  - 9
-  - 10
+  release: gpt2-small-res-jb          # VERIFY against SAELens before use
+  layers: [8, 9, 10]                  # primary layer 9 and its neighbours
   top_k_latents: 20
   n_random_draws: 100
