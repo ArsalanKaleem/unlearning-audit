@@ -105,8 +105,22 @@ def fig_layerwise_probe(df, chance: float, title: str = "Probe accuracy by layer
 
 
 def fig_forget_retain_tradeoff(df, band: Dict[str, float] | None = None,
+                               baseline_retain: float | None = None,
                                title: str = "Forget / retain trade-off"):
-    """Figure 3. One trajectory per run; the band drawn as a shaded rectangle."""
+    """Figure 3. One trajectory per run; the band drawn as a shaded rectangle.
+
+    The band may be given in either form. `retain_acc_min` is an absolute
+    accuracy floor; `retain_acc_min_ratio` is a fraction of the pre-unlearning
+    baseline, which is the form actually in use -- an absolute floor above
+    M_injected's own retain accuracy of 0.328 would have been unreachable by
+    construction. Resolving both here means callers do not each have to
+    convert, which is how the mismatch that produced a KeyError arose: one
+    caller converted, the other passed the config straight through.
+
+    If the ratio form is given without `baseline_retain`, the retain line is
+    omitted rather than raising. A missing guide line is a worse figure; a
+    crash in the middle of a reproducibility run is a worse afternoon.
+    """
     style()
     fig, ax = plt.subplots(figsize=(4.6, 3.6))
     for (method, seed), sub in df.groupby(["method", "seed"]):
@@ -115,9 +129,16 @@ def fig_forget_retain_tradeoff(df, band: Dict[str, float] | None = None,
                 alpha=0.8, label=f"{method} (seed {seed})")
 
     if band:
-        ax.axvspan(0, band["forget_acc_max"], ymin=0, ymax=1, color="#2ecc71", alpha=0.08)
-        ax.axhline(band["retain_acc_min"], ls="--", lw=1, color="#27ae60")
-        ax.axvline(band["forget_acc_max"], ls="--", lw=1, color="#27ae60")
+        floor = band.get("retain_acc_min")
+        if floor is None and band.get("retain_acc_min_ratio") is not None:
+            floor = (band["retain_acc_min_ratio"] * baseline_retain
+                     if baseline_retain else None)
+        if band.get("forget_acc_max") is not None:
+            ax.axvspan(0, band["forget_acc_max"], ymin=0, ymax=1,
+                       color="#2ecc71", alpha=0.08)
+            ax.axvline(band["forget_acc_max"], ls="--", lw=1, color="#27ae60")
+        if floor is not None:
+            ax.axhline(floor, ls="--", lw=1, color="#27ae60")
         ax.annotate("matched-forgetting band", xy=(0.02, 0.04), xycoords="axes fraction",
                     fontsize=7, color="#27ae60")
 

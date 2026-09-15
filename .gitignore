@@ -20,3 +20,6 @@ results/tables/smoke_*
 
 results/runs/*/epoch-*/
 results/runs/*/checkpoint-*/
+
+.reproduce_snapshot/
+results/figures/*.png
