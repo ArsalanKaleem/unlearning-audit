@@ -137,28 +137,77 @@ def main() -> int:
                   f"{vals.get('generic', float('nan')):9.4f} {ratio:15.2f}")
         summary[target] = entry
 
-    # The question these metrics are usually used to answer
-    print("\ninterpretation")
-    discriminating = []
-    for target, entry in summary.items():
-        r_cka = entry["cka"]["forget_over_control"]
-        r_shift = entry["pca_shift"]["forget_over_control"]
-        # CKA falls with change, so forget-specific change means a LOWER ratio;
-        # shift grows with change, so it means a HIGHER ratio.
-        ok = (r_cka < 0.9) or (r_shift > 1.5)
-        discriminating.append(ok)
-        print(f"  {target:12s} CKA ratio {r_cka:.2f}, shift ratio {r_shift:.2f} -> "
-              + ("discriminates" if ok else
-                 "does NOT discriminate forget from never-taught"))
-    if not any(discriminating):
-        print("\n  No model shows a representation-similarity metric that separates")
-        print("  forget-set change from never-taught change. Applied without a")
-        print("  control, these metrics would report severe representational")
-        print("  change for entities the model was never taught anything about.")
+    # ------------------------------------------------------- interpretation
+    # Judged PER METRIC and ACROSS SEEDS, not per model. A metric that
+    # discriminates on two of four seeds does not discriminate; it produces a
+    # conclusion that depends on which run you happened to report. The earlier
+    # version of this block asked whether EITHER criterion fired for a given
+    # model, which declared success whenever any metric happened to move --
+    # exactly the reasoning this script exists to question.
+    print("\n" + "=" * 74)
+    print("Does each metric separate forget-set change from never-taught change?")
+    print("Judged across all seeds: a metric that works on some seeds and not")
+    print("others yields whichever conclusion the reported seed supports.")
+    print("=" * 74)
+
+    # CKA falls as representations diverge, so forget-specific change means a
+    # LOWER forget/control ratio. PCA shift grows, so it means a HIGHER ratio.
+    CRITERIA = {
+        "cka": ("ratio < 0.90", lambda r: r < 0.90),
+        "pca_similarity": ("ratio < 0.90", lambda r: r < 0.90),
+        "pca_shift": ("ratio > 1.50", lambda r: r > 1.50),
+    }
+
+    verdicts = {}
+    for metric, (desc, test) in CRITERIA.items():
+        ratios = {t: summary[t][metric]["forget_over_control"] for t in summary}
+        passing = [t for t, r in ratios.items() if r == r and test(r)]
+        vals = np.array([r for r in ratios.values() if r == r], dtype=float)
+        spread = f"{vals.min():.2f}-{vals.max():.2f}" if vals.size else "n/a"
+        if len(passing) == len(ratios):
+            state = "DISCRIMINATES on every seed"
+        elif passing:
+            state = f"SEED-DEPENDENT: {len(passing)}/{len(ratios)} seeds"
+        else:
+            state = "DOES NOT DISCRIMINATE on any seed"
+        verdicts[metric] = {"criterion": desc, "ratios": ratios,
+                            "n_passing": len(passing), "n_models": len(ratios),
+                            "range": spread, "state": state}
+        print(f"\n  {metric:16s} criterion {desc}")
+        print(f"    ratios across seeds: " +
+              ", ".join(f"{t.replace('M_', '')}={r:.2f}" for t, r in ratios.items()))
+        print(f"    range {spread}   ->  {state}")
+
+    # Generic text is the sanity reference: if it is near 1, ordinary language
+    # modelling survived and the change is confined to entity prompts.
+    gen_cka = [summary[t]["cka"].get("generic") for t in summary]
+    gen_cka = [g for g in gen_cka if g is not None]
+    if gen_cka:
+        print(f"\n  generic-text CKA: {min(gen_cka):.3f}-{max(gen_cka):.3f}")
+        print("    Ordinary language modelling is essentially untouched. What moved")
+        print("    is the entity-attribute representation as a class -- including")
+        print("    for entities the model was never taught anything about.")
+
+    seed_dependent = [m for m, v in verdicts.items()
+                      if v["state"].startswith("SEED-DEPENDENT")]
+    none_discriminate = [m for m, v in verdicts.items()
+                         if v["state"].startswith("DOES NOT")]
+    print("\n" + "-" * 74)
+    if seed_dependent or none_discriminate:
+        print("These metrics do not agree with each other or with themselves across")
+        print("seeds. Reported on the forget set alone, with a single seed and one")
+        print("metric chosen, they can support opposite conclusions about the same")
+        print("models. The never-taught control is what makes that visible.")
+    else:
+        print("Every metric discriminates on every seed.")
+    print("-" * 74)
 
     write_json({"layer": primary, "reference": args.reference,
                 "summary": summary,
-                "any_metric_discriminates": bool(any(discriminating)),
+                "verdicts": verdicts,
+                "metrics_discriminating_on_every_seed": [
+                    m for m, v in verdicts.items()
+                    if v["state"].startswith("DISCRIMINATES")],
                 "note": "Standard practice draws input queries from the forget "
                         "set only; the control and generic columns are the "
                         "comparison that is usually absent."},

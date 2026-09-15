@@ -23,3 +23,5 @@ results/runs/*/checkpoint-*/
 
 .reproduce_snapshot/
 results/figures/*.png
+
+paper_assets/
