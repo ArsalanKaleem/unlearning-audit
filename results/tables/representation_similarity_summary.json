@@ -95,6 +95,47 @@
       }
     }
   },
-  "any_metric_discriminates": true,
+  "verdicts": {
+    "cka": {
+      "criterion": "ratio < 0.90",
+      "ratios": {
+        "M_npo_s0": 0.9520248679563212,
+        "M_npo_s1": 0.9079434109922789,
+        "M_npo_s2": 0.8876279600906165,
+        "M_gd_s2": 0.8514626129910757
+      },
+      "n_passing": 2,
+      "n_models": 4,
+      "range": "0.85-0.95",
+      "state": "SEED-DEPENDENT: 2/4 seeds"
+    },
+    "pca_similarity": {
+      "criterion": "ratio < 0.90",
+      "ratios": {
+        "M_npo_s0": 0.7837490367809385,
+        "M_npo_s1": 0.9896470778060726,
+        "M_npo_s2": 0.2850069958977065,
+        "M_gd_s2": 0.5964140309753256
+      },
+      "n_passing": 3,
+      "n_models": 4,
+      "range": "0.29-0.99",
+      "state": "SEED-DEPENDENT: 3/4 seeds"
+    },
+    "pca_shift": {
+      "criterion": "ratio > 1.50",
+      "ratios": {
+        "M_npo_s0": 3.6488984382474805,
+        "M_npo_s1": 4.794487369438103,
+        "M_npo_s2": 1.2936678416534695,
+        "M_gd_s2": 1.0718214863811792
+      },
+      "n_passing": 2,
+      "n_models": 4,
+      "range": "1.07-4.79",
+      "state": "SEED-DEPENDENT: 2/4 seeds"
+    }
+  },
+  "metrics_discriminating_on_every_seed": [],
   "note": "Standard practice draws input queries from the forget set only; the control and generic columns are the comparison that is usually absent."
 }

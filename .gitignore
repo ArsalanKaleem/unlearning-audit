@@ -25,3 +25,5 @@ results/runs/*/checkpoint-*/
 results/figures/*.png
 
 paper_assets/
+
+paper_assets/
