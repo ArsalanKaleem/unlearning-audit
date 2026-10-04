@@ -7,12 +7,13 @@ facts the model was **never taught**, which the standard diagnostics omit.
 **Finding.** Four standard diagnostics produce results that look like evidence
 of hidden knowledge, and none of them survives the control.
 
-| diagnostic | what it appeared to show | what the control showed |
-|:--|:--|:--|
-| layer-wise probing | decodability collapses 0.897 → 0.15–0.23 at layer 9, i.e. erasure | never-taught activations moved 1.18–1.25× less than forget-set ones, against a preregistered 1.5× threshold. The collapse is not forget-specific. |
-| logit lens | belief peaks at layer 7 then drops 17–25 nats — the canonical "suppressed but present" signature | never-taught entities show the same shape, dropping 17–21 nats. There is no fact there to suppress. |
-| activation patching | 0.13–0.23 recovery from donor states | 0.15–0.34 recovery on **retain** facts that were never unlearned. Two models recover *more* where there is no gap to close. |
-| steering | beats matched-random directions at every positive α, CIs excluding zero, finite-difference agreement to 0.001 | the effect is 0.14–0.63% of the distance to answering correctly |
+
+| diagnostic          | what it appeared to show                                                                                       | what the control showed                                                                                                                              |
+| :------------------ | :------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
+| layer-wise probing  | decodability collapses 0.897 → 0.15–0.23 at layer 9, i.e. erasure                                            | never-taught activations moved 1.18–1.25× less than forget-set ones, against a preregistered 1.5× threshold. The collapse is not forget-specific. |
+| logit lens          | belief peaks at layer 7 then drops 17–25 nats — the canonical "suppressed but present" signature             | never-taught entities show the same shape, dropping 17–21 nats. There is no fact there to suppress.                                                 |
+| activation patching | 0.13–0.23 recovery from donor states                                                                          | 0.15–0.34 recovery on**retain** facts that were never unlearned. Two models recover *more* where there is no gap to close.                          |
+| steering            | beats matched-random directions at every positive α, CIs excluding zero, finite-difference agreement to 0.001 | the effect is 0.14–0.63% of the distance to answering correctly                                                                                     |
 
 A fifth test, the disjoint fine-tune recovery attack, is a clean negative: the
 attack arm relearned its training half (+0.24 to +0.32) and transferred nothing
@@ -124,7 +125,7 @@ One model (124M), one condition (synthetic injected facts), one dataset. This
 shows these diagnostics *can* mislead without a control; it does not establish
 how often they do at scale. SAE feature analysis (H5, H6), nonlinear probes at
 matched capacity (H3), and the natural-knowledge condition were not run — they
-are reported as untested, not as null.
+are reported as untested, not as null
 
 ## Licence and citation
 
