@@ -40,7 +40,8 @@ def build_loss(method: str, cfg: Dict[str, Any], ref_model=None, steering_vec=No
     if method == "rmu":
         layer = u.get("rmu_layer", 6)
         alpha = u.get("rmu_alpha", 100.0)
-        return lambda m, fb, rb: loss_rmu(m, ref_model, fb, rb, layer, steering_vec, alpha, lam)
+        ro = bool(u.get("rmu_readout_only", False))
+        return lambda m, fb, rb: loss_rmu(m, ref_model, fb, rb, layer, steering_vec, alpha, lam, ro)
     raise ValueError(f"unknown unlearning method: {method}")
 
 

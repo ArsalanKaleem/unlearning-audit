@@ -104,7 +104,8 @@ def loss_npo_retain(model, ref_model, forget_batch, retain_batch,
 
 
 def loss_rmu(model, ref_model, forget_batch, retain_batch, layer: int,
-             steering_vec, alpha: float = 100.0, lambda_retain: float = 1.0) -> Any:
+             steering_vec, alpha: float = 100.0, lambda_retain: float = 1.0,
+             readout_only: bool = False) -> Any:
     """Representation Misdirection Unlearning.
 
     Forget activations at `layer` are pushed towards alpha * steering_vec (a
@@ -135,9 +136,21 @@ def loss_rmu(model, ref_model, forget_batch, retain_batch, layer: int,
     def masked_mse(a, b, m):
         return (((a - b) ** 2) * m).sum() / (m.sum() * a.shape[-1]).clamp(min=1.0)
 
+    def readout_mask(batch):
+        # Revision (2026-11-20): steer only where the fact is read out -- the
+        # last prompt token and the answer tokens. The forget prompts share
+        # their templates with the retain prompts, so steering every token
+        # set the forget and retain terms against each other (forget stayed
+        # at 0.99 while perplexity left the band).
+        c = batch["completion_mask"].float()
+        prev = torch.zeros_like(c)
+        prev[:, :-1] = c[:, 1:]
+        return ((c + prev) > 0).float().unsqueeze(-1)
+
     h_forget = hidden_at(model, forget_batch)
     target = alpha * steering_vec.to(h_forget.device, dtype=h_forget.dtype)
-    forget_term = masked_mse(h_forget, target.expand_as(h_forget), token_mask(forget_batch))
+    fmask = readout_mask(forget_batch) if readout_only else token_mask(forget_batch)
+    forget_term = masked_mse(h_forget, target.expand_as(h_forget), fmask)
 
     h_retain = hidden_at(model, retain_batch)
     with torch.no_grad():
