@@ -656,7 +656,9 @@ def main() -> int:
         cmd = [sys.executable, str(BUNDLE / "scripts" / "30_revision_analysis.py"),
                "--root", str(root), "--roles", str(root / "roles.json"), "--n-jobs", "4"]
         print(" ".join(cmd), flush=True)
-        subprocess.run(cmd, check=False)
+        rc = subprocess.run(cmd, check=False).returncode
+        if rc != 0:
+            print(f"ANALYSIS FAILED (exit {rc}); outputs on disk are still usable", flush=True)
     print("PIPELINE DONE", flush=True)
     return 0
 
