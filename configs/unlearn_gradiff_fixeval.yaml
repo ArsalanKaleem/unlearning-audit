@@ -1,0 +1,15 @@
+_base: configs/base.yaml
+
+# Revision (2026-11-19): configs/unlearn_gradiff.yaml re-run unchanged under the
+# fixed evaluation. Seed 2 (the submission's GD arm) is saved; seeds 0 and 1
+# are run trajectory-only to report band reachability (disk).
+unlearn:
+  method: gradiff
+  lr: 1.0e-5
+  steps: 800
+  lambda_retain: 2.0
+  save: first_in_band
+
+sweep:
+  lr: [1.0e-5]
+  seed: [2]
