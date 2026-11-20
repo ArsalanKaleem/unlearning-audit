@@ -12,7 +12,7 @@
   ],
   "set": "paraphrase",
   "model_label": "M_npo_s0",
-  "checkpoint": "checkpoints\\M_npo_s0",
+  "checkpoint": "checkpoints/M_npo_s0",
   "shape": [
     12,
     432,
@@ -22,5 +22,5 @@
   "n_examples": 432,
   "d_model": 768,
   "dtype": "float32",
-  "sha256": "dc740a063356466f450e5cce49d2c7d20ec0c7cd79a043192253558a9eb41368"
+  "sha256": "b80b531a1c29e5bfc464cf082e6ce15420eacb4bd8580d59ba0b8cc6c6e7fc6e"
 }

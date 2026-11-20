@@ -11,7 +11,7 @@
   ],
   "set": "control",
   "model_label": "M_npo_s1",
-  "checkpoint": "checkpoints\\M_npo_s1",
+  "checkpoint": "checkpoints/M_npo_s1",
   "shape": [
     12,
     288,
@@ -21,5 +21,5 @@
   "n_examples": 288,
   "d_model": 768,
   "dtype": "float32",
-  "sha256": "537e6ede905e11ed5da9b2f8d931b5579489054c15d16670817a8982e09df158"
+  "sha256": "8a191ca7c598baced1801460cc1c65f58be5ca8598c18f69c6627e385b97c43f"
 }
