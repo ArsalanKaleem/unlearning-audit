@@ -73,6 +73,8 @@ def crossfit_probe(X: np.ndarray, y: np.ndarray, entities: Sequence[str],
         folds = entity_folds(entities, y, n_folds, seed * 1000 + rep)
         for f in range(n_folds):
             te, tr = folds == f, folds != f
+            if not te.any() or len(np.unique(entities[tr])) < 3:
+                continue  # only possible on tiny subsets (smoke tests)
             pipe = make_pipeline(StandardScaler(), LogisticRegression(max_iter=3000))
             search = GridSearchCV(pipe, {"logisticregression__C": list(C_grid)},
                                   cv=GroupKFold(n_splits=3), n_jobs=1)
