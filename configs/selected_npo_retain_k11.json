@@ -1,0 +1,26 @@
+{
+  "band": {
+    "forget_acc_max": 0.15,
+    "retain_acc_min_ratio": 0.8,
+    "ppl_ratio_max": 1.2,
+    "prefer": "earliest"
+  },
+  "baseline_retain": 1.0,
+  "retain_floor": 0.8,
+  "runs": [
+    {
+      "run_id": "20261119-042636_unlearn_npo_retain_train_from_layer11_lr0.0001_beta0.1_seed0_b219426a",
+      "method": "npo_retain",
+      "seed": 0,
+      "lr": 0.0001,
+      "beta": 0.1,
+      "entered_band": true,
+      "selected_step": 480,
+      "checkpoint": "results/runs/20261119-042636_unlearn_npo_retain_train_from_layer11_lr0.0001_beta0.1_seed0_b219426a/checkpoint-0480",
+      "forget_acc": 0.14583333333333334,
+      "retain_acc": 0.9833333333333333,
+      "ppl_ratio": 1.098234090669772,
+      "diagnosis": null
+    }
+  ]
+}
