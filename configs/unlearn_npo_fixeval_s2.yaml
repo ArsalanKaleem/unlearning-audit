@@ -1,0 +1,19 @@
+_base: configs/base.yaml
+
+# Revision (2026-11-19): the frozen stage-3 NPO recipe of configs/unlearn_npo.yaml,
+# re-run unchanged under the FIXED behavioural evaluation so the band selects
+# on correct accuracies. Training is deterministic given the seed, so the
+# trajectory is the submission's; only which step qualifies can change.
+unlearn:
+  method: npo_retain
+  lr: 1.0e-5
+  steps: 800
+  beta: 0.1
+  save: first_in_band
+
+sweep:
+  beta: [0.1]
+  lr: [1.0e-5]
+  seed: [2]
+
+# Seed-2 rerun: the seed 0-2 sweep was interrupted after seeds 0 and 1 entered the band.
