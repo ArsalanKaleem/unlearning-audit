@@ -106,6 +106,8 @@ def unlearn(
               f"({n_train / 1e6:.1f}M params)")
     opt = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad],
                             lr=u["lr"], weight_decay=0.0)
+    save_policy = u.get("save", "all")      # all | first_in_band | none (trajectory only)
+    saved = False
 
     forget_iter = infinite_batches(tokenizer, forget_records, u["batch_size"], cfg["seed"], device)
     retain_iter = infinite_batches(tokenizer, retain_records, u["batch_size"], cfg["seed"] + 1, device)
@@ -119,7 +121,15 @@ def unlearn(
             metrics["step"] = step
             history.append(metrics)
             append_metrics(run_dir, metrics)
-            _save_checkpoint(model, tokenizer, run_dir / f"checkpoint-{step:04d}")
+            if save_policy == "all":
+                _save_checkpoint(model, tokenizer, run_dir / f"checkpoint-{step:04d}")
+            elif save_policy == "first_in_band" and not saved and in_band(metrics, cfg["band"], cfg["baseline"]["retain_acc"]):
+                # The selection rule is "earliest qualifying step", so the
+                # first in-band checkpoint IS the selected one; later steps
+                # cannot change the selection and are not run.
+                _save_checkpoint(model, tokenizer, run_dir / f"checkpoint-{step:04d}")
+                saved = True
+                break
             model.train()
 
         if step == u["steps"]:
