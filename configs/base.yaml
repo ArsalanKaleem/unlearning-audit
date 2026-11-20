@@ -101,12 +101,20 @@ band:
 # Baselines measured on M_injected before any unlearning. Recorded here so the
 # band can be checked for reachability, and so scripts do not re-derive them
 # inconsistently. Source: results/tables/behaviour_M_injected.csv
+# REVISION DEVIATION 2026-11-19. The values below were re-measured after
+# fixing the left-padding position-id bug in src/eval/behavioural.py
+# (score_prompts). The submission's values were retain 0.328, forget 0.375,
+# control 0.118, paraphrase 0.356, related 0.407 -- all artefacts of reading
+# padded prompts at shifted positions. The band THRESHOLDS are unchanged
+# (forget <= 0.15 absolute, retain >= 0.8 x baseline, ppl ratio <= 1.2);
+# only the baseline they are relative to is corrected. Every unlearning
+# checkpoint is re-selected under the fixed evaluation.
 baseline:
-  retain_acc: 0.328
-  forget_acc: 0.375
-  control_acc: 0.118
-  paraphrase_acc: 0.356
-  related_acc: 0.407
+  retain_acc: 1.0
+  forget_acc: 1.0
+  control_acc: 0.128
+  paraphrase_acc: 1.0
+  related_acc: 0.880
   ppl: 109.5                       # M_injected, 48-sentence probe
   base_ppl: 78.2                   # base GPT-2, same probe
   probe_acc_primary_layer: 0.897   # the decodability/expression gap: 0.897
