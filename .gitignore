@@ -31,3 +31,6 @@ paper_assets/
 # Kaggle scale-up outputs (400 MB of activations); tables are copied out when used
 results/kaggle/
 kaggle_bundle.zip
+
+# archived copy of the submission-time activations: keep metadata, not the arrays
+results/activations_submission/*.npz

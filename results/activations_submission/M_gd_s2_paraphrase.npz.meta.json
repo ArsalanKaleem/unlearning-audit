@@ -1,0 +1,26 @@
+{
+  "model_name": "gpt2-small",
+  "hook_name": "resid_post",
+  "position": "last",
+  "n_prompts": 432,
+  "template_kinds": [
+    "paraphrase"
+  ],
+  "splits": [
+    "forget",
+    "retain"
+  ],
+  "set": "paraphrase",
+  "model_label": "M_gd_s2",
+  "checkpoint": "checkpoints\\M_gd_s2",
+  "shape": [
+    12,
+    432,
+    768
+  ],
+  "n_layers": 12,
+  "n_examples": 432,
+  "d_model": 768,
+  "dtype": "float32",
+  "sha256": "757820891bb36f2ce129ca7081810613c5f18078129aa9eb6ff9f4c007046d1e"
+}
