@@ -72,8 +72,15 @@ def score_prompts(
     top1, constrained, ranks, logprobs, margins = [], [], [], [], []
     for chunk_idx, chunk in enumerate(_batched(list(prompts), batch_size)):
         enc = tokenizer(list(chunk), return_tensors="pt", padding=True).to(device)
+        # BUG FIX (revision, 2026-11-19). GPT-2 uses absolute learned position
+        # embeddings and HF does not derive position_ids from the attention
+        # mask in a plain forward call. With left padding, every padded prompt
+        # was read at shifted positions: on M_injected one forget prompt scored
+        # log p = -3.94 in a padded batch and -0.0012 alone. Every behavioural
+        # number in the submission was computed with this bug.
+        pos = (enc["attention_mask"].cumsum(-1) - 1).clamp(min=0)
         with torch.no_grad():
-            logits = model(**enc).logits[:, -1, :].float()
+            logits = model(**enc, position_ids=pos).logits[:, -1, :].float()
         logprob_all = torch.log_softmax(logits, dim=-1)
 
         offset = chunk_idx * batch_size
