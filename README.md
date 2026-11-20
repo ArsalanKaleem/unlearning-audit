@@ -1,133 +1,166 @@
-# Compared to what? Never-taught controls in unlearning audits
+# Compared to what? Calibrating unlearning diagnostics with known anchors
 
-An audit of whether LLM unlearning removes knowledge from internal
-representations or only suppresses its expression — run with a control group of
-facts the model was **never taught**, which the standard diagnostics omit.
+LLM unlearning is usually judged by behaviour: the model stops giving the
+forgotten answer. Whether the fact was removed or only hidden is then argued from
+internal diagnostics such as linear probes, the logit lens, relearning speed and
+representation drift. None of those diagnostics had been checked on models where
+the answer is known. This repository does that check.
 
-**Finding.** Four standard diagnostics produce results that look like evidence
-of hidden knowledge, and none of them survives the control.
+We build three kinds of anchor models whose internal state is known by
+construction:
 
+| anchor | how it is made | what we know |
+| :-- | :-- | :-- |
+| present | fine-tune the base model on all synthetic facts (`M_injected`) | the facts are there |
+| absent | retrain the base model without the forget facts, same epochs, 3 seeds | the facts were never seen |
+| suppressed | unlearn `M_injected` with every block below `k` frozen | the residual stream below `k` is bit-identical to `M_injected`, so the facts are still encoded |
 
-| diagnostic          | what it appeared to show                                                                                       | what the control showed                                                                                                                              |
-| :------------------ | :------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
-| layer-wise probing  | decodability collapses 0.897 → 0.15–0.23 at layer 9, i.e. erasure                                            | never-taught activations moved 1.18–1.25× less than forget-set ones, against a preregistered 1.5× threshold. The collapse is not forget-specific. |
-| logit lens          | belief peaks at layer 7 then drops 17–25 nats — the canonical "suppressed but present" signature             | never-taught entities show the same shape, dropping 17–21 nats. There is no fact there to suppress.                                                 |
-| activation patching | 0.13–0.23 recovery from donor states                                                                          | 0.15–0.34 recovery on**retain** facts that were never unlearned. Two models recover *more* where there is no gap to close.                          |
-| steering            | beats matched-random directions at every positive α, CIs excluding zero, finite-difference agreement to 0.001 | the effect is 0.14–0.63% of the distance to answering correctly                                                                                     |
+The unlearning methods (NPO, RMU, gradient difference) and the anchors are compared at
+one matched operating point. That point is the earliest step with forget accuracy
+≤ 0.15, retain ≥ 0.8 × injected and perplexity ≤ 1.2 × injected. Every diagnostic is
+scored per entity, as an AUROC against the never-taught oracle (0.5 means
+indistinguishable from a model that never learned the facts). Models: GPT-2 Small
+(12 blocks) and Qwen3-0.6B-Base (28 blocks).
 
-A fifth test, the disjoint fine-tune recovery attack, is a clean negative: the
-attack arm relearned its training half (+0.24 to +0.32) and transferred nothing
-to the disjoint half (−0.042 to +0.028).
+## Results
 
-**Claim: rung 1 of the claim ladder, output suppression only** — produced by
-`highest_supported_rung()` applying preregistered thresholds, not by the
-author's reading of the tables. Three of four models cleared every measured rung
-on the raw numbers and were capped by the drift control alone.
+AUROC against oracle seed 0, 48 forget entities.
 
-A second finding lives in the baseline: **before any unlearning**, the model
-decodes the facts at 0.897 while expressing them at 0.375. Decodability and
-behaviour were never aligned, so "still decodable after unlearning" is a weaker
-inference than it is usually treated as.
+**GPT-2 Small**
 
----
+| model | behaviour | paraphrase | answer log-prob | probe (block 9) | probe (last) | lens peak | relearn gain |
+| :-- | --: | --: | --: | --: | --: | --: | --: |
+| present (injected) | 1.00 | 1.00 | 1.00 | 0.91 | 0.95 | 1.00 | 0.54 |
+| suppressed, k = 11 | 0.55 | 0.56 | 0.16 | 0.91 | 0.89 | 1.00 | 0.80 |
+| suppressed, k = 9 | 0.55 | 0.58 | 0.17 | 0.88 | 0.81 | 0.98 | 0.77 |
+| NPO seed 0 | 0.54 | 0.54 | 0.14 | 0.59 | 0.61 | 0.55 | 0.69 |
+| NPO seed 1 | 0.54 | 0.54 | 0.14 | 0.57 | 0.54 | 0.51 | 0.61 |
+| oracle seeds 1, 2 | 0.48 to 0.52 | 0.51 to 0.53 | 0.44 to 0.48 | 0.49 to 0.52 | 0.49 to 0.52 | 0.49 to 0.53 | n/a |
 
-## Setup
+**Qwen3-0.6B-Base**
 
-GPT-2 Small (124M). 156 invented researchers with syllable-generated names
-carrying no nationality cue, each with a birth city (12 single-token cities) and
-a research field (6 single-token fields). Entity-disjoint, exactly balanced:
-**48 forget, 60 retain, 48 never-taught control.** Chance is exactly 1/12.
-Six training templates, four held-out paraphrase templates, with an assertion
-that no paraphrase string appears in training.
+| model | behaviour | paraphrase | answer log-prob | probe (block 21) | probe (last) | lens peak | relearn gain |
+| :-- | --: | --: | --: | --: | --: | --: | --: |
+| present (injected) | 0.98 | 0.97 | 1.00 | 0.83 | 0.91 | 0.99 | 0.62 |
+| suppressed, k = 27 (2 seeds) | 0.52 to 0.55 | 0.51 to 0.53 | 0.10 to 0.16 | 0.83 | 0.84 to 0.88 | 0.99 | 0.67 to 0.80 |
+| suppressed, k = 21 | 0.54 | 0.53 | 0.14 | 0.77 | 0.83 | 0.88 | 0.65 |
+| NPO† (3 seeds) | 0.54 | 0.53 | 0.12 to 0.16 | 0.54 | 0.57 to 0.62 | 0.32 to 0.42 | 0.58 to 0.61 |
+| RMU | 0.58 | 0.53 | 0.13 | 0.54 | 0.50 | 0.76 | 0.82 |
+| oracle seeds 1, 2 | 0.50 to 0.52 | 0.49 to 0.52 | 0.52 to 0.63 | 0.48 | 0.47 to 0.50 | 0.49 to 0.52 | n/a |
 
-Facts are injected by fine-tuning, then unlearned with NPO (3/3 seeds reached
-the matched-forgetting band) and gradient difference (1/3). Forgetting reached
-never-taught level, held on retain and on the related attribute, and
-generalised to held-out phrasings — forget-entity paraphrase accuracy fell
-0.391 → 0.125–0.146 while retain-entity paraphrase held at 0.329–0.362.
+† NPO on Qwen3 is selected under a relaxed perplexity cap of 1.35 (a declared
+deviation, below). Seed 2 also meets the primary cap (perplexity ratio 1.06).
 
----
+What the tables show:
 
-## Reproducing it
+1. **Behaviour cannot tell suppression from absence.** The suppressed anchors answer
+   as rarely as the never-taught oracle (AUROC 0.51 to 0.58), on training templates
+   and on held-out paraphrases, although the facts are intact below block `k`.
+2. **Probes, the logit lens and relearning can.** They separate the suppressed
+   anchors from the oracle (0.65 to 1.00), while the extra oracle seeds stay near 0.5.
+3. **On real methods those diagnostics disagree.** NPO (both models) and RMU (Qwen3)
+   are at the oracle's level on probes, so they look erased. They still relearn
+   the facts much faster than a never-taught model.
+4. **The answer log-probability flagged every unlearned model.** Every anchor and
+   every method puts the forgotten answer far below the never-taught level (AUROC
+   0.10 to 0.17). On GPT-2 the oracle averages −9.0 nats and the unlearned models
+   −28 to −46; on Qwen3 the oracle averages −11.4 and the unlearned models fall 8 to
+   61 nats below it. A control-surrogate test on never-taught entities shows the
+   forget-specific part excludes zero for every model. This needs only output
+   probabilities. Yang and Yeung (2026, arXiv:2607.19442) report the same kind of
+   gap in a different testbed.
+5. **A drift-ratio gate fails on known cases.** An earlier version of this project
+   called a change forget-specific only if forget activations drifted ≥ 1.5× as far
+   as control activations. LEACE, which provably removes all linear city
+   information (probe accuracy 0), scores 1.08 to 1.40 on GPT-2 and fails the gate
+   at every layer. On Qwen3 the gate accepts the k = 27 suppressed anchor at the
+   last block (1.60) and rejects every NPO seed (1.04 to 1.24).
 
-The analysis chain reproduces from a fresh clone with seven pure-Python
-packages and **no model weights, no GPU**:
+**What did not reach the band.** Gradient difference never entered it on either
+model: forget accuracy only drops below 0.15 after perplexity passes the cap. On
+GPT-2, NPO seed 2 failed the same way, and RMU never moved forget accuracy below
+0.99 in three configurations (`configs/unlearn_rmu_rev.yaml` logs each attempt). On
+Qwen3, RMU entered the band after its budget was raised to 1500 steps (step 1000,
+perplexity 1.195). Excluded seeds are reported, not re-tuned.
 
-```bash
-git clone https://github.com/ArsalanKaleem/unlearning-audit
-cd unlearning-audit
-python -m venv .venv && source .venv/bin/activate    # Windows: .venv\Scripts\Activate.ps1
-pip install numpy==1.26.4 pandas==2.2.2 scipy==1.13.1 scikit-learn==1.5.1 \
-            matplotlib==3.9.2 pyyaml==6.0.2 pytest==8.3.2
-python scripts/23_reproduce.py --check
-```
+## Two bugs in the earlier version
 
-This regenerates the statistics, the claim-ladder verdict and all five figures,
-then diffs them against the committed copies. Verified identical at commit
-`ce7ba77`.
+The previous README and the withdrawn AISTATS submission reported numbers computed
+with two silent bugs. Both are fixed, and every checkpoint was re-selected.
 
-**What it does not cover.** Training, extraction, probing, patching, steering
-and the recovery attack need model checkpoints and activation caches — gigabytes
-that are deliberately not committed. They are reproducible from the configs and
-seeds in each run's `provenance.json`, but they take days of CPU. For those,
-`pip install -r requirements.txt` and work through `scripts/` in order.
+- **Left padding with absolute position embeddings.** GPT-2's forward call does not
+  derive position ids from the attention mask, so left-padded prompts were read at
+  shifted positions. One forget prompt scored log p = −3.94 in a padded batch and
+  −0.0012 alone. After the fix, `M_injected` scores 1.0 / 1.0 on retain / forget
+  instead of 0.33 / 0.38. Fix: `src/eval/behavioural.py`.
+- **A start-of-sequence token** was added at activation extraction that the models
+  never saw in training or scoring. Fix: `src/analysis/activations.py`.
 
----
+The earlier headline (every model capped at "output suppression" by the drift gate)
+does not survive: the gate itself fails on known cases.
+
+## Protocol deviations
+
+All declared before the runs they affect, and all logged.
+
+- The band thresholds are unchanged, but the baseline they are relative to was
+  re-measured after the padding fix (`configs/base.yaml`).
+- Qwen3 learning rates come from a fixed ladder. Seed 0 picks the rate, and other
+  seeds that then miss are excluded.
+- Qwen3 run 2 gave RMU 1500 steps instead of 600 and re-ran NPO and gradient
+  difference under a relaxed perplexity cap of 1.35, labelled `M_npoR` / `M_gdR`.
+- RMU steers only the read-out positions (last prompt token and answer) after the
+  unmasked loss spent its update on GPT-2's position-0 attention sink.
 
 ## Layout
 
 ```
-configs/base.yaml           frozen thresholds, with the reasoning in comments
-preregistration.md          hypotheses, thresholds, and the full deviation log
-logbook/                    daily record: what broke, the numbers, the decisions
 src/
-  analysis/                 probes, LEACE erasure control, localisation,
-                            logit lens, causal interventions, sensitivity
-  eval/claim_ladder.py      turns measurements into the highest supported claim
-  train/                    four unlearning losses, injection, band selection
-  stats/                    entity-clustered bootstrap, permutation, Holm
-scripts/00–26               one per pipeline stage; 99 is a synthetic smoke test
-results/tables/             per-prompt measurements and derived statistics
-paper_assets.zip            the five figures and the tables behind them
+  eval/behavioural.py       12/30-way constrained scoring (with the padding fix)
+  train/unlearn.py          NPO, GD, RMU; frozen-trunk (train_from_layer), train_only
+  train/losses.py           losses, incl. masked read-out RMU
+  analysis/calibration.py   entity-grouped cross-fitted probes, AUROC, bootstrap
+scripts/
+  28_train_oracle.py        never-taught oracle (absent anchor)
+  29_revision_diagnostics.py  behaviour, logit lens, activations, relearning per model
+  30_revision_analysis.py   AUROC vs oracle, normalised positions, control surrogate
+  31_revision_drift_gate.py the 1.5 drift gate on known cases (LEACE, anchors)
+  revision_*.sh             the job chains that produced the GPT-2 results
+kaggle/anchor_pipeline.py   the whole design for any HF causal LM (Qwen3 arm, T4 GPU)
+configs/                    every sweep config and the selected checkpoints
+results/revision/
+  prelim_final/             GPT-2 tables (anchor_validation, model_positions, ...)
+  qwen3_06b/                Qwen3 tables, run logs and every unlearning trajectory
+  drift_gate.csv            GPT-2 drift gate
+  M_*/                      per-model behaviour, lens and relearning outputs (GPT-2);
+                            M_npo_s2 and M_gd_s2 are the pre-fix checkpoints, kept for the record
+results/runs/               provenance and metrics for every training run
+preregistration.md, logbook/  the original study's plan and daily record
 ```
 
-`final_statistics.csv` is the only source the paper quotes numbers from.
+## Reproducing
 
----
+The tables in `results/revision/` are the outputs. Regenerating them needs model
+checkpoints and activation caches, which are not committed (gigabytes).
 
-## Method notes worth knowing
+- **GPT-2 (CPU).** Train oracles with `scripts/28`, run the sweeps with
+  `scripts/07_unlearn_sweep.py --config configs/unlearn_*.yaml`, then `scripts/29` per
+  model, `scripts/30` and `scripts/31`. The `scripts/revision_*.sh` chains run this
+  in order.
+- **Qwen3 (one T4, about 3 hours).** `kaggle/README.md` has the notebook steps.
+  `kaggle/anchor_pipeline.py` runs injection, oracles, unlearning, diagnostics and
+  analysis end to end, and resumes after an interruption.
 
-**Three invariants, enforced in code.** Split by entity, never by example.
-Resample entities, never prompts. Select checkpoints mechanically — `select_band`
-applies the preregistered thresholds, and if nothing qualifies the sweep is
-widened and the widening is recorded.
-
-**A positive control that works.** LEACE closed-form erasure drives probe
-accuracy to exactly chance (0.083), which proves the probing pipeline *can*
-detect erasure — so a null result is informative rather than ambiguous.
-
-**A threshold that was not relaxed.** The drift gate required forget/control
-≥ 1.5. The measured ratios were 1.18–1.25. Lowering it to 1.15 would have
-admitted all four models and produced a headline erasure result. It was applied
-as written; see `preregistration.md` Section 6.
-
-**An effect-size floor added after the fact, and logged.** The rung-4 steering
-test passed on significance alone with an effect worth 0.63% of the gap. A 25%
-floor was added afterwards, which converts that PASS into a FAIL. Adding a
-criterion after seeing results is normally suspect; it is disclosed here because
-it cost the project a positive result rather than buying one.
-
----
+Tests: `pytest tests` (69 pass).
 
 ## Limitations
 
-One model (124M), one condition (synthetic injected facts), one dataset. This
-shows these diagnostics *can* mislead without a control; it does not establish
-how often they do at scale. SAE feature analysis (H5, H6), nonlinear probes at
-matched capacity (H3), and the natural-knowledge condition were not run — they
-are reported as untested, not as null
+The models are small (124M and 596M parameters), the facts are synthetic one-token
+birth cities, and there are 48 forget entities per model. The suppressed anchors
+show one way of hiding knowledge, an unchanged lower trunk. NPO on Qwen3 reached
+the band only under the relaxed cap (two of three seeds) and RMU only at its edge.
+Relearning was measured against one oracle seed.
 
-## Licence and citation
+## Licence
 
-Code under MIT. If you use the control design, cite the paper (in preparation)
-and this repository.
+MIT.
