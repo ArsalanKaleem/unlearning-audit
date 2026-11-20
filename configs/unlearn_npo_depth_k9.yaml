@@ -1,0 +1,32 @@
+_base: configs/base.yaml
+
+# Revision R2 (2026-11-19): depth-limited NPO, the ground-truth SUPPRESSED
+# anchor. Identical to configs/unlearn_npo.yaml (the frozen stage-3 recipe)
+# except that blocks below `train_from_layer` and the (tied) embeddings are
+# frozen. For k = 11 the residual stream through layer 10 -- including the
+# preregistered primary layer 9 -- is bit-identical to M_injected, so any
+# diagnostic that reports "removed" at those layers is wrong by construction.
+# The band and the earliest-step rule are unchanged. Only the first in-band
+# checkpoint is written (disk: 9.5 GB free).
+
+# Deviation (2026-11-19, before any diagnostic was computed on these models):
+# at the frozen recipe's lr 1e-5, training block 11 alone left forget accuracy
+# essentially unchanged for 80 steps. The anchor's job is to reach the SAME matched
+# band with a frozen trunk; its learning rate is not the object of study, so
+# it is raised per depth (fewer trainable parameters need larger steps). The
+# band, the earliest-step rule and every threshold are unchanged.
+
+unlearn:
+  method: npo_retain
+  lr: 5.0e-5
+  steps: 800
+  beta: 0.1
+  save: first_in_band
+
+sweep:                       # run once per depth: k=11 lr 1e-4 (this file);
+  train_from_layer: [9]     # other depths override on the command line copy
+  beta: [0.1]
+  lr: [5.0e-5]
+  seed: [0]
+
+# k=9 (this copy): lr 5e-5, halfway between k=11 (1e-4) and the full-model 1e-5.
