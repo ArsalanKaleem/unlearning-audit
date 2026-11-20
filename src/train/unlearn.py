@@ -86,7 +86,26 @@ def unlearn(
         write_json({"rmu_steering_seed": cfg["seed"]}, run_dir / "rmu_vector.json")
 
     loss_fn = build_loss(method, cfg, ref_model, steering_vec)
-    opt = torch.optim.AdamW(model.parameters(), lr=u["lr"], weight_decay=0.0)
+
+    # Revision R2: depth-limited unlearning, the ground-truth SUPPRESSED anchor.
+    # With train_from_layer = k, embeddings (and the tied unembedding) and
+    # blocks 0..k-1 are frozen, so the residual stream after block k-1 is
+    # bit-identical to M_injected for every input: whatever M_injected encoded
+    # there is still present by construction, however well the output forgets.
+    k = u.get("train_from_layer")
+    if k is not None:
+        n_train = 0
+        for name, p in model.named_parameters():
+            trainable = name.startswith("transformer.ln_f") or any(
+                name.startswith(f"transformer.h.{i}.") for i in range(int(k), model.config.n_layer))
+            p.requires_grad_(trainable)
+            n_train += p.numel() if trainable else 0
+        write_json({"train_from_layer": int(k), "n_trainable": n_train},
+                   run_dir / "frozen_trunk.json")
+        print(f"    frozen trunk: training blocks {k}..{model.config.n_layer - 1} + ln_f "
+              f"({n_train / 1e6:.1f}M params)")
+    opt = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad],
+                            lr=u["lr"], weight_decay=0.0)
 
     forget_iter = infinite_batches(tokenizer, forget_records, u["batch_size"], cfg["seed"], device)
     retain_iter = infinite_batches(tokenizer, retain_records, u["batch_size"], cfg["seed"] + 1, device)
