@@ -27,3 +27,7 @@ results/figures/*.png
 paper_assets/
 
 paper_assets/
+
+# Kaggle scale-up outputs (400 MB of activations); tables are copied out when used
+results/kaggle/
+kaggle_bundle.zip
