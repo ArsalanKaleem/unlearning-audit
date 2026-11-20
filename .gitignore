@@ -34,3 +34,8 @@ kaggle_bundle.zip
 
 # archived copy of the submission-time activations: keep metadata, not the arrays
 results/activations_submission/*.npz
+
+# Manuscript material stays out of the code repository
+paper/
+material.zip
+scripts/32_paper_figures.py
