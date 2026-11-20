@@ -1,0 +1,33 @@
+_base: configs/base.yaml
+
+# Revision R5 (2026-11-19/20): a representation-targeted test method, requested
+# by reviewers (RMU, Li et al. 2024, WMDP). Forget residuals entering layer 9
+# (hidden_states[9], after block 8 -- the depth at which the facts become
+# linearly decodable in M_injected, probe 0.81) are pushed towards alpha * u
+# (u a fixed, seeded random unit vector) at the READ-OUT positions only (last
+# prompt token + answer tokens); retain residuals are held at the frozen
+# M_injected's. Following the RMU recipe, only the MLPs of the three blocks
+# feeding the target layer are updated. alpha = 400 ~ 3.5x the mean token norm
+# at this depth (86.8 at layer 6, 105.7 at layer 8).
+# Deviations, in order (each before any diagnostic was computed on RMU):
+#  1. all parameters, all tokens, layer 6: forget 1.000, ppl_ratio 1.49 by
+#     step 160 -- the loss was dominated by the position-0 attention sink.
+#  2. masked to real non-initial tokens, MLPs of blocks 3-5, layer 6: best
+#     forget 0.993, ppl out of band at 18/21 checkpoints -- steering the
+#     template tokens shared with the retain prompts.
+# Same matched band, same earliest-step rule, one seed.
+
+unlearn:
+  method: rmu
+  lr: 5.0e-5
+  steps: 800
+  rmu_layer: 9
+  rmu_alpha: 400.0
+  rmu_readout_only: true
+  lambda_retain: 100.0
+  train_only: [transformer.h.6.mlp, transformer.h.7.mlp, transformer.h.8.mlp]
+  save: first_in_band
+
+sweep:
+  lr: [5.0e-5]
+  seed: [0]
