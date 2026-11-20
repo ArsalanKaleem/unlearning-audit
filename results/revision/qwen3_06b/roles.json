@@ -1,0 +1,14 @@
+{
+  "M_injected": "present",
+  "M_rmu_s0": "test",
+  "M_npoR_s0": "test",
+  "M_npoR_s1": "test",
+  "M_npoR_s2": "test",
+  "M_injrep_s1": "present",
+  "M_k21_s0": "suppressed",
+  "M_k27_s0": "suppressed",
+  "M_k27_s1": "suppressed",
+  "M_oracle_s0": "absent",
+  "M_oracle_s1": "absent",
+  "M_oracle_s2": "absent"
+}

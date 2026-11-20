@@ -1,0 +1,18 @@
+{
+  "model": "Qwen/Qwen3-0.6B-Base",
+  "tag": "qwen3_06b",
+  "n_layers": 28,
+  "ppl_base": 18.697188848734505,
+  "n_params": 596049920,
+  "device": "cuda",
+  "gpu": "Tesla T4",
+  "torch": "2.11.0+cu130",
+  "inject_epochs": 3,
+  "inject": {
+    "epoch": 3,
+    "forget_acc": 1.0,
+    "retain_acc": 0.9888888888888889,
+    "control_acc": 0.09722222222222222,
+    "ppl_ratio_vs_base": 1.165096049326001
+  }
+}
