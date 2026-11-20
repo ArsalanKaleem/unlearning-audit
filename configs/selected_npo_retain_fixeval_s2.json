@@ -1,0 +1,36 @@
+{
+  "band": {
+    "forget_acc_max": 0.15,
+    "retain_acc_min_ratio": 0.8,
+    "ppl_ratio_max": 1.2,
+    "prefer": "earliest"
+  },
+  "baseline_retain": 1.0,
+  "retain_floor": 0.8,
+  "runs": [
+    {
+      "run_id": "20261120-040148_unlearn_npo_retain_lr1e-05_beta0.1_seed2_4bb76a6b",
+      "method": "npo_retain",
+      "seed": 2,
+      "lr": 1e-05,
+      "beta": 0.1,
+      "entered_band": false,
+      "selected_step": null,
+      "checkpoint": null,
+      "forget_acc": null,
+      "retain_acc": null,
+      "ppl_ratio": null,
+      "diagnosis": {
+        "n_steps": 21,
+        "retain_floor": 0.8,
+        "blocked_by": {
+          "forget_too_high": 8,
+          "retain_too_low": 0,
+          "ppl_too_high": 14
+        },
+        "best_forget_acc": 0.08333333333333333,
+        "best_retain_acc": 1.0
+      }
+    }
+  ]
+}
