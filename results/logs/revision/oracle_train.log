@@ -1,0 +1,36 @@
+=== --seed 0
+C:\Projects\Unlearning-Audit\.venv312\Lib\site-packages\transformers\tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+run_id: 20261119-023726_oracle_cabd363e
+M_oracle_s0: 540 training records
+  epoch 0 done (251s)
+  epoch 1 done (520s)
+  epoch 2 done (821s)
+  epoch 3 done (1219s)
+  epoch 4 done (1725s)
+{'label': 'M_oracle_s0', 'epoch': 4, 'n_records': 540, 'seed': 0, 'forget_acc': 0.07291666666666667, 'retain_acc': 0.34444444444444444, 'control_acc': 0.09375, 'paraphrase_acc': 0.2175925925925926, 'ppl_ratio_vs_base': 1.1947369572384738}
+=== --seed 0 --include-forget
+C:\Projects\Unlearning-Audit\.venv312\Lib\site-packages\transformers\tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+=== --seed 1
+C:\Projects\Unlearning-Audit\.venv312\Lib\site-packages\transformers\tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+run_id: 20261119-033513_oracle_e3a7b275
+M_oracle_s1: 540 training records
+  epoch 0 done (332s)
+  epoch 1 done (1737s)
+  epoch 2 done (2728s)
+  epoch 3 done (4177s)
+  epoch 4 done (5326s)
+{'label': 'M_oracle_s1', 'epoch': 4, 'n_records': 540, 'seed': 1, 'forget_acc': 0.034722222222222224, 'retain_acc': 1.0, 'control_acc': 0.10069444444444445, 'paraphrase_acc': 0.5717592592592593, 'ppl_ratio_vs_base': 1.1949658690936245}
+=== --seed 2
+C:\Projects\Unlearning-Audit\.venv312\Lib\site-packages\transformers\tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+run_id: 20261119-051003_oracle_fb166317
+M_oracle_s2: 540 training records
+  epoch 0 done (1823s)
+  epoch 1 done (6826s)
+  epoch 2 done (8450s)
+  epoch 3 done (9859s)
+  epoch 4 done (11078s)
+{'label': 'M_oracle_s2', 'epoch': 4, 'n_records': 540, 'seed': 2, 'forget_acc': 0.020833333333333332, 'retain_acc': 0.9972222222222222, 'control_acc': 0.08680555555555555, 'paraphrase_acc': 0.5694444444444444, 'ppl_ratio_vs_base': 1.2460458538696189}

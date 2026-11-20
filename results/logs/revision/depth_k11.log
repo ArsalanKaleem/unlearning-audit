@@ -1,0 +1,29 @@
+run_id: 20261119-042522__k11_4aa35731
+band: forget <= 0.15, retain >= 0.800 (80% of baseline 1.000), ppl_ratio <= 1.2
+selection within band: earliest
+sweep over ['train_from_layer', 'lr', 'beta', 'seed']: 1 runs x 21 checkpoints (~10 GB if --keep-checkpoints all)
+
+--- 20261119-042636_unlearn_npo_retain_train_from_layer11_lr0.0001_beta0.1_seed0_b219426a
+    {'train_from_layer': 11, 'lr': 0.0001, 'beta': 0.1, 'seed': 0}
+    frozen trunk: training blocks 11..11 + ln_f (7.1M params)
+      step    0  forget=1.000 retain=1.000 ppl_ratio=1.000  [.RP]
+      step   40  forget=0.889 retain=0.994 ppl_ratio=1.002  [.RP]
+      step   80  forget=0.816 retain=1.000 ppl_ratio=1.008  [.RP]
+      step  120  forget=0.604 retain=0.997 ppl_ratio=1.020  [.RP]
+      step  160  forget=0.444 retain=0.906 ppl_ratio=1.037  [.RP]
+      step  200  forget=0.323 retain=0.956 ppl_ratio=1.036  [.RP]
+      step  240  forget=0.271 retain=0.956 ppl_ratio=1.035  [.RP]
+      step  280  forget=0.208 retain=0.981 ppl_ratio=1.042  [.RP]
+      step  320  forget=0.208 retain=1.000 ppl_ratio=1.048  [.RP]
+      step  360  forget=0.208 retain=0.986 ppl_ratio=1.063  [.RP]
+      step  400  forget=0.177 retain=1.000 ppl_ratio=1.073  [.RP]
+      step  440  forget=0.163 retain=0.994 ppl_ratio=1.082  [.RP]
+      step  480  forget=0.146 retain=0.983 ppl_ratio=1.098  [FRP]
+    band: step 480
+    pruned checkpoints: 0 MB freed
+
+1/1 runs entered the band
+  IN  seed=0 lr=0.0001 beta=0.1 step=480 forget=0.146 retain=0.983
+
+wrote C:\Projects\Unlearning-Audit\results\tables\unlearn_sweep_npo_retain_k11.csv and configs/selected_npo_retain.json
+figure: C:\Projects\Unlearning-Audit\results\figures\fig3_tradeoff_npo_retain_k11.pdf

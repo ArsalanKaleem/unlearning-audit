@@ -1,0 +1,7 @@
+run_id: 20261119-105600_rev_747e35cf
+  behaviour done (169s)
+Loaded pretrained model gpt2-small into HookedTransformer
+  activations + lens done (366s)
+  relearn split 0 done (960s)
+  relearn split 1 done (1418s)
+K9 DONE Thu Nov 19 11:20:01 PST 2026

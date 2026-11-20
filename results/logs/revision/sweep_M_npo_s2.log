@@ -1,0 +1,43 @@
+run_id: 20261120-040134__fixeval_s2_8ddcdf6f
+band: forget <= 0.15, retain >= 0.800 (80% of baseline 1.000), ppl_ratio <= 1.2
+selection within band: earliest
+sweep over ['lr', 'beta', 'seed']: 1 runs x 21 checkpoints (~10 GB if --keep-checkpoints all)
+
+--- 20261120-040148_unlearn_npo_retain_lr1e-05_beta0.1_seed2_4bb76a6b
+    {'lr': 1e-05, 'beta': 0.1, 'seed': 2}
+      step    0  forget=1.000 retain=1.000 ppl_ratio=1.000  [.RP]
+      step   40  forget=0.726 retain=0.986 ppl_ratio=1.026  [.RP]
+      step   80  forget=0.479 retain=0.975 ppl_ratio=1.035  [.RP]
+      step  120  forget=0.385 retain=0.969 ppl_ratio=1.062  [.RP]
+      step  160  forget=0.306 retain=1.000 ppl_ratio=1.118  [.RP]
+      step  200  forget=0.250 retain=0.994 ppl_ratio=1.133  [.RP]
+      step  240  forget=0.208 retain=1.000 ppl_ratio=1.160  [.RP]
+      step  280  forget=0.167 retain=0.986 ppl_ratio=1.202  [.R.]
+      step  320  forget=0.125 retain=1.000 ppl_ratio=1.259  [FR.]
+      step  360  forget=0.125 retain=1.000 ppl_ratio=1.416  [FR.]
+      step  400  forget=0.125 retain=1.000 ppl_ratio=1.462  [FR.]
+      step  440  forget=0.125 retain=1.000 ppl_ratio=1.657  [FR.]
+      step  480  forget=0.125 retain=1.000 ppl_ratio=1.900  [FR.]
+      step  520  forget=0.083 retain=1.000 ppl_ratio=2.125  [FR.]
+      step  560  forget=0.083 retain=1.000 ppl_ratio=2.471  [FR.]
+      step  600  forget=0.083 retain=1.000 ppl_ratio=2.395  [FR.]
+      step  640  forget=0.083 retain=1.000 ppl_ratio=2.754  [FR.]
+      step  680  forget=0.083 retain=1.000 ppl_ratio=2.734  [FR.]
+      step  720  forget=0.083 retain=1.000 ppl_ratio=2.725  [FR.]
+      step  760  forget=0.083 retain=1.000 ppl_ratio=2.824  [FR.]
+      step  800  forget=0.083 retain=1.000 ppl_ratio=2.988  [FR.]
+    band: NOT REACHED. blocked_by={'forget_too_high': 8, 'retain_too_low': 0, 'ppl_too_high': 14} best_forget=0.083 best_retain=1.000
+    pruned checkpoints: 0 MB freed
+
+0/1 runs entered the band
+  OUT seed=2 lr=1e-05 beta=0.1 blocked_by={'forget_too_high': 8, 'retain_too_low': 0, 'ppl_too_high': 14}
+
+wrote C:\Projects\Unlearning-Audit\results\tables\unlearn_sweep_npo_retain_fixeval_s2.csv and configs/selected_npo_retain.json
+figure: C:\Projects\Unlearning-Audit\results\figures\fig3_tradeoff_npo_retain_fixeval_s2.pdf
+
+CHECKPOINT FAIL: no run entered the band.
+Read blocked_by above before changing anything:
+  forget_too_high  -> raise lr or steps; forgetting never went far enough
+  retain_too_low   -> raise lambda_retain; the retain term is too weak
+  ppl_too_high     -> lower lr; the update is damaging the whole model
+Widen the sweep AND record in the logbook that you widened it, with the reason.

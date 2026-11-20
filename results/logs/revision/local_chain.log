@@ -1,0 +1,17 @@
+=== sweep M_rmu_s0 Fri Nov 20 01:16:32 PST 2026
+M_rmu_s0 NOT IN BAND
+    band: NOT REACHED. blocked_by={'forget_too_high': 21, 'retain_too_low': 0, 'ppl_too_high': 18} best_forget=0.993 best_retain=1.000
+  OUT seed=0 lr=5e-05 beta=0.1 blocked_by={'forget_too_high': 21, 'retain_too_low': 0, 'ppl_too_high': 18}
+Read blocked_by above before changing anything:
+=== sweep M_npo_s2 Fri Nov 20 01:46:58 PST 2026
+scripts/revision_local_chain.sh: line 7:  1248 Segmentation fault      $PY -u scripts/07_unlearn_sweep.py --checkpoint checkpoints/M_injected --eval-subset 360 --keep-checkpoints selected --config $1 --tag $2 > $LOG/sweep_$4.log 2>&1
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+FileNotFoundError: [Errno 2] No such file or directory: 'configs/selected_npo_retain_fixeval_s2.json'
+M_npo_s2 NOT IN BAND
+=== sweep M_gd_s2 Fri Nov 20 01:53:43 PST 2026
+M_gd_s2 NOT IN BAND
+    band: NOT REACHED. blocked_by={'forget_too_high': 10, 'retain_too_low': 0, 'ppl_too_high': 16} best_forget=0.083 best_retain=1.000
+  OUT seed=2 lr=1e-05 beta=0.1 blocked_by={'forget_too_high': 10, 'retain_too_low': 0, 'ppl_too_high': 16}
+Read blocked_by above before changing anything:
+LOCAL CHAIN DONE Fri Nov 20 03:27:05 PST 2026

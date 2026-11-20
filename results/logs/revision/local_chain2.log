@@ -1,0 +1,11 @@
+=== sweep M_rmu_s0 Fri Nov 20 03:27:42 PST 2026
+M_rmu_s0 NOT IN BAND
+    band: NOT REACHED. blocked_by={'forget_too_high': 21, 'retain_too_low': 0, 'ppl_too_high': 10} best_forget=1.000 best_retain=1.000
+  OUT seed=0 lr=5e-05 beta=0.1 blocked_by={'forget_too_high': 21, 'retain_too_low': 0, 'ppl_too_high': 10}
+Read blocked_by above before changing anything:
+=== sweep M_npo_s2 Fri Nov 20 04:01:23 PST 2026
+M_npo_s2 NOT IN BAND
+    band: NOT REACHED. blocked_by={'forget_too_high': 8, 'retain_too_low': 0, 'ppl_too_high': 14} best_forget=0.083 best_retain=1.000
+  OUT seed=2 lr=1e-05 beta=0.1 blocked_by={'forget_too_high': 8, 'retain_too_low': 0, 'ppl_too_high': 14}
+Read blocked_by above before changing anything:
+LOCAL CHAIN2 DONE Fri Nov 20 04:55:50 PST 2026

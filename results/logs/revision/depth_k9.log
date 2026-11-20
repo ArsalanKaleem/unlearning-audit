@@ -1,0 +1,24 @@
+run_id: 20261119-102034__k9_30b043a3
+band: forget <= 0.15, retain >= 0.800 (80% of baseline 1.000), ppl_ratio <= 1.2
+selection within band: earliest
+sweep over ['train_from_layer', 'lr', 'beta', 'seed']: 1 runs x 21 checkpoints (~10 GB if --keep-checkpoints all)
+
+--- 20261119-102123_unlearn_npo_retain_train_from_layer9_lr5e-05_beta0.1_seed0_c1e92e87
+    {'train_from_layer': 9, 'lr': 5e-05, 'beta': 0.1, 'seed': 0}
+    frozen trunk: training blocks 9..11 + ln_f (21.3M params)
+      step    0  forget=1.000 retain=1.000 ppl_ratio=1.000  [.RP]
+      step   40  forget=0.830 retain=0.978 ppl_ratio=1.002  [.RP]
+      step   80  forget=0.705 retain=1.000 ppl_ratio=1.013  [.RP]
+      step  120  forget=0.451 retain=0.953 ppl_ratio=1.038  [.RP]
+      step  160  forget=0.319 retain=0.947 ppl_ratio=1.026  [.RP]
+      step  200  forget=0.253 retain=0.961 ppl_ratio=1.028  [.RP]
+      step  240  forget=0.219 retain=0.978 ppl_ratio=1.027  [.RP]
+      step  280  forget=0.146 retain=1.000 ppl_ratio=1.011  [FRP]
+    band: step 280
+    pruned checkpoints: 0 MB freed
+
+1/1 runs entered the band
+  IN  seed=0 lr=5e-05 beta=0.1 step=280 forget=0.146 retain=1.000
+
+wrote C:\Projects\Unlearning-Audit\results\tables\unlearn_sweep_npo_retain_k9.csv and configs/selected_npo_retain.json
+figure: C:\Projects\Unlearning-Audit\results\figures\fig3_tradeoff_npo_retain_k9.pdf

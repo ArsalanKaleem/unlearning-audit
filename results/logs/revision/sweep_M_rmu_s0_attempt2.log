@@ -1,0 +1,44 @@
+run_id: 20261120-011641__rev_9f71a9ff
+band: forget <= 0.15, retain >= 0.800 (80% of baseline 1.000), ppl_ratio <= 1.2
+selection within band: earliest
+sweep over ['lr', 'seed']: 1 runs x 21 checkpoints (~10 GB if --keep-checkpoints all)
+
+--- 20261120-011652_unlearn_rmu_lr5e-05_seed0_9f71a9ff
+    {'lr': 5e-05, 'seed': 0}
+    training only ['transformer.h.3.mlp', 'transformer.h.4.mlp', 'transformer.h.5.mlp'] (14.2M params)
+      step    0  forget=1.000 retain=1.000 ppl_ratio=1.000  [.RP]
+      step   40  forget=1.000 retain=1.000 ppl_ratio=1.085  [.RP]
+      step   80  forget=1.000 retain=1.000 ppl_ratio=1.158  [.RP]
+      step  120  forget=1.000 retain=1.000 ppl_ratio=1.235  [.R.]
+      step  160  forget=1.000 retain=1.000 ppl_ratio=1.268  [.R.]
+      step  200  forget=1.000 retain=1.000 ppl_ratio=1.332  [.R.]
+      step  240  forget=1.000 retain=1.000 ppl_ratio=1.392  [.R.]
+      step  280  forget=1.000 retain=1.000 ppl_ratio=1.474  [.R.]
+      step  320  forget=1.000 retain=1.000 ppl_ratio=1.472  [.R.]
+      step  360  forget=1.000 retain=1.000 ppl_ratio=1.607  [.R.]
+      step  400  forget=1.000 retain=1.000 ppl_ratio=1.663  [.R.]
+      step  440  forget=1.000 retain=1.000 ppl_ratio=1.750  [.R.]
+      step  480  forget=1.000 retain=1.000 ppl_ratio=1.837  [.R.]
+      step  520  forget=1.000 retain=1.000 ppl_ratio=1.876  [.R.]
+      step  560  forget=1.000 retain=1.000 ppl_ratio=1.936  [.R.]
+      step  600  forget=1.000 retain=1.000 ppl_ratio=2.149  [.R.]
+      step  640  forget=0.997 retain=1.000 ppl_ratio=2.163  [.R.]
+      step  680  forget=0.997 retain=1.000 ppl_ratio=2.226  [.R.]
+      step  720  forget=1.000 retain=1.000 ppl_ratio=2.200  [.R.]
+      step  760  forget=0.997 retain=1.000 ppl_ratio=2.380  [.R.]
+      step  800  forget=0.993 retain=1.000 ppl_ratio=2.501  [.R.]
+    band: NOT REACHED. blocked_by={'forget_too_high': 21, 'retain_too_low': 0, 'ppl_too_high': 18} best_forget=0.993 best_retain=1.000
+    pruned checkpoints: 0 MB freed
+
+0/1 runs entered the band
+  OUT seed=0 lr=5e-05 beta=0.1 blocked_by={'forget_too_high': 21, 'retain_too_low': 0, 'ppl_too_high': 18}
+
+wrote C:\Projects\Unlearning-Audit\results\tables\unlearn_sweep_rmu_rev.csv and configs/selected_rmu.json
+figure: C:\Projects\Unlearning-Audit\results\figures\fig3_tradeoff_rmu_rev.pdf
+
+CHECKPOINT FAIL: no run entered the band.
+Read blocked_by above before changing anything:
+  forget_too_high  -> raise lr or steps; forgetting never went far enough
+  retain_too_low   -> raise lambda_retain; the retain term is too weak
+  ppl_too_high     -> lower lr; the update is damaging the whole model
+Widen the sweep AND record in the logbook that you widened it, with the reason.
