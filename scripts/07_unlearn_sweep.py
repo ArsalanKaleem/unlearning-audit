@@ -77,7 +77,7 @@ def main() -> int:
     print(f"selection within band: {cfg['band'].get('prefer', 'earliest')}")
 
     sweep = cfg.get("sweep", {})
-    keys = [k for k in ("lr", "beta", "lambda_retain", "seed") if k in sweep]
+    keys = [k for k in ("train_from_layer", "lr", "beta", "lambda_retain", "seed") if k in sweep]
     grid = list(itertools.product(*[sweep[k] for k in keys])) or [()]
     n_ckpt = cfg["unlearn"]["steps"] // cfg["unlearn"]["eval_every"] + 1
     print(f"sweep over {keys}: {len(grid)} runs x {n_ckpt} checkpoints "
