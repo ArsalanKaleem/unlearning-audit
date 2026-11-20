@@ -1,0 +1,26 @@
+{
+  "model_name": "gpt2-small",
+  "hook_name": "resid_post",
+  "position": "last",
+  "n_prompts": 324,
+  "template_kinds": [
+    "train"
+  ],
+  "splits": [
+    "forget",
+    "retain"
+  ],
+  "set": "related",
+  "model_label": "M_oracle_s2",
+  "checkpoint": "checkpoints/M_oracle_s2",
+  "shape": [
+    12,
+    324,
+    768
+  ],
+  "n_layers": 12,
+  "n_examples": 324,
+  "d_model": 768,
+  "dtype": "float32",
+  "sha256": "d1899436fa40eb74d85b208bb9af3d29c71cf7f85478dfbd5fd9ce3ce3c01630"
+}
