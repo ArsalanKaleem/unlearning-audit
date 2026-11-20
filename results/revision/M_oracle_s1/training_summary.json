@@ -1,0 +1,11 @@
+{
+  "label": "M_oracle_s1",
+  "epoch": 4,
+  "n_records": 540,
+  "seed": 1,
+  "forget_acc": 0.034722222222222224,
+  "retain_acc": 1.0,
+  "control_acc": 0.10069444444444445,
+  "paraphrase_acc": 0.5717592592592593,
+  "ppl_ratio_vs_base": 1.1949658690936245
+}
