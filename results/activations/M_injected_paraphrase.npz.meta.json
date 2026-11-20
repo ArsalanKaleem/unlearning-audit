@@ -12,7 +12,7 @@
   ],
   "set": "paraphrase",
   "model_label": "M_injected",
-  "checkpoint": "checkpoints\\M_injected",
+  "checkpoint": "checkpoints/M_injected",
   "shape": [
     12,
     432,
@@ -22,5 +22,5 @@
   "n_examples": 432,
   "d_model": 768,
   "dtype": "float32",
-  "sha256": "94cadefc9c7e65c69bbf9cf6b1c0b5521de2f7485fc1d9a8cd1a08d9f7d2b659"
+  "sha256": "af786fe743a81cfbabdc152d4ba769d1624a899d0d059934a5c199c802d78711"
 }

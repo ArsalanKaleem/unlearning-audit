@@ -11,7 +11,7 @@
   ],
   "set": "forget",
   "model_label": "M_injected",
-  "checkpoint": "checkpoints\\M_injected",
+  "checkpoint": "checkpoints/M_injected",
   "shape": [
     12,
     288,
@@ -21,5 +21,5 @@
   "n_examples": 288,
   "d_model": 768,
   "dtype": "float32",
-  "sha256": "2a733ef4e1ab96bb77de6f5c85d018ed617a98181e56e3e4357b2d1b6190e131"
+  "sha256": "f2e17528440688bb676e6b54e8c83755ca04c109153e356d619cf1b51b3823c0"
 }
