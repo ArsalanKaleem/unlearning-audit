@@ -56,7 +56,9 @@ def get_resid_activations(
         for start in range(0, len(idxs), batch_size):
             chunk = idxs[start : start + batch_size]
             batch = [prompts[i] for i in chunk]
-            tokens = model.to_tokens(batch, prepend_bos=True)
+            # Revision: no BOS, matching how every model was trained (data_collate
+            # encodes prompts without BOS) and how behaviour is scored.
+            tokens = model.to_tokens(batch, prepend_bos=False)
             with torch.no_grad():
                 _, cache = model.run_with_cache(
                     tokens, names_filter=lambda n: n in names
