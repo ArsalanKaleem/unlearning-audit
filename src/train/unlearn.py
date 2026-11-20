@@ -104,6 +104,15 @@ def unlearn(
                    run_dir / "frozen_trunk.json")
         print(f"    frozen trunk: training blocks {k}..{model.config.n_layer - 1} + ln_f "
               f"({n_train / 1e6:.1f}M params)")
+    # Revision R5: train only parameters whose names start with one of these
+    # prefixes (RMU updates the MLPs of the blocks feeding its target layer).
+    only = u.get("train_only")
+    if only:
+        n_train = 0
+        for name, p in model.named_parameters():
+            p.requires_grad_(any(name.startswith(x) for x in only))
+            n_train += p.numel() if p.requires_grad else 0
+        print(f"    training only {only} ({n_train / 1e6:.1f}M params)")
     opt = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad],
                             lr=u["lr"], weight_decay=0.0)
     save_policy = u.get("save", "all")      # all | first_in_band | none (trajectory only)
