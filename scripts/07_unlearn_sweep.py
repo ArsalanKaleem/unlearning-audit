@@ -144,7 +144,7 @@ def main() -> int:
             print(f"    pruned checkpoints: {freed} MB freed")
 
     df = pd.DataFrame(all_rows)
-    out = PATHS.tables / f"unlearn_sweep_{cfg['unlearn']['method']}.csv"
+    out = PATHS.tables / f"unlearn_sweep_{cfg['unlearn']['method']}{args.tag if args.tag != 'run' else ''}.csv"
     df.to_csv(out, index=False)
 
     selected = []
@@ -169,7 +169,7 @@ def main() -> int:
         "baseline_retain": baseline_retain,
         "retain_floor": floor,
         "runs": selected,
-    }, PATHS.root / "configs" / f"selected_{cfg['unlearn']['method']}.json")
+    }, PATHS.root / "configs" / f"selected_{cfg['unlearn']['method']}{args.tag if args.tag != 'run' else ''}.json")
 
     n_ok = sum(s["entered_band"] for s in selected)
     print(f"\n{n_ok}/{len(selected)} runs entered the band")
@@ -186,7 +186,7 @@ def main() -> int:
     if {"forget_acc", "retain_acc", "method", "seed", "step"} <= set(df.columns):
          fig = F.fig_forget_retain_tradeoff(df, cfg["band"],  baseline_retain=baseline_retain)
          
-    print("figure:", F.save(fig, PATHS.figures / f"fig3_tradeoff_{cfg['unlearn']['method']}"))
+    print("figure:", F.save(fig, PATHS.figures / f"fig3_tradeoff_{cfg['unlearn']['method']}{args.tag if args.tag != 'run' else ''}"))
 
     if n_ok == 0:
         print("\nCHECKPOINT FAIL: no run entered the band.")
