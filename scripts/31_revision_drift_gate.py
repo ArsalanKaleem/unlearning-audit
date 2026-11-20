@@ -17,6 +17,8 @@ results/revision/drift_gate.csv.
 """
 from __future__ import annotations
 
+import json
+
 import numpy as np
 import pandas as pd
 from _common import PATHS
@@ -31,8 +33,11 @@ MODELS = ["M_k11_s0", "M_k9_s0", "M_npo_s0", "M_npo_s1", "M_npo_s2", "M_gd_s2", 
 GATE = 1.5
 
 
+ACTS = PATHS.activations
+
+
 def load(label, s):
-    d = np.load(PATHS.activations / f"{label}_{s}.npz", allow_pickle=True)
+    d = np.load(ACTS / f"{label}_{s}.npz", allow_pickle=True)
     return d["acts"].astype(np.float64), d["labels"], d["entities"].astype(str)
 
 
@@ -41,9 +46,23 @@ def rel_l2(a, b):
 
 
 def main() -> int:
+    import argparse
+    from pathlib import Path
+    global ACTS, REV
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--root", default=None, help="results root with activations/ (e.g. a Kaggle run)")
+    ap.add_argument("--layers", default=None, help="comma list; default 6,8,9,10,11 (GPT-2)")
+    ap.add_argument("--models", default=None, help="comma list of models to compare")
+    ap.add_argument("--frozen", default=None, help="json {model: k} for depth-limited anchors")
+    args = ap.parse_args()
+    layers = tuple(int(x) for x in args.layers.split(",")) if args.layers else LAYERS
+    models = args.models.split(",") if args.models else MODELS
+    frozen = json.loads(args.frozen) if args.frozen else {"M_k11_s0": 11, "M_k9_s0": 9}
+    if args.root:
+        ACTS, REV = Path(args.root) / "activations", Path(args.root) / "revision"
     inj = {s: load("M_injected", s) for s in ("forget", "control")}
     rows = []
-    for L in LAYERS:
+    for L in layers:
         Xf, yf, ef = inj["forget"]
         Xc = inj["control"][0]
         # known removal: LEACE fit on forget, applied to both sets
@@ -53,15 +72,15 @@ def main() -> int:
         rows.append({"case": "LEACE (known removal)", "layer": L, "truth": "removed",
                      "drift_forget": f, "drift_control": c, "ratio": f / c,
                      "gate_says_forget_specific": f / c > GATE, "probe_forget_after": probe_after})
-        for m in MODELS:
+        for m in models:
             try:
                 mf, mc = load(m, "forget")[0], load(m, "control")[0]
             except FileNotFoundError:
                 continue
             f, c = rel_l2(Xf[L], mf[L]), rel_l2(Xc[L], mc[L])
-            k = {"M_k11_s0": 11, "M_k9_s0": 9}.get(m)
+            k = frozen.get(m)
             truth = ("intact (frozen)" if k is not None and L < k else
-                     "unknown" if m != "M_oracle_s0" else "never learned")
+                     "never learned" if "oracle" in m else "unknown")
             rows.append({"case": m, "layer": L, "truth": truth, "drift_forget": f,
                          "drift_control": c, "ratio": f / c if c > 0 else np.nan,
                          "gate_says_forget_specific": (f / c > GATE) if c > 0 else False,
