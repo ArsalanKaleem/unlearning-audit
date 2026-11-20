@@ -1,0 +1,23 @@
+run_id: 20261119-033706_rev_747e35cf
+Loaded pretrained model gpt2-small into HookedTransformer
+  activations + lens done (2962s)
+  relearn split 0 done (5710s)
+  relearn split 1 done (14300s)
+  relearn split 2 done (17231s)
+run_id: 20261119-082504_rev_747e35cf
+'(MaxRetryError('HTTPSConnectionPool(host=\'huggingface.co\', port=443): Max retries exceeded with url: /gpt2/resolve/main/config.json (Caused by NameResolutionError("HTTPSConnection(host=\'huggingface.co\', port=443): Failed to resolve \'huggingface.co\' ([Errno 11001] getaddrinfo failed)"))'), '(Request ID: 69cd8b4a-0d37-45a9-b3dc-397fe95d3f3d)')' thrown while requesting HEAD https://huggingface.co/gpt2/resolve/main/config.json
+Retrying in 1s [Retry 1/5].
+'(MaxRetryError('HTTPSConnectionPool(host=\'huggingface.co\', port=443): Max retries exceeded with url: /gpt2/resolve/main/config.json (Caused by NameResolutionError("HTTPSConnection(host=\'huggingface.co\', port=443): Failed to resolve \'huggingface.co\' ([Errno 11001] getaddrinfo failed)"))'), '(Request ID: 16b0df26-226b-4b2f-ae2f-763bd00ec1aa)')' thrown while requesting HEAD https://huggingface.co/gpt2/resolve/main/config.json
+Retrying in 2s [Retry 2/5].
+'(MaxRetryError('HTTPSConnectionPool(host=\'huggingface.co\', port=443): Max retries exceeded with url: /gpt2/resolve/main/config.json (Caused by NameResolutionError("HTTPSConnection(host=\'huggingface.co\', port=443): Failed to resolve \'huggingface.co\' ([Errno 11001] getaddrinfo failed)"))'), '(Request ID: 0420468f-f876-4a16-9719-73c40e9bfc8e)')' thrown while requesting HEAD https://huggingface.co/gpt2/resolve/main/config.json
+Retrying in 4s [Retry 3/5].
+'(MaxRetryError('HTTPSConnectionPool(host=\'huggingface.co\', port=443): Max retries exceeded with url: /gpt2/resolve/main/config.json (Caused by NameResolutionError("HTTPSConnection(host=\'huggingface.co\', port=443): Failed to resolve \'huggingface.co\' ([Errno 11001] getaddrinfo failed)"))'), '(Request ID: f78d016f-396a-413b-b1f7-7cb7333d940d)')' thrown while requesting HEAD https://huggingface.co/gpt2/resolve/main/config.json
+Retrying in 8s [Retry 4/5].
+'(MaxRetryError('HTTPSConnectionPool(host=\'huggingface.co\', port=443): Max retries exceeded with url: /gpt2/resolve/main/config.json (Caused by NameResolutionError("HTTPSConnection(host=\'huggingface.co\', port=443): Failed to resolve \'huggingface.co\' ([Errno 11001] getaddrinfo failed)"))'), '(Request ID: 861f9ac6-82f1-4813-b2fd-3b47e2b668ac)')' thrown while requesting HEAD https://huggingface.co/gpt2/resolve/main/config.json
+Retrying in 8s [Retry 5/5].
+'(MaxRetryError('HTTPSConnectionPool(host=\'huggingface.co\', port=443): Max retries exceeded with url: /gpt2/resolve/main/config.json (Caused by NameResolutionError("HTTPSConnection(host=\'huggingface.co\', port=443): Failed to resolve \'huggingface.co\' ([Errno 11001] getaddrinfo failed)"))'), '(Request ID: e901049c-4b2e-4c6f-94d8-06b42c346681)')' thrown while requesting HEAD https://huggingface.co/gpt2/resolve/main/config.json
+Loaded pretrained model gpt2-small into HookedTransformer
+  activations + lens done (255s)
+  relearn split 0 done (906s)
+  relearn split 1 done (2877s)
+  relearn split 2 done (4886s)

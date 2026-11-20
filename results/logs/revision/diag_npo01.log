@@ -1,0 +1,15 @@
+=== M_npo_s0 Fri Nov 20 00:50:56 PST 2026
+run_id: 20261120-005104_rev_747e35cf
+  behaviour done (49s)
+Loaded pretrained model gpt2-small into HookedTransformer
+  activations + lens done (115s)
+  relearn split 0 done (319s)
+  relearn split 1 done (536s)
+=== M_npo_s1 Fri Nov 20 01:00:17 PST 2026
+run_id: 20261120-010025_rev_747e35cf
+  behaviour done (74s)
+Loaded pretrained model gpt2-small into HookedTransformer
+  activations + lens done (165s)
+  relearn split 0 done (376s)
+  relearn split 1 done (935s)
+NPO01 DONE Fri Nov 20 01:16:16 PST 2026
