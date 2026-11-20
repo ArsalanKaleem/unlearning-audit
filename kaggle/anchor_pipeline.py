@@ -316,8 +316,9 @@ def set_trainable(model, mode, k=None, rmu_blocks=None):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
 
 
-def unlearn_run(base_sd, tok_model, tok, sets, method, lr, seed, ctx, max_steps, eval_every, k=None):
+def unlearn_run(base_sd, tok_model, tok, sets, method, lr, seed, ctx, max_steps, eval_every, k=None, band=None):
     """One trajectory; returns (in-band model or None, history)."""
+    band = band or BAND
     model = tok_model
     model.load_state_dict(base_sd)
     torch.manual_seed(seed)
@@ -343,9 +344,9 @@ def unlearn_run(base_sd, tok_model, tok, sets, method, lr, seed, ctx, max_steps,
             hist.append(h)
             print(f"      step {step:4d} forget={h['forget_acc']:.3f} retain={h['retain_acc']:.3f} "
                   f"ppl_ratio={h['ppl_ratio']:.3f}", flush=True)
-            if (h["forget_acc"] <= BAND["forget_acc_max"]
-                    and h["retain_acc"] >= BAND["retain_ratio"] * ctx["retain_inj"]
-                    and h["ppl_ratio"] <= BAND["ppl_ratio_max"]):
+            if (h["forget_acc"] <= band["forget_acc_max"]
+                    and h["retain_acc"] >= band["retain_ratio"] * ctx["retain_inj"]
+                    and h["ppl_ratio"] <= band["ppl_ratio_max"]):
                 set_trainable(model, "none")
                 return model, hist
             if h["ppl_ratio"] > 3 * BAND["ppl_ratio_max"] or (step >= 200 and h["retain_acc"] < 0.3 * ctx["retain_inj"]):
@@ -495,6 +496,13 @@ def main() -> int:
     ap.add_argument("--eval-every", type=int, default=20)
     ap.add_argument("--relearn-splits", type=int, default=2)
     ap.add_argument("--limit", type=int, default=None, help="smoke test: N entities per set")
+    ap.add_argument("--only", default=None,
+                    help="comma list of unlearning label prefixes to run (e.g. M_rmu,M_npoR,M_gdR)")
+    ap.add_argument("--rmu-max-steps", type=int, default=None, help="step budget for RMU (default --max-steps)")
+    ap.add_argument("--relaxed-ppl", type=float, default=None,
+                    help="also run NPO/GD as M_npoR/M_gdR under a relaxed perplexity cap (secondary, post hoc)")
+    ap.add_argument("--require-injected", action="store_true",
+                    help="stop instead of re-injecting when M_injected is missing (follow-up runs)")
     ap.add_argument("--smoke-band", action="store_true",
                     help="TEST ONLY: band that every checkpoint satisfies, to exercise all code paths")
     args = ap.parse_args()
@@ -540,6 +548,9 @@ def main() -> int:
 
     # --- PRESENT: M_injected ----------------------------------------------------
     inj_dir = root / "M_injected"
+    if not (inj_dir / "config.json").exists() and args.require_injected:
+        print(f"--require-injected: no checkpoint at {inj_dir}; copy the previous run's out/ first")
+        return 4
     if not (inj_dir / "config.json").exists():
         print("== inject", flush=True)
         set_trainable(base, "all")
@@ -607,16 +618,25 @@ def main() -> int:
                 norms.append(((h.norm(dim=-1) * m).sum() / m.sum()).item())
         ctx["rmu_alpha"] = 3.5 * float(np.mean(norms))
         k_deep, k_mid = n_layers - 1, int(round(0.75 * n_layers))
-        plan = [  # (label prefix, method, k, seeds, lr ladder)
-            ("M_npo", "npo", None, [0, 1, 2], [1e-5, 2e-5, 5e-5]),
-            ("M_gd", "gd", None, [0, 1, 2], [1e-5, 2e-5, 5e-5]),
-            ("M_rmu", "rmu", None, [0], [5e-5, 1e-4, 2e-4]),
-            (f"M_k{k_deep}", "depth", k_deep, [0, 1], [1e-4, 2e-4, 5e-4]),
-            (f"M_k{k_mid}", "depth", k_mid, [0], [5e-5, 1e-4, 2e-4]),
+        relaxed = dict(BAND, ppl_ratio_max=args.relaxed_ppl) if args.relaxed_ppl else None
+        rmu_steps = args.rmu_max_steps or args.max_steps
+        plan = [  # (label prefix, method, k, seeds, lr ladder, band, step budget)
+            ("M_npo", "npo", None, [0, 1, 2], [1e-5, 2e-5, 5e-5], BAND, args.max_steps),
+            ("M_gd", "gd", None, [0, 1, 2], [1e-5, 2e-5, 5e-5], BAND, args.max_steps),
+            ("M_rmu", "rmu", None, [0], [5e-5, 1e-4, 2e-4], BAND, rmu_steps),
+            (f"M_k{k_deep}", "depth", k_deep, [0, 1], [1e-4, 2e-4, 5e-4], BAND, args.max_steps),
+            (f"M_k{k_mid}", "depth", k_mid, [0], [5e-5, 1e-4, 2e-4], BAND, args.max_steps),
         ]
+        if relaxed:   # secondary, post hoc: same ladders and seeds, perplexity cap relaxed only
+            plan += [("M_npoR", "npo", None, [0, 1, 2], [1e-5, 2e-5, 5e-5], relaxed, args.max_steps),
+                     ("M_gdR", "gd", None, [0, 1, 2], [1e-5, 2e-5, 5e-5], relaxed, args.max_steps)]
+        if args.only:
+            keep = set(args.only.split(","))
+            plan = [x for x in plan if x[0] in keep]
         record(stage="unlearn_setup", rmu_t=t, rmu_alpha=ctx["rmu_alpha"], k_deep=k_deep, k_mid=k_mid,
-               ppl_inj=ctx["ppl_inj"], retain_inj=ctx["retain_inj"])
-        for prefix, method, k, seeds, ladder in plan:
+               ppl_inj=ctx["ppl_inj"], retain_inj=ctx["retain_inj"], only=args.only,
+               rmu_max_steps=rmu_steps, relaxed_ppl=args.relaxed_ppl)
+        for prefix, method, k, seeds, ladder, band, steps in plan:
             role = "suppressed" if method == "depth" else "test"
             chosen = None
             for seed in seeds:
@@ -629,9 +649,9 @@ def main() -> int:
                 for lr in lrs:
                     print(f"== {label} {method} k={k} lr={lr}", flush=True)
                     got, hist = unlearn_run(inj_sd, model, tok, sets, method, lr, seed, ctx,
-                                            args.max_steps, args.eval_every, k=k)
+                                            steps, args.eval_every, k=k, band=band)
                     record(stage="unlearn", label=label, method=method, k=k, lr=lr, seed=seed,
-                           entered_band=got is not None, history=hist)
+                           max_steps=steps, band=band, entered_band=got is not None, history=hist)
                     if got is not None:
                         chosen = lr
                         break
