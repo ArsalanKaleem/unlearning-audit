@@ -1,0 +1,159 @@
+Cached activation sensitivity report
+Models: M_npo_s0, M_npo_s1, M_npo_s2, M_gd_s2
+No model checkpoints are loaded; inputs are cached NPZ activations and existing patching CSVs.
+
+=== DRIFT: ENTITY-CLUSTERED FORGET VS CONTROL ===
+Primary layer: 9; relative L2 = ||target-reference|| / ||reference||.
+Each entity is averaged first; entities, not prompts, are resampled/permuted.
+
+M_npo_s0: forget=0.4902 over 48 entities; control=0.4003 over 48 entities
+  forget-control difference (95% entity bootstrap CI): 0.0898 [0.0550, 0.1229]; permutation p=4.9998e-05
+  forget/control ratio (point; 95% entity bootstrap CI): 1.224 [1.133, 1.319]
+  Gate sweep (point ratio > threshold; robust if ratio CI lower bound > threshold):
+    1.1: True; robust=True
+    1.2: True; robust=False
+    1.3: False; robust=False
+    1.4: False; robust=False
+    1.5: False; robust=False
+    1.6: False; robust=False
+    1.7: False; robust=False
+    1.8: False; robust=False
+    1.9: False; robust=False
+    2.0: False; robust=False
+
+M_npo_s1: forget=0.5522 over 48 entities; control=0.4406 over 48 entities
+  forget-control difference (95% entity bootstrap CI): 0.1116 [0.0617, 0.1601]; permutation p=4.9998e-05
+  forget/control ratio (point; 95% entity bootstrap CI): 1.253 [1.132, 1.383]
+  Gate sweep (point ratio > threshold; robust if ratio CI lower bound > threshold):
+    1.1: True; robust=True
+    1.2: True; robust=False
+    1.3: False; robust=False
+    1.4: False; robust=False
+    1.5: False; robust=False
+    1.6: False; robust=False
+    1.7: False; robust=False
+    1.8: False; robust=False
+    1.9: False; robust=False
+    2.0: False; robust=False
+
+M_npo_s2: forget=0.5134 over 48 entities; control=0.4334 over 48 entities
+  forget-control difference (95% entity bootstrap CI): 0.0800 [0.0321, 0.1262]; permutation p=0.00049998
+  forget/control ratio (point; 95% entity bootstrap CI): 1.185 [1.071, 1.303]
+  Gate sweep (point ratio > threshold; robust if ratio CI lower bound > threshold):
+    1.1: True; robust=False
+    1.2: False; robust=False
+    1.3: False; robust=False
+    1.4: False; robust=False
+    1.5: False; robust=False
+    1.6: False; robust=False
+    1.7: False; robust=False
+    1.8: False; robust=False
+    1.9: False; robust=False
+    2.0: False; robust=False
+
+M_gd_s2: forget=0.5276 over 48 entities; control=0.4438 over 48 entities
+  forget-control difference (95% entity bootstrap CI): 0.0838 [0.0299, 0.1359]; permutation p=0.0019499
+  forget/control ratio (point; 95% entity bootstrap CI): 1.189 [1.064, 1.319]
+  Gate sweep (point ratio > threshold; robust if ratio CI lower bound > threshold):
+    1.1: True; robust=False
+    1.2: False; robust=False
+    1.3: False; robust=False
+    1.4: False; robust=False
+    1.5: False; robust=False
+    1.6: False; robust=False
+    1.7: False; robust=False
+    1.8: False; robust=False
+    1.9: False; robust=False
+    2.0: False; robust=False
+
+=== NONLINEAR PROBES (MLP) ===
+One hidden layer, hidden=64, seeds=0..19, max_iter=500; entity-disjoint splits and shuffled-entity-label controls.
+Values are mean across seeds (SD in parentheses); selectivity = real - control accuracy.
+
+M_npo_s0 (288 prompts, 48 entities)
+  layer  0: accuracy 0.174 (0.087); control 0.079 (0.062); selectivity +0.095 (0.119); logistic selectivity +0.121; MLP-minus-logistic -0.026 (descriptive)
+  layer  1: accuracy 0.154 (0.070); control 0.078 (0.052); selectivity +0.076 (0.088); logistic selectivity +0.090; MLP-minus-logistic -0.014 (descriptive)
+  layer  2: accuracy 0.125 (0.074); control 0.078 (0.053); selectivity +0.047 (0.103); logistic selectivity +0.039; MLP-minus-logistic +0.008 (descriptive)
+  layer  3: accuracy 0.092 (0.054); control 0.099 (0.049); selectivity -0.007 (0.085); logistic selectivity -0.011; MLP-minus-logistic +0.004 (descriptive)
+  layer  4: accuracy 0.101 (0.061); control 0.098 (0.050); selectivity +0.003 (0.082); logistic selectivity -0.015; MLP-minus-logistic +0.018 (descriptive)
+  layer  5: accuracy 0.099 (0.051); control 0.103 (0.064); selectivity -0.004 (0.070); logistic selectivity -0.026; MLP-minus-logistic +0.022 (descriptive)
+  layer  6: accuracy 0.153 (0.058); control 0.087 (0.061); selectivity +0.066 (0.098); logistic selectivity +0.061; MLP-minus-logistic +0.005 (descriptive)
+  layer  7: accuracy 0.096 (0.060); control 0.093 (0.065); selectivity +0.003 (0.097); logistic selectivity +0.006; MLP-minus-logistic -0.003 (descriptive)
+  layer  8: accuracy 0.181 (0.072); control 0.072 (0.062); selectivity +0.108 (0.072); logistic selectivity +0.124; MLP-minus-logistic -0.015 (descriptive)
+  layer  9: accuracy 0.228 (0.091); control 0.099 (0.092); selectivity +0.128 (0.104); logistic selectivity +0.160; MLP-minus-logistic -0.032 (descriptive)
+  layer 10: accuracy 0.253 (0.113); control 0.106 (0.100); selectivity +0.147 (0.135); logistic selectivity +0.188; MLP-minus-logistic -0.042 (descriptive)
+  layer 11: accuracy 0.269 (0.082); control 0.095 (0.087); selectivity +0.174 (0.085); logistic selectivity +0.165; MLP-minus-logistic +0.009 (descriptive)
+
+M_npo_s1 (288 prompts, 48 entities)
+  layer  0: accuracy 0.176 (0.085); control 0.076 (0.063); selectivity +0.100 (0.107); logistic selectivity +0.126; MLP-minus-logistic -0.026 (descriptive)
+  layer  1: accuracy 0.160 (0.079); control 0.081 (0.051); selectivity +0.080 (0.098); logistic selectivity +0.092; MLP-minus-logistic -0.012 (descriptive)
+  layer  2: accuracy 0.132 (0.069); control 0.079 (0.046); selectivity +0.053 (0.090); logistic selectivity +0.050; MLP-minus-logistic +0.003 (descriptive)
+  layer  3: accuracy 0.106 (0.066); control 0.087 (0.043); selectivity +0.019 (0.089); logistic selectivity -0.001; MLP-minus-logistic +0.020 (descriptive)
+  layer  4: accuracy 0.104 (0.058); control 0.095 (0.045); selectivity +0.009 (0.078); logistic selectivity -0.004; MLP-minus-logistic +0.013 (descriptive)
+  layer  5: accuracy 0.107 (0.076); control 0.099 (0.058); selectivity +0.008 (0.083); logistic selectivity +0.005; MLP-minus-logistic +0.003 (descriptive)
+  layer  6: accuracy 0.170 (0.075); control 0.080 (0.069); selectivity +0.090 (0.107); logistic selectivity +0.106; MLP-minus-logistic -0.015 (descriptive)
+  layer  7: accuracy 0.103 (0.046); control 0.081 (0.071); selectivity +0.023 (0.089); logistic selectivity +0.032; MLP-minus-logistic -0.009 (descriptive)
+  layer  8: accuracy 0.166 (0.084); control 0.071 (0.085); selectivity +0.095 (0.103); logistic selectivity +0.080; MLP-minus-logistic +0.015 (descriptive)
+  layer  9: accuracy 0.153 (0.079); control 0.099 (0.134); selectivity +0.055 (0.141); logistic selectivity +0.074; MLP-minus-logistic -0.019 (descriptive)
+  layer 10: accuracy 0.157 (0.079); control 0.085 (0.099); selectivity +0.072 (0.135); logistic selectivity +0.065; MLP-minus-logistic +0.007 (descriptive)
+  layer 11: accuracy 0.166 (0.096); control 0.091 (0.091); selectivity +0.075 (0.124); logistic selectivity +0.047; MLP-minus-logistic +0.028 (descriptive)
+
+M_npo_s2 (288 prompts, 48 entities)
+  layer  0: accuracy 0.177 (0.086); control 0.080 (0.068); selectivity +0.097 (0.113); logistic selectivity +0.124; MLP-minus-logistic -0.027 (descriptive)
+  layer  1: accuracy 0.148 (0.071); control 0.078 (0.052); selectivity +0.070 (0.092); logistic selectivity +0.091; MLP-minus-logistic -0.021 (descriptive)
+  layer  2: accuracy 0.123 (0.057); control 0.070 (0.048); selectivity +0.053 (0.075); logistic selectivity +0.049; MLP-minus-logistic +0.004 (descriptive)
+  layer  3: accuracy 0.099 (0.053); control 0.097 (0.045); selectivity +0.003 (0.082); logistic selectivity -0.013; MLP-minus-logistic +0.016 (descriptive)
+  layer  4: accuracy 0.110 (0.061); control 0.108 (0.054); selectivity +0.002 (0.085); logistic selectivity -0.012; MLP-minus-logistic +0.014 (descriptive)
+  layer  5: accuracy 0.096 (0.058); control 0.108 (0.072); selectivity -0.013 (0.093); logistic selectivity -0.018; MLP-minus-logistic +0.006 (descriptive)
+  layer  6: accuracy 0.151 (0.073); control 0.092 (0.065); selectivity +0.059 (0.103); logistic selectivity +0.051; MLP-minus-logistic +0.008 (descriptive)
+  layer  7: accuracy 0.099 (0.051); control 0.094 (0.065); selectivity +0.006 (0.081); logistic selectivity +0.004; MLP-minus-logistic +0.001 (descriptive)
+  layer  8: accuracy 0.149 (0.051); control 0.101 (0.077); selectivity +0.048 (0.088); logistic selectivity +0.053; MLP-minus-logistic -0.005 (descriptive)
+  layer  9: accuracy 0.216 (0.076); control 0.093 (0.084); selectivity +0.123 (0.116); logistic selectivity +0.141; MLP-minus-logistic -0.018 (descriptive)
+  layer 10: accuracy 0.212 (0.073); control 0.102 (0.087); selectivity +0.110 (0.110); logistic selectivity +0.165; MLP-minus-logistic -0.054 (descriptive)
+  layer 11: accuracy 0.225 (0.090); control 0.087 (0.086); selectivity +0.138 (0.092); logistic selectivity +0.205; MLP-minus-logistic -0.067 (descriptive)
+
+M_gd_s2 (288 prompts, 48 entities)
+  layer  0: accuracy 0.178 (0.090); control 0.083 (0.060); selectivity +0.096 (0.113); logistic selectivity +0.120; MLP-minus-logistic -0.024 (descriptive)
+  layer  1: accuracy 0.159 (0.075); control 0.091 (0.044); selectivity +0.068 (0.092); logistic selectivity +0.098; MLP-minus-logistic -0.030 (descriptive)
+  layer  2: accuracy 0.128 (0.062); control 0.069 (0.043); selectivity +0.058 (0.080); logistic selectivity +0.047; MLP-minus-logistic +0.011 (descriptive)
+  layer  3: accuracy 0.098 (0.064); control 0.093 (0.047); selectivity +0.005 (0.092); logistic selectivity -0.008; MLP-minus-logistic +0.013 (descriptive)
+  layer  4: accuracy 0.106 (0.057); control 0.101 (0.050); selectivity +0.005 (0.081); logistic selectivity -0.017; MLP-minus-logistic +0.022 (descriptive)
+  layer  5: accuracy 0.087 (0.063); control 0.105 (0.061); selectivity -0.017 (0.081); logistic selectivity -0.016; MLP-minus-logistic -0.001 (descriptive)
+  layer  6: accuracy 0.151 (0.059); control 0.089 (0.063); selectivity +0.062 (0.087); logistic selectivity +0.042; MLP-minus-logistic +0.021 (descriptive)
+  layer  7: accuracy 0.110 (0.053); control 0.090 (0.069); selectivity +0.021 (0.092); logistic selectivity +0.024; MLP-minus-logistic -0.003 (descriptive)
+  layer  8: accuracy 0.158 (0.055); control 0.080 (0.073); selectivity +0.078 (0.083); logistic selectivity +0.070; MLP-minus-logistic +0.008 (descriptive)
+  layer  9: accuracy 0.208 (0.090); control 0.086 (0.077); selectivity +0.122 (0.121); logistic selectivity +0.173; MLP-minus-logistic -0.051 (descriptive)
+  layer 10: accuracy 0.221 (0.068); control 0.094 (0.076); selectivity +0.127 (0.107); logistic selectivity +0.185; MLP-minus-logistic -0.058 (descriptive)
+  layer 11: accuracy 0.213 (0.093); control 0.078 (0.071); selectivity +0.135 (0.112); logistic selectivity +0.219; MLP-minus-logistic -0.084 (descriptive)
+
+=== PATCHING NORMALISATION AUDIT ===
+Recomputed per row: (logit_diff_patched - logit_diff_base) / (logit_diff_donor - logit_diff_base).
+Entity summaries average positions/prompts within entity first; primary-layer inferential comparison is forget vs retain.
+
+M_npo_s0: stored-vs-recomputed recovery mismatches=0/5040
+  forget prompt denominators: n=30, median=+34.2965, median|d|=34.2965; |d|<=1e-8/0.1/1.0: 0/0/0; raw patched-base median=+0.0730
+  retain prompt denominators: n=30, median=-4.2380, median|d|=4.6823; |d|<=1e-8/0.1/1.0: 0/0/0; raw patched-base median=-0.0005
+  forget layer 9: entity-mean recovery 0.1428 [0.1187, 0.1670]; one-sample sign-flip p=0.062147; n_entities=5
+  retain layer 9: entity-mean recovery 0.1119 [0.0080, 0.2279]; one-sample sign-flip p=0.18379; n_entities=5
+  forget-retain recovery difference (independent entity bootstrap CI): 0.0310 [-0.0906, 0.1383]; permutation p=0.69122
+
+M_npo_s1: stored-vs-recomputed recovery mismatches=0/5040
+  forget prompt denominators: n=30, median=+49.3576, median|d|=49.3576; |d|<=1e-8/0.1/1.0: 0/0/0; raw patched-base median=+0.0468
+  retain prompt denominators: n=30, median=-8.4863, median|d|=8.4863; |d|<=1e-8/0.1/1.0: 0/1/3; raw patched-base median=-0.0074
+  forget layer 9: entity-mean recovery 0.1299 [0.0971, 0.1736]; one-sample sign-flip p=0.062447; n_entities=5
+  retain layer 9: entity-mean recovery -0.0395 [-0.1959, 0.0915]; one-sample sign-flip p=0.69037; n_entities=5
+  forget-retain recovery difference (independent entity bootstrap CI): 0.1694 [0.0335, 0.3285]; permutation p=0.076796
+
+M_npo_s2: stored-vs-recomputed recovery mismatches=0/5040
+  forget prompt denominators: n=30, median=+38.7343, median|d|=38.7343; |d|<=1e-8/0.1/1.0: 0/1/5; raw patched-base median=+0.0693
+  retain prompt denominators: n=30, median=-3.5997, median|d|=3.5997; |d|<=1e-8/0.1/1.0: 0/0/4; raw patched-base median=+0.0275
+  forget layer 9: entity-mean recovery 0.2096 [0.1216, 0.3525]; one-sample sign-flip p=0.064397; n_entities=5
+  retain layer 9: entity-mean recovery -0.1378 [-0.5051, 0.0900]; one-sample sign-flip p=0.80761; n_entities=5
+  forget-retain recovery difference (independent entity bootstrap CI): 0.3473 [0.0645, 0.7335]; permutation p=0.019949
+
+M_gd_s2: stored-vs-recomputed recovery mismatches=0/5040
+  forget prompt denominators: n=30, median=+40.8690, median|d|=40.8690; |d|<=1e-8/0.1/1.0: 0/0/5; raw patched-base median=+0.0721
+  retain prompt denominators: n=30, median=-7.5673, median|d|=7.5673; |d|<=1e-8/0.1/1.0: 0/0/1; raw patched-base median=+0.0069
+  forget layer 9: entity-mean recovery 0.0524 [-0.1202, 0.1531]; one-sample sign-flip p=0.56582; n_entities=5
+  retain layer 9: entity-mean recovery 0.2925 [0.0175, 0.7688]; one-sample sign-flip p=0.18719; n_entities=5
+  forget-retain recovery difference (independent entity bootstrap CI): -0.2401 [-0.7222, 0.0996]; permutation p=0.52772
